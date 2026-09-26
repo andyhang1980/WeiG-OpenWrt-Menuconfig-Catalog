@@ -4,7 +4,7 @@
     "id": "ImmortalWrt",
     "branch": "openwrt-25.12"
   },
-  "generatedAt": "2026-09-09T19:17:17.001Z",
+  "generatedAt": "2026-09-26T21:58:54.446Z",
   "languages": [
     "en",
     "zh-CN",
@@ -18,7 +18,7 @@
     "fr",
     "vi"
   ],
-  "options": 11444,
+  "options": 11451,
   "translatedZhCN": 185,
   "missingZhCN": [
     {
@@ -2837,6 +2837,36 @@
     {
       "symbol": "VERSION_CODE_FILENAMES",
       "promptEn": "Revision code in filenames",
+      "path": []
+    },
+    {
+      "symbol": "TARGET_BUTTON_CUSTOMIZATION",
+      "promptEn": "Target button customization",
+      "path": []
+    },
+    {
+      "symbol": "TARGET_BUTTON_CUSTOMIZATION_FAILSAFE_DISABLED",
+      "promptEn": "Disable failsafe button handling",
+      "path": []
+    },
+    {
+      "symbol": "TARGET_BUTTON_CUSTOMIZATION_POWER_DISABLED",
+      "promptEn": "Disable power button handling",
+      "path": []
+    },
+    {
+      "symbol": "TARGET_BUTTON_CUSTOMIZATION_REBOOT_DISABLED",
+      "promptEn": "Disable reboot button handling",
+      "path": []
+    },
+    {
+      "symbol": "TARGET_BUTTON_CUSTOMIZATION_RESET_DISABLED",
+      "promptEn": "Disable reset button handling",
+      "path": []
+    },
+    {
+      "symbol": "TARGET_BUTTON_CUSTOMIZATION_RF_KILL_DISABLED",
+      "promptEn": "Disable rfkill button handling",
       "path": []
     },
     {
@@ -12973,6 +13003,13 @@
     {
       "symbol": "WIFI_SCRIPTS_UCODE",
       "promptEn": "Use new ucode based scripts",
+      "path": [
+        "Base system"
+      ]
+    },
+    {
+      "symbol": "WIFI_SCRIPTS_WPS_BUTTON_DISABLED",
+      "promptEn": "Disable WPS button handling",
       "path": [
         "Base system"
       ]

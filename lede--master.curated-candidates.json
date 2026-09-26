@@ -5,10 +5,10 @@
     "label": "Lean LEDE",
     "repo": "coolsnowwolf/lede",
     "branch": "master",
-    "commit": "6d772e85862ae24d09b951d6ce13dfe75fd6afdd",
+    "commit": "241650a12c1121c76ba6e82567f3cbd81e368d3d",
     "legacy": false
   },
-  "generatedAt": "2026-09-09T19:17:09.392Z",
+  "generatedAt": "2026-09-26T21:58:47.604Z",
   "curated": [
     {
       "id": "3cat",
@@ -2527,8 +2527,8 @@
     "yggdrasil"
   ],
   "applications": {
-    "count": 225,
-    "unique": 225,
+    "count": 227,
+    "unique": 227,
     "names": [
       "luci-app-3cat",
       "luci-app-3ginfo-lite",
@@ -2585,6 +2585,7 @@
       "luci-app-dockerman",
       "luci-app-dufs",
       "luci-app-dump1090",
+      "luci-app-easytier-next",
       "luci-app-email",
       "luci-app-eoip",
       "luci-app-eqos",
@@ -2650,6 +2651,7 @@
       "luci-app-openvpn-server",
       "luci-app-openwisp",
       "luci-app-oscam",
+      "luci-app-oui",
       "luci-app-p910nd",
       "luci-app-package-manager",
       "luci-app-pagekitec",

@@ -4,7 +4,7 @@
     "id": "lede",
     "branch": "master"
   },
-  "generatedAt": "2026-09-09T19:17:16.022Z",
+  "generatedAt": "2026-09-26T21:58:52.305Z",
   "languages": [
     "en",
     "zh-CN",
@@ -18,7 +18,7 @@
     "fr",
     "vi"
   ],
-  "options": 11306,
+  "options": 11310,
   "translatedZhCN": 198,
   "missingZhCN": [
     {
@@ -15719,34 +15719,6 @@
       ]
     },
     {
-      "symbol": "PACKAGE_autosamba",
-      "promptEn": "Samba autoconfig hotplug script.",
-      "path": [
-        "Extra packages"
-      ]
-    },
-    {
-      "symbol": "PACKAGE_autosamba_INCLUDE_KSMBD",
-      "promptEn": "KSMBD",
-      "path": [
-        "Extra packages"
-      ]
-    },
-    {
-      "symbol": "PACKAGE_autosamba_INCLUDE_SAMBA3",
-      "promptEn": "SAMBA 3",
-      "path": [
-        "Extra packages"
-      ]
-    },
-    {
-      "symbol": "PACKAGE_autosamba_INCLUDE_SAMBA4",
-      "promptEn": "SAMBA 4",
-      "path": [
-        "Extra packages"
-      ]
-    },
-    {
       "symbol": "PACKAGE_cpufreq",
       "promptEn": "CPU Frequency Scaling adjustment tool",
       "path": [
@@ -24626,14 +24598,6 @@
       ]
     },
     {
-      "symbol": "BATMAN_ADV_NC",
-      "promptEn": "Network Coding",
-      "path": [
-        "Kernel modules",
-        "Network Support"
-      ]
-    },
-    {
       "symbol": "BATMAN_ADV_MCAST",
       "promptEn": "Multicast optimisation",
       "path": [
@@ -25820,6 +25784,14 @@
     {
       "symbol": "PACKAGE_kmod-pcengines-apuv2",
       "promptEn": "PC Engines APUv2/3 front button and LEDs driver",
+      "path": [
+        "Kernel modules",
+        "Other modules"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_kmod-phytium-npu",
+      "promptEn": "Phytium NPU and DMA buffer heap",
       "path": [
         "Kernel modules",
         "Other modules"
@@ -28586,6 +28558,30 @@
       ]
     },
     {
+      "symbol": "PACKAGE_kmod-phytium-dc",
+      "promptEn": "Phytium FTD330 display controller",
+      "path": [
+        "Kernel modules",
+        "Video Support"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_kmod-phytium-gpu",
+      "promptEn": "Phytium FTG340 GPU",
+      "path": [
+        "Kernel modules",
+        "Video Support"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_kmod-phytium-vpu",
+      "promptEn": "Phytium FTV310 video codec",
+      "path": [
+        "Kernel modules",
+        "Video Support"
+      ]
+    },
+    {
       "symbol": "PACKAGE_kmod-qcom-qaic",
       "promptEn": "Qualcomm QAIC accelerator support",
       "path": [
@@ -28634,14 +28630,6 @@
       ]
     },
     {
-      "symbol": "PACKAGE_kmod-video-core",
-      "promptEn": "Video4Linux support",
-      "path": [
-        "Kernel modules",
-        "Video Support"
-      ]
-    },
-    {
       "symbol": "PACKAGE_kmod-stm32-csi",
       "promptEn": "STM32 Camera Serial Interface (CSI) support",
       "path": [
@@ -28668,6 +28656,14 @@
     {
       "symbol": "PACKAGE_kmod-v4l2loopback",
       "promptEn": "v4l2loopback kernel module",
+      "path": [
+        "Kernel modules",
+        "Video Support"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_kmod-video-core",
+      "promptEn": "Video4Linux support",
       "path": [
         "Kernel modules",
         "Video Support"
@@ -32320,6 +32316,14 @@
     {
       "symbol": "PACKAGE_kmod-rtw88-8821ce",
       "promptEn": "Realtek RTL8821CE support",
+      "path": [
+        "Kernel modules",
+        "Wireless Drivers"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_kmod-rtw88-8821cs",
+      "promptEn": "Realtek RTL8821CS support",
       "path": [
         "Kernel modules",
         "Wireless Drivers"
@@ -52022,8 +52026,24 @@
       ]
     },
     {
+      "symbol": "PACKAGE_luci-app-easytier-next",
+      "promptEn": "LuCI support for EasyTier Next",
+      "path": [
+        "LuCI",
+        "3. Applications"
+      ]
+    },
+    {
       "symbol": "PACKAGE_luci-app-nikki",
       "promptEn": "LuCI Support for nikki",
+      "path": [
+        "LuCI",
+        "3. Applications"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-app-oui",
+      "promptEn": "Local OUI vendor icons for DHCP leases",
       "path": [
         "LuCI",
         "3. Applications"
@@ -67159,6 +67179,22 @@
     {
       "symbol": "PACKAGE_chaosvpn",
       "promptEn": "Config generator for chaos vpn",
+      "path": [
+        "Network",
+        "VPN"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_easytier-next",
+      "promptEn": "A simple, decentralized mesh VPN with WireGuard support (Next)",
+      "path": [
+        "Network",
+        "VPN"
+      ]
+    },
+    {
+      "symbol": "EASYTIER_INCLUDE_WEBCONSOLE",
+      "promptEn": "Include Web Console (easytier-web)",
       "path": [
         "Network",
         "VPN"
@@ -86167,183 +86203,183 @@
     },
     {
       "id": "choice-34",
-      "promptEn": "Samba Server Selection"
-    },
-    {
-      "id": "choice-35",
       "promptEn": "ZRAM Default compressor"
     },
     {
-      "id": "choice-36",
+      "id": "choice-35",
       "promptEn": "device selection"
     },
     {
-      "id": "choice-37",
+      "id": "choice-36",
       "promptEn": "FXS coefficients"
     },
     {
-      "id": "choice-38",
+      "id": "choice-37",
       "promptEn": "ath11k memory profile"
     },
     {
-      "id": "choice-39",
+      "id": "choice-38",
       "promptEn": "b43 firmware version"
     },
     {
-      "id": "choice-40",
+      "id": "choice-39",
       "promptEn": "Supported buses"
     },
     {
-      "id": "choice-41",
+      "id": "choice-40",
       "promptEn": "EEPROM Type of 1st Card"
     },
     {
-      "id": "choice-42",
+      "id": "choice-41",
       "promptEn": "Main Mode"
     },
     {
-      "id": "choice-43",
+      "id": "choice-42",
       "promptEn": "Choose First WiFi Interface"
     },
     {
-      "id": "choice-44",
+      "id": "choice-43",
       "promptEn": "Choose Second WiFi Interface"
     },
     {
-      "id": "choice-45",
+      "id": "choice-44",
       "promptEn": "Choose Third WiFi Interface"
     },
     {
-      "id": "choice-46",
+      "id": "choice-45",
       "promptEn": "EEPROM Type of 1st Card"
     },
     {
-      "id": "choice-47",
+      "id": "choice-46",
       "promptEn": "EEPROM Type of 2nd Card"
     },
     {
-      "id": "choice-48",
+      "id": "choice-47",
       "promptEn": "EEPROM Type of 3th Card"
     },
     {
-      "id": "choice-49",
+      "id": "choice-48",
       "promptEn": "PA LNA Type of 1st Card"
     },
     {
-      "id": "choice-50",
+      "id": "choice-49",
       "promptEn": "PA LNA Type of 2nd Card"
     },
     {
-      "id": "choice-51",
+      "id": "choice-50",
       "promptEn": "PA LNA Type of 3rd Card"
     },
     {
-      "id": "choice-52",
+      "id": "choice-51",
       "promptEn": "SSL Library"
     },
     {
-      "id": "choice-53",
+      "id": "choice-52",
       "promptEn": "Version Selection"
     },
     {
-      "id": "choice-54",
+      "id": "choice-53",
       "promptEn": "i18n features"
     },
     {
-      "id": "choice-55",
+      "id": "choice-54",
       "promptEn": "Hardware Acceleration"
     },
     {
-      "id": "choice-56",
+      "id": "choice-55",
       "promptEn": "Compile Visibility."
     },
     {
-      "id": "choice-57",
+      "id": "choice-56",
       "promptEn": "Compile Boost libraries."
     },
     {
-      "id": "choice-58",
+      "id": "choice-57",
       "promptEn": "Selects Boost Runtime linkage."
     },
     {
-      "id": "choice-59",
+      "id": "choice-58",
       "promptEn": "Select a Variant."
     },
     {
-      "id": "choice-60",
+      "id": "choice-59",
       "promptEn": "Selected SSL library"
     },
     {
-      "id": "choice-61",
+      "id": "choice-60",
       "promptEn": "Select QMI message collection to build"
     },
     {
-      "id": "choice-62",
+      "id": "choice-61",
       "promptEn": "Choose crypto backend"
     },
     {
-      "id": "choice-63",
+      "id": "choice-62",
       "promptEn": "Select XML library"
     },
     {
-      "id": "choice-64",
+      "id": "choice-63",
       "promptEn": "Transparent Proxy Backend"
     },
     {
-      "id": "choice-65",
+      "id": "choice-64",
       "promptEn": "Shadowsocks Client Selection"
     },
     {
-      "id": "choice-66",
+      "id": "choice-65",
       "promptEn": "Shadowsocks Server Selection"
     },
     {
-      "id": "choice-67",
+      "id": "choice-66",
       "promptEn": "V2ray-core Selection"
     },
     {
-      "id": "choice-68",
+      "id": "choice-67",
       "promptEn": "FastPath Engine"
     },
     {
-      "id": "choice-69",
+      "id": "choice-68",
       "promptEn": "TLS Provider"
     },
     {
-      "id": "choice-70",
+      "id": "choice-69",
       "promptEn": "Regular Expression"
     },
     {
-      "id": "choice-71",
+      "id": "choice-70",
       "promptEn": "SSL library"
     },
     {
-      "id": "choice-72",
+      "id": "choice-71",
       "promptEn": "SSL Library"
     },
     {
-      "id": "choice-73",
+      "id": "choice-72",
       "promptEn": "Crypto Library"
     },
     {
-      "id": "choice-74",
+      "id": "choice-73",
       "promptEn": "XML Library"
     },
     {
-      "id": "choice-75",
+      "id": "choice-74",
       "promptEn": "SSL library"
     },
     {
-      "id": "choice-76",
+      "id": "choice-75",
       "promptEn": "Selected SSL library"
     },
     {
-      "id": "choice-77",
+      "id": "choice-76",
       "promptEn": "Selected SSL MD5 library"
     },
     {
-      "id": "choice-78",
+      "id": "choice-77",
       "promptEn": "Enable SNMP support"
+    },
+    {
+      "id": "choice-78",
+      "promptEn": "SSL library"
     },
     {
       "id": "choice-79",
@@ -86351,22 +86387,18 @@
     },
     {
       "id": "choice-80",
-      "promptEn": "SSL library"
-    },
-    {
-      "id": "choice-81",
       "promptEn": "Choose SSL Library"
     },
     {
-      "id": "choice-82",
+      "id": "choice-81",
       "promptEn": "Select SSL library"
     },
     {
-      "id": "choice-83",
+      "id": "choice-82",
       "promptEn": "Select command-line editing support"
     },
     {
-      "id": "choice-84",
+      "id": "choice-83",
       "promptEn": "stack tracing support"
     }
   ]

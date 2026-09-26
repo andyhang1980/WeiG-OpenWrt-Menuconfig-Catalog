@@ -4,7 +4,7 @@
     "id": "OpenWrt",
     "branch": "openwrt-24.10"
   },
-  "generatedAt": "2026-09-09T19:17:25.168Z",
+  "generatedAt": "2026-09-26T21:58:56.704Z",
   "languages": [
     "en",
     "zh-CN",
@@ -41913,8 +41913,8 @@
       ]
     },
     {
-      "symbol": "LIBCURL_TLS_SRP",
-      "promptEn": "Enable TLS-SRP authentication",
+      "symbol": "LIBCURL_KERBEROS_AUTH",
+      "promptEn": "Enable Kerberos authentication",
       "path": [
         "Libraries"
       ]

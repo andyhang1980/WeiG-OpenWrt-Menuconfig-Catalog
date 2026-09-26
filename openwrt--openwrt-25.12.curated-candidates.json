@@ -5,10 +5,10 @@
     "label": "OpenWrt",
     "repo": "openwrt/openwrt",
     "branch": "openwrt-25.12",
-    "commit": "7114f29fe210da06458ecae28d8e5a3a5e8a4e7f",
+    "commit": "7673104ad53dd0095ec54ecce47f0f5758991f5e",
     "legacy": false
   },
-  "generatedAt": "2026-09-09T19:17:25.890Z",
+  "generatedAt": "2026-09-26T21:59:31.028Z",
   "curated": [
     {
       "id": "3cat",
@@ -2527,8 +2527,8 @@
     "zerotier"
   ],
   "applications": {
-    "count": 103,
-    "unique": 103,
+    "count": 104,
+    "unique": 104,
     "names": [
       "luci-app-acl",
       "luci-app-acme",
@@ -2574,6 +2574,7 @@
       "luci-app-ledtrig-rssi",
       "luci-app-ledtrig-switch",
       "luci-app-ledtrig-usbport",
+      "luci-app-librespeed",
       "luci-app-libreswan",
       "luci-app-lldpd",
       "luci-app-lorawan-basicstation",
