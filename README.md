@@ -1,5 +1,27 @@
 # WeiG OpenWrt Menuconfig Catalog
 
+## Reproducible inputs and parallel Native Profiles
+
+Each new branch snapshot records `buildInputs` and `inputsHash`: the exact source
+commit and the ordered feed methods, URLs, options and commits used by generation.
+Profile baselines and the published branch share that receipt. Consumers must use
+those inputs instead of updating feed branches to their latest commits.
+
+Native Profile generation uses the existing generator through
+`scripts/profile-config-pipeline.mjs` and `.github/workflows/catalog-branch.yml`:
+prepare one source tree, generate bounded shards, merge globally, run the existing
+global parity sample in isolated shards, then finalize. Branches with more than
+700 Profiles use four shards by default; repository variable
+`CATALOG_PROFILE_SHARDS` accepts `1`, `4`, or `8`. Smaller branches stay inline.
+Parallelism does not change baseline semantics, grouping, or published formats.
+Missing/mixed shard receipts cannot publish a complete snapshot. Stage logs remain
+available on failure or timeout. This is parallel jobs within one workflow run,
+not several competing publishers.
+
+新快照记录源码与有序 feeds 的精确提交，Native Profile 与分支资产共享同一输入凭据。
+大分支默认四路任务，可设为八路；先全局合并，再按原有全局样本验证，最后统一发布。
+小分支原地执行。并行不改变配置语义或压缩格式，缺分片不能伪装完整快照，超时保留阶段日志。
+
 ## Dynamic targets and 11-language translations / 动态目标与 11 语翻译
 
 Concrete package identity comes from native package metadata, not the `PACKAGE_`

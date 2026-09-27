@@ -2,9 +2,22 @@
 
 `compatibility.json` records only compatibility facts that upstream Kconfig/Catalog cannot currently express and real builds have confirmed. It is not a second dependency database and does not store symbol types, N/M/Y, names, translations, dependencies, providers, hashes, or timestamps.
 
+## Schema 6 and backward-compatible publication
+
+The canonical document is schema 6. Its optional `preferredDisable` field names
+participants to prefer disabling when a matching rule has several legal repairs.
+It is a recommendation preference, not a dependency, lock, or executable action:
+the shared Kconfig planner must still simulate and validate the repair. It never
+disables packages merely because they exist in the Catalog.
+
+The index advertises `compatibility.v6.json.gz` to schema-6 consumers. The existing
+`compatibility.json.gz` remains a schema-5 projection without `preferredDisable`,
+so old readers keep the same evidence and applicability boundaries. Preventive
+scope is not proof that every Source/Branch was observed failing.
+
 ## Schema 5
 
-Publishers emit schema 5 while readers remain compatible with schemas 2, 3, and 4. The document still has only `schema` and `rules`. Schema 4 retains the existing meanings of `sourceCommits`, `targetScope`, `failure`, and `buildDependency`; schema 5 additionally permits explicitly reviewed global preventive rules:
+Readers remain compatible with schemas 2, 3, 4 and 5. The document still has only `schema` and `rules`. Schema 4 retains the existing meanings of `sourceCommits`, `targetScope`, `failure`, and `buildDependency`; schema 5 additionally permits explicitly reviewed global preventive rules:
 
 - `policy: "preventive"` declares an applicability policy without extrapolating evidence from one environment into a claim that every upstream was observed failing.
 - `environments` defines the Source/Branch/Target applicability range. `source` and `branch` may be `*`; `packageAvailability: "if-present"` makes a missing failed package not applicable rather than an error.

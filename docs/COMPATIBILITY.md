@@ -2,9 +2,19 @@
 
 `compatibility.json` 只记录上游 Kconfig/Catalog 当前无法表达、但真实构建已经确认的兼容性事实。它不是第二套 dependency 数据库，不保存 symbol 类型、N/M/Y、名称、翻译、依赖、provider、hash 或生成时间。
 
+## Schema 6 与向后兼容发布
+
+权威文档使用 schema 6。可选 `preferredDisable` 只指定规则命中后优先关闭的参与包，
+不是依赖、锁定或可执行指令；共享 Kconfig planner 仍须模拟并验证合法修改，
+不能因为包存在于 Catalog 就自动取消。
+
+index 向新消费者公布 `compatibility.v6.json.gz`；原有 `compatibility.json.gz`
+保留不含 `preferredDisable` 的 schema-5 投影，旧消费者继续使用相同证据与适用范围。
+预防策略适用于多个源，不代表这些源均已实测失败。
+
 ## Schema 5
 
-发布端生成 schema 5，读取端继续兼容 schema 2、3 和 4。文档仍只有 `schema` 和 `rules`。schema 4 增加的 `sourceCommits`、`targetScope`、`failure` 和 `buildDependency` 继续保持原义；schema 5 另外允许经明确审核的全局预防规则：
+读取端继续兼容 schema 2、3、4 和 5。文档仍只有 `schema` 和 `rules`。schema 4 增加的 `sourceCommits`、`targetScope`、`failure` 和 `buildDependency` 继续保持原义；schema 5 另外允许经明确审核的全局预防规则：
 
 - `policy: "preventive"`：声明规则的适用范围是预防策略，不把单个环境的构建证据外推成所有上游都已实测失败。
 - `environments`：定义预防策略适用的 Source/Branch/Target 范围。`source` 与 `branch` 可使用 `*`；`packageAvailability: "if-present"` 表示失败目标不存在时整条规则“不适用”，不得报错。
