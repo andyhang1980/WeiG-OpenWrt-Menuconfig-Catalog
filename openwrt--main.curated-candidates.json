@@ -5,10 +5,11 @@
     "label": "OpenWrt",
     "repo": "openwrt/openwrt",
     "branch": "main",
-    "commit": "8939d5654a772589b481cf5314b4247773620448",
-    "legacy": false
+    "commit": "220866c5cf36269c3099b955d7b0de3d080bcade",
+    "legacy": false,
+    "inputsHash": "a42f8b63c68ac8ecdceee4ff2d6964fc8d4476c3e1923a8945d186a144a14764"
   },
-  "generatedAt": "2026-09-09T19:17:13.898Z",
+  "generatedAt": "2026-09-27T00:55:42.361Z",
   "curated": [
     {
       "id": "3cat",
@@ -479,8 +480,8 @@
       "packages": [
         "luci-app-dcwapd"
       ],
-      "package": "luci-app-dcwapd",
-      "available": true
+      "package": "",
+      "available": false
     },
     {
       "id": "ddns",
@@ -2267,7 +2268,6 @@
     "luci-app-crowdsec-firewall-bouncer",
     "luci-app-csshnpd",
     "luci-app-dawn",
-    "luci-app-dcwapd",
     "luci-app-ddns",
     "luci-app-dockerman",
     "luci-app-dump1090",
@@ -2384,6 +2384,7 @@
     "cupsd",
     "dae",
     "daed",
+    "dcwapd",
     "ddns-go",
     "diag-core",
     "diskman",
@@ -2527,8 +2528,8 @@
     "zerotier"
   ],
   "applications": {
-    "count": 106,
-    "unique": 106,
+    "count": 105,
+    "unique": 105,
     "names": [
       "luci-app-acl",
       "luci-app-acme",
@@ -2553,7 +2554,6 @@
       "luci-app-crowdsec-firewall-bouncer",
       "luci-app-csshnpd",
       "luci-app-dawn",
-      "luci-app-dcwapd",
       "luci-app-ddns",
       "luci-app-dockerman",
       "luci-app-dump1090",

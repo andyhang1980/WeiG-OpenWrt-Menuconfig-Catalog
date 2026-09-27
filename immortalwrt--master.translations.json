@@ -4,7 +4,7 @@
     "id": "ImmortalWrt",
     "branch": "master"
   },
-  "generatedAt": "2026-09-09T19:17:36.662Z",
+  "generatedAt": "2026-09-27T00:55:51.856Z",
   "languages": [
     "en",
     "zh-CN",
@@ -18,8 +18,8 @@
     "fr",
     "vi"
   ],
-  "options": 11668,
-  "translatedZhCN": 185,
+  "options": 11755,
+  "translatedZhCN": 184,
   "missingZhCN": [
     {
       "symbol": "TARGET_uml",
@@ -1625,6 +1625,14 @@
     {
       "symbol": "KERNEL_NET_NS",
       "promptEn": "Network namespace",
+      "path": [
+        "Global build settings",
+        "Kernel build options"
+      ]
+    },
+    {
+      "symbol": "KERNEL_TIME_NS",
+      "promptEn": "Time namespace",
       "path": [
         "Global build settings",
         "Kernel build options"
@@ -12969,7 +12977,7 @@
     },
     {
       "symbol": "PACKAGE_procd-seccomp",
-      "promptEn": "OpenWrt process seccomp helper + utrace",
+      "promptEn": "OpenWrt process seccomp helper + trace2seccomp",
       "path": [
         "Base system"
       ]
@@ -14850,6 +14858,13 @@
       ]
     },
     {
+      "symbol": "PACKAGE_u-boot-imx8mp_olimex_som_evb",
+      "promptEn": "U-Boot for Olimex i.MX8MP-SOM-EVB LPDDR4 board",
+      "path": [
+        "Boot Loaders"
+      ]
+    },
+    {
       "symbol": "PACKAGE_u-boot-kontron-osm-s-mx8mp",
       "promptEn": "U-Boot for Kontron OSM-S/BL i.MX8MP",
       "path": [
@@ -15843,6 +15858,14 @@
       ]
     },
     {
+      "symbol": "PACKAGE_ipq-wifi-netgear_rbk850",
+      "promptEn": "board-2.bin Overrides for Netgear RBK850",
+      "path": [
+        "Firmware",
+        "ath10k Board-Specific Overrides"
+      ]
+    },
+    {
       "symbol": "PACKAGE_ipq-wifi-netgear_sxk80",
       "promptEn": "board-2.bin Overrides for Netgear SXK80",
       "path": [
@@ -15955,6 +15978,14 @@
       ]
     },
     {
+      "symbol": "PACKAGE_ipq-wifi-tplink_archer-ax55-v1",
+      "promptEn": "board-2.bin Overrides for TP-Link Archer AX55 v1",
+      "path": [
+        "Firmware",
+        "ath10k Board-Specific Overrides"
+      ]
+    },
+    {
       "symbol": "PACKAGE_ipq-wifi-tplink_archer-c59-v1",
       "promptEn": "board-2.bin Overrides for TP-Link Archer C59 V1",
       "path": [
@@ -15981,6 +16012,14 @@
     {
       "symbol": "PACKAGE_ipq-wifi-tplink_archer-c60-v2",
       "promptEn": "board-2.bin Overrides for TP-Link Archer C60 V2",
+      "path": [
+        "Firmware",
+        "ath10k Board-Specific Overrides"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_ipq-wifi-tplink_archer-c60-v3",
+      "promptEn": "board-2.bin Overrides for TP-Link Archer C60 V3",
       "path": [
         "Firmware",
         "ath10k Board-Specific Overrides"
@@ -17958,6 +17997,13 @@
       ]
     },
     {
+      "symbol": "PACKAGE_uwe5622-firmware",
+      "promptEn": "UNISOC UWE5622 firmware",
+      "path": [
+        "Firmware"
+      ]
+    },
+    {
       "symbol": "PACKAGE_vrx518_aca_fw",
       "promptEn": "VRX518 ACA firmware",
       "path": [
@@ -19214,6 +19260,310 @@
       "path": [
         "Kernel modules",
         "Cryptographic API modules"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_kmod-dvb-af9013",
+      "promptEn": "Afatech AF9013 demodulator",
+      "path": [
+        "Kernel modules",
+        "DVB Support"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_kmod-dvb-af9033",
+      "promptEn": "Afatech AF9033 DVB-T demodulator",
+      "path": [
+        "Kernel modules",
+        "DVB Support"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_kmod-dvb-core",
+      "promptEn": "DVB core support",
+      "path": [
+        "Kernel modules",
+        "DVB Support"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_kmod-dvb-cxd2841er",
+      "promptEn": "Sony CXD2841ER",
+      "path": [
+        "Kernel modules",
+        "DVB Support"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_kmod-dvb-dib3000mb",
+      "promptEn": "DiBcom 3000M-B",
+      "path": [
+        "Kernel modules",
+        "DVB Support"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_kmod-dvb-dib3000mc",
+      "promptEn": "DiBcom 3000P/M-C",
+      "path": [
+        "Kernel modules",
+        "DVB Support"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_kmod-dvb-dib7000m",
+      "promptEn": "DiBcom 7000MA/MB/PA/PB/MC",
+      "path": [
+        "Kernel modules",
+        "DVB Support"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_kmod-dvb-dib7000p",
+      "promptEn": "DiBcom 7000PC",
+      "path": [
+        "Kernel modules",
+        "DVB Support"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_kmod-dvb-dib8000",
+      "promptEn": "DiBcom 8000MB/MC",
+      "path": [
+        "Kernel modules",
+        "DVB Support"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_kmod-dvb-dib9000",
+      "promptEn": "DiBcom 9000",
+      "path": [
+        "Kernel modules",
+        "DVB Support"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_kmod-dvb-drxk",
+      "promptEn": "Micronas DRXK based",
+      "path": [
+        "Kernel modules",
+        "DVB Support"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_kmod-dvb-m88ds3103",
+      "promptEn": "Montage Technology M88DS3103",
+      "path": [
+        "Kernel modules",
+        "DVB Support"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_kmod-dvb-mn88472",
+      "promptEn": "Panasonic MN88472",
+      "path": [
+        "Kernel modules",
+        "DVB Support"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_kmod-dvb-mn88473",
+      "promptEn": "Panasonic MN88473",
+      "path": [
+        "Kernel modules",
+        "DVB Support"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_kmod-dvb-pll",
+      "promptEn": "Generic I2C PLL based tuners",
+      "path": [
+        "Kernel modules",
+        "DVB Support"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_kmod-dvb-rtl2830",
+      "promptEn": "Realtek RTL2830 DVB-T",
+      "path": [
+        "Kernel modules",
+        "DVB Support"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_kmod-dvb-rtl2832",
+      "promptEn": "Realtek RTL2832 DVB-T",
+      "path": [
+        "Kernel modules",
+        "DVB Support"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_kmod-dvb-si2168",
+      "promptEn": "Silicon Labs Si2168",
+      "path": [
+        "Kernel modules",
+        "DVB Support"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_kmod-dvb-tda10023",
+      "promptEn": "Philips TDA10023 based tuner",
+      "path": [
+        "Kernel modules",
+        "DVB Support"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_kmod-dvb-tda10048",
+      "promptEn": "Philips TDA10048HN based tuner",
+      "path": [
+        "Kernel modules",
+        "DVB Support"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_kmod-dvb-ts2020",
+      "promptEn": "Montage Technology TS2020",
+      "path": [
+        "Kernel modules",
+        "DVB Support"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_kmod-dvb-tuner-dib0070",
+      "promptEn": "DiBcom DiB0070 silicon base-band tuner",
+      "path": [
+        "Kernel modules",
+        "DVB Support"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_kmod-dvb-tuner-dib0090",
+      "promptEn": "DiBcom DiB0090 silicon base-band tuner",
+      "path": [
+        "Kernel modules",
+        "DVB Support"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_kmod-dvb-usb",
+      "promptEn": "Support for various USB DVB devices",
+      "path": [
+        "Kernel modules",
+        "DVB Support"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_kmod-dvb-usb-a800",
+      "promptEn": "AVerMedia AverTV DVB-T USB 2.0 (A800)",
+      "path": [
+        "Kernel modules",
+        "DVB Support"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_kmod-dvb-usb-af9015",
+      "promptEn": "Afatech AF9015 DVB-T USB2.0 support",
+      "path": [
+        "Kernel modules",
+        "DVB Support"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_kmod-dvb-usb-af9035",
+      "promptEn": "Afatech AF9035 DVB-T USB2.0 support",
+      "path": [
+        "Kernel modules",
+        "DVB Support"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_kmod-dvb-usb-anysee",
+      "promptEn": "Anysee DVB-T/C USB2.0 support",
+      "path": [
+        "Kernel modules",
+        "DVB Support"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_kmod-dvb-usb-az6007",
+      "promptEn": "AzureWave 6007 and clones DVB-T/C USB2.0 support",
+      "path": [
+        "Kernel modules",
+        "DVB Support"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_kmod-dvb-usb-cxusb",
+      "promptEn": "Conexant USB2.0 hybrid reference design support",
+      "path": [
+        "Kernel modules",
+        "DVB Support"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_kmod-dvb-usb-dib0700",
+      "promptEn": "DiBcom DiB0700 USB DVB devices",
+      "path": [
+        "Kernel modules",
+        "DVB Support"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_kmod-dvb-usb-dibusb-mb",
+      "promptEn": "DiBcom USB DVB-T devices (DiB3000M-B based)",
+      "path": [
+        "Kernel modules",
+        "DVB Support"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_kmod-dvb-usb-dibusb-mc",
+      "promptEn": "DiBcom USB DVB-T devices (DiB3000M-C/P based)",
+      "path": [
+        "Kernel modules",
+        "DVB Support"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_kmod-dvb-usb-dvbsky",
+      "promptEn": "DVBSky USB support",
+      "path": [
+        "Kernel modules",
+        "DVB Support"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_kmod-dvb-usb-rtl28xxu",
+      "promptEn": "Realtek RTL28xxU DVB USB support",
+      "path": [
+        "Kernel modules",
+        "DVB Support"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_kmod-dvb-usb-ttusb2",
+      "promptEn": "Pinnacle 400e DVB-S USB2.0 support",
+      "path": [
+        "Kernel modules",
+        "DVB Support"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_kmod-dvb-usb-v2",
+      "promptEn": "Support for various USB DVB devices v2",
+      "path": [
+        "Kernel modules",
+        "DVB Support"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_kmod-dvb-zl10353",
+      "promptEn": "Zarlink ZL10353 based tuner",
+      "path": [
+        "Kernel modules",
+        "DVB Support"
       ]
     },
     {
@@ -20833,6 +21183,14 @@
       ]
     },
     {
+      "symbol": "PACKAGE_kmod-rc-core",
+      "promptEn": "Remote Controller support",
+      "path": [
+        "Kernel modules",
+        "Input modules"
+      ]
+    },
+    {
       "symbol": "PACKAGE_kmod-input-leds",
       "promptEn": "Input device LED support",
       "path": [
@@ -21190,6 +21548,262 @@
       "path": [
         "Kernel modules",
         "Libraries"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_kmod-media-tuner-e4000",
+      "promptEn": "Elonics E4000 silicon tuner",
+      "path": [
+        "Kernel modules",
+        "Media tuners"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_kmod-media-tuner-fc0011",
+      "promptEn": "Fitipower FC0011 silicon tuner",
+      "path": [
+        "Kernel modules",
+        "Media tuners"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_kmod-media-tuner-fc0012",
+      "promptEn": "Fitipower FC0012 silicon tuner",
+      "path": [
+        "Kernel modules",
+        "Media tuners"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_kmod-media-tuner-fc0013",
+      "promptEn": "Fitipower FC0013 silicon tuner",
+      "path": [
+        "Kernel modules",
+        "Media tuners"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_kmod-media-tuner-fc2580",
+      "promptEn": "FCI FC2580 silicon tuner",
+      "path": [
+        "Kernel modules",
+        "Media tuners"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_kmod-media-tuner-it913x",
+      "promptEn": "ITE Tech IT913x silicon tuner",
+      "path": [
+        "Kernel modules",
+        "Media tuners"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_kmod-media-tuner-max2165",
+      "promptEn": "Maxim MAX2165 silicon tuner",
+      "path": [
+        "Kernel modules",
+        "Media tuners"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_kmod-media-tuner-mc44s803",
+      "promptEn": "Freescale MC44S803 Broadband tuners",
+      "path": [
+        "Kernel modules",
+        "Media tuners"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_kmod-media-tuner-mt2060",
+      "promptEn": "Microtune MT2060 silicon IF tuner",
+      "path": [
+        "Kernel modules",
+        "Media tuners"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_kmod-media-tuner-mt2063",
+      "promptEn": "Microtune MT2063 silicon IF tuner",
+      "path": [
+        "Kernel modules",
+        "Media tuners"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_kmod-media-tuner-mt20xx",
+      "promptEn": "Microtune 2032 / 2050 tuners",
+      "path": [
+        "Kernel modules",
+        "Media tuners"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_kmod-media-tuner-mt2131",
+      "promptEn": "Microtune MT2131 silicon tuner",
+      "path": [
+        "Kernel modules",
+        "Media tuners"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_kmod-media-tuner-mt2266",
+      "promptEn": "Microtune MT2266 silicon tuner",
+      "path": [
+        "Kernel modules",
+        "Media tuners"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_kmod-media-tuner-mxl5005s",
+      "promptEn": "MaxLinear MSL5005S silicon tuner",
+      "path": [
+        "Kernel modules",
+        "Media tuners"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_kmod-media-tuner-mxl5007t",
+      "promptEn": "MaxLinear MxL5007T silicon tuner",
+      "path": [
+        "Kernel modules",
+        "Media tuners"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_kmod-media-tuner-qt1010",
+      "promptEn": "Quantek QT1010 silicon tuner",
+      "path": [
+        "Kernel modules",
+        "Media tuners"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_kmod-media-tuner-r820t",
+      "promptEn": "Rafael Micro R820T silicon tuner",
+      "path": [
+        "Kernel modules",
+        "Media tuners"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_kmod-media-tuner-si2157",
+      "promptEn": "Silicon Labs Si2157 silicon tuner",
+      "path": [
+        "Kernel modules",
+        "Media tuners"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_kmod-media-tuner-simple",
+      "promptEn": "Simple tuner support",
+      "path": [
+        "Kernel modules",
+        "Media tuners"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_kmod-media-tuner-tda18212",
+      "promptEn": "NXP TDA18212 silicon tuner",
+      "path": [
+        "Kernel modules",
+        "Media tuners"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_kmod-media-tuner-tda18218",
+      "promptEn": "NXP TDA18218 silicon tuner",
+      "path": [
+        "Kernel modules",
+        "Media tuners"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_kmod-media-tuner-tda18250",
+      "promptEn": "NXP TDA18250 silicon tuner",
+      "path": [
+        "Kernel modules",
+        "Media tuners"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_kmod-media-tuner-tda18271",
+      "promptEn": "NXP TDA18271 silicon tuner",
+      "path": [
+        "Kernel modules",
+        "Media tuners"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_kmod-media-tuner-tda827x",
+      "promptEn": "Philips TDA827X silicon tuner",
+      "path": [
+        "Kernel modules",
+        "Media tuners"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_kmod-media-tuner-tda8290",
+      "promptEn": "TDA 8290/8295 + 8275(a)/18271 tuner combo",
+      "path": [
+        "Kernel modules",
+        "Media tuners"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_kmod-media-tuner-tda9887",
+      "promptEn": "TDA 9885/6/7 analog IF demodulator",
+      "path": [
+        "Kernel modules",
+        "Media tuners"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_kmod-media-tuner-tea5761",
+      "promptEn": "TEA 5761 radio tuner",
+      "path": [
+        "Kernel modules",
+        "Media tuners"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_kmod-media-tuner-tea5767",
+      "promptEn": "TEA 5767 radio tuner",
+      "path": [
+        "Kernel modules",
+        "Media tuners"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_kmod-media-tuner-tua9001",
+      "promptEn": "Infineon TUA 9001 silicon tuner",
+      "path": [
+        "Kernel modules",
+        "Media tuners"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_kmod-media-tuner-xc2028",
+      "promptEn": "XCeive xc2028/xc3028 tuners",
+      "path": [
+        "Kernel modules",
+        "Media tuners"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_kmod-media-tuner-xc4000",
+      "promptEn": "Xceive XC4000 silicon tuner",
+      "path": [
+        "Kernel modules",
+        "Media tuners"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_kmod-media-tuner-xc5000",
+      "promptEn": "Xceive XC5000 silicon tuner",
+      "path": [
+        "Kernel modules",
+        "Media tuners"
       ]
     },
     {
@@ -25369,24 +25983,8 @@
       ]
     },
     {
-      "symbol": "PACKAGE_kmod-rp1",
-      "promptEn": "RP1 firmware",
-      "path": [
-        "Kernel modules",
-        "Other modules"
-      ]
-    },
-    {
       "symbol": "PACKAGE_kmod-rp1-adc",
       "promptEn": "RP1 ADC and temperature sensor driver",
-      "path": [
-        "Kernel modules",
-        "Other modules"
-      ]
-    },
-    {
-      "symbol": "PACKAGE_kmod-rp1-mailbox",
-      "promptEn": "RP1 mailbox IPC driver",
       "path": [
         "Kernel modules",
         "Other modules"
@@ -27995,14 +28593,6 @@
       ]
     },
     {
-      "symbol": "PACKAGE_kmod-isp-bcm2835",
-      "promptEn": "BCM2835 ISP",
-      "path": [
-        "Kernel modules",
-        "Video Support"
-      ]
-    },
-    {
       "symbol": "PACKAGE_kmod-media-controller",
       "promptEn": "Media Controller API",
       "path": [
@@ -28013,6 +28603,22 @@
     {
       "symbol": "PACKAGE_kmod-multimedia-input",
       "promptEn": "Multimedia input support",
+      "path": [
+        "Kernel modules",
+        "Video Support"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_kmod-video-core",
+      "promptEn": "Video4Linux support",
+      "path": [
+        "Kernel modules",
+        "Video Support"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_kmod-isp-bcm2835",
+      "promptEn": "BCM2835 ISP",
       "path": [
         "Kernel modules",
         "Video Support"
@@ -28053,14 +28659,6 @@
     {
       "symbol": "PACKAGE_kmod-rpi-panel-attiny-regulator",
       "promptEn": "Raspberry Pi 7-inch touchscreen panel ATTINY regulator",
-      "path": [
-        "Kernel modules",
-        "Video Support"
-      ]
-    },
-    {
-      "symbol": "PACKAGE_kmod-video-core",
-      "promptEn": "Video4Linux support",
       "path": [
         "Kernel modules",
         "Video Support"
@@ -28117,6 +28715,22 @@
     {
       "symbol": "PACKAGE_kmod-video-coda",
       "promptEn": "i.MX VPU support",
+      "path": [
+        "Kernel modules",
+        "Video Support"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_kmod-video-em28xx",
+      "promptEn": "Empia EM28xx USB devices support",
+      "path": [
+        "Kernel modules",
+        "Video Support"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_kmod-video-em28xx-dvb",
+      "promptEn": "DVB/ATSC support for em28xx based TV cards",
       "path": [
         "Kernel modules",
         "Video Support"
@@ -30237,6 +30851,14 @@
     {
       "symbol": "PACKAGE_kmod-rtw89-8922ae",
       "promptEn": "Realtek RTL8922AE support",
+      "path": [
+        "Kernel modules",
+        "Wireless Drivers"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_kmod-uwe5622",
+      "promptEn": "AW859A / UWE5622 Linux driver",
       "path": [
         "Kernel modules",
         "Wireless Drivers"
@@ -45226,6 +45848,22 @@
       ]
     },
     {
+      "symbol": "PACKAGE_ucode-mod-plutosvg",
+      "promptEn": "ucode binding for the plutosvg SVG rendering library",
+      "path": [
+        "Libraries",
+        "ucode"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_ucode-mod-plutovg",
+      "promptEn": "ucode binding for the plutovg 2D vector graphics library",
+      "path": [
+        "Libraries",
+        "ucode"
+      ]
+    },
+    {
       "symbol": "PACKAGE_abseil-cpp",
       "promptEn": "Collection of C++ code designed to augment the C++ standard library",
       "path": [
@@ -50794,6 +51432,13 @@
       ]
     },
     {
+      "symbol": "PACKAGE_libtsm",
+      "promptEn": "Terminal emulator state machine",
+      "path": [
+        "Libraries"
+      ]
+    },
+    {
       "symbol": "PACKAGE_libubox",
       "promptEn": "Basic utility library",
       "path": [
@@ -51381,6 +52026,20 @@
     {
       "symbol": "PACKAGE_pixman",
       "promptEn": "a low-level software library for pixel manipulation",
+      "path": [
+        "Libraries"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_plutosvg",
+      "promptEn": "SVG rendering library",
+      "path": [
+        "Libraries"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_plutovg",
+      "promptEn": "2D vector graphics library",
       "path": [
         "Libraries"
       ]
@@ -52254,6 +52913,14 @@
     {
       "symbol": "PACKAGE_luci-app-fancontrol",
       "promptEn": "LuCI support for the generic PWM fan controller",
+      "path": [
+        "LuCI",
+        "3. Applications"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-app-librespeed",
+      "promptEn": "LibreSpeed internet speed measurements",
       "path": [
         "LuCI",
         "3. Applications"
@@ -82553,6 +83220,13 @@
       ]
     },
     {
+      "symbol": "PACKAGE_kmscon",
+      "promptEn": "Terminal emulator on a KMS device",
+      "path": [
+        "Utilities"
+      ]
+    },
+    {
       "symbol": "PACKAGE_kobs-ng",
       "promptEn": "Application for writing bootstreams to NAND flash",
       "path": [
@@ -85136,6 +85810,27 @@
     {
       "symbol": "PACKAGE_pkgen",
       "promptEn": "ucode script for generating public keys/certificates",
+      "path": [
+        "Utilities"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_plymouth",
+      "promptEn": "Graphical boot splash on a KMS device",
+      "path": [
+        "Utilities"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_plymouth-plugin-ucode",
+      "promptEn": "ucode-driven plymouth splash plugin",
+      "path": [
+        "Utilities"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_plymouth-theme-openwrt-demo",
+      "promptEn": "OpenWrt boot splash demo theme",
       "path": [
         "Utilities"
       ]
@@ -88465,6 +89160,7 @@
     "Bluetooth Support",
     "CAN Support",
     "Cryptographic API modules",
+    "DVB Support",
     "Filesystems",
     "FireWire support",
     "GPIO support",
@@ -88473,6 +89169,7 @@
     "Industrial I/O Modules",
     "Input modules",
     "LED modules",
+    "Media tuners",
     "MultiFunction Device (MFD) Support",
     "Multiplexer Support",
     "Native Language Support",

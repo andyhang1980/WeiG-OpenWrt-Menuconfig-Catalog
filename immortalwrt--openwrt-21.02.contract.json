@@ -6,9 +6,10 @@
     "repo": "immortalwrt/immortalwrt",
     "branch": "openwrt-21.02",
     "commit": "fc9fe90e5a804d7af5449260f2e5b7ae6d414266",
-    "legacy": false
+    "legacy": false,
+    "inputsHash": "5717283608497a45eaa41ef56a82dfcf77a5a7c5ed06643f9c8b90fcf1bd5dc2"
   },
-  "generatedAt": "2026-09-09T19:16:15.431Z",
+  "generatedAt": "2026-09-27T00:54:53.642Z",
   "summary": {
     "targets": 100,
     "selectableTargets": 68,
@@ -47,7 +48,7 @@
   "kconfigProbe": {
     "schema": 1,
     "mode": "target-chain-and-representative-profile",
-    "generatedAt": "2026-09-09T19:17:31.366Z",
+    "generatedAt": "2026-09-27T00:55:55.604Z",
     "targets": 68,
     "passed": 68,
     "passedScope": "target chain plus one representative profile; all siblings remain hidden on failure",
