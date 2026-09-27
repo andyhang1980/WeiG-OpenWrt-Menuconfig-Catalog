@@ -4,7 +4,7 @@
     "id": "OpenWrt",
     "branch": "openwrt-25.12"
   },
-  "generatedAt": "2026-09-09T19:17:32.140Z",
+  "generatedAt": "2026-09-27T00:56:02.123Z",
   "languages": [
     "en",
     "zh-CN",
@@ -18,7 +18,7 @@
     "fr",
     "vi"
   ],
-  "options": 10933,
+  "options": 10935,
   "translatedZhCN": 122,
   "missingZhCN": [
     {
@@ -43799,8 +43799,8 @@
       ]
     },
     {
-      "symbol": "LIBCURL_TLS_SRP",
-      "promptEn": "Enable TLS-SRP authentication",
+      "symbol": "LIBCURL_KERBEROS_AUTH",
+      "promptEn": "Enable Kerberos authentication",
       "path": [
         "Libraries"
       ]
@@ -49432,6 +49432,14 @@
       "path": [
         "LuCI",
         "2. Modules"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-app-librespeed",
+      "promptEn": "LibreSpeed internet speed measurements",
+      "path": [
+        "LuCI",
+        "3. Applications"
       ]
     },
     {
@@ -78206,6 +78214,13 @@
     {
       "symbol": "PACKAGE_librespeed-cli-rust",
       "promptEn": "Command line client for LibreSpeed (Rust)",
+      "path": [
+        "Utilities"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_librespeed-common",
+      "promptEn": "LibreSpeed measurement orchestration",
       "path": [
         "Utilities"
       ]
