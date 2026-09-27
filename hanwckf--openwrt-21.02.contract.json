@@ -1,0 +1,57 @@
+{
+  "schema": 1,
+  "source": {
+    "id": "hanwckf",
+    "label": "hanwckf mt798x",
+    "repo": "hanwckf/immortalwrt-mt798x",
+    "branch": "openwrt-21.02",
+    "commit": "ba554197ed7e252fd3c1ee023621e1d1d009d323",
+    "legacy": true,
+    "inputsHash": "4a26aa97d11e76002de2e4db30a37a343e80b6884564972241711c55246d7cd4"
+  },
+  "generatedAt": "2026-09-27T00:55:37.577Z",
+  "summary": {
+    "targets": 99,
+    "selectableTargets": 67,
+    "unavailableTargets": 3,
+    "abstractTargets": 29
+  },
+  "unavailable": [
+    {
+      "target": "bcm63xx",
+      "board": "bcm63xx",
+      "subtarget": "",
+      "profiles": 1,
+      "missing": [
+        "Kconfig-selector"
+      ]
+    },
+    {
+      "target": "realtek",
+      "board": "realtek",
+      "subtarget": "",
+      "profiles": 1,
+      "missing": [
+        "Kconfig-selector"
+      ]
+    },
+    {
+      "target": "sunxi",
+      "board": "sunxi",
+      "subtarget": "",
+      "profiles": 1,
+      "missing": [
+        "Kconfig-selector"
+      ]
+    }
+  ],
+  "kconfigProbe": {
+    "schema": 1,
+    "mode": "target-chain-and-representative-profile",
+    "generatedAt": "2026-09-27T00:56:55.362Z",
+    "targets": 67,
+    "passed": 67,
+    "passedScope": "target chain plus one representative profile; all siblings remain hidden on failure",
+    "quarantined": []
+  }
+}

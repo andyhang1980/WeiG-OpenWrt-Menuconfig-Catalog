@@ -1,0 +1,7396 @@
+{
+  "schema": 1,
+  "source": {
+    "id": "OpenWrt",
+    "label": "OpenWrt",
+    "repo": "openwrt/openwrt",
+    "branch": "openwrt-18.06",
+    "commit": "9f2a40c72fdb0b9b077bf5b4b01aa17eac4bfb45",
+    "legacy": false,
+    "inputsHash": "134aa4a122199ec3f5113dc82e5c708c2eb5c851b3842a5f5c7808669d6d5b8f"
+  },
+  "generatedAt": "2026-09-27T00:54:23.195Z",
+  "summary": {
+    "symbols": 13613,
+    "duplicateSymbols": 264,
+    "duplicateNodes": 264,
+    "conflicts": 0
+  },
+  "duplicates": [
+    {
+      "symbol": "AXS10X_SD_BOOT_PARTSIZE",
+      "count": 2,
+      "paths": [
+        [
+          "Target Images"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "target/linux/arc770/image/Config.in",
+          "line": 1
+        },
+        {
+          "file": "target/linux/archs38/image/Config.in",
+          "line": 1
+        }
+      ],
+      "sources": [
+        "target/linux/arc770/image/Config.in",
+        "target/linux/archs38/image/Config.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_sane-abaton",
+      "count": 2,
+      "paths": [
+        [
+          "Extra packages"
+        ],
+        [
+          "Utilities",
+          "Select SANE backends"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 4238
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 103938
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_sane-agfafocus",
+      "count": 2,
+      "paths": [
+        [
+          "Extra packages"
+        ],
+        [
+          "Utilities",
+          "Select SANE backends"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 4253
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 103941
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_sane-apple",
+      "count": 2,
+      "paths": [
+        [
+          "Extra packages"
+        ],
+        [
+          "Utilities",
+          "Select SANE backends"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 4268
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 103944
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_sane-artec",
+      "count": 2,
+      "paths": [
+        [
+          "Extra packages"
+        ],
+        [
+          "Utilities",
+          "Select SANE backends"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 4283
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 103947
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_sane-artec_eplus48u",
+      "count": 2,
+      "paths": [
+        [
+          "Extra packages"
+        ],
+        [
+          "Utilities",
+          "Select SANE backends"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 4298
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 103950
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_sane-as6e",
+      "count": 2,
+      "paths": [
+        [
+          "Extra packages"
+        ],
+        [
+          "Utilities",
+          "Select SANE backends"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 4313
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 103953
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_sane-avision",
+      "count": 2,
+      "paths": [
+        [
+          "Extra packages"
+        ],
+        [
+          "Utilities",
+          "Select SANE backends"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 4328
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 103956
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_sane-bh",
+      "count": 2,
+      "paths": [
+        [
+          "Extra packages"
+        ],
+        [
+          "Utilities",
+          "Select SANE backends"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 4343
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 103959
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_sane-canon",
+      "count": 2,
+      "paths": [
+        [
+          "Extra packages"
+        ],
+        [
+          "Utilities",
+          "Select SANE backends"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 4358
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 103962
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_sane-canon630u",
+      "count": 2,
+      "paths": [
+        [
+          "Extra packages"
+        ],
+        [
+          "Utilities",
+          "Select SANE backends"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 4373
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 103965
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_sane-canon_dr",
+      "count": 2,
+      "paths": [
+        [
+          "Extra packages"
+        ],
+        [
+          "Utilities",
+          "Select SANE backends"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 4388
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 103968
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_sane-cardscan",
+      "count": 2,
+      "paths": [
+        [
+          "Extra packages"
+        ],
+        [
+          "Utilities",
+          "Select SANE backends"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 4403
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 103971
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_sane-coolscan",
+      "count": 2,
+      "paths": [
+        [
+          "Extra packages"
+        ],
+        [
+          "Utilities",
+          "Select SANE backends"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 4418
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 103974
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_sane-coolscan2",
+      "count": 2,
+      "paths": [
+        [
+          "Extra packages"
+        ],
+        [
+          "Utilities",
+          "Select SANE backends"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 4433
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 103977
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_sane-coolscan3",
+      "count": 2,
+      "paths": [
+        [
+          "Extra packages"
+        ],
+        [
+          "Utilities",
+          "Select SANE backends"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 4448
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 103980
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_sane-dc210",
+      "count": 2,
+      "paths": [
+        [
+          "Extra packages"
+        ],
+        [
+          "Utilities",
+          "Select SANE backends"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 4463
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 103983
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_sane-dc240",
+      "count": 2,
+      "paths": [
+        [
+          "Extra packages"
+        ],
+        [
+          "Utilities",
+          "Select SANE backends"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 4479
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 103986
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_sane-dc25",
+      "count": 2,
+      "paths": [
+        [
+          "Extra packages"
+        ],
+        [
+          "Utilities",
+          "Select SANE backends"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 4495
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 103989
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_sane-dell1600n_net",
+      "count": 2,
+      "paths": [
+        [
+          "Extra packages"
+        ],
+        [
+          "Utilities",
+          "Select SANE backends"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 4510
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 103992
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_sane-dmc",
+      "count": 2,
+      "paths": [
+        [
+          "Extra packages"
+        ],
+        [
+          "Utilities",
+          "Select SANE backends"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 4526
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 103995
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_sane-epjitsu",
+      "count": 2,
+      "paths": [
+        [
+          "Extra packages"
+        ],
+        [
+          "Utilities",
+          "Select SANE backends"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 4541
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 103998
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_sane-epson",
+      "count": 2,
+      "paths": [
+        [
+          "Extra packages"
+        ],
+        [
+          "Utilities",
+          "Select SANE backends"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 4556
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 104001
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_sane-epson2",
+      "count": 2,
+      "paths": [
+        [
+          "Extra packages"
+        ],
+        [
+          "Utilities",
+          "Select SANE backends"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 4571
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 104007
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_sane-epsonds",
+      "count": 2,
+      "paths": [
+        [
+          "Extra packages"
+        ],
+        [
+          "Utilities",
+          "Select SANE backends"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 4586
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 104004
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_sane-fujitsu",
+      "count": 2,
+      "paths": [
+        [
+          "Extra packages"
+        ],
+        [
+          "Utilities",
+          "Select SANE backends"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 4602
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 104010
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_sane-genesys",
+      "count": 2,
+      "paths": [
+        [
+          "Extra packages"
+        ],
+        [
+          "Utilities",
+          "Select SANE backends"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 4617
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 104013
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_sane-gt68xx",
+      "count": 2,
+      "paths": [
+        [
+          "Extra packages"
+        ],
+        [
+          "Utilities",
+          "Select SANE backends"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 4632
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 104016
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_sane-hp",
+      "count": 2,
+      "paths": [
+        [
+          "Extra packages"
+        ],
+        [
+          "Utilities",
+          "Select SANE backends"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 4647
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 104019
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_sane-hp3500",
+      "count": 2,
+      "paths": [
+        [
+          "Extra packages"
+        ],
+        [
+          "Utilities",
+          "Select SANE backends"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 4662
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 104022
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_sane-hp3900",
+      "count": 2,
+      "paths": [
+        [
+          "Extra packages"
+        ],
+        [
+          "Utilities",
+          "Select SANE backends"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 4677
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 104025
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_sane-hp4200",
+      "count": 2,
+      "paths": [
+        [
+          "Extra packages"
+        ],
+        [
+          "Utilities",
+          "Select SANE backends"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 4693
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 104028
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_sane-hp5400",
+      "count": 2,
+      "paths": [
+        [
+          "Extra packages"
+        ],
+        [
+          "Utilities",
+          "Select SANE backends"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 4708
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 104031
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_sane-hp5590",
+      "count": 2,
+      "paths": [
+        [
+          "Extra packages"
+        ],
+        [
+          "Utilities",
+          "Select SANE backends"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 4723
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 104034
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_sane-hpljm1005",
+      "count": 2,
+      "paths": [
+        [
+          "Extra packages"
+        ],
+        [
+          "Utilities",
+          "Select SANE backends"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 4738
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 104037
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_sane-hs2p",
+      "count": 2,
+      "paths": [
+        [
+          "Extra packages"
+        ],
+        [
+          "Utilities",
+          "Select SANE backends"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 4753
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 104040
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_sane-ibm",
+      "count": 2,
+      "paths": [
+        [
+          "Extra packages"
+        ],
+        [
+          "Utilities",
+          "Select SANE backends"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 4768
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 104043
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_sane-kodak",
+      "count": 2,
+      "paths": [
+        [
+          "Extra packages"
+        ],
+        [
+          "Utilities",
+          "Select SANE backends"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 4783
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 104046
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_sane-kodakaio",
+      "count": 2,
+      "paths": [
+        [
+          "Extra packages"
+        ],
+        [
+          "Utilities",
+          "Select SANE backends"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 4798
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 104049
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_sane-kvs1025",
+      "count": 2,
+      "paths": [
+        [
+          "Extra packages"
+        ],
+        [
+          "Utilities",
+          "Select SANE backends"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 4813
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 104058
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_sane-kvs20xx",
+      "count": 2,
+      "paths": [
+        [
+          "Extra packages"
+        ],
+        [
+          "Utilities",
+          "Select SANE backends"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 4828
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 104052
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_sane-kvs40xx",
+      "count": 2,
+      "paths": [
+        [
+          "Extra packages"
+        ],
+        [
+          "Utilities",
+          "Select SANE backends"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 4843
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 104055
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_sane-leo",
+      "count": 2,
+      "paths": [
+        [
+          "Extra packages"
+        ],
+        [
+          "Utilities",
+          "Select SANE backends"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 4858
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 104061
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_sane-lexmark",
+      "count": 2,
+      "paths": [
+        [
+          "Extra packages"
+        ],
+        [
+          "Utilities",
+          "Select SANE backends"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 4873
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 104064
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_sane-ma1509",
+      "count": 2,
+      "paths": [
+        [
+          "Extra packages"
+        ],
+        [
+          "Utilities",
+          "Select SANE backends"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 4888
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 104067
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_sane-magicolor",
+      "count": 2,
+      "paths": [
+        [
+          "Extra packages"
+        ],
+        [
+          "Utilities",
+          "Select SANE backends"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 4903
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 104070
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_sane-matsushita",
+      "count": 2,
+      "paths": [
+        [
+          "Extra packages"
+        ],
+        [
+          "Utilities",
+          "Select SANE backends"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 4918
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 104073
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_sane-microtek",
+      "count": 2,
+      "paths": [
+        [
+          "Extra packages"
+        ],
+        [
+          "Utilities",
+          "Select SANE backends"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 4933
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 104076
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_sane-microtek2",
+      "count": 2,
+      "paths": [
+        [
+          "Extra packages"
+        ],
+        [
+          "Utilities",
+          "Select SANE backends"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 4948
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 104079
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_sane-mustek",
+      "count": 2,
+      "paths": [
+        [
+          "Extra packages"
+        ],
+        [
+          "Utilities",
+          "Select SANE backends"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 4963
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 104082
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_sane-mustek_usb",
+      "count": 2,
+      "paths": [
+        [
+          "Extra packages"
+        ],
+        [
+          "Utilities",
+          "Select SANE backends"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 4978
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 104085
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_sane-mustek_usb2",
+      "count": 2,
+      "paths": [
+        [
+          "Extra packages"
+        ],
+        [
+          "Utilities",
+          "Select SANE backends"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 4993
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 104088
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_sane-nec",
+      "count": 2,
+      "paths": [
+        [
+          "Extra packages"
+        ],
+        [
+          "Utilities",
+          "Select SANE backends"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 5008
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 104091
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_sane-net",
+      "count": 2,
+      "paths": [
+        [
+          "Extra packages"
+        ],
+        [
+          "Utilities",
+          "Select SANE backends"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 5023
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 104094
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_sane-niash",
+      "count": 2,
+      "paths": [
+        [
+          "Extra packages"
+        ],
+        [
+          "Utilities",
+          "Select SANE backends"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 5038
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 104097
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_sane-p5",
+      "count": 2,
+      "paths": [
+        [
+          "Extra packages"
+        ],
+        [
+          "Utilities",
+          "Select SANE backends"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 5053
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 104100
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_sane-pie",
+      "count": 2,
+      "paths": [
+        [
+          "Extra packages"
+        ],
+        [
+          "Utilities",
+          "Select SANE backends"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 5068
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 104103
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_sane-pieusb",
+      "count": 2,
+      "paths": [
+        [
+          "Extra packages"
+        ],
+        [
+          "Utilities",
+          "Select SANE backends"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 5083
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 104106
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_sane-pixma",
+      "count": 2,
+      "paths": [
+        [
+          "Extra packages"
+        ],
+        [
+          "Utilities",
+          "Select SANE backends"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 5098
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 104109
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_sane-plustek",
+      "count": 2,
+      "paths": [
+        [
+          "Extra packages"
+        ],
+        [
+          "Utilities",
+          "Select SANE backends"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 5113
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 104112
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_sane-plustek_pp",
+      "count": 2,
+      "paths": [
+        [
+          "Extra packages"
+        ],
+        [
+          "Utilities",
+          "Select SANE backends"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 5128
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 104115
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_sane-qcam",
+      "count": 2,
+      "paths": [
+        [
+          "Extra packages"
+        ],
+        [
+          "Utilities",
+          "Select SANE backends"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 5143
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 104118
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_sane-ricoh",
+      "count": 2,
+      "paths": [
+        [
+          "Extra packages"
+        ],
+        [
+          "Utilities",
+          "Select SANE backends"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 5159
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 104122
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_sane-rts8891",
+      "count": 2,
+      "paths": [
+        [
+          "Extra packages"
+        ],
+        [
+          "Utilities",
+          "Select SANE backends"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 5174
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 104125
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_sane-s9036",
+      "count": 2,
+      "paths": [
+        [
+          "Extra packages"
+        ],
+        [
+          "Utilities",
+          "Select SANE backends"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 5189
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 104128
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_sane-sceptre",
+      "count": 2,
+      "paths": [
+        [
+          "Extra packages"
+        ],
+        [
+          "Utilities",
+          "Select SANE backends"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 5204
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 104131
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_sane-sharp",
+      "count": 2,
+      "paths": [
+        [
+          "Extra packages"
+        ],
+        [
+          "Utilities",
+          "Select SANE backends"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 5219
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 104134
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_sane-sm3600",
+      "count": 2,
+      "paths": [
+        [
+          "Extra packages"
+        ],
+        [
+          "Utilities",
+          "Select SANE backends"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 5234
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 104137
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_sane-sm3840",
+      "count": 2,
+      "paths": [
+        [
+          "Extra packages"
+        ],
+        [
+          "Utilities",
+          "Select SANE backends"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 5249
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 104140
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_sane-snapscan",
+      "count": 2,
+      "paths": [
+        [
+          "Extra packages"
+        ],
+        [
+          "Utilities",
+          "Select SANE backends"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 5264
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 104143
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_sane-sp15c",
+      "count": 2,
+      "paths": [
+        [
+          "Extra packages"
+        ],
+        [
+          "Utilities",
+          "Select SANE backends"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 5279
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 104146
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_sane-st400",
+      "count": 2,
+      "paths": [
+        [
+          "Extra packages"
+        ],
+        [
+          "Utilities",
+          "Select SANE backends"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 5294
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 104149
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_sane-stv680",
+      "count": 2,
+      "paths": [
+        [
+          "Extra packages"
+        ],
+        [
+          "Utilities",
+          "Select SANE backends"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 5309
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 104152
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_sane-tamarack",
+      "count": 2,
+      "paths": [
+        [
+          "Extra packages"
+        ],
+        [
+          "Utilities",
+          "Select SANE backends"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 5324
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 104155
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_sane-teco1",
+      "count": 2,
+      "paths": [
+        [
+          "Extra packages"
+        ],
+        [
+          "Utilities",
+          "Select SANE backends"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 5339
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 104158
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_sane-teco2",
+      "count": 2,
+      "paths": [
+        [
+          "Extra packages"
+        ],
+        [
+          "Utilities",
+          "Select SANE backends"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 5354
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 104161
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_sane-teco3",
+      "count": 2,
+      "paths": [
+        [
+          "Extra packages"
+        ],
+        [
+          "Utilities",
+          "Select SANE backends"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 5369
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 104164
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_sane-test",
+      "count": 2,
+      "paths": [
+        [
+          "Extra packages"
+        ],
+        [
+          "Utilities",
+          "Select SANE backends"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 5384
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 104167
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_sane-u12",
+      "count": 2,
+      "paths": [
+        [
+          "Extra packages"
+        ],
+        [
+          "Utilities",
+          "Select SANE backends"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 5399
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 104170
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_sane-umax",
+      "count": 2,
+      "paths": [
+        [
+          "Extra packages"
+        ],
+        [
+          "Utilities",
+          "Select SANE backends"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 5414
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 104173
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_sane-umax1220u",
+      "count": 2,
+      "paths": [
+        [
+          "Extra packages"
+        ],
+        [
+          "Utilities",
+          "Select SANE backends"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 5429
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 104176
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_sane-umax_pp",
+      "count": 2,
+      "paths": [
+        [
+          "Extra packages"
+        ],
+        [
+          "Utilities",
+          "Select SANE backends"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 5444
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 104179
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_sane-v4l",
+      "count": 2,
+      "paths": [
+        [
+          "Extra packages"
+        ],
+        [
+          "Utilities",
+          "Select SANE backends"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 5459
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 104182
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_sane-xerox_mfp",
+      "count": 2,
+      "paths": [
+        [
+          "Extra packages"
+        ],
+        [
+          "Utilities",
+          "Select SANE backends"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 5476
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 104185
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_ruby-stdlib",
+      "count": 2,
+      "paths": [
+        [
+          "Languages",
+          "Ruby"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 26957
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 28199
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_boost-atomic",
+      "count": 2,
+      "paths": [
+        [
+          "Libraries",
+          "Select Boost libraries"
+        ],
+        [
+          "Libraries"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 32126
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 32242
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_boost-chrono",
+      "count": 2,
+      "paths": [
+        [
+          "Libraries",
+          "Select Boost libraries"
+        ],
+        [
+          "Libraries"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 32130
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 32258
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_boost-container",
+      "count": 2,
+      "paths": [
+        [
+          "Libraries",
+          "Select Boost libraries"
+        ],
+        [
+          "Libraries"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 32134
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 32274
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_boost-context",
+      "count": 2,
+      "paths": [
+        [
+          "Libraries",
+          "Select Boost libraries"
+        ],
+        [
+          "Libraries"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 32138
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 32289
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_boost-contract",
+      "count": 2,
+      "paths": [
+        [
+          "Libraries",
+          "Select Boost libraries"
+        ],
+        [
+          "Libraries"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 32142
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 32307
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_boost-coroutine",
+      "count": 2,
+      "paths": [
+        [
+          "Libraries",
+          "Select Boost libraries"
+        ],
+        [
+          "Libraries"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 32146
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 32323
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_boost-date_time",
+      "count": 2,
+      "paths": [
+        [
+          "Libraries",
+          "Select Boost libraries"
+        ],
+        [
+          "Libraries"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 32150
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 32342
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_boost-fiber",
+      "count": 2,
+      "paths": [
+        [
+          "Libraries",
+          "Select Boost libraries"
+        ],
+        [
+          "Libraries"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 32154
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 32357
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_boost-filesystem",
+      "count": 2,
+      "paths": [
+        [
+          "Libraries",
+          "Select Boost libraries"
+        ],
+        [
+          "Libraries"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 32158
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 32375
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_boost-graph",
+      "count": 2,
+      "paths": [
+        [
+          "Libraries",
+          "Select Boost libraries"
+        ],
+        [
+          "Libraries"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 32162
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 32391
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_boost-iostreams",
+      "count": 2,
+      "paths": [
+        [
+          "Libraries",
+          "Select Boost libraries"
+        ],
+        [
+          "Libraries"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 32166
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 32407
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_boost-locale",
+      "count": 2,
+      "paths": [
+        [
+          "Libraries",
+          "Select Boost libraries"
+        ],
+        [
+          "Libraries"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 32170
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 32469
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_boost-log",
+      "count": 2,
+      "paths": [
+        [
+          "Libraries",
+          "Select Boost libraries"
+        ],
+        [
+          "Libraries"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 32174
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 32487
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_boost-math",
+      "count": 2,
+      "paths": [
+        [
+          "Libraries",
+          "Select Boost libraries"
+        ],
+        [
+          "Libraries"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 32178
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 32508
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_boost-program_options",
+      "count": 2,
+      "paths": [
+        [
+          "Libraries",
+          "Select Boost libraries"
+        ],
+        [
+          "Libraries"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 32182
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 32523
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_boost-python",
+      "count": 2,
+      "paths": [
+        [
+          "Libraries",
+          "Select Boost libraries"
+        ],
+        [
+          "Libraries"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 32186
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 32538
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_boost-python3",
+      "count": 2,
+      "paths": [
+        [
+          "Libraries",
+          "Select Boost libraries"
+        ],
+        [
+          "Libraries"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 32190
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 32554
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_boost-random",
+      "count": 2,
+      "paths": [
+        [
+          "Libraries",
+          "Select Boost libraries"
+        ],
+        [
+          "Libraries"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 32194
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 32570
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_boost-regex",
+      "count": 2,
+      "paths": [
+        [
+          "Libraries",
+          "Select Boost libraries"
+        ],
+        [
+          "Libraries"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 32198
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 32586
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_boost-serialization",
+      "count": 2,
+      "paths": [
+        [
+          "Libraries",
+          "Select Boost libraries"
+        ],
+        [
+          "Libraries"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 32202
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 32601
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_boost-wserialization",
+      "count": 2,
+      "paths": [
+        [
+          "Libraries",
+          "Select Boost libraries"
+        ],
+        [
+          "Libraries"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 32206
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 32748
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_boost-signals",
+      "count": 2,
+      "paths": [
+        [
+          "Libraries",
+          "Select Boost libraries"
+        ],
+        [
+          "Libraries"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 32210
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 32616
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_boost-stacktrace",
+      "count": 2,
+      "paths": [
+        [
+          "Libraries",
+          "Select Boost libraries"
+        ],
+        [
+          "Libraries"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 32214
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 32631
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_boost-system",
+      "count": 2,
+      "paths": [
+        [
+          "Libraries",
+          "Select Boost libraries"
+        ],
+        [
+          "Libraries"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 32218
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 32646
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_boost-thread",
+      "count": 2,
+      "paths": [
+        [
+          "Libraries",
+          "Select Boost libraries"
+        ],
+        [
+          "Libraries"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 32222
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 32678
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_boost-timer",
+      "count": 2,
+      "paths": [
+        [
+          "Libraries",
+          "Select Boost libraries"
+        ],
+        [
+          "Libraries"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 32226
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 32696
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_boost-type_erasure",
+      "count": 2,
+      "paths": [
+        [
+          "Libraries",
+          "Select Boost libraries"
+        ],
+        [
+          "Libraries"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 32230
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 32712
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_boost-wave",
+      "count": 2,
+      "paths": [
+        [
+          "Libraries",
+          "Select Boost libraries"
+        ],
+        [
+          "Libraries"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 32234
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 32730
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_gst1-mod-adpcmdec",
+      "count": 2,
+      "paths": [
+        [
+          "Multimedia"
+        ],
+        [
+          "Multimedia",
+          "Select GStreamer bad modules and libraries"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 52564
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 54806
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_gst1-mod-adpcmenc",
+      "count": 2,
+      "paths": [
+        [
+          "Multimedia"
+        ],
+        [
+          "Multimedia",
+          "Select GStreamer bad modules and libraries"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 52584
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 54809
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_gst1-mod-aiff",
+      "count": 2,
+      "paths": [
+        [
+          "Multimedia"
+        ],
+        [
+          "Multimedia",
+          "Select GStreamer bad modules and libraries"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 52604
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 54812
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_gst1-mod-alaw",
+      "count": 2,
+      "paths": [
+        [
+          "Multimedia"
+        ],
+        [
+          "Multimedia",
+          "Select GStreamer good modules"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 52625
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 55067
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_gst1-mod-alpha",
+      "count": 2,
+      "paths": [
+        [
+          "Multimedia"
+        ],
+        [
+          "Multimedia",
+          "Select GStreamer good modules"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 52643
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 55070
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_gst1-mod-alphacolor",
+      "count": 2,
+      "paths": [
+        [
+          "Multimedia"
+        ],
+        [
+          "Multimedia",
+          "Select GStreamer good modules"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 52661
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 55073
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_gst1-mod-alsa",
+      "count": 2,
+      "paths": [
+        [
+          "Multimedia"
+        ],
+        [
+          "Multimedia",
+          "Select GStreamer base modules and libraries"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 52679
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 54941
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_gst1-mod-apetag",
+      "count": 2,
+      "paths": [
+        [
+          "Multimedia"
+        ],
+        [
+          "Multimedia",
+          "Select GStreamer good modules"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 52699
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 55076
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_gst1-mod-app",
+      "count": 2,
+      "paths": [
+        [
+          "Multimedia"
+        ],
+        [
+          "Multimedia",
+          "Select GStreamer base modules and libraries"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 52719
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 54944
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_gst1-mod-asf",
+      "count": 2,
+      "paths": [
+        [
+          "Multimedia"
+        ],
+        [
+          "Multimedia",
+          "Select GStreamer ugly modules"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 52736
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 55255
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_gst1-mod-asfmux",
+      "count": 2,
+      "paths": [
+        [
+          "Multimedia"
+        ],
+        [
+          "Multimedia",
+          "Select GStreamer bad modules and libraries"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 52759
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 54815
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_gst1-mod-audioconvert",
+      "count": 2,
+      "paths": [
+        [
+          "Multimedia"
+        ],
+        [
+          "Multimedia",
+          "Select GStreamer base modules and libraries"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 52779
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 54947
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_gst1-mod-audiofx",
+      "count": 2,
+      "paths": [
+        [
+          "Multimedia"
+        ],
+        [
+          "Multimedia",
+          "Select GStreamer good modules"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 52796
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 55079
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_gst1-mod-audioparsers",
+      "count": 2,
+      "paths": [
+        [
+          "Multimedia"
+        ],
+        [
+          "Multimedia",
+          "Select GStreamer good modules"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 52816
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 55082
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_gst1-mod-audiorate",
+      "count": 2,
+      "paths": [
+        [
+          "Multimedia"
+        ],
+        [
+          "Multimedia",
+          "Select GStreamer base modules and libraries"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 52835
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 54950
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_gst1-mod-audioresample",
+      "count": 2,
+      "paths": [
+        [
+          "Multimedia"
+        ],
+        [
+          "Multimedia",
+          "Select GStreamer base modules and libraries"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 52853
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 54953
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_gst1-mod-audiotestsrc",
+      "count": 2,
+      "paths": [
+        [
+          "Multimedia"
+        ],
+        [
+          "Multimedia",
+          "Select GStreamer base modules and libraries"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 52871
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 54956
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_gst1-mod-auparse",
+      "count": 2,
+      "paths": [
+        [
+          "Multimedia"
+        ],
+        [
+          "Multimedia",
+          "Select GStreamer good modules"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 52890
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 55085
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_gst1-mod-autoconvert",
+      "count": 2,
+      "paths": [
+        [
+          "Multimedia"
+        ],
+        [
+          "Multimedia",
+          "Select GStreamer bad modules and libraries"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 52909
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 54818
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_gst1-mod-autodetect",
+      "count": 2,
+      "paths": [
+        [
+          "Multimedia"
+        ],
+        [
+          "Multimedia",
+          "Select GStreamer good modules"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 52928
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 55088
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_gst1-mod-avi",
+      "count": 2,
+      "paths": [
+        [
+          "Multimedia"
+        ],
+        [
+          "Multimedia",
+          "Select GStreamer good modules"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 52945
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 55091
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_gst1-mod-bayer",
+      "count": 2,
+      "paths": [
+        [
+          "Multimedia"
+        ],
+        [
+          "Multimedia",
+          "Select GStreamer bad modules and libraries"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 52966
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 54821
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_gst1-mod-camerabin",
+      "count": 2,
+      "paths": [
+        [
+          "Multimedia"
+        ],
+        [
+          "Multimedia",
+          "Select GStreamer bad modules and libraries"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 52986
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 54824
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_gst1-mod-cutter",
+      "count": 2,
+      "paths": [
+        [
+          "Multimedia"
+        ],
+        [
+          "Multimedia",
+          "Select GStreamer good modules"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 53008
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 55094
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_gst1-mod-debug",
+      "count": 2,
+      "paths": [
+        [
+          "Multimedia"
+        ],
+        [
+          "Multimedia",
+          "Select GStreamer good modules"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 53026
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 55097
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_gst1-mod-debugutilsbad",
+      "count": 2,
+      "paths": [
+        [
+          "Multimedia"
+        ],
+        [
+          "Multimedia",
+          "Select GStreamer bad modules and libraries"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 53043
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 54827
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_gst1-mod-deinterlace",
+      "count": 2,
+      "paths": [
+        [
+          "Multimedia"
+        ],
+        [
+          "Multimedia",
+          "Select GStreamer good modules"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 53063
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 55100
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_gst1-mod-dtmf",
+      "count": 2,
+      "paths": [
+        [
+          "Multimedia"
+        ],
+        [
+          "Multimedia",
+          "Select GStreamer good modules"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 53081
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 55103
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_gst1-mod-dvdspu",
+      "count": 2,
+      "paths": [
+        [
+          "Multimedia"
+        ],
+        [
+          "Multimedia",
+          "Select GStreamer bad modules and libraries"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 53099
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 54830
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_gst1-mod-effectv",
+      "count": 2,
+      "paths": [
+        [
+          "Multimedia"
+        ],
+        [
+          "Multimedia",
+          "Select GStreamer good modules"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 53119
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 55106
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_gst1-mod-equalizer",
+      "count": 2,
+      "paths": [
+        [
+          "Multimedia"
+        ],
+        [
+          "Multimedia",
+          "Select GStreamer good modules"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 53137
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 55109
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_gst1-mod-fbdevsink",
+      "count": 2,
+      "paths": [
+        [
+          "Multimedia"
+        ],
+        [
+          "Multimedia",
+          "Select GStreamer bad modules and libraries"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 53156
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 54833
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_gst1-mod-festival",
+      "count": 2,
+      "paths": [
+        [
+          "Multimedia"
+        ],
+        [
+          "Multimedia",
+          "Select GStreamer bad modules and libraries"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 53176
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 54836
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_gst1-mod-flac",
+      "count": 2,
+      "paths": [
+        [
+          "Multimedia"
+        ],
+        [
+          "Multimedia",
+          "Select GStreamer good modules"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 53196
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 55112
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_gst1-mod-flv",
+      "count": 2,
+      "paths": [
+        [
+          "Multimedia"
+        ],
+        [
+          "Multimedia",
+          "Select GStreamer good modules"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 53216
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 55115
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_gst1-mod-flxdec",
+      "count": 2,
+      "paths": [
+        [
+          "Multimedia"
+        ],
+        [
+          "Multimedia",
+          "Select GStreamer good modules"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 53236
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 55118
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_gst1-mod-frei0r",
+      "count": 2,
+      "paths": [
+        [
+          "Multimedia"
+        ],
+        [
+          "Multimedia",
+          "Select GStreamer bad modules and libraries"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 53253
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 54842
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_gst1-mod-gio",
+      "count": 2,
+      "paths": [
+        [
+          "Multimedia"
+        ],
+        [
+          "Multimedia",
+          "Select GStreamer base modules and libraries"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 53274
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 54962
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_gst1-mod-goom",
+      "count": 2,
+      "paths": [
+        [
+          "Multimedia"
+        ],
+        [
+          "Multimedia",
+          "Select GStreamer good modules"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 53290
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 55124
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_gst1-mod-goom2k1",
+      "count": 2,
+      "paths": [
+        [
+          "Multimedia"
+        ],
+        [
+          "Multimedia",
+          "Select GStreamer good modules"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 53309
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 55121
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_gst1-mod-hls",
+      "count": 2,
+      "paths": [
+        [
+          "Multimedia"
+        ],
+        [
+          "Multimedia",
+          "Select GStreamer bad modules and libraries"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 53328
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 54839
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_gst1-mod-icydemux",
+      "count": 2,
+      "paths": [
+        [
+          "Multimedia"
+        ],
+        [
+          "Multimedia",
+          "Select GStreamer good modules"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 53350
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 55127
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_gst1-mod-id3demux",
+      "count": 2,
+      "paths": [
+        [
+          "Multimedia"
+        ],
+        [
+          "Multimedia",
+          "Select GStreamer good modules"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 53369
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 55130
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_gst1-mod-id3tag",
+      "count": 2,
+      "paths": [
+        [
+          "Multimedia"
+        ],
+        [
+          "Multimedia",
+          "Select GStreamer bad modules and libraries"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 53387
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 54845
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_gst1-mod-imagefreeze",
+      "count": 2,
+      "paths": [
+        [
+          "Multimedia"
+        ],
+        [
+          "Multimedia",
+          "Select GStreamer good modules"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 53407
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 55133
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_gst1-mod-interleave",
+      "count": 2,
+      "paths": [
+        [
+          "Multimedia"
+        ],
+        [
+          "Multimedia",
+          "Select GStreamer good modules"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 53424
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 55136
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_gst1-mod-isomp4",
+      "count": 2,
+      "paths": [
+        [
+          "Multimedia"
+        ],
+        [
+          "Multimedia",
+          "Select GStreamer good modules"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 53442
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 55139
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_gst1-mod-jpeg",
+      "count": 2,
+      "paths": [
+        [
+          "Multimedia"
+        ],
+        [
+          "Multimedia",
+          "Select GStreamer good modules"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 53464
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 55142
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_gst1-mod-jpegformat",
+      "count": 2,
+      "paths": [
+        [
+          "Multimedia"
+        ],
+        [
+          "Multimedia",
+          "Select GStreamer bad modules and libraries"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 53483
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 54848
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_gst1-mod-lame",
+      "count": 2,
+      "paths": [
+        [
+          "Multimedia"
+        ],
+        [
+          "Multimedia",
+          "Select GStreamer ugly modules"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 53503
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 55258
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_gst1-mod-level",
+      "count": 2,
+      "paths": [
+        [
+          "Multimedia"
+        ],
+        [
+          "Multimedia",
+          "Select GStreamer good modules"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 53521
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 55145
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_gst1-mod-matroska",
+      "count": 2,
+      "paths": [
+        [
+          "Multimedia"
+        ],
+        [
+          "Multimedia",
+          "Select GStreamer good modules"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 53539
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 55148
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_gst1-mod-mpeg2dec",
+      "count": 2,
+      "paths": [
+        [
+          "Multimedia"
+        ],
+        [
+          "Multimedia",
+          "Select GStreamer ugly modules"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 53560
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 55264
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_gst1-mod-mpegpsdemux",
+      "count": 2,
+      "paths": [
+        [
+          "Multimedia"
+        ],
+        [
+          "Multimedia",
+          "Select GStreamer bad modules and libraries"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 53578
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 54851
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_gst1-mod-mpegpsmux",
+      "count": 2,
+      "paths": [
+        [
+          "Multimedia"
+        ],
+        [
+          "Multimedia",
+          "Select GStreamer bad modules and libraries"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 53597
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 54854
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_gst1-mod-mpg123",
+      "count": 2,
+      "paths": [
+        [
+          "Multimedia"
+        ],
+        [
+          "Multimedia",
+          "Select GStreamer ugly modules"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 53616
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 55261
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_gst1-mod-mulaw",
+      "count": 2,
+      "paths": [
+        [
+          "Multimedia"
+        ],
+        [
+          "Multimedia",
+          "Select GStreamer good modules"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 53637
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 55151
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_gst1-mod-multifile",
+      "count": 2,
+      "paths": [
+        [
+          "Multimedia"
+        ],
+        [
+          "Multimedia",
+          "Select GStreamer good modules"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 53655
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 55154
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_gst1-mod-multipart",
+      "count": 2,
+      "paths": [
+        [
+          "Multimedia"
+        ],
+        [
+          "Multimedia",
+          "Select GStreamer good modules"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 53673
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 55157
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_gst1-mod-mxf",
+      "count": 2,
+      "paths": [
+        [
+          "Multimedia"
+        ],
+        [
+          "Multimedia",
+          "Select GStreamer bad modules and libraries"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 53690
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 54857
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_gst1-mod-navigationtest",
+      "count": 2,
+      "paths": [
+        [
+          "Multimedia"
+        ],
+        [
+          "Multimedia",
+          "Select GStreamer good modules"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 53712
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 55160
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_gst1-mod-ogg",
+      "count": 2,
+      "paths": [
+        [
+          "Multimedia"
+        ],
+        [
+          "Multimedia",
+          "Select GStreamer base modules and libraries"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 53730
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 54965
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_gst1-mod-opus",
+      "count": 2,
+      "paths": [
+        [
+          "Multimedia"
+        ],
+        [
+          "Multimedia",
+          "Select GStreamer base modules and libraries"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 53751
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 54968
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_gst1-mod-opusparse",
+      "count": 2,
+      "paths": [
+        [
+          "Multimedia"
+        ],
+        [
+          "Multimedia",
+          "Select GStreamer bad modules and libraries"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 53770
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 54860
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_gst1-mod-oss4",
+      "count": 2,
+      "paths": [
+        [
+          "Multimedia"
+        ],
+        [
+          "Multimedia",
+          "Select GStreamer good modules"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 53790
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 55163
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_gst1-mod-ossaudio",
+      "count": 2,
+      "paths": [
+        [
+          "Multimedia"
+        ],
+        [
+          "Multimedia",
+          "Select GStreamer good modules"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 53809
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 55166
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_gst1-mod-pcapparse",
+      "count": 2,
+      "paths": [
+        [
+          "Multimedia"
+        ],
+        [
+          "Multimedia",
+          "Select GStreamer bad modules and libraries"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 53827
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 54863
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_gst1-mod-playback",
+      "count": 2,
+      "paths": [
+        [
+          "Multimedia"
+        ],
+        [
+          "Multimedia",
+          "Select GStreamer base modules and libraries"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 53846
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 54959
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_gst1-mod-png",
+      "count": 2,
+      "paths": [
+        [
+          "Multimedia"
+        ],
+        [
+          "Multimedia",
+          "Select GStreamer good modules"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 53863
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 55169
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_gst1-mod-pnm",
+      "count": 2,
+      "paths": [
+        [
+          "Multimedia"
+        ],
+        [
+          "Multimedia",
+          "Select GStreamer bad modules and libraries"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 53882
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 54866
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_gst1-mod-replaygain",
+      "count": 2,
+      "paths": [
+        [
+          "Multimedia"
+        ],
+        [
+          "Multimedia",
+          "Select GStreamer good modules"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 53902
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 55172
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_gst1-mod-rfbsrc",
+      "count": 2,
+      "paths": [
+        [
+          "Multimedia"
+        ],
+        [
+          "Multimedia",
+          "Select GStreamer bad modules and libraries"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 53919
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 54869
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_gst1-mod-rtp",
+      "count": 2,
+      "paths": [
+        [
+          "Multimedia"
+        ],
+        [
+          "Multimedia",
+          "Select GStreamer good modules"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 53939
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 55178
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_gst1-mod-rtpmanager",
+      "count": 2,
+      "paths": [
+        [
+          "Multimedia"
+        ],
+        [
+          "Multimedia",
+          "Select GStreamer good modules"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 53960
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 55175
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_gst1-mod-rtsp",
+      "count": 2,
+      "paths": [
+        [
+          "Multimedia"
+        ],
+        [
+          "Multimedia",
+          "Select GStreamer good modules"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 53982
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 55181
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_gst1-mod-sdpelem",
+      "count": 2,
+      "paths": [
+        [
+          "Multimedia"
+        ],
+        [
+          "Multimedia",
+          "Select GStreamer bad modules and libraries"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 54003
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 54872
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_gst1-mod-segmentclip",
+      "count": 2,
+      "paths": [
+        [
+          "Multimedia"
+        ],
+        [
+          "Multimedia",
+          "Select GStreamer bad modules and libraries"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 54024
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 54875
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_gst1-mod-shapewipe",
+      "count": 2,
+      "paths": [
+        [
+          "Multimedia"
+        ],
+        [
+          "Multimedia",
+          "Select GStreamer good modules"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 54044
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 55184
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_gst1-mod-shm",
+      "count": 2,
+      "paths": [
+        [
+          "Multimedia"
+        ],
+        [
+          "Multimedia",
+          "Select GStreamer bad modules and libraries"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 54062
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 54878
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_gst1-mod-siren",
+      "count": 2,
+      "paths": [
+        [
+          "Multimedia"
+        ],
+        [
+          "Multimedia",
+          "Select GStreamer bad modules and libraries"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 54082
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 54881
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_gst1-mod-smpte",
+      "count": 2,
+      "paths": [
+        [
+          "Multimedia"
+        ],
+        [
+          "Multimedia",
+          "Select GStreamer good modules"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 54103
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 55187
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_gst1-mod-soup",
+      "count": 2,
+      "paths": [
+        [
+          "Multimedia"
+        ],
+        [
+          "Multimedia",
+          "Select GStreamer good modules"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 54121
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 55190
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_gst1-mod-spectrum",
+      "count": 2,
+      "paths": [
+        [
+          "Multimedia"
+        ],
+        [
+          "Multimedia",
+          "Select GStreamer good modules"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 54141
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 55193
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_gst1-mod-speed",
+      "count": 2,
+      "paths": [
+        [
+          "Multimedia"
+        ],
+        [
+          "Multimedia",
+          "Select GStreamer bad modules and libraries"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 54160
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 54884
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_gst1-mod-subenc",
+      "count": 2,
+      "paths": [
+        [
+          "Multimedia"
+        ],
+        [
+          "Multimedia",
+          "Select GStreamer bad modules and libraries"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 54180
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 54887
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_gst1-mod-tcp",
+      "count": 2,
+      "paths": [
+        [
+          "Multimedia"
+        ],
+        [
+          "Multimedia",
+          "Select GStreamer base modules and libraries"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 54200
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 54971
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_gst1-mod-theora",
+      "count": 2,
+      "paths": [
+        [
+          "Multimedia"
+        ],
+        [
+          "Multimedia",
+          "Select GStreamer base modules and libraries"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 54217
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 54974
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_gst1-mod-typefindfunctions",
+      "count": 2,
+      "paths": [
+        [
+          "Multimedia"
+        ],
+        [
+          "Multimedia",
+          "Select GStreamer base modules and libraries"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 54237
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 54977
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_gst1-mod-udp",
+      "count": 2,
+      "paths": [
+        [
+          "Multimedia"
+        ],
+        [
+          "Multimedia",
+          "Select GStreamer good modules"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 54257
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 55196
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_gst1-mod-video4linux2",
+      "count": 2,
+      "paths": [
+        [
+          "Multimedia"
+        ],
+        [
+          "Multimedia",
+          "Select GStreamer good modules"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 54275
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 55199
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_gst1-mod-videobox",
+      "count": 2,
+      "paths": [
+        [
+          "Multimedia"
+        ],
+        [
+          "Multimedia",
+          "Select GStreamer good modules"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 54295
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 55202
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_gst1-mod-videoconvert",
+      "count": 2,
+      "paths": [
+        [
+          "Multimedia"
+        ],
+        [
+          "Multimedia",
+          "Select GStreamer base modules and libraries"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 54313
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 54980
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_gst1-mod-videocrop",
+      "count": 2,
+      "paths": [
+        [
+          "Multimedia"
+        ],
+        [
+          "Multimedia",
+          "Select GStreamer good modules"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 54330
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 55205
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_gst1-mod-videofilter",
+      "count": 2,
+      "paths": [
+        [
+          "Multimedia"
+        ],
+        [
+          "Multimedia",
+          "Select GStreamer good modules"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 54348
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 55208
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_gst1-mod-videomixer",
+      "count": 2,
+      "paths": [
+        [
+          "Multimedia"
+        ],
+        [
+          "Multimedia",
+          "Select GStreamer good modules"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 54366
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 55211
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_gst1-mod-videorate",
+      "count": 2,
+      "paths": [
+        [
+          "Multimedia"
+        ],
+        [
+          "Multimedia",
+          "Select GStreamer base modules and libraries"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 54384
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 54983
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_gst1-mod-videoscale",
+      "count": 2,
+      "paths": [
+        [
+          "Multimedia"
+        ],
+        [
+          "Multimedia",
+          "Select GStreamer base modules and libraries"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 54401
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 54986
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_gst1-mod-videotestsrc",
+      "count": 2,
+      "paths": [
+        [
+          "Multimedia"
+        ],
+        [
+          "Multimedia",
+          "Select GStreamer base modules and libraries"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 54418
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 54989
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_gst1-mod-volume",
+      "count": 2,
+      "paths": [
+        [
+          "Multimedia"
+        ],
+        [
+          "Multimedia",
+          "Select GStreamer base modules and libraries"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 54436
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 54992
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_gst1-mod-vorbis",
+      "count": 2,
+      "paths": [
+        [
+          "Multimedia"
+        ],
+        [
+          "Multimedia",
+          "Select GStreamer base modules and libraries"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 54455
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 54995
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_gst1-mod-vpx",
+      "count": 2,
+      "paths": [
+        [
+          "Multimedia"
+        ],
+        [
+          "Multimedia",
+          "Select GStreamer good modules"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 54475
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 55214
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_gst1-mod-wavenc",
+      "count": 2,
+      "paths": [
+        [
+          "Multimedia"
+        ],
+        [
+          "Multimedia",
+          "Select GStreamer good modules"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 54495
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 55217
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_gst1-mod-wavparse",
+      "count": 2,
+      "paths": [
+        [
+          "Multimedia"
+        ],
+        [
+          "Multimedia",
+          "Select GStreamer good modules"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 54513
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 55220
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_libgstreamer1",
+      "count": 2,
+      "paths": [
+        [
+          "Multimedia",
+          "Select GStreamer libraries"
+        ],
+        [
+          "Multimedia"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 54762
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 55663
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_libgst1check",
+      "count": 2,
+      "paths": [
+        [
+          "Multimedia",
+          "Select GStreamer libraries"
+        ],
+        [
+          "Multimedia"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 54765
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 55440
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_libgst1controller",
+      "count": 2,
+      "paths": [
+        [
+          "Multimedia",
+          "Select GStreamer libraries"
+        ],
+        [
+          "Multimedia"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 54768
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 55457
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_libgst1net",
+      "count": 2,
+      "paths": [
+        [
+          "Multimedia",
+          "Select GStreamer libraries"
+        ],
+        [
+          "Multimedia"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 54771
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 55490
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_libgst1adaptivedemux",
+      "count": 2,
+      "paths": [
+        [
+          "Multimedia",
+          "Select GStreamer bad modules and libraries"
+        ],
+        [
+          "Multimedia"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 54894
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 55331
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_libgst1photography",
+      "count": 2,
+      "paths": [
+        [
+          "Multimedia",
+          "Select GStreamer bad modules and libraries"
+        ],
+        [
+          "Multimedia"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 54897
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 55526
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_libgst1basecamerabinsrc",
+      "count": 2,
+      "paths": [
+        [
+          "Multimedia",
+          "Select GStreamer bad modules and libraries"
+        ],
+        [
+          "Multimedia"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 54900
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 55420
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_libgst1uridownloader",
+      "count": 2,
+      "paths": [
+        [
+          "Multimedia",
+          "Select GStreamer bad modules and libraries"
+        ],
+        [
+          "Multimedia"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 54903
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 55628
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_libgst1badbase",
+      "count": 2,
+      "paths": [
+        [
+          "Multimedia",
+          "Select GStreamer bad modules and libraries"
+        ],
+        [
+          "Multimedia"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 54906
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 55401
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_libgst1allocators",
+      "count": 2,
+      "paths": [
+        [
+          "Multimedia",
+          "Select GStreamer base modules and libraries"
+        ],
+        [
+          "Multimedia"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 55002
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 55352
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_libgst1app",
+      "count": 2,
+      "paths": [
+        [
+          "Multimedia",
+          "Select GStreamer base modules and libraries"
+        ],
+        [
+          "Multimedia"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 55005
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 55368
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_libgst1audio",
+      "count": 2,
+      "paths": [
+        [
+          "Multimedia",
+          "Select GStreamer base modules and libraries"
+        ],
+        [
+          "Multimedia"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 55008
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 55384
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_libgst1fft",
+      "count": 2,
+      "paths": [
+        [
+          "Multimedia",
+          "Select GStreamer base modules and libraries"
+        ],
+        [
+          "Multimedia"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 55011
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 55474
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_libgst1pbutils",
+      "count": 2,
+      "paths": [
+        [
+          "Multimedia",
+          "Select GStreamer base modules and libraries"
+        ],
+        [
+          "Multimedia"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 55014
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 55507
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_libgst1riff",
+      "count": 2,
+      "paths": [
+        [
+          "Multimedia",
+          "Select GStreamer base modules and libraries"
+        ],
+        [
+          "Multimedia"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 55017
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 55545
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_libgst1rtp",
+      "count": 2,
+      "paths": [
+        [
+          "Multimedia",
+          "Select GStreamer base modules and libraries"
+        ],
+        [
+          "Multimedia"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 55020
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 55563
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_libgst1rtsp",
+      "count": 2,
+      "paths": [
+        [
+          "Multimedia",
+          "Select GStreamer base modules and libraries"
+        ],
+        [
+          "Multimedia"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 55023
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 55579
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_libgst1sdp",
+      "count": 2,
+      "paths": [
+        [
+          "Multimedia",
+          "Select GStreamer base modules and libraries"
+        ],
+        [
+          "Multimedia"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 55026
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 55595
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_libgst1tag",
+      "count": 2,
+      "paths": [
+        [
+          "Multimedia",
+          "Select GStreamer base modules and libraries"
+        ],
+        [
+          "Multimedia"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 55029
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 55612
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_libgst1video",
+      "count": 2,
+      "paths": [
+        [
+          "Multimedia",
+          "Select GStreamer base modules and libraries"
+        ],
+        [
+          "Multimedia"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 55032
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 55647
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "SQUEEZELITE_WMA",
+      "count": 2,
+      "paths": [
+        [
+          "Sound"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 92259
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 92305
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "SQUEEZELITE_RESAMPLE",
+      "count": 2,
+      "paths": [
+        [
+          "Sound"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 92265
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 92311
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "SQUEEZELITE_DSD",
+      "count": 2,
+      "paths": [
+        [
+          "Sound"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 92271
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 92317
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_sane-backends-all",
+      "count": 2,
+      "paths": [
+        [
+          "Utilities",
+          "Select SANE backends"
+        ],
+        [
+          "Utilities"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 103932
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 104192
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_shadow-chage",
+      "count": 2,
+      "paths": [
+        [
+          "Utilities"
+        ],
+        [
+          "Utilities",
+          "Select shadow utilities"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 104375
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 104737
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_shadow-chfn",
+      "count": 2,
+      "paths": [
+        [
+          "Utilities"
+        ],
+        [
+          "Utilities",
+          "Select shadow utilities"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 104389
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 104743
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_shadow-chpasswd",
+      "count": 2,
+      "paths": [
+        [
+          "Utilities"
+        ],
+        [
+          "Utilities",
+          "Select shadow utilities"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 104403
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 104740
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_shadow-chsh",
+      "count": 2,
+      "paths": [
+        [
+          "Utilities"
+        ],
+        [
+          "Utilities",
+          "Select shadow utilities"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 104417
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 104746
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_shadow-expiry",
+      "count": 2,
+      "paths": [
+        [
+          "Utilities"
+        ],
+        [
+          "Utilities",
+          "Select shadow utilities"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 104445
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 104749
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_shadow-faillog",
+      "count": 2,
+      "paths": [
+        [
+          "Utilities"
+        ],
+        [
+          "Utilities",
+          "Select shadow utilities"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 104459
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 104752
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_shadow-gpasswd",
+      "count": 2,
+      "paths": [
+        [
+          "Utilities"
+        ],
+        [
+          "Utilities",
+          "Select shadow utilities"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 104473
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 104755
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_shadow-groupadd",
+      "count": 2,
+      "paths": [
+        [
+          "Utilities"
+        ],
+        [
+          "Utilities",
+          "Select shadow utilities"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 104487
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 104758
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_shadow-groupdel",
+      "count": 2,
+      "paths": [
+        [
+          "Utilities"
+        ],
+        [
+          "Utilities",
+          "Select shadow utilities"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 104501
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 104761
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_shadow-groupmems",
+      "count": 2,
+      "paths": [
+        [
+          "Utilities"
+        ],
+        [
+          "Utilities",
+          "Select shadow utilities"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 104515
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 104764
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_shadow-groupmod",
+      "count": 2,
+      "paths": [
+        [
+          "Utilities"
+        ],
+        [
+          "Utilities",
+          "Select shadow utilities"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 104529
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 104767
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_shadow-groups",
+      "count": 2,
+      "paths": [
+        [
+          "Utilities"
+        ],
+        [
+          "Utilities",
+          "Select shadow utilities"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 104543
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 104770
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_shadow-lastlog",
+      "count": 2,
+      "paths": [
+        [
+          "Utilities"
+        ],
+        [
+          "Utilities",
+          "Select shadow utilities"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 104557
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 104773
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_shadow-login",
+      "count": 2,
+      "paths": [
+        [
+          "Utilities"
+        ],
+        [
+          "Utilities",
+          "Select shadow utilities"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 104571
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 104776
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_shadow-newgidmap",
+      "count": 2,
+      "paths": [
+        [
+          "Utilities"
+        ],
+        [
+          "Utilities",
+          "Select shadow utilities"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 104585
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 104779
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_shadow-newgrp",
+      "count": 2,
+      "paths": [
+        [
+          "Utilities"
+        ],
+        [
+          "Utilities",
+          "Select shadow utilities"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 104599
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 104782
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_shadow-newuidmap",
+      "count": 2,
+      "paths": [
+        [
+          "Utilities"
+        ],
+        [
+          "Utilities",
+          "Select shadow utilities"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 104613
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 104785
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_shadow-nologin",
+      "count": 2,
+      "paths": [
+        [
+          "Utilities"
+        ],
+        [
+          "Utilities",
+          "Select shadow utilities"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 104627
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 104788
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_shadow-passwd",
+      "count": 2,
+      "paths": [
+        [
+          "Utilities"
+        ],
+        [
+          "Utilities",
+          "Select shadow utilities"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 104641
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 104791
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_shadow-su",
+      "count": 2,
+      "paths": [
+        [
+          "Utilities"
+        ],
+        [
+          "Utilities",
+          "Select shadow utilities"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 104655
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 104794
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_shadow-useradd",
+      "count": 2,
+      "paths": [
+        [
+          "Utilities"
+        ],
+        [
+          "Utilities",
+          "Select shadow utilities"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 104669
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 104797
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_shadow-userdel",
+      "count": 2,
+      "paths": [
+        [
+          "Utilities"
+        ],
+        [
+          "Utilities",
+          "Select shadow utilities"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 104683
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 104800
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_shadow-usermod",
+      "count": 2,
+      "paths": [
+        [
+          "Utilities"
+        ],
+        [
+          "Utilities",
+          "Select shadow utilities"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 104697
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 104803
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_shadow-vipw",
+      "count": 2,
+      "paths": [
+        [
+          "Utilities",
+          "Select shadow utilities"
+        ],
+        [
+          "Utilities"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 104806
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 104814
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    }
+  ],
+  "conflicts": []
+}
