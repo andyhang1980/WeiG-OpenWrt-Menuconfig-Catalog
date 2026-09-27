@@ -5,10 +5,11 @@
     "label": "ImmortalWrt",
     "repo": "immortalwrt/immortalwrt",
     "branch": "master",
-    "commit": "8d9475a99f03784210ff158f9f27c83a9c93a735",
-    "legacy": false
+    "commit": "035afe00fa33bb90111a5fc0104acd1a6f3022e8",
+    "legacy": false,
+    "inputsHash": "a682c011594ac8bdaf13a0b431dd3e1e38518cd78c1bc82e055b2bb6ff84b982"
   },
-  "generatedAt": "2026-09-09T19:17:29.322Z",
+  "generatedAt": "2026-09-27T00:55:44.371Z",
   "summary": {
     "targets": 152,
     "selectableTargets": 108,
@@ -75,7 +76,7 @@
   "kconfigProbe": {
     "schema": 1,
     "mode": "target-chain-and-representative-profile",
-    "generatedAt": "2026-09-09T19:19:07.583Z",
+    "generatedAt": "2026-09-27T00:57:26.141Z",
     "targets": 108,
     "passed": 108,
     "passedScope": "target chain plus one representative profile; all siblings remain hidden on failure",
