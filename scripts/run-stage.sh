@@ -7,7 +7,8 @@ log_dir="${GITHUB_WORKSPACE:-$PWD}/failure-logs"
 job_key="${CATALOG_JOB_KEY:-catalog-unknown}"
 order="${CATALOG_ORDER:-00}"
 log_name="${order}-${job_key}--${stage}.log"
-log_file="${RUNNER_TEMP:-/tmp}/${log_name}"
+# Write to the upload location immediately: a timeout/SIGKILL cannot run a copy.
+log_file="$log_dir/$log_name"
 started="$(date +%s)"
 
 mkdir -p "$log_dir"
@@ -33,9 +34,11 @@ mkdir -p "$log_dir"
   echo "================================================================"
 } >"$log_file"
 
-if "$@" >>"$log_file" 2>&1; then
+trap 'echo "Stage interrupted: signal TERM/INT" >>"$log_file"; exit 143' TERM INT
+# Stream progress as well as preserving it; pipefail retains the command failure.
+if "$@" 2>&1 | tee -a "$log_file"; then
   echo "OK: ${CATALOG_SOURCE_ID:-unknown}/${CATALOG_BRANCH:-unknown} ${stage} completed in $(( $(date +%s) - started ))s"
-  rm -f "$log_file"
+  echo "Final status: success / elapsed seconds: $(( $(date +%s) - started ))" >>"$log_file"
   exit 0
 fi
 
@@ -46,7 +49,6 @@ fi
   echo "Finished UTC: $(date -u +%Y-%m-%dT%H:%M:%SZ)"
   echo "Final upstream commit: $(git -C "${GITHUB_WORKSPACE:-$PWD}/work/upstream" rev-parse HEAD 2>/dev/null || echo unavailable)"
 } >>"$log_file"
-cp "$log_file" "$log_dir/$log_name"
 echo "::error::${CATALOG_SOURCE_ID:-unknown}/${CATALOG_BRANCH:-unknown} ${stage} failed after $(( $(date +%s) - started ))s; log=${log_name}"
 echo "---- key errors ----"
 grep -Eiv '^fatal: Invalid revision range' "$log_file" |

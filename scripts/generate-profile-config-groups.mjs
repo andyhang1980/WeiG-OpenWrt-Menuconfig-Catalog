@@ -41,13 +41,17 @@ export async function mapConcurrentOrdered(items, worker, concurrency = 1) {
   if (!rows.length) return results;
   const jobs = Math.max(1, Math.min(rows.length, Number(concurrency) || 1));
   let cursor = 0;
+  let failure;
   await Promise.all(Array.from({ length: jobs }, async () => {
-    while (true) {
+    while (!failure) {
       const index = cursor++;
       if (index >= rows.length) return;
-      results[index] = await worker(rows[index], index);
+      try { results[index] = await worker(rows[index], index); }
+      catch (error) { failure ||= error; }
     }
   }));
+  // Drain in-flight writers before callers clean their shared temporary directory.
+  if (failure) throw failure;
   return results;
 }
 
@@ -432,7 +436,7 @@ function targetOverrideSampleIndexes(rows, targetOverrides) {
   return [...firstByTarget.values()];
 }
 
-function makeParityIndexes(rows, aliases = [], overrides = [], targetOverrides = []) {
+export function makeParityIndexes(rows, aliases = [], overrides = [], targetOverrides = []) {
   const count = rows.length;
   if (!count) return [];
   const spread = [0, Math.floor((count - 1) / 4), Math.floor((count - 1) / 2),
@@ -445,8 +449,8 @@ function makeParityIndexes(rows, aliases = [], overrides = [], targetOverrides =
   ])].filter((index) => index >= 0 && index < count).sort((a, b) => a - b);
 }
 
-function verifyMakeDefconfigParity(tree, rows, aliases, overrides, targetOverrides) {
-  const indexes = makeParityIndexes(rows, aliases, overrides, targetOverrides);
+export function verifyMakeDefconfigParity(tree, rows, aliases, overrides, targetOverrides,
+  indexes = makeParityIndexes(rows, aliases, overrides, targetOverrides)) {
   const configPath = join(tree, '.config');
   const oldConfigPath = join(tree, '.config.old');
   const originalConfig = snapshotFile(configPath);
@@ -457,6 +461,8 @@ function verifyMakeDefconfigParity(tree, rows, aliases, overrides, targetOverrid
   try {
     for (const index of indexes) {
       const row = rows[index];
+      const started = Date.now();
+      console.log(`E make defconfig start: ${row.target.id}/${row.profile.id}`);
       writeFileSync(configPath, buildProfileSeed(row.target, row.profile, row.selectors));
       rmSync(oldConfigPath, { force: true });
       execFileSync('make', ['-C', tree, 'defconfig'], {
@@ -468,7 +474,7 @@ function verifyMakeDefconfigParity(tree, rows, aliases, overrides, targetOverrid
         throw new Error(`Native resolver differs from make defconfig for ${row.target.id}/${row.profile.id}: ` +
           JSON.stringify(parity.differences.slice(0, 20)));
       }
-      console.log(`E make defconfig parity: ${row.target.id}/${row.profile.id} OK (${parity.leftHash})`);
+      console.log(`E make defconfig parity: ${row.target.id}/${row.profile.id} OK (${parity.leftHash}) / ${Date.now() - started} ms`);
     }
   } finally {
     restoreFile(configPath, originalConfig);
@@ -477,17 +483,9 @@ function verifyMakeDefconfigParity(tree, rows, aliases, overrides, targetOverrid
   return indexes.length;
 }
 
-async function main() {
-  const args = parseArgs(process.argv.slice(2));
-  for (const key of ['tree', 'source-id', 'branch', 'out']) if (!args[key]) throw new Error(`Missing --${key}`);
-  const started = Date.now();
-  const tree = resolve(args.tree);
-  const outDir = resolve(args.out);
-  const slug = `${safeSlug(args['source-id'])}--${safeSlug(args.branch)}`;
-  const metaPath = join(outDir, `${slug}.meta.json`);
-  if (!existsSync(metaPath)) throw new Error(`missing Catalog meta: ${metaPath}`);
+export function loadNativeProfileEntries(tree, outDir, slug) {
   const visible = visibleProfileKeys(outDir, slug);
-  if (!visible.size) throw new Error(`no verified selectable Profile for ${args['source-id']}/${args.branch}`);
+  if (!visible.size) throw new Error(`no verified selectable Profile for ${slug}`);
 
   const targets = parseInfoRecords(readFileSync(join(tree, 'tmp', '.targetinfo'), 'utf8'));
   const menu = parseKconfigTree(tree);
@@ -497,14 +495,18 @@ async function main() {
     .filter((profile) => visible.has(`${target.id}\0${profile.id}`))
     .map((profile) => ({ target, profile, selectors: resolveTargetSelectors(target, profile, kconfigSymbols) })));
   if (entries.length !== visible.size) throw new Error(`verified Profile identity mismatch: catalog=${visible.size}, targetinfo=${entries.length}`);
+  return entries;
+}
 
+export function prepareNativeProfileResolver(tree) {
   execFileSync('make', ['-C', tree, 'scripts/config/conf'], { stdio: 'inherit' });
   const conf = join(tree, 'scripts', 'config', 'conf');
   if (!existsSync(conf)) throw new Error(`upstream Kconfig resolver is unavailable: ${conf}`);
-  const requestedJobs = normalizeProfileGroupJobs(args.jobs || process.env.PROFILE_GROUP_JOBS);
-  const jobs = Math.max(1, Math.min(entries.length, requestedJobs));
-  console.log(`E Native Profile workers: ${jobs}${jobs === requestedJobs ? '' : ` (requested ${requestedJobs})`}`);
-  const workDir = join(outDir, `.profile-group-work-${process.pid}`);
+}
+
+export async function generateNativeProfileRows(tree, entries, workDir, jobs) {
+  const conf = join(tree, 'scripts', 'config', 'conf');
+  console.log(`E Native Profile workers: ${jobs}`);
   mkdirSync(workDir, { recursive: true });
   try {
     let completed = 0;
@@ -529,52 +531,76 @@ async function main() {
     const nativeProfilesPerSecond = nativeConfigMs > 0 ? (rows.length * 1000) / nativeConfigMs : rows.length;
     console.log(`E Native Profile throughput: ${rows.length} profiles / ${nativeConfigMs} ms / ${nativeProfilesPerSecond.toFixed(2)} profiles/s`);
 
-    let commit = '';
-    try { commit = execFileSync('git', ['-C', tree, 'rev-parse', 'HEAD'], { encoding: 'utf8' }).trim(); } catch {}
-    const rawConfigBytes = rows.reduce((sum, row) => sum + row.rawBytes, 0);
-    const payload = buildProfileGroupDocument(rows, { id: args['source-id'], branch: args.branch, commit }, {
-      rawConfigBytes, concurrency: jobs,
-    });
-    const nativeParitySamples = verifyMakeDefconfigParity(
-      tree, rows, payload.identity.aliases, payload.identity.overrides, payload.identity.targetOverrides,
-    );
-    payload.generatedAt = new Date().toISOString();
-    payload.metrics.nativeParitySamples = nativeParitySamples;
-    payload.metrics.generationMs = Date.now() - started;
-    const meta = JSON.parse(readFileSync(metaPath, 'utf8'));
-    if (meta.buildInputs) {
-      const inputsHash = catalogInputsHash(captureCatalogInputs(tree));
-      if (inputsHash !== meta.source.inputsHash) throw new Error('Profile generation inputs changed after graph generation');
-      payload.source.inputsHash = inputsHash;
-    }
-    const json = JSON.stringify(payload);
-    const compressed = gzipSync(Buffer.from(json), { level: 9 });
-    const asset = `${slug}.profiles.json.gz`;
-    writeFileSync(join(outDir, asset), compressed);
-
-    meta.assets ||= {};
-    meta.assets.profileBaselines = {
-      asset, hash: sha256(compressed), bytes: compressed.byteLength,
-      sha256: sha256(Buffer.from(json)), jsonBytes: Buffer.byteLength(json),
-      schema: payload.schema, encoding: payload.encoding, profiles: payload.profiles.length,
-      configGroups: payload.groups.length, targetIdentityOverrides: payload.identity.targetOverrides.length,
-      identityAliases: payload.identity.aliases.length, identityOverrides: payload.identity.overrides.length,
-      commonSymbols: payload.metrics.commonSymbols, dictionarySymbols: payload.symbols.length,
-    };
-    meta.sizeReport ||= {};
-    meta.sizeReport.profileBaselines = {
-      bytes: compressed.byteLength, jsonBytes: Buffer.byteLength(json), rawConfigBytes,
-      profiles: payload.profiles.length, configGroups: payload.groups.length,
-      averageCompressedBytesPerProfile: payload.profiles.length ? Math.round(compressed.byteLength / payload.profiles.length) : 0,
-    };
-    writeFileSync(metaPath, JSON.stringify(meta, null, 2) + '\n');
-    console.log(`E Profile Config Groups: ${payload.profiles.length} profiles -> ${payload.groups.length} exact groups / ` +
-      `${payload.identity.targetOverrides.length} target identity overrides / ${payload.identity.aliases.length} identity aliases / ` +
-      `${payload.identity.overrides.length} profile identity overrides / ${compressed.byteLength} compressed bytes / ` +
-      `${nativeParitySamples} make defconfig parity samples / ${payload.metrics.generationMs} ms total`);
+    return { rows, nativeConfigMs };
   } finally {
     rmSync(workDir, { recursive: true, force: true });
   }
+}
+
+export function writeProfileGroupAssets(payload, meta, outDir, slug) {
+  const metaPath = join(outDir, `${slug}.meta.json`);
+  const rawConfigBytes = payload.metrics.rawConfigBytes;
+  const json = JSON.stringify(payload);
+  const compressed = gzipSync(Buffer.from(json), { level: 9 });
+  const asset = `${slug}.profiles.json.gz`;
+  writeFileSync(join(outDir, asset), compressed);
+
+  meta.assets ||= {};
+  meta.assets.profileBaselines = {
+    asset, hash: sha256(compressed), bytes: compressed.byteLength,
+    sha256: sha256(Buffer.from(json)), jsonBytes: Buffer.byteLength(json),
+    schema: payload.schema, encoding: payload.encoding, profiles: payload.profiles.length,
+    configGroups: payload.groups.length, targetIdentityOverrides: payload.identity.targetOverrides.length,
+    identityAliases: payload.identity.aliases.length, identityOverrides: payload.identity.overrides.length,
+    commonSymbols: payload.metrics.commonSymbols, dictionarySymbols: payload.symbols.length,
+  };
+  meta.sizeReport ||= {};
+  meta.sizeReport.profileBaselines = {
+    bytes: compressed.byteLength, jsonBytes: Buffer.byteLength(json), rawConfigBytes,
+    profiles: payload.profiles.length, configGroups: payload.groups.length,
+    averageCompressedBytesPerProfile: payload.profiles.length ? Math.round(compressed.byteLength / payload.profiles.length) : 0,
+  };
+  writeFileSync(metaPath, JSON.stringify(meta, null, 2) + '\n');
+  console.log(`E Profile Config Groups: ${payload.profiles.length} profiles -> ${payload.groups.length} exact groups / ` +
+    `${payload.identity.targetOverrides.length} target identity overrides / ${payload.identity.aliases.length} identity aliases / ` +
+    `${payload.identity.overrides.length} profile identity overrides / ${compressed.byteLength} compressed bytes / ` +
+    `${payload.metrics.nativeParitySamples} make defconfig parity samples / ${payload.metrics.generationMs} ms total`);
+}
+
+async function main() {
+  const args = parseArgs(process.argv.slice(2));
+  for (const key of ['tree', 'source-id', 'branch', 'out']) if (!args[key]) throw new Error(`Missing --${key}`);
+  const started = Date.now();
+  const tree = resolve(args.tree);
+  const outDir = resolve(args.out);
+  const slug = `${safeSlug(args['source-id'])}--${safeSlug(args.branch)}`;
+  const metaPath = join(outDir, `${slug}.meta.json`);
+  if (!existsSync(metaPath)) throw new Error(`missing Catalog meta: ${metaPath}`);
+  const entries = loadNativeProfileEntries(tree, outDir, slug);
+  prepareNativeProfileResolver(tree);
+  const jobs = Math.max(1, Math.min(entries.length, normalizeProfileGroupJobs(args.jobs || process.env.PROFILE_GROUP_JOBS)));
+  const { rows, nativeConfigMs } = await generateNativeProfileRows(tree, entries,
+    join(outDir, `.profile-group-work-${process.pid}`), jobs);
+  let commit = '';
+  try { commit = execFileSync('git', ['-C', tree, 'rev-parse', 'HEAD'], { encoding: 'utf8' }).trim(); } catch {}
+  const rawConfigBytes = rows.reduce((sum, row) => sum + row.rawBytes, 0);
+  const payload = buildProfileGroupDocument(rows, { id: args['source-id'], branch: args.branch, commit }, {
+    rawConfigBytes, concurrency: jobs,
+  });
+  const nativeParitySamples = verifyMakeDefconfigParity(
+    tree, rows, payload.identity.aliases, payload.identity.overrides, payload.identity.targetOverrides,
+  );
+  payload.generatedAt = new Date().toISOString();
+  payload.metrics.nativeParitySamples = nativeParitySamples;
+  payload.metrics.generationMs = Date.now() - started;
+  payload.metrics.nativeConfigMs = nativeConfigMs;
+  const meta = JSON.parse(readFileSync(metaPath, 'utf8'));
+  if (meta.buildInputs) {
+    const inputsHash = catalogInputsHash(captureCatalogInputs(tree));
+    if (inputsHash !== meta.source.inputsHash) throw new Error('Profile generation inputs changed after graph generation');
+    payload.source.inputsHash = inputsHash;
+  }
+  writeProfileGroupAssets(payload, meta, outDir, slug);
 }
 
 const invokedDirectly = process.argv[1] && resolve(process.argv[1]) === resolve(fileURLToPath(import.meta.url));

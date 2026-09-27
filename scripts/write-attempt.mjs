@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-import { mkdirSync, writeFileSync } from 'node:fs';
+import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { execFileSync } from 'node:child_process';
 import { resolve } from 'node:path';
 import { safeSlug } from './lib.mjs';
@@ -8,14 +8,22 @@ const required = ['SOURCE_ID', 'SOURCE_LABEL', 'SOURCE_REPO', 'SOURCE_BRANCH', '
 for (const name of required) {
   if (!process.env[name]) throw new Error(`缺少 ${name}`);
 }
-const steps = [
+const prior = process.env.PREVIOUS_ATTEMPT_FILE && existsSync(process.env.PREVIOUS_ATTEMPT_FILE)
+  ? JSON.parse(readFileSync(process.env.PREVIOUS_ATTEMPT_FILE, 'utf8')) : null;
+const currentSteps = [
   ['tools', process.env.TOOLS_OUTCOME],
   ['clone', process.env.CLONE_OUTCOME],
   ['feeds', process.env.FEEDS_OUTCOME],
   ['metadata', process.env.METADATA_OUTCOME],
   ['extract', process.env.EXTRACT_OUTCOME],
   ['kconfig-contract', process.env.KCONFIG_CONTRACT_OUTCOME],
+  ['profile-plan', process.env.PROFILE_PLAN_OUTCOME],
+  ['profile-config-groups', process.env.PROFILE_INLINE_OUTCOME],
+  ['native-input-pack', process.env.PROFILE_PACK_OUTCOME],
 ];
+const outcomes = { ...(prior?.outcomes || {}) };
+for (const [stage, outcome] of currentSteps) if (outcome) outcomes[stage] = outcome;
+const steps = Object.entries(outcomes);
 if (process.env.EXPERIMENT_STAGE && process.env.EXPERIMENT_OUTCOME) {
   steps.push([process.env.EXPERIMENT_STAGE, process.env.EXPERIMENT_OUTCOME]);
 }
@@ -27,7 +35,7 @@ const jobKey = process.env.CATALOG_JOB_KEY ||
 const artifactName = process.env.CATALOG_ARTIFACT_NAME || `catalog-${jobKey}`;
 const orderText = process.env.CATALOG_ORDER || '00';
 const filePrefix = `${orderText}-${jobKey}`;
-let upstreamCommit = '';
+let upstreamCommit = prior?.upstreamCommit || '';
 try {
   upstreamCommit = execFileSync('git', ['-C', resolve('work/upstream'), 'rev-parse', 'HEAD'],
     { encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'] }).trim();
@@ -52,7 +60,7 @@ const attempt = {
     reason: process.env.FEEDS_FAILURE_REASON,
     class: process.env.FEEDS_FAILURE_CLASS || 'feed-fetch-infrastructure',
     feed: process.env.FEEDS_FAILURE_FEED || '',
-  } : null,
+  } : (prior?.feedFailure || null),
   attemptedAt: new Date().toISOString(),
   runUrl: process.env.RUN_URL,
   run: {

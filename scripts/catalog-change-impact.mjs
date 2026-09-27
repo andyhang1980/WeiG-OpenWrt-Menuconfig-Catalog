@@ -47,6 +47,8 @@ const REGISTRY = Object.freeze({
     'scripts/source-policy.mjs',
   ]),
   none: Object.freeze([
+    '.github/workflows/catalog-branch.yml',
+    'scripts/profile-config-pipeline.mjs',
     '.github/workflows/catalog-production.yml',
     '.github/workflows/package-probe.yml',
     '.github/workflows/catalog-reuse.yml',
@@ -132,6 +134,7 @@ function normalizePath(path) {
 }
 
 const MANAGED_WORKFLOWS = new Set([
+  '.github/workflows/catalog-branch.yml',
   '.github/workflows/catalog-production.yml',
   '.github/workflows/package-probe.yml',
   '.github/workflows/catalog-reuse.yml',

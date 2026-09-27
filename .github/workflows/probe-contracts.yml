@@ -13,6 +13,11 @@ on:
       - "scripts/check-profile-config-contract.mjs"
       - "scripts/benchmark-profile-config-groups.mjs"
       - "scripts/generate-profile-config-groups.mjs"
+      - "scripts/profile-config-pipeline.mjs"
+      - "scripts/run-stage.sh"
+      - "scripts/write-attempt.mjs"
+      - "tests/check-profile-config-pipeline.mjs"
+      - ".github/workflows/catalog-branch.yml"
       - "scripts/check-profile-config-groups.mjs"
       - "scripts/check-public-terminology.mjs"
       - "scripts/catalog-size-report.mjs"
@@ -56,6 +61,11 @@ on:
       - "scripts/check-profile-config-contract.mjs"
       - "scripts/benchmark-profile-config-groups.mjs"
       - "scripts/generate-profile-config-groups.mjs"
+      - "scripts/profile-config-pipeline.mjs"
+      - "scripts/run-stage.sh"
+      - "scripts/write-attempt.mjs"
+      - "tests/check-profile-config-pipeline.mjs"
+      - ".github/workflows/catalog-branch.yml"
       - "scripts/check-profile-config-groups.mjs"
       - "scripts/check-public-terminology.mjs"
       - "scripts/catalog-size-report.mjs"
@@ -115,6 +125,7 @@ jobs:
           KCONFIG_NATIVE_TEST_TREE="$tree" node tests/check-native-kconfig-preprocess.mjs
           KCONFIG_NATIVE_TEST_TREE="$tree" node tests/check-package-metadata-parity.mjs
           KCONFIG_NATIVE_TEST_TREE="$tree" node tests/check-compact-relations.mjs
+          KCONFIG_NATIVE_TEST_TREE="$tree" node tests/check-profile-config-pipeline.mjs
       - name: Test legacy literal strings and help with upstream parser
         shell: bash
         run: |
