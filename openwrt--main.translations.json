@@ -4,7 +4,7 @@
     "id": "OpenWrt",
     "branch": "main"
   },
-  "generatedAt": "2026-09-27T00:55:49.501Z",
+  "generatedAt": "2026-09-28T01:13:53.300Z",
   "languages": [
     "en",
     "zh-CN",
@@ -18,7 +18,7 @@
     "fr",
     "vi"
   ],
-  "options": 11258,
+  "options": 11261,
   "translatedZhCN": 121,
   "missingZhCN": [
     {
@@ -16025,6 +16025,14 @@
       ]
     },
     {
+      "symbol": "PACKAGE_ipq-wifi-tplink_eap650-outdoor-v1",
+      "promptEn": "board-2.bin Overrides for TP-Link EAP650-Outdoor v1",
+      "path": [
+        "Firmware",
+        "ath10k Board-Specific Overrides"
+      ]
+    },
+    {
       "symbol": "PACKAGE_ipq-wifi-tplink_eap660hd-v1",
       "promptEn": "board-2.bin Overrides for TP-Link EAP660 HD v1",
       "path": [
@@ -20984,6 +20992,14 @@
       ]
     },
     {
+      "symbol": "PACKAGE_kmod-uhid",
+      "promptEn": "User-space HID device support",
+      "path": [
+        "Kernel modules",
+        "Input modules"
+      ]
+    },
+    {
       "symbol": "PACKAGE_kmod-input-leds",
       "promptEn": "Input device LED support",
       "path": [
@@ -25242,6 +25258,14 @@
     {
       "symbol": "PACKAGE_kmod-button-hotplug",
       "promptEn": "Button Hotplug driver",
+      "path": [
+        "Kernel modules",
+        "Other modules"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_kmod-clk-hog",
+      "promptEn": "GPCLK clock output support (clk-hog)",
       "path": [
         "Kernel modules",
         "Other modules"
