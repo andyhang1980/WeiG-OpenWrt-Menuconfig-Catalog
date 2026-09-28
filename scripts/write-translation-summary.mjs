@@ -1,7 +1,13 @@
 #!/usr/bin/env node
-import { readFileSync } from 'node:fs';
+import { existsSync, readFileSync } from 'node:fs';
 
-const summary = JSON.parse(readFileSync(process.argv[2] || 'dist/translation-summary.json', 'utf8'));
+const file = process.argv[2] || 'dist/translation-summary.json';
+const summary = existsSync(file) ? JSON.parse(readFileSync(file, 'utf8')) : null;
+if (!summary || summary.status === 'running') {
+  console.log('## Translation incomplete');
+  console.log('No completed summary. Inspect the first failing translation step; no successful publication is claimed.');
+  process.exit(0);
+}
 console.log('## Translation progress');
 console.log(`- Engine: \`${summary.provider}\` / model: \`${summary.model || '-'}\``);
 console.log(`- Language: \`${summary.activeLanguage}\``);

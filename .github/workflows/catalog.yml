@@ -9,7 +9,8 @@ on:
         required: false
         default: ""
   schedule:
-    - cron: "17 19 * * 6"
+    # Monthly: day 2 at 03:17 UTC+8. Manual and data-input pushes remain available.
+    - cron: "17 19 1 * *"
   push:
     branches: ["fix-*"]
     # Only inputs that can change browser/build runtime Catalog data start this heavy workflow.

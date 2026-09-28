@@ -10,6 +10,15 @@ It is a recommendation preference, not a dependency, lock, or executable action:
 the shared Kconfig planner must still simulate and validate the repair. It never
 disables packages merely because they exist in the Catalog.
 
+For `all-installed`/`all-enabled`, every participant must exist and satisfy the
+mode. `packageAvailability: "if-present"` skips the whole rule if any participant
+is absent; it never drops a conjunct. A preferred participant that cannot be
+disabled safely leaves the recommendation unavailable with an explanation,
+rather than silently recommending another participant. For OWN-0002, only the
+installed `autosamba` + `luci-app-samba4` pair matches; the preferred removal is
+`autosamba`. Either package alone, or a module not installed in RootFS, does not
+meet the file-ownership condition.
+
 The index advertises `compatibility.v6.json.gz` to schema-6 consumers. The existing
 `compatibility.json.gz` remains a schema-5 projection without `preferredDisable`,
 so old readers keep the same evidence and applicability boundaries. Preventive

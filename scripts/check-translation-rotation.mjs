@@ -142,7 +142,8 @@ try {
     child.once('exit', (code) => { clearTimeout(fallbackCancel); resolve(code); });
   });
   assert.notEqual(cancelled, 0);
-  assert.equal(existsSync(join(cancelDist, 'translation-summary.json')), false);
+  assert.equal(JSON.parse(readFileSync(join(cancelDist, 'translation-summary.json'), 'utf8')).status, 'running',
+    'an interrupted batch must retain an incomplete receipt, never a completed report');
   console.log('translation rotation checks passed: zh-CN usage -> ru -> es; push uses cache only');
 } finally {
   server.close();

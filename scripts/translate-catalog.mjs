@@ -51,7 +51,13 @@ cache.entries ||= {}; state.rotationIndex = Number(state.rotationIndex || 0) % r
 const hash = (kind, text) => createHash('sha256').update(`${kind}\0${text}`).digest('hex');
 const clean = (map, english) => Object.fromEntries(languages.map((lang) => [lang, String(map?.[lang] || '').trim()]).filter(([, text]) => text && text !== english));
 const fallback = (row) => row.symbol?.startsWith('PACKAGE_') ? `${row.promptEn || row.prompt || row.symbol} package for OpenWrt firmware.` : `OpenWrt configuration option: ${row.promptEn || row.prompt || row.symbol}.`;
-const usage = [], seen = new Set(), catalogs = [];
+// Keep only file descriptors across passes. A full Catalog includes the
+// dependency graph, which must not stay resident while translating other branches.
+const usage = [], seen = new Set();
+const summaryFile = join(distDir, 'translation-summary.json');
+writeFileSync(summaryFile, JSON.stringify({ status: 'running', provider, activeLanguage: requestedLanguage,
+  batchNumber, batchCount, warning: 'Translation did not complete; inspect the first failing process log.' }) + '\n');
+const catalogs = indexedTranslationCatalogs(readTranslationIndex(distDir), distDir);
 const register = (kind, english, manual = {}) => {
   const text = String(english || '').trim(); if (!text) return {};
   const id = hash(kind, text), saved = cache.entries[id] || {};
@@ -62,14 +68,11 @@ const register = (kind, english, manual = {}) => {
   if (kind === 'usage' && !seen.has(id)) { seen.add(id); usage.push(id); }
   return translations;
 };
-for (const entry of indexedTranslationCatalogs(readTranslationIndex(distDir), distDir)) {
-  const { file, name } = entry;
-  const originalText = gunzipSync(readFileSync(file)).toString('utf8');
-  const catalog = JSON.parse(originalText);
+for (const { file } of catalogs) {
+  const catalog = JSON.parse(gunzipSync(readFileSync(file)).toString('utf8'));
   for (const row of catalog.menu?.options || []) { row.usageEn ||= fallback(row); row.promptI18n = register('title', row.promptEn || row.prompt || row.symbol, row.promptI18n); row.usageI18n = register('usage', row.usageEn, row.usageI18n); }
   for (const row of Object.values(catalog.menu?.labels || {})) { row.i18n = register('title', row.en, { ...row.i18n, 'zh-CN': row.zhCN || row.i18n?.['zh-CN'] }); row.usageI18n = register('usage', row.usageEn, { ...row.usageI18n, 'zh-CN': row.usageZh || row.usageI18n?.['zh-CN'] }); }
   for (const row of catalog.menu?.choices || []) { row.promptI18n = register('title', row.promptEn || row.prompt, { ...row.promptI18n, 'zh-CN': row.promptZh || row.promptI18n?.['zh-CN'] }); row.usageI18n = register('usage', row.usageEn, { ...row.usageI18n, 'zh-CN': row.usageZh || row.usageI18n?.['zh-CN'] }); }
-  catalogs.push({ entry, file, name, catalog, originalText });
 }
 const missing = (lang) => usage.filter((id) => !cache.entries[id]?.translations?.[lang]);
 const zhBefore = missing('zh-CN').length;
@@ -132,7 +135,11 @@ let localizedFields = 0, pendingFields = 0;
 const localizedByLanguage = Object.fromEntries(languages.map((lang) => [lang, 0]));
 const pendingByLanguage = Object.fromEntries(languages.map((lang) => [lang, 0]));
 const count = (translations) => languages.forEach((lang) => translations[lang] ? localizedByLanguage[lang]++ : pendingByLanguage[lang]++);
-for (const { entry, file, catalog, originalText } of catalogs) {
+for (const entry of catalogs) {
+  const { file } = entry;
+  const originalText = gunzipSync(readFileSync(file)).toString('utf8');
+  const catalog = JSON.parse(originalText);
+  for (const row of catalog.menu?.options || []) row.usageEn ||= fallback(row);
   for (const row of catalog.menu?.options || []) for (const [kind, english] of [['title', row.promptEn || row.prompt || row.symbol], ['usage', row.usageEn]]) { const translations = clean(cache.entries[hash(kind, String(english || '').trim())]?.translations, english); if (kind === 'title') row.promptI18n = translations; else row.usageI18n = translations; localizedFields += Object.keys(translations).length; pendingFields += languages.filter((lang) => !translations[lang]).length; count(translations); }
   for (const row of Object.values(catalog.menu?.labels || {})) { row.i18n = clean(cache.entries[hash('title', String(row.en || '').trim())]?.translations, row.en); row.usageI18n = clean(cache.entries[hash('usage', String(row.usageEn || '').trim())]?.translations, row.usageEn); count(row.i18n); count(row.usageI18n); }
   for (const row of catalog.menu?.choices || []) { const title = row.promptEn || row.prompt; row.promptI18n = clean(cache.entries[hash('title', String(title || '').trim())]?.translations, title); row.usageI18n = clean(cache.entries[hash('usage', String(row.usageEn || '').trim())]?.translations, row.usageEn); count(row.promptI18n); count(row.usageI18n); }
@@ -146,7 +153,7 @@ for (const { entry, file, catalog, originalText } of catalogs) {
 cache.schema = 2; cache.updatedAt = new Date().toISOString();
 writeFileSync(join(distDir, 'i18n-cache.json'), JSON.stringify(cache) + '\n'); writeFileSync(join(distDir, 'translation-state.json'), JSON.stringify(state, null, 2) + '\n');
 const summary = { generatedAt: cache.updatedAt, catalogs: catalogs.length, cachedTexts: Object.keys(cache.entries).length, trigger, phase: state.phase, activeLanguage, nextLanguage, rotationLanguages, frozenLanguages, batchNumber, batchCount, queuedThisRun: pending.length, retryQueuedAfter: retryQueue.languages?.[activeLanguage]?.length || 0, batchLimit: maxItems, queuedCharacters: chars, requestedCharactersThisRun: requestedCharacters, runCharacterBudget: provider === 'azure' ? runBudget : null, translatedThisRun: translated, targetPendingBefore: candidates.length, targetPendingAfter: missing(activeLanguage).length, localizedFields, pendingFields, localizedByLanguage, pendingByLanguage, uniqueDescriptionPendingByLanguage: Object.fromEntries(languages.map((lang) => [lang, missing(lang).length])), provider, providerConfigured: provider === 'argos' ? !fatalError : provider === 'azure' ? Boolean(azureKey) : true, translationEnabled: enabled, model, rejected, timedOut, apiError: fatalMessage, warning };
-writeFileSync(join(distDir, 'translation-summary.json'), JSON.stringify(summary, null, 2) + '\n');
+writeFileSync(summaryFile, JSON.stringify({ ...summary, status: fatalError ? 'failed' : 'completed' }, null, 2) + '\n');
 for (const { name } of catalogs) { const reportFile = join(distDir, name.replace(/\.json\.gz$/, '.translations.json')); const report = existsSync(reportFile) ? JSON.parse(readFileSync(reportFile, 'utf8')) : {}; report.languages = ['en', ...languages]; report.automation = summary; writeFileSync(reportFile, JSON.stringify(report, null, 2) + '\n'); }
 console.log(`translations: catalogs=${catalogs.length} cache=${Object.keys(cache.entries).length} provider=${provider} active=${activeLanguage} translated=${translated} next=${nextLanguage}${warning ? ` warning=${warning}` : ''}`);
 if (enabled && fatalError) process.exitCode = 1;

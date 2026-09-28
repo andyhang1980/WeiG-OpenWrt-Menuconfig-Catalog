@@ -16,7 +16,9 @@ const tree = join(output, 'tree');
 
 try {
   mkdirSync(join(tree, 'tmp'), { recursive: true });
-  copyFileSync(join(fixture, 'Config.in'), join(tree, 'Config.in'));
+  writeFileSync(join(tree, 'Config.in'), readFileSync(join(fixture, 'Config.in'), 'utf8') +
+    '\nconfig PACKAGE_luci-app-demo_INCLUDE_payload\n\tbool "Optional data"\n' +
+    '\nconfig PACKAGE_luci-app-symbol-only\n\ttristate "Not an installable package"\n');
   copyFileSync(join(fixture, 'targetinfo'), join(tree, 'tmp', '.targetinfo'));
   copyFileSync(join(fixture, 'packageinfo'), join(tree, 'tmp', '.packageinfo'));
   const git = (cwd, ...args) => execFileSync('git', ['-C', cwd, ...args], { encoding: 'utf8', stdio: ['ignore', 'pipe', 'pipe'] }).trim();
@@ -66,6 +68,9 @@ try {
 
   assert.deepEqual(core.applications.fields, ['symbol', 'package', 'group', 'hot']);
   assert(core.applications.rows.some((row) => row[0] === 'PACKAGE_luci-app-demo' && row[1] === 'luci-app-demo'));
+  assert(!core.applications.rows.some((row) => /INCLUDE_payload|symbol-only/.test(row[0])),
+    'Kconfig suboptions must not become application packages');
+  assert(!sizes.rows.some((row) => /INCLUDE_payload|symbol-only/.test(row[0])));
   assert.equal(core.applications.rows.some((row) => row[1] === 'luci-app-packageinfo-only'), false,
     'packageinfo-only metadata must not become a selectable branch application');
   assert.deepEqual(sizes.fields, ['package', 'archiveBytes', 'installedBytes']);

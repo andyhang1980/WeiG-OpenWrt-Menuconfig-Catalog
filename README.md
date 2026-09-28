@@ -96,7 +96,7 @@ JavaScript 中写死分支、Target 或菜单项目。
 - Every generation writes a `*.translations.json` coverage report.
 - Catalog schema 6 splits each branch into `core`, `graph`, optional `graphCompact`, `menu`, `hidden`, `help`, and per-language menu gzip assets. The published index records every shard's compressed byte count, SHA-256, and immutable `assetRef` Git commit. New consumers initially fetch `core + graphCompact` when advertised; old consumers continue using `core + graph`. Advanced menu text and long help are loaded on demand. The schema-5 monolithic gzip remains temporarily as a compatibility fallback. A corrupt advertised compact asset is an error, not permission to silently mix assets from another snapshot.
 - Confirmed facts that upstream Kconfig cannot express live in the small global `compatibility.json`; it references package IDs only and never duplicates symbols, states, names, dependencies, or hashes. See [中文规则说明](docs/COMPATIBILITY.md) and [English rules](docs/COMPATIBILITY.en.md).
-- The daily translation workflow reads branch assets from `index.json`, reuses `i18n-cache.json`, and translates only new or changed descriptions.
+- The daily translation workflow reads branch assets from `index.json`, reuses `i18n-cache.json`, and translates only new or changed descriptions. It reads and releases one legacy branch bundle at a time, then applies translations branch by branch; it never retains all parsed graphs in memory. An early run receipt distinguishes an interrupted job from a completed translation report.
   Argos runs locally by default without a key; Azure is an explicit optional engine. Successful
   translations are published even when a batch is incomplete; remaining descriptions are kept in
   `translation-retry-queue.json` and retried first on the next run. A translation job is limited to
@@ -115,7 +115,7 @@ JavaScript 中写死分支、Target 或菜单项目。
   自动与手动任务默认 `500×5` 批；手动任务可选择代码分支与 `catalog-data/catalog-dev/catalog-staging/catalog-fix` 数据通道，并可设置每批
   `100–5000` 条、`1–20` 批，但单次总数最多 5000 条。任务上限 60 分钟，全部批次共享
   50 分钟翻译预算；默认 `each-batch`，每个成功批次立即提交。`final` 可改为最后统一提交。
-  取消、零结果或校验/发布失败不会提交当前批次；每周更新仍按文本指纹跳过未变化内容。
+  取消、零结果或校验/发布失败不会提交当前批次；更新仍按文本指纹跳过未变化内容。旧单体按分支依次读取、释放和写回，不同时驻留所有关系图；预先写入运行回执，避免中断后把缺少最终报告误报为另一故障。
 
 Refresh the curated application union manually after reviewing upstream application IDs and Chinese/English descriptions:
 
@@ -127,9 +127,23 @@ node scripts/collect-curated-size-samples.mjs size-samples
 npm run refresh:sizes -- --samples size-samples --write
 ```
 
-The refresh tool verifies every selected menu shard from the chosen Catalog data channel and merges application IDs across all available Source/Branch entries by default. It is report-only unless `--write` is explicit, so weekly Source/Branch discovery cannot silently change UI IDs or translations. `--source` and `--branch` accept an exact ID/name or `*`. Official OPKG/APK index observations update `curated-sizes.json`, and the published `applications.json.gz` joins curated IDs, descriptions, optional size bytes, and the translated in-page Probe UI. Probe package choices still come from the current Catalog/Kconfig menu state; the same asset supplies the seven depth titles and explanations from L1 config resolution through L7 reboot validation.
+The refresh tool verifies every selected menu shard from the chosen Catalog data channel and merges application IDs across all available Source/Branch entries by default. It is report-only unless `--write` is explicit, so monthly Source/Branch discovery cannot silently change UI IDs or translations. `--source` and `--branch` accept an exact ID/name or `*`. Official OPKG/APK index observations update `curated-sizes.json`, and the published `applications.json.gz` joins curated IDs, descriptions, optional size bytes, and the translated in-page Probe UI. Probe package choices still come from the current Catalog/Kconfig menu state; the same asset supplies the seven depth titles and explanations from L1 config resolution through L7 reboot validation.
 
 `curatedGroups` is the ordered group authority. Published applications keep only groups used by at least one curated application; refresh prunes empty groups, and validation rejects empty or duplicate groups. Group changes belong in `catalog.config.json` and refresh metadata, never in AutoBuild package-name conditions.
+
+The selectable branch application projection is the intersection of native LuCI
+Kconfig options and the branch's concrete `.packageinfo` package index. A
+`PACKAGE_luci-app-*` configuration suboption is not an application or a package
+size record. Shared descriptions/groups supplement this projection; they do not
+make a package available in another Source/Branch/Target. The full menu and typed
+relations remain available to Advanced menuconfig.
+
+Package-size observations come from matching binary package indexes, not source
+file byte counts. Consumers must match Source/Branch/commit and architecture,
+distinguish archive bytes from installed bytes, and count only installed (`y`)
+concrete packages for RootFS. Missing upstream observations stay unknown;
+cross-source/architecture numbers must not be substituted. Installed size sums
+are advisory and do not predict compressed firmware size.
 
 `curatedGroups` 是分组顺序的权威数据。公开应用只保留至少含一个精选应用的分组；刷新工具自动清理空分组，校验器拒绝空分组和重复分组。分组调整必须同步维护 `catalog.config.json` 与刷新元数据，禁止在 AutoBuild 按软件包名特判。
 
@@ -183,7 +197,7 @@ npm run size-report -- dist
 
 ## 自动更新
 
-`.github/workflows/catalog.yml` 每周按 include/exclude pattern 自动发现远程分支；OpenWrt 覆盖 `main` 与 `openwrt-*`，ImmortalWrt 与 LEDE 覆盖 `master` 与 `openwrt-*`，未来版本无需人工加表；
+`.github/workflows/catalog.yml` 每月按 include/exclude pattern 自动发现远程分支（UTC 每月 1 日 19:17，即 UTC+8 每月 2 日 03:17）；手动与数据输入变更触发保留。OpenWrt 覆盖 `main` 与 `openwrt-*`，ImmortalWrt 与 LEDE 覆盖 `master` 与 `openwrt-*`，未来版本无需人工加表；
 hanwckf 仍只收录 `openwrt-21.02` 兼容分支。每个分支独立生成，
 失败时沿用同一通道的上一次成功数据。`main` 发布到 `catalog-data`，`staging` 发布到
 `catalog-staging`，`dev` 发布到 `catalog-dev`，`fix/*` 发布到 `catalog-fix`；每次先提交数据，

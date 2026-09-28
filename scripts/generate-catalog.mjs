@@ -156,12 +156,13 @@ if (curatedCandidates.some((candidate) => !candidate || typeof candidate !== 'ob
   throw new Error('catalog.config.json curatedApplications must use {id, packages:[luci-app-*],group} objects');
 }
 const packageSymbols = new Set(allMenuOptions
-  .filter((option) => option.symbol.startsWith('PACKAGE_'))
+  .filter((option) => option.symbol.startsWith('PACKAGE_') && packageByName.has(option.symbol.slice('PACKAGE_'.length)))
   .map((option) => option.symbol.slice('PACKAGE_'.length)));
 const curatedByPackage = new Map(curatedCandidates.flatMap((candidate) =>
   (candidate.packages || []).map((packageName) => [packageName, candidate])));
 const luciApplicationOptions = allMenuOptions.filter((option) =>
-  /^PACKAGE_luci-app-[A-Za-z0-9_.+@-]+$/.test(String(option.symbol || '')))
+  /^PACKAGE_luci-app-[A-Za-z0-9_.+@-]+$/.test(String(option.symbol || '')) &&
+  packageSymbols.has(option.symbol.slice('PACKAGE_'.length)))
   .sort((a, b) => a.symbol.localeCompare(b.symbol));
 const applicationRows = luciApplicationOptions.map((option) => {
   const packageName = option.symbol.slice('PACKAGE_'.length);

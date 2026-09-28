@@ -8,6 +8,12 @@
 不是依赖、锁定或可执行指令；共享 Kconfig planner 仍须模拟并验证合法修改，
 不能因为包存在于 Catalog 就自动取消。
 
+`all-installed` / `all-enabled` 必须所有参与包均存在且满足状态条件；
+`packageAvailability: "if-present"` 在缺少任一参与包时跳过整条规则，不删除条件项。
+首选参与包无法安全取消时，说明推荐不可用的原因，不自动转而取消另一参与包。
+OWN-0002 只在 `autosamba` 与 `luci-app-samba4` 都安装时命中，优先取消 `autosamba`；
+任一个单独存在，或仅编译为模块而不安装到 RootFS，都不满足此文件冲突条件。
+
 index 向新消费者公布 `compatibility.v6.json.gz`；原有 `compatibility.json.gz`
 保留不含 `preferredDisable` 的 schema-5 投影，旧消费者继续使用相同证据与适用范围。
 预防策略适用于多个源，不代表这些源均已实测失败。
