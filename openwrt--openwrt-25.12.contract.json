@@ -1,0 +1,85 @@
+{
+  "schema": 1,
+  "source": {
+    "id": "OpenWrt",
+    "label": "OpenWrt",
+    "repo": "openwrt/openwrt",
+    "branch": "openwrt-25.12",
+    "commit": "7673104ad53dd0095ec54ecce47f0f5758991f5e",
+    "legacy": false,
+    "inputsHash": "9fec9b8b582eef177814a1943090c3c37778d31019ed56126c635fa76b1991c7"
+  },
+  "generatedAt": "2026-09-28T01:13:51.566Z",
+  "summary": {
+    "targets": 150,
+    "selectableTargets": 102,
+    "unavailableTargets": 6,
+    "abstractTargets": 42
+  },
+  "unavailable": [
+    {
+      "target": "bmips",
+      "board": "bmips",
+      "subtarget": "",
+      "profiles": 1,
+      "missing": [
+        "Kconfig-selector"
+      ]
+    },
+    {
+      "target": "imx",
+      "board": "imx",
+      "subtarget": "",
+      "profiles": 1,
+      "missing": [
+        "Target-Arch",
+        "Target-Arch-Packages"
+      ]
+    },
+    {
+      "target": "omap",
+      "board": "omap",
+      "subtarget": "",
+      "profiles": 1,
+      "missing": [
+        "Kconfig-selector"
+      ]
+    },
+    {
+      "target": "pistachio",
+      "board": "pistachio",
+      "subtarget": "",
+      "profiles": 1,
+      "missing": [
+        "Kconfig-selector"
+      ]
+    },
+    {
+      "target": "realtek",
+      "board": "realtek",
+      "subtarget": "",
+      "profiles": 1,
+      "missing": [
+        "Kconfig-selector"
+      ]
+    },
+    {
+      "target": "sunxi",
+      "board": "sunxi",
+      "subtarget": "",
+      "profiles": 1,
+      "missing": [
+        "Kconfig-selector"
+      ]
+    }
+  ],
+  "kconfigProbe": {
+    "schema": 1,
+    "mode": "target-chain-and-representative-profile",
+    "generatedAt": "2026-09-28T01:15:21.343Z",
+    "targets": 102,
+    "passed": 102,
+    "passedScope": "target chain plus one representative profile; all siblings remain hidden on failure",
+    "quarantined": []
+  }
+}

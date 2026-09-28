@@ -1,0 +1,102 @@
+{
+  "schema": 1,
+  "source": {
+    "id": "lede",
+    "label": "Lean LEDE",
+    "repo": "coolsnowwolf/lede",
+    "branch": "master",
+    "commit": "6248ca158b90d640ece2c1a56c392cb0c430b665",
+    "legacy": false,
+    "inputsHash": "bcbe2fefae1112f41799d64b022e1f3b4096263943429f08dd733720ae6bded8"
+  },
+  "generatedAt": "2026-09-28T01:13:40.344Z",
+  "summary": {
+    "targets": 167,
+    "selectableTargets": 114,
+    "unavailableTargets": 8,
+    "abstractTargets": 45
+  },
+  "unavailable": [
+    {
+      "target": "bcm63xx",
+      "board": "bcm63xx",
+      "subtarget": "",
+      "profiles": 1,
+      "missing": [
+        "Kconfig-selector"
+      ]
+    },
+    {
+      "target": "bmips",
+      "board": "bmips",
+      "subtarget": "",
+      "profiles": 1,
+      "missing": [
+        "Kconfig-selector"
+      ]
+    },
+    {
+      "target": "imx",
+      "board": "imx",
+      "subtarget": "",
+      "profiles": 1,
+      "missing": [
+        "Kconfig-selector"
+      ]
+    },
+    {
+      "target": "mxs",
+      "board": "mxs",
+      "subtarget": "",
+      "profiles": 3,
+      "missing": [
+        "Kconfig-selector"
+      ]
+    },
+    {
+      "target": "omap",
+      "board": "omap",
+      "subtarget": "",
+      "profiles": 1,
+      "missing": [
+        "Kconfig-selector"
+      ]
+    },
+    {
+      "target": "pistachio",
+      "board": "pistachio",
+      "subtarget": "",
+      "profiles": 1,
+      "missing": [
+        "Kconfig-selector"
+      ]
+    },
+    {
+      "target": "realtek",
+      "board": "realtek",
+      "subtarget": "",
+      "profiles": 1,
+      "missing": [
+        "Kconfig-selector"
+      ]
+    },
+    {
+      "target": "sunxi",
+      "board": "sunxi",
+      "subtarget": "",
+      "profiles": 1,
+      "missing": [
+        "Kconfig-selector"
+      ]
+    }
+  ],
+  "kconfigProbe": {
+    "schema": 1,
+    "mode": "target-chain-and-representative-profile",
+    "generatedAt": "2026-09-28T01:15:16.422Z",
+    "targets": 114,
+    "passed": 114,
+    "passedScope": "target chain plus one representative profile; all siblings remain hidden on failure",
+    "quarantined": []
+  }
+}

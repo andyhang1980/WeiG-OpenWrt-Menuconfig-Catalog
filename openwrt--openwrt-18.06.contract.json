@@ -1,0 +1,58 @@
+{
+  "schema": 1,
+  "source": {
+    "id": "OpenWrt",
+    "label": "OpenWrt",
+    "repo": "openwrt/openwrt",
+    "branch": "openwrt-18.06",
+    "commit": "9f2a40c72fdb0b9b077bf5b4b01aa17eac4bfb45",
+    "legacy": false,
+    "inputsHash": "134aa4a122199ec3f5113dc82e5c708c2eb5c851b3842a5f5c7808669d6d5b8f"
+  },
+  "generatedAt": "2026-09-28T01:12:20.061Z",
+  "summary": {
+    "targets": 98,
+    "selectableTargets": 64,
+    "unavailableTargets": 3,
+    "abstractTargets": 31
+  },
+  "unavailable": [
+    {
+      "target": "brcm63xx",
+      "board": "brcm63xx",
+      "subtarget": "",
+      "profiles": 1,
+      "missing": [
+        "Kconfig-selector"
+      ]
+    },
+    {
+      "target": "mvebu",
+      "board": "mvebu",
+      "subtarget": "",
+      "profiles": 1,
+      "missing": [
+        "Target-Arch",
+        "Target-Arch-Packages"
+      ]
+    },
+    {
+      "target": "sunxi",
+      "board": "sunxi",
+      "subtarget": "",
+      "profiles": 1,
+      "missing": [
+        "Kconfig-selector"
+      ]
+    }
+  ],
+  "kconfigProbe": {
+    "schema": 1,
+    "mode": "target-chain-and-representative-profile",
+    "generatedAt": "2026-09-28T01:13:08.514Z",
+    "targets": 64,
+    "passed": 64,
+    "passedScope": "target chain plus one representative profile; all siblings remain hidden on failure",
+    "quarantined": []
+  }
+}
