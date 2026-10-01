@@ -2,6 +2,45 @@
   "schema": 6,
   "rules": [
     {
+      "id": "OWN-0003",
+      "issue": "file-ownership",
+      "match": "all-installed",
+      "policy": "preventive",
+      "environments": [
+        { "source": "lede", "branch": "*", "packageAvailability": "if-present", "targetScope": {} },
+        { "source": "ImmortalWrt", "branch": "*", "packageAvailability": "if-present", "targetScope": {} },
+        { "source": "hanwckf", "branch": "*", "packageAvailability": "if-present", "targetScope": {} }
+      ],
+      "packages": ["luci-app-pppoe-server", "rp-pppoe-server"],
+      "preferredDisable": ["rp-pppoe-server"],
+      "paths": ["/etc/init.d/pppoe-server"],
+      "evidence": [
+        {
+          "source": "ImmortalWrt", "branch": "openwrt-25.12",
+          "sourceCommit": "37013c8153ac6c9e11f4f9210d22832beb3bcb64",
+          "targetScope": { "system": ["x86"], "subtarget": ["64"] },
+          "refs": ["run:36820672168", "feed:luci:d6167ea0645cbd1327708d85f94824f42d0eb872", "feed:packages:84bd86384928955b568988ca0e09e2c78c75173d"]
+        }
+      ]
+    },
+    {
+      "id": "BLD-0006",
+      "issue": "build-failure",
+      "match": "all-selected",
+      "scope": { "lede": ["master"] },
+      "sourceCommits": ["6248ca158b90d640ece2c1a56c392cb0c430b665"],
+      "targetScope": { "system": ["x86"], "subtarget": ["64"] },
+      "if": "LINUX_6_18",
+      "packages": ["kmod-oaf"],
+      "buildDependency": { "package": "kmod-oaf" },
+      "refs": ["run:36820724589", "feed:packages:d376de0bb5b05ccf1cb51cabdb1687726cfa6aad", "feed:luci:7494809a0bf0493a67f9e92823a4716b1b5e797e", "upstream:open-app-filter:a9e4637b5806b62f0e98fa6273384f849e93ae9a"],
+      "failure": {
+        "phase": "package-compile", "cause": "package-caused",
+        "code": "kernel-timer-api-missing",
+        "observed": { "kernelVersion": "6.18.54", "missingFunction": "del_timer_sync" }
+      }
+    },
+    {
       "id": "OWN-0002",
       "issue": "file-ownership",
       "match": "all-installed",

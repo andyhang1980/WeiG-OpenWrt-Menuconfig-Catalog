@@ -26,8 +26,6 @@ export function buildCuratedApplications(root) {
   if (!Number.isInteger(defaultLimit) || !Number.isInteger(maxLimit) || defaultLimit < 1 || defaultLimit > maxLimit) {
     throw new Error('automation-policy.json requires probe.coverage defaultLimit/maxLimit');
   }
-  const sizes = readJson(join(root, 'curated-sizes.json'));
-  const sizeMap = sizes.bytes || {};
   const items = (config.curatedApplications || []).map((row) => {
     const packageName = row.packages?.[0] || '';
     const translation = translations.entries?.[`PACKAGE_${packageName}`] || {};
@@ -42,16 +40,12 @@ export function buildCuratedApplications(root) {
       usageZh: translation.usageZh || '',
       titleI18n: translation.titleI18n || {},
       usageI18n: translation.usageI18n || {},
-      ...(Number.isSafeInteger(sizeMap[packageName]) && sizeMap[packageName] >= 0
-        ? { sizeBytes: sizeMap[packageName] } : {}),
     };
   });
   return {
     schema: 1,
     groups: activeCuratedGroups(config.curatedGroups, items),
     probeUi: { ...probeUi, coverage: { defaultLimit, maxLimit } },
-    sizeMetric: sizes.metric,
-    sizeGeneratedAt: sizes.generatedAt,
     items,
   };
 }

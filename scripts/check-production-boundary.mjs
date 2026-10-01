@@ -21,7 +21,6 @@ const production = workflows.get(productionName) || '';
 const catalog = workflows.get('catalog.yml') || '';
 const reuse = workflows.get('catalog-reuse.yml') || '';
 const translation = workflows.get('translate.yml') || '';
-const sizes = workflows.get('curated-sizes.yml') || '';
 const failures = [];
 const channelContracts = [
   [buildDataBranchForCodeRef('main'), 'catalog-candidate', 'build main'],
@@ -129,9 +128,7 @@ forbidText(translation, 'catalog-main', 'translation must not write or select pr
 forbidText(translation, 'data_channel:', 'translation must not expose a free data-channel selector');
 forbidText(translation, 'code_channel:', 'translation must not expose a free code-channel selector');
 
-requireText(sizes, 'ref: dev', 'curated size automation must check out dev');
-requireText(sizes, 'git push origin HEAD:dev', 'curated size automation must write dev');
-forbidText(sizes, 'HEAD:$GITHUB_REF_NAME', 'curated size automation must not write the triggering code ref');
+if (workflows.has('curated-sizes.yml')) failures.push('retired cross-sample size automation returned');
 
 const scan = [
   ...[...workflows].map(([name, text]) => [`.github/workflows/${name}`, text]),

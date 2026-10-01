@@ -79,6 +79,7 @@ jobs:
           node scripts/collect-curated-size-samples.mjs work/size-samples \
             --source "${{ fromJSON(inputs.branch).source }}" \
             --branch "${{ fromJSON(inputs.branch).branch }}" \
+            --tree work/upstream \
             --output-file work/package-size-sample.json
       - name: Extract catalog
         id: extract

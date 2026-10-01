@@ -289,6 +289,7 @@ export function parsePackageInfo(text) {
     }
     if (!item) continue;
     if (key === 'Title') item.title = value;
+    else if (key === 'Version') item.version = value;
     else if (key === 'Description') {
       item.description = value;
       if (sourceMakefile) multiline = key;

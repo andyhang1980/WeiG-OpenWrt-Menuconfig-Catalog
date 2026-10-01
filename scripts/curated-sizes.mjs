@@ -22,6 +22,7 @@ export function parseOpkgPackages(text) {
     return name && Number.isSafeInteger(size) && size >= 0
       ? {
         name,
+        version: fields.Version || '',
         size,
         installedSize: Number.isSafeInteger(installedSize) && installedSize >= 0 ? installedSize : 0,
         depends: dependencyNames(fields.Depends),
@@ -41,44 +42,11 @@ export function parseApkDump(value) {
     return name && Number.isSafeInteger(size) && size >= 0
       ? {
         name,
+        version: String(info.version || info.pkgver || ''),
         size,
         installedSize: Number.isSafeInteger(installedSize) && installedSize >= 0 ? installedSize : 0,
         depends: dependencyNames(info.depends || info.dependencies || []),
       }
       : null;
   }).filter(Boolean);
-}
-
-export function dependencyClosureBytes(packageName, packages) {
-  const byName = packages instanceof Map ? packages : new Map(packages.map((row) => [row.name, row]));
-  const seen = new Set();
-  const visit = (name) => {
-    if (seen.has(name)) return 0;
-    seen.add(name);
-    const row = byName.get(name);
-    if (!row) return 0;
-    return Number(row.size || 0) + (row.depends || []).reduce((total, dependency) => total + visit(dependency), 0);
-  };
-  return visit(packageName);
-}
-
-export function aggregateCuratedSizes(packageNames, samples) {
-  const bytes = {};
-  const coverage = {};
-  for (const packageName of packageNames) {
-    const observations = [];
-    for (const sample of samples) {
-      const packages = Array.isArray(sample.packages) ? sample.packages : [];
-      if (!packages.some((row) => row.name === packageName)) continue;
-      observations.push({
-        source: sample.source || '', branch: sample.branch || '', architecture: sample.architecture || '',
-        bytes: dependencyClosureBytes(packageName, packages),
-      });
-    }
-    if (observations.length) {
-      bytes[packageName] = Math.max(...observations.map((row) => row.bytes));
-      coverage[packageName] = observations;
-    }
-  }
-  return { bytes, coverage };
 }

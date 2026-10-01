@@ -5,8 +5,7 @@
     {
       "id": "OpenWrt",
       "branch": "main",
-      "architecture": "aarch64_cortex-a53",
-      "baseUrl": "https://downloads.openwrt.org/snapshots/packages/aarch64_cortex-a53",
+      "baseUrl": "https://downloads.openwrt.org/snapshots/packages/{architecture}",
       "feeds": [
         "base",
         "packages",
@@ -19,8 +18,7 @@
     {
       "id": "ImmortalWrt",
       "branch": "master",
-      "architecture": "aarch64_cortex-a53",
-      "baseUrl": "https://downloads.immortalwrt.org/snapshots/packages/aarch64_cortex-a53",
+      "baseUrl": "https://downloads.immortalwrt.org/snapshots/packages/{architecture}",
       "feeds": [
         "base",
         "packages",
@@ -29,6 +27,16 @@
         "telephony"
       ],
       "format": "apk"
+    },
+    {
+      "id": "OpenWrt", "branch": "openwrt-*", "branchPrefix": "openwrt-",
+      "baseUrl": "https://downloads.openwrt.org/releases/packages-{version}/{architecture}",
+      "feeds": ["base", "packages", "luci", "routing", "telephony"], "format": "auto"
+    },
+    {
+      "id": "ImmortalWrt", "branch": "openwrt-*", "branchPrefix": "openwrt-",
+      "baseUrl": "https://downloads.immortalwrt.org/releases/packages-{version}/{architecture}",
+      "feeds": ["base", "packages", "luci", "routing", "telephony"], "format": "auto"
     }
   ],
   "sources": [

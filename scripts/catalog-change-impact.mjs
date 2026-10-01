@@ -10,11 +10,13 @@ const GIT_SHA_RE = /^[0-9a-f]{40}$/i;
 const PROMOTION_ONLY_PUSH_REFS = new Set(['dev', 'staging', 'main']);
 const RETIRED_PATHS = new Map([
   ['scripts/run-boot-smoke.sh', 'none'],
+  ['curated-sizes.json', 'applications'],
+  ['scripts/refresh-curated-sizes.mjs', 'none'],
+  ['.github/workflows/curated-sizes.yml', 'none'],
 ]);
 
 const REGISTRY = Object.freeze({
   applications: Object.freeze([
-    'curated-sizes.json',
     'translations/probe-ui.json',
     'scripts/curated-applications.mjs',
   ]),
@@ -32,6 +34,7 @@ const REGISTRY = Object.freeze({
     'scripts/relation-table-codec.mjs',
     'scripts/catalog-size-report.mjs',
     'scripts/collect-curated-size-samples.mjs',
+    'scripts/curated-sizes.mjs',
     'scripts/discover.mjs',
     'scripts/generate-catalog.mjs',
     'scripts/catalog-inputs.mjs',
@@ -87,7 +90,6 @@ const REGISTRY = Object.freeze({
     'scripts/check-translation-plan.mjs',
     'scripts/check-translation-rotation.mjs',
     'scripts/check.mjs',
-    'scripts/curated-sizes.mjs',
     'scripts/import-curated-i18n.mjs',
     'scripts/install-probe-dependencies.sh',
     'scripts/setup-probe-runtime.sh',
@@ -98,7 +100,6 @@ const REGISTRY = Object.freeze({
     'scripts/package-probe-virtual.mjs',
     'scripts/publish-release.sh',
     'scripts/refresh-curated-applications.mjs',
-    'scripts/refresh-curated-sizes.mjs',
     'scripts/requirements-argos.txt',
     'scripts/resolve-translation-provider.mjs',
     'scripts/run-package-probe.mjs',

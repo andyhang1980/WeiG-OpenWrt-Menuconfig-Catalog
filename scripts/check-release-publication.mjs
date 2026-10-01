@@ -12,7 +12,6 @@ const catalog = readFileSync(resolve(ROOT, '.github', 'workflows', 'catalog.yml'
 for (const needle of [
   '- "catalog.config.json"',
   '- "compatibility.json"',
-  '- "curated-sizes.json"',
   '- "translations/menu-i18n.json"',
   '- "translations/zh-CN.json"',
   '- "translations/probe-ui.json"',

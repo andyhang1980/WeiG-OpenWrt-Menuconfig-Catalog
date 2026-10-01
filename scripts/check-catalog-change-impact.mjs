@@ -175,7 +175,8 @@ assert.match(catalogWorkflow, /needs\.mode\.outputs\.mode == 'full'/, 'heavy dis
 for (const required of [
   'scripts/generate-catalog.mjs', 'scripts/generate-profile-config-groups.mjs',
   'scripts/profile-config-contract.mjs', 'scripts/build-index.mjs', 'catalog.config.json',
-  'translations/menu-i18n.json', 'translations/zh-CN.json', 'compatibility.json', 'curated-sizes.json',
+  'translations/menu-i18n.json', 'translations/zh-CN.json', 'compatibility.json',
+  'scripts/curated-sizes.mjs', 'scripts/collect-curated-size-samples.mjs',
 ]) {
   assert(catalogWorkflow.includes(`- "${required}"`), `Catalog runtime input missing from push.paths: ${required}`);
 }

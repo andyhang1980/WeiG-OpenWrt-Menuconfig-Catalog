@@ -59,7 +59,7 @@ try {
   if (index.assets?.compatibility?.asset !== 'compatibility.json.gz' ||
       !/^[a-f0-9]{64}$/.test(index.assets.compatibility.hash) ||
       index.assets.compatibility.bytes <= 0 || index.assets.compatibility.schema !== 5 ||
-      index.assets.compatibility.rules !== 6 || index.assets.compatibility.jsonBytes <= 0 ||
+      index.assets.compatibility.rules !== 8 || index.assets.compatibility.jsonBytes <= 0 ||
       index.assets.compatibility.jsonBytes > 512 * 1024) {
     throw new Error('global compatibility asset contract missing');
   }
@@ -100,7 +100,7 @@ try {
   if (JSON.stringify(fast.sources) !== JSON.stringify(index.sources) ||
       JSON.stringify(fast.health) !== JSON.stringify(index.health) ||
       fast.generatedAt !== index.generatedAt || fast.assets.compatibility.schema !== 5 ||
-      fast.assets.compatibility.rules !== 6 || fast.assets.compatibilityV6?.schema !== 6) {
+      fast.assets.compatibility.rules !== 8 || fast.assets.compatibilityV6?.schema !== 6) {
     throw new Error('compatibility-only publish changed non-compatibility Catalog data');
   }
   const firstFast = readFileSync(fastOut, 'utf8');

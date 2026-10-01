@@ -4,12 +4,11 @@
   "license": "GPL-3.0-or-later",
   "type": "module",
   "scripts": {
-    "pretest": "node tests/check-native-kconfig-preprocess.mjs && node tests/check-package-metadata-parity.mjs && node --max-old-space-size=64 tests/check-catalog-json-size.mjs",
+    "pretest": "node tests/check-native-kconfig-preprocess.mjs && node tests/check-package-metadata-parity.mjs && node --max-old-space-size=64 tests/check-catalog-json-size.mjs && node tests/check-package-size-collection.mjs",
     "check": "node scripts/check.mjs",
     "discover": "node scripts/discover.mjs",
     "refresh:curated": "node scripts/refresh-curated-applications.mjs",
     "refresh:applications": "node scripts/refresh-curated-applications.mjs",
-    "refresh:sizes": "node scripts/refresh-curated-sizes.mjs",
     "import-i18n": "node scripts/import-curated-i18n.mjs",
     "translate": "node scripts/translate-catalog.mjs",
     "test": "node scripts/check-public-terminology.mjs && node scripts/check.mjs && node tests/check-compact-relations.mjs && node scripts/check-branch-assets.mjs && node scripts/check-profile-config-contract.mjs && node scripts/check-profile-wire-format-benchmark.mjs && node scripts/benchmark-profile-config-groups.mjs --self-test && node scripts/check-profile-config-groups.mjs && node tests/check-profile-config-pipeline.mjs && node scripts/check-catalog-change-impact.mjs && node scripts/check-index.mjs && node scripts/check-index-assets.mjs && node scripts/check-collector.mjs && node scripts/check-translation-plan.mjs && node scripts/check-translation-rotation.mjs && node scripts/check-package-probe.mjs && node scripts/check-package-probe-evidence.mjs && node scripts/check-package-probe-virtual.mjs && node scripts/check-package-probe-runner.mjs && node tests/probe-feed-failover.mjs && node scripts/check-probe-authorization.mjs && node scripts/check-translation-assets.mjs && node scripts/check-legacy-metadata.mjs && node scripts/check-catalog-snapshot.mjs && node scripts/check-production-promotion.mjs && node scripts/check-production-boundary.mjs && node scripts/check-release-publication.mjs",

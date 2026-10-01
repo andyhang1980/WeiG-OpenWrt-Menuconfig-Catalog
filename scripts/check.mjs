@@ -34,7 +34,7 @@ import { buildCatalogSizeReport } from './catalog-size-report.mjs';
 import { applicableBuildDependencies, normalizeCompatibilityDocument } from './compatibility-rules.mjs';
 import { buildProbeConfig, verifyProbeConfig } from './verify-target-contracts.mjs';
 import { activeCuratedGroups, buildCuratedApplications } from './curated-applications.mjs';
-import { aggregateCuratedSizes, parseApkDump, parseOpkgPackages } from './curated-sizes.mjs';
+import { parseApkDump, parseOpkgPackages } from './curated-sizes.mjs';
 import { sourceAllowsBranch } from './source-policy.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
@@ -668,9 +668,6 @@ const apk = parseApkDump({ packages: [
 ] });
 assert.equal(opkg[0].installedSize, 250);
 assert.equal(apk[0].installedSize, 280);
-const sizes = aggregateCuratedSizes(['luci-app-demo'], [{ source: 'opkg', packages: opkg }, { source: 'apk', packages: apk }]);
-assert.equal(sizes.bytes['luci-app-demo'], 150);
-assert.equal(sizes.coverage['luci-app-demo']?.length, 2);
 const sizeRows = buildCatalogSizeReport([{ source: { id: 'fixture', branch: 'test', commit: 'a'.repeat(40) },
   sizeReport: { legacy: { bytes: 1000 }, split: { initialBytes: 300, bytes: 700 }, readableRelationsJsonBytes: 10000, compactRelationsJsonBytes: 2500 } }]);
 assert.equal(sizeRows[0].initialReductionPercent, 70);
@@ -679,7 +676,7 @@ assert.equal(sizeRows[0].relationsReductionPercent, 75);
 // Compatibility v5 separates a global preventive applicability policy from exact evidence.
 const normalizedCompatibility = normalizeCompatibilityDocument(compatibility, policy);
 assert.equal(normalizedCompatibility.schema, 6);
-assert.equal(normalizedCompatibility.rules.length, 6);
+assert.equal(normalizedCompatibility.rules.length, 8);
 assert.equal(normalizedCompatibility.rules.find(rule => rule.id === 'OWN-0001')?.issue, 'file-ownership');
 const preferredOwnershipRule = normalizedCompatibility.rules.find(rule => rule.id === 'OWN-0002');
 assert.deepEqual(preferredOwnershipRule.preferredDisable, ['autosamba']);
@@ -706,7 +703,19 @@ assert.deepEqual(applicableBuildDependencies(normalizedCompatibility, {
 assert.deepEqual(applicableBuildDependencies(normalizedCompatibility, {
   source: 'OpenWrt', branch: 'main', availablePackages: [],
 }).packages, [], 'if-present rules must skip unavailable failed packages');
-assert.equal(normalizedCompatibility.rules.find((rule) => rule.id === 'BLD-0004'), undefined);
+const pppoeRule = normalizedCompatibility.rules.find((rule) => rule.id === 'OWN-0003');
+assert.deepEqual(pppoeRule.packages, ['luci-app-pppoe-server', 'rp-pppoe-server']);
+assert.deepEqual(pppoeRule.preferredDisable, ['rp-pppoe-server']);
+assert.equal(pppoeRule.match, 'all-installed');
+assert.deepEqual(pppoeRule.environments.map(row => row.source), ['lede', 'ImmortalWrt', 'hanwckf']);
+assert(pppoeRule.environments.every(row => row.branch === '*' && row.packageAvailability === 'if-present'));
+assert.equal(normalizedCompatibility.rules.find((rule) => rule.id === 'BLD-0004'), undefined,
+  'retired rule IDs must not be recycled for another failure');
+const oafRule = normalizedCompatibility.rules.find((rule) => rule.id === 'BLD-0006');
+assert.deepEqual(oafRule.packages, ['kmod-oaf']);
+assert.deepEqual(oafRule.buildDependency, { package: 'kmod-oaf' });
+assert.deepEqual(oafRule.sourceCommits, ['6248ca158b90d640ece2c1a56c392cb0c430b665']);
+assert.equal(oafRule.if, 'LINUX_6_18');
 assert.equal(normalizedCompatibility.rules.find((rule) => rule.id === 'BLD-0005')?.failure?.phase,
   'rootfs-install');
 assert.equal(dockerdRule.buildDependency.triggerPackages, undefined);
