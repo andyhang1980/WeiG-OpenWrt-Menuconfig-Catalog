@@ -18,6 +18,10 @@ index 向新消费者公布 `compatibility.v6.json.gz`；原有 `compatibility.j
 保留不含 `preferredDisable` 的 schema-5 投影，旧消费者继续使用相同证据与适用范围。
 预防策略适用于多个源，不代表这些源均已实测失败。
 
+OWN-0003 在 `luci-app-pppoe-server` 与 `rp-pppoe-server` 均安装时优先取消后者；预防范围为 LEDE、ImmortalWrt、hanwckf 各分支中两包均存在的环境。`luci-app-rp-pppoe-server` 是另一应用，它为 N 不代表前者为 N。共享 planner 可以先取消真实选择者以达到首选目标 N，等价动作去重保留所有 `resolvedPackages`。
+
+BLD-0006 记录 LEDE/master 精确源码提交 `6248ca158b90d640ece2c1a56c392cb0c430b665`、x86/64、Linux 6.18 的 `kmod-oaf` 编译失败。`appfilter` 与内核包共用 Source-Makefile，不能只关闭一个输出而留下同源活动编译入口；触发者由图动态推导。其它源/版本不外推此临时规则；退休的 BLD-0004 不复用。
+
 ## Schema 5
 
 读取端继续兼容 schema 2、3、4 和 5。文档仍只有 `schema` 和 `rules`。schema 4 增加的 `sourceCommits`、`targetScope`、`failure` 和 `buildDependency` 继续保持原义；schema 5 另外允许经明确审核的全局预防规则：

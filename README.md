@@ -123,11 +123,9 @@ Refresh the curated application union manually after reviewing upstream applicat
 npm run refresh:applications -- --channel dev
 # Review diagnostics/curated-applications-refresh.json, then deliberately write:
 npm run refresh:applications -- --channel dev --write
-node scripts/collect-curated-size-samples.mjs size-samples
-npm run refresh:sizes -- --samples size-samples --write
 ```
 
-The refresh tool verifies every selected menu shard from the chosen Catalog data channel and merges application IDs across all available Source/Branch entries by default. It is report-only unless `--write` is explicit, so monthly Source/Branch discovery cannot silently change UI IDs or translations. `--source` and `--branch` accept an exact ID/name or `*`. Official OPKG/APK index observations update `curated-sizes.json`, and the published `applications.json.gz` joins curated IDs, descriptions, optional size bytes, and the translated in-page Probe UI. Probe package choices still come from the current Catalog/Kconfig menu state; the same asset supplies the seven depth titles and explanations from L1 config resolution through L7 reboot validation.
+The refresh tool verifies menu shards and merges shared application descriptions across Source/Branch entries. It is report-only unless `--write` is explicit; `--source` and `--branch` accept exact IDs/names or `*`. `applications.json.gz` supplies descriptions/groups and translated Probe UI, not package availability or aggregate sizes. Official OPKG/APK indexes feed branch size assets during generation. The obsolete `curated-sizes.json`, aggregate refresh script and weekly size workflow are retired. Probe package choices come from current Catalog/Kconfig state.
 
 `curatedGroups` is the ordered group authority. Published applications keep only groups used by at least one curated application; refresh prunes empty groups, and validation rejects empty or duplicate groups. Group changes belong in `catalog.config.json` and refresh metadata, never in AutoBuild package-name conditions.
 
@@ -138,12 +136,16 @@ size record. Shared descriptions/groups supplement this projection; they do not
 make a package available in another Source/Branch/Target. The full menu and typed
 relations remain available to Advanced menuconfig.
 
-Package-size observations come from matching binary package indexes, not source
-file byte counts. Consumers must match Source/Branch/commit and architecture,
-distinguish archive bytes from installed bytes, and count only installed (`y`)
-concrete packages for RootFS. Missing upstream observations stay unknown;
-cross-source/architecture numbers must not be substituted. Installed size sums
-are advisory and do not predict compressed firmware size.
+Package-size observations come from official binary indexes, not source file
+bytes. The OPKG/APK collector intersects official architectures with native
+Targets and admits only exact native package versions. Each architecture has an
+independent positional gzip asset advertised as `packageSizes:<arch>`; the
+default `packageSizes` contract remains readable. Collection uses a bounded
+deadline and four architecture workers; unavailable coverage does not block
+generation. Consumers match Source/Branch/commit/architecture and distinguish
+archive from installed bytes. Count only final-Y concrete packages. Missing
+observations are unknown, never zero. Capacity percentages require complete
+installed-size coverage; they do not predict compressed firmware size.
 
 `curatedGroups` 是分组顺序的权威数据。公开应用只保留至少含一个精选应用的分组；刷新工具自动清理空分组，校验器拒绝空分组和重复分组。分组调整必须同步维护 `catalog.config.json` 与刷新元数据，禁止在 AutoBuild 按软件包名特判。
 

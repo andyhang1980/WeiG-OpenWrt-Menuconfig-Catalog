@@ -24,6 +24,10 @@ The index advertises `compatibility.v6.json.gz` to schema-6 consumers. The exist
 so old readers keep the same evidence and applicability boundaries. Preventive
 scope is not proof that every Source/Branch was observed failing.
 
+OWN-0003 applies when both `luci-app-pppoe-server` and `rp-pppoe-server` are installed, preferring removal of the latter. Reviewed preventive scope covers LEDE, ImmortalWrt and hanwckf branches containing both packages. `luci-app-rp-pppoe-server` is a different application: its N state says nothing about the former. The shared planner may disable the actual selecting root first; equivalent-plan deduplication retains all `resolvedPackages` identities.
+
+BLD-0006 records the `kmod-oaf` compile failure at LEDE/master source `6248ca158b90d640ece2c1a56c392cb0c430b665`, x86/64, Linux 6.18. `appfilter` shares its Source-Makefile: disabling one output must not leave an active same-source compile root. Trigger roots are derived from the graph, not a static list. Other versions/sources are not covered by this temporary rule; retired BLD-0004 is not reused.
+
 ## Schema 5
 
 Readers remain compatible with schemas 2, 3, 4 and 5. The document still has only `schema` and `rules`. Schema 4 retains the existing meanings of `sourceCommits`, `targetScope`, `failure`, and `buildDependency`; schema 5 additionally permits explicitly reviewed global preventive rules:
