@@ -5,11 +5,11 @@
     "label": "Lean LEDE",
     "repo": "coolsnowwolf/lede",
     "branch": "master",
-    "commit": "6248ca158b90d640ece2c1a56c392cb0c430b665",
+    "commit": "bfec801a42f344bb7566d1f4f8960fb0cdb08350",
     "legacy": false,
-    "inputsHash": "bcbe2fefae1112f41799d64b022e1f3b4096263943429f08dd733720ae6bded8"
+    "inputsHash": "48f0a54576fbc02676e65e5cdee30f63192b25a169e3fbf7dc3e24f27ad31ec4"
   },
-  "generatedAt": "2026-09-28T01:13:40.344Z",
+  "generatedAt": "2026-10-01T13:33:03.186Z",
   "summary": {
     "targets": 167,
     "selectableTargets": 114,
@@ -93,7 +93,7 @@
   "kconfigProbe": {
     "schema": 1,
     "mode": "target-chain-and-representative-profile",
-    "generatedAt": "2026-09-28T01:15:16.422Z",
+    "generatedAt": "2026-10-01T13:34:38.287Z",
     "targets": 114,
     "passed": 114,
     "passedScope": "target chain plus one representative profile; all siblings remain hidden on failure",

@@ -4,7 +4,7 @@
     "id": "lede",
     "branch": "master"
   },
-  "generatedAt": "2026-09-28T01:13:47.107Z",
+  "generatedAt": "2026-10-01T13:33:09.804Z",
   "languages": [
     "en",
     "zh-CN",
@@ -18,7 +18,7 @@
     "fr",
     "vi"
   ],
-  "options": 11310,
+  "options": 11327,
   "translatedZhCN": 198,
   "missingZhCN": [
     {
@@ -998,6 +998,14 @@
     {
       "symbol": "KERNEL_BPF_EVENTS",
       "promptEn": "Compile the kernel with BPF event support",
+      "path": [
+        "Global build settings",
+        "Kernel build options"
+      ]
+    },
+    {
+      "symbol": "KERNEL_BPF_STREAM_PARSER",
+      "promptEn": "Enable BPF stream parser support",
       "path": [
         "Global build settings",
         "Kernel build options"
@@ -18376,6 +18384,13 @@
       "path": [
         "Fonts",
         "DejaVu"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_vmlinux-btf",
+      "promptEn": "Kernel vmlinux.btf for CO-RE compatibility",
+      "path": [
+        "Kernel"
       ]
     },
     {
@@ -52050,6 +52065,33 @@
       ]
     },
     {
+      "symbol": "PACKAGE_luci-app-passwall_Iptables_Transparent_Proxy",
+      "promptEn": "Iptables Transparent Proxy",
+      "path": [
+        "LuCI",
+        "3. Applications",
+        "Configuration"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-app-passwall_Nftables_Transparent_Proxy",
+      "promptEn": "Nftables Transparent Proxy",
+      "path": [
+        "LuCI",
+        "3. Applications",
+        "Configuration"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-app-passwall_INCLUDE_Geoview",
+      "promptEn": "Include Geoview",
+      "path": [
+        "LuCI",
+        "3. Applications",
+        "Configuration"
+      ]
+    },
+    {
       "symbol": "PACKAGE_luci-app-passwall_INCLUDE_Haproxy",
       "promptEn": "Include Haproxy",
       "path": [
@@ -52095,6 +52137,24 @@
       ]
     },
     {
+      "symbol": "PACKAGE_luci-app-passwall_INCLUDE_ShadowsocksR_Libev_Client",
+      "promptEn": "Include ShadowsocksR Libev Client",
+      "path": [
+        "LuCI",
+        "3. Applications",
+        "Configuration"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-app-passwall_INCLUDE_ShadowsocksR_Libev_Server",
+      "promptEn": "Include ShadowsocksR Libev Server",
+      "path": [
+        "LuCI",
+        "3. Applications",
+        "Configuration"
+      ]
+    },
+    {
       "symbol": "PACKAGE_luci-app-passwall_INCLUDE_Shadow_TLS",
       "promptEn": "Include Shadow-TLS",
       "path": [
@@ -52131,15 +52191,6 @@
       ]
     },
     {
-      "symbol": "PACKAGE_luci-app-passwall_INCLUDE_V2ray_Geoview",
-      "promptEn": "Include V2ray_Geoview",
-      "path": [
-        "LuCI",
-        "3. Applications",
-        "Configuration"
-      ]
-    },
-    {
       "symbol": "PACKAGE_luci-app-passwall_INCLUDE_V2ray_Plugin",
       "promptEn": "Include V2ray-Plugin (Shadowsocks Plugin)",
       "path": [
@@ -52160,6 +52211,122 @@
     {
       "symbol": "PACKAGE_luci-app-passwall_INCLUDE_Xray_Plugin",
       "promptEn": "Include Xray-Plugin (Shadowsocks Plugin)",
+      "path": [
+        "LuCI",
+        "3. Applications",
+        "Configuration"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-app-passwall2",
+      "promptEn": "LuCI support for PassWall 2",
+      "path": [
+        "LuCI",
+        "3. Applications"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-app-passwall2_Basic_Core_Xray",
+      "promptEn": "Xray",
+      "path": [
+        "LuCI",
+        "3. Applications",
+        "Configuration"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-app-passwall2_Basic_Core_SingBox",
+      "promptEn": "SingBox",
+      "path": [
+        "LuCI",
+        "3. Applications",
+        "Configuration"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-app-passwall2_Basic_Core_All",
+      "promptEn": "All",
+      "path": [
+        "LuCI",
+        "3. Applications",
+        "Configuration"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-app-passwall2_Iptables_Transparent_Proxy",
+      "promptEn": "Iptables Transparent Proxy",
+      "path": [
+        "LuCI",
+        "3. Applications",
+        "Configuration"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-app-passwall2_Nftables_Transparent_Proxy",
+      "promptEn": "Nftables Transparent Proxy",
+      "path": [
+        "LuCI",
+        "3. Applications",
+        "Configuration"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-app-passwall2_INCLUDE_Haproxy",
+      "promptEn": "Include Haproxy",
+      "path": [
+        "LuCI",
+        "3. Applications",
+        "Configuration"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-app-passwall2_INCLUDE_Shadowsocks_Rust_Client",
+      "promptEn": "Include Shadowsocks Rust Client",
+      "path": [
+        "LuCI",
+        "3. Applications",
+        "Configuration"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-app-passwall2_INCLUDE_Shadowsocks_Rust_Server",
+      "promptEn": "Include Shadowsocks Rust Server",
+      "path": [
+        "LuCI",
+        "3. Applications",
+        "Configuration"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-app-passwall2_INCLUDE_ShadowsocksR_Libev_Client",
+      "promptEn": "Include ShadowsocksR Libev Client",
+      "path": [
+        "LuCI",
+        "3. Applications",
+        "Configuration"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-app-passwall2_INCLUDE_ShadowsocksR_Libev_Server",
+      "promptEn": "Include ShadowsocksR Libev Server",
+      "path": [
+        "LuCI",
+        "3. Applications",
+        "Configuration"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-app-passwall2_INCLUDE_Simple_Obfs",
+      "promptEn": "Include Simple-Obfs (Shadowsocks Plugin)",
+      "path": [
+        "LuCI",
+        "3. Applications",
+        "Configuration"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-app-passwall2_INCLUDE_V2ray_Plugin",
+      "promptEn": "Include V2ray-Plugin (Shadowsocks Plugin)",
       "path": [
         "LuCI",
         "3. Applications",
@@ -55107,14 +55274,6 @@
       ]
     },
     {
-      "symbol": "PACKAGE_iptables-mod-extra",
-      "promptEn": "Other extra iptables extensions",
-      "path": [
-        "Network",
-        "Firewall"
-      ]
-    },
-    {
       "symbol": "PACKAGE_iptables-mod-filter",
       "promptEn": "Content inspection extensions",
       "path": [
@@ -55349,14 +55508,6 @@
     {
       "symbol": "PACKAGE_iptables-mod-tee",
       "promptEn": "TEE iptables extensions",
-      "path": [
-        "Network",
-        "Firewall"
-      ]
-    },
-    {
-      "symbol": "PACKAGE_iptables-mod-tproxy",
-      "promptEn": "Transparent proxy iptables extensions",
       "path": [
         "Network",
         "Firewall"
@@ -72635,13 +72786,6 @@
       ]
     },
     {
-      "symbol": "PACKAGE_ipset",
-      "promptEn": "IPset administration utility",
-      "path": [
-        "Network"
-      ]
-    },
-    {
       "symbol": "PACKAGE_ipset-dns",
       "promptEn": "A lightweight DNS forwarder to populate ipsets",
       "path": [
@@ -80743,6 +80887,13 @@
       ]
     },
     {
+      "symbol": "PACKAGE_geo2txt",
+      "promptEn": "V2ray geosite & geoip unpacking CLI tool",
+      "path": [
+        "Utilities"
+      ]
+    },
+    {
       "symbol": "PACKAGE_getopt",
       "promptEn": "parse command options (enhanced)",
       "path": [
@@ -85929,6 +86080,7 @@
     "openwisp",
     "ath10k Board-Specific Overrides",
     "DejaVu",
+    "Kernel",
     "Block Devices",
     "Bluetooth Support",
     "CAN Support",
@@ -86319,67 +86471,67 @@
     },
     {
       "id": "choice-63",
-      "promptEn": "Transparent Proxy Backend"
+      "promptEn": "Basic Core"
     },
     {
       "id": "choice-64",
-      "promptEn": "Shadowsocks Client Selection"
+      "promptEn": "Transparent Proxy Backend"
     },
     {
       "id": "choice-65",
-      "promptEn": "Shadowsocks Server Selection"
+      "promptEn": "Shadowsocks Client Selection"
     },
     {
       "id": "choice-66",
-      "promptEn": "V2ray-core Selection"
+      "promptEn": "Shadowsocks Server Selection"
     },
     {
       "id": "choice-67",
-      "promptEn": "FastPath Engine"
+      "promptEn": "V2ray-core Selection"
     },
     {
       "id": "choice-68",
-      "promptEn": "TLS Provider"
+      "promptEn": "FastPath Engine"
     },
     {
       "id": "choice-69",
-      "promptEn": "Regular Expression"
+      "promptEn": "TLS Provider"
     },
     {
       "id": "choice-70",
-      "promptEn": "SSL library"
+      "promptEn": "Regular Expression"
     },
     {
       "id": "choice-71",
-      "promptEn": "SSL Library"
+      "promptEn": "SSL library"
     },
     {
       "id": "choice-72",
-      "promptEn": "Crypto Library"
+      "promptEn": "SSL Library"
     },
     {
       "id": "choice-73",
-      "promptEn": "XML Library"
+      "promptEn": "Crypto Library"
     },
     {
       "id": "choice-74",
-      "promptEn": "SSL library"
+      "promptEn": "XML Library"
     },
     {
       "id": "choice-75",
-      "promptEn": "Selected SSL library"
+      "promptEn": "SSL library"
     },
     {
       "id": "choice-76",
-      "promptEn": "Selected SSL MD5 library"
+      "promptEn": "Selected SSL library"
     },
     {
       "id": "choice-77",
-      "promptEn": "Enable SNMP support"
+      "promptEn": "Selected SSL MD5 library"
     },
     {
       "id": "choice-78",
-      "promptEn": "SSL library"
+      "promptEn": "Enable SNMP support"
     },
     {
       "id": "choice-79",
@@ -86387,18 +86539,22 @@
     },
     {
       "id": "choice-80",
-      "promptEn": "Choose SSL Library"
+      "promptEn": "SSL library"
     },
     {
       "id": "choice-81",
-      "promptEn": "Select SSL library"
+      "promptEn": "Choose SSL Library"
     },
     {
       "id": "choice-82",
-      "promptEn": "Select command-line editing support"
+      "promptEn": "Select SSL library"
     },
     {
       "id": "choice-83",
+      "promptEn": "Select command-line editing support"
+    },
+    {
+      "id": "choice-84",
       "promptEn": "stack tracing support"
     }
   ]

@@ -4,7 +4,7 @@
     "id": "ImmortalWrt",
     "branch": "master"
   },
-  "generatedAt": "2026-09-28T01:13:56.307Z",
+  "generatedAt": "2026-10-01T13:34:06.819Z",
   "languages": [
     "en",
     "zh-CN",
@@ -18,7 +18,7 @@
     "fr",
     "vi"
   ],
-  "options": 11755,
+  "options": 11756,
   "translatedZhCN": 184,
   "missingZhCN": [
     {
@@ -15626,6 +15626,14 @@
       ]
     },
     {
+      "symbol": "PACKAGE_ipq-wifi-glinet_gl-x2000",
+      "promptEn": "board-2.bin Overrides for GL.iNet GL-X2000",
+      "path": [
+        "Firmware",
+        "ath10k Board-Specific Overrides"
+      ]
+    },
+    {
       "symbol": "PACKAGE_ipq-wifi-huawei_ap4050dn",
       "promptEn": "board-2.bin Overrides for Huawei AP4050DN",
       "path": [
@@ -16084,6 +16092,14 @@
     {
       "symbol": "PACKAGE_ipq-wifi-tplink_eap625-outdoor-hd-v1",
       "promptEn": "board-2.bin Overrides for TP-Link EAP625-Outdoor HD v1",
+      "path": [
+        "Firmware",
+        "ath10k Board-Specific Overrides"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_ipq-wifi-tplink_eap650-outdoor-v1",
+      "promptEn": "board-2.bin Overrides for TP-Link EAP650-Outdoor v1",
       "path": [
         "Firmware",
         "ath10k Board-Specific Overrides"
@@ -17830,7 +17846,7 @@
     },
     {
       "symbol": "PACKAGE_rtl8261c-firmware",
-      "promptEn": "RealTek RTL8261C firmware",
+      "promptEn": "RealTek RTL8261C PHY firmware",
       "path": [
         "Firmware"
       ]
@@ -21185,6 +21201,14 @@
     {
       "symbol": "PACKAGE_kmod-rc-core",
       "promptEn": "Remote Controller support",
+      "path": [
+        "Kernel modules",
+        "Input modules"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_kmod-uhid",
+      "promptEn": "User-space HID device support",
       "path": [
         "Kernel modules",
         "Input modules"
@@ -25457,6 +25481,14 @@
     {
       "symbol": "PACKAGE_kmod-button-hotplug",
       "promptEn": "Button Hotplug driver",
+      "path": [
+        "Kernel modules",
+        "Other modules"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_kmod-clk-hog",
+      "promptEn": "GPCLK clock output support (clk-hog)",
       "path": [
         "Kernel modules",
         "Other modules"
@@ -46332,13 +46364,6 @@
       ]
     },
     {
-      "symbol": "PACKAGE_cog",
-      "promptEn": "launcher for WPE WebKit",
-      "path": [
-        "Libraries"
-      ]
-    },
-    {
       "symbol": "PACKAGE_confuse",
       "promptEn": "libConfuse is a configuration file parser library",
       "path": [
@@ -46876,13 +46901,6 @@
     {
       "symbol": "PACKAGE_libcoap",
       "promptEn": "CoAP (RFC 7252) library",
-      "path": [
-        "Libraries"
-      ]
-    },
-    {
-      "symbol": "PACKAGE_libcogcore",
-      "promptEn": "WPE WebKit API library",
       "path": [
         "Libraries"
       ]
@@ -51719,13 +51737,6 @@
       ]
     },
     {
-      "symbol": "PACKAGE_libwpe",
-      "promptEn": "WPE backend abstraction library",
-      "path": [
-        "Libraries"
-      ]
-    },
-    {
       "symbol": "PACKAGE_libwpewebkit",
       "promptEn": "WPEWebKit Library",
       "path": [
@@ -52236,13 +52247,6 @@
     {
       "symbol": "PACKAGE_vectorscan",
       "promptEn": "Vectorscan Runtime",
-      "path": [
-        "Libraries"
-      ]
-    },
-    {
-      "symbol": "PACKAGE_wpebackend-fdo",
-      "promptEn": "WPE's backend based on a freedesktop.org stack",
       "path": [
         "Libraries"
       ]
@@ -83222,6 +83226,13 @@
     {
       "symbol": "PACKAGE_kmscon",
       "promptEn": "Terminal emulator on a KMS device",
+      "path": [
+        "Utilities"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_kmscon-mod-gl",
+      "promptEn": "OpenGL ES rendering for kmscon",
       "path": [
         "Utilities"
       ]

@@ -4,7 +4,7 @@
     "id": "OpenWrt",
     "branch": "openwrt-25.12"
   },
-  "generatedAt": "2026-09-28T01:13:57.876Z",
+  "generatedAt": "2026-10-01T13:34:02.641Z",
   "languages": [
     "en",
     "zh-CN",
@@ -18,7 +18,7 @@
     "fr",
     "vi"
   ],
-  "options": 10935,
+  "options": 10937,
   "translatedZhCN": 122,
   "missingZhCN": [
     {
@@ -51513,6 +51513,14 @@
       ]
     },
     {
+      "symbol": "RSYNC_idn",
+      "promptEn": "Enable international domain names support",
+      "path": [
+        "Network",
+        "File Transfer"
+      ]
+    },
+    {
       "symbol": "PACKAGE_rsyncd",
       "promptEn": "Rsync daemon",
       "path": [
@@ -53262,7 +53270,15 @@
     },
     {
       "symbol": "PACKAGE_ddns-scripts-gandi",
-      "promptEn": "Gandi API",
+      "promptEn": "Gandi API (Deprecated)",
+      "path": [
+        "Network",
+        "IP Addresses and Names"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_ddns-scripts-gandi-v2",
+      "promptEn": "Gandi API v2 (PAT)",
       "path": [
         "Network",
         "IP Addresses and Names"
