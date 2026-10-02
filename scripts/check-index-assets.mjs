@@ -180,6 +180,42 @@ try {
     { stdio: 'pipe' },
   );
 
+  // Execute the real fast-path publisher selector against both public wire
+  // generations. A green publish must not stage only the legacy projection.
+  const workflow = readFileSync(join(ROOT, '.github', 'workflows', 'catalog.yml'), 'utf8');
+  const selector = workflow.match(/node --input-type=module - previous <<'NODE' > "\$RUNNER_TEMP\/catalog-root-assets\.paths"\n([\s\S]*?)\n\s+NODE/);
+  if (!selector) throw new Error('root-asset publisher lacks a contract-driven file selector');
+  const modernAsset = 'compatibility.v6.json.gz';
+  const modernFile = join(dist, modernAsset);
+  const modernBytes = Buffer.from('compatibility-modern-v1');
+  writeFileSync(modernFile, modernBytes);
+  fixed.assets.compatibilityV6 = { asset: modernAsset, ...fileContract(modernFile), schema: 6 };
+  const saveRootIndex = () => writeFileSync(indexFile, JSON.stringify(stampIndex(fixed)) + '\n');
+  saveRootIndex();
+  const selectRootAssets = (families = 'compatibility') => spawnSync(process.execPath,
+    ['--input-type=module', '-', dist], { cwd: ROOT, input: selector[1], encoding: 'utf8',
+      env: { ...process.env, FAST_ASSETS: families } });
+  const selected = selectRootAssets();
+  if (selected.status !== 0 || selected.stdout.trim().split(/\r?\n/).join(',') !==
+      [compatibilityAsset, modernAsset].sort().join(',')) {
+    throw new Error(`versioned root publication selector failed: ${selected.stderr || selected.stdout}`);
+  }
+  writeFileSync(modernFile, Buffer.from('stale-modern-content'));
+  const staleModern = selectRootAssets();
+  if (staleModern.status === 0 || !staleModern.stderr.includes('contract mismatch')) {
+    throw new Error('root publisher accepted a stale modern asset');
+  }
+  rmSync(modernFile);
+  if (selectRootAssets().status === 0) throw new Error('root publisher accepted a missing modern asset');
+  writeFileSync(modernFile, modernBytes);
+  if (selectRootAssets('missing-family').status === 0) throw new Error('root publisher accepted a missing asset family');
+  const savedAsset = fixed.assets.compatibilityV6.asset;
+  fixed.assets.compatibilityV6.asset = 'compatibility../unsafe.json.gz';
+  saveRootIndex();
+  if (selectRootAssets().status === 0) throw new Error('root publisher accepted an unsafe asset path');
+  fixed.assets.compatibilityV6.asset = savedAsset;
+  saveRootIndex();
+
   writeFileSync(graphFile, Buffer.from('graph-v2'));
 
   const failed = spawnSync(
@@ -203,7 +239,7 @@ try {
   console.log(
     'catalog asset index checks passed: ' +
     'legacy/split update, root contract, ' +
-    'idempotence, global asset, shard tamper rejection',
+    'idempotence, versioned root publication, missing/stale/unsafe rejection and shard tamper rejection',
   );
 } finally {
   rmSync(

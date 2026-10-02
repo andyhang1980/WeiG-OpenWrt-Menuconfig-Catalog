@@ -14,6 +14,8 @@
 OWN-0002 只在 `autosamba` 与 `luci-app-samba4` 都安装时命中，优先取消 `autosamba`；
 任一个单独存在，或仅编译为模块而不安装到 RootFS，都不满足此文件冲突条件。
 
+根资产轻量发布按 index 合同收集所选资产族的全部版本文件，逐项验证 hash/bytes 后一起提交；不能只发布旧版投影。缺失或陈旧文件必须使发布失败，源码、生成合同和浏览器实际读取的字节必须一致。
+
 index 向新消费者公布 `compatibility.v6.json.gz`；原有 `compatibility.json.gz`
 保留不含 `preferredDisable` 的 schema-5 投影，旧消费者继续使用相同证据与适用范围。
 预防策略适用于多个源，不代表这些源均已实测失败。

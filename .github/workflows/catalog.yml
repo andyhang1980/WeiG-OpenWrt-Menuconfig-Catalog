@@ -236,8 +236,35 @@ jobs:
           git -C previous config user.name github-actions[bot]
           git -C previous config user.email 41898282+github-actions[bot]@users.noreply.github.com
           complete="$(node scripts/stamp-catalog-snapshot.mjs prepare-assets previous/index.json)"
-          add=(index.json)
-          for asset in "${assets[@]}"; do add+=("$asset.json.gz"); done
+          # Publish every versioned member of each selected root-asset family.
+          # The index contract, not a legacy filename, owns the file set.
+          node --input-type=module - previous <<'NODE' > "$RUNNER_TEMP/catalog-root-assets.paths"
+          import { readFileSync } from 'node:fs';
+          import { resolve, join } from 'node:path';
+          import { fileContract } from './scripts/index-contract.mjs';
+          const directory = resolve(process.argv[2]);
+          const index = JSON.parse(readFileSync(join(directory, 'index.json'), 'utf8'));
+          const families = new Set(process.env.FAST_ASSETS.split(','));
+          for (const family of families) {
+            if (!index.assets?.[family]?.asset) throw new Error(`Missing root-asset family: ${family}`);
+          }
+          const files = new Set();
+          for (const contract of Object.values(index.assets || {})) {
+            const asset = String(contract?.asset || '');
+            if (!families.has(asset.split('.')[0])) continue;
+            if (!/^[a-zA-Z0-9._-]+\.json\.gz$/.test(asset)) throw new Error(`Unsafe root asset: ${asset}`);
+            if (files.has(asset)) throw new Error(`Duplicate root asset: ${asset}`);
+            const actual = fileContract(join(directory, asset));
+            if (actual.hash !== contract.hash || actual.bytes !== contract.bytes) {
+              throw new Error(`Root-asset contract mismatch: ${asset}`);
+            }
+            files.add(asset);
+          }
+          if (!files.size) throw new Error('No root assets selected');
+          console.log([...files].sort().join('\n'));
+          NODE
+          mapfile -t root_assets < "$RUNNER_TEMP/catalog-root-assets.paths"
+          add=(index.json "${root_assets[@]}")
           git -C previous add --sparse "${add[@]}"
           if git -C previous diff --cached --quiet; then
             echo "Root asset contracts are unchanged; nothing to publish."

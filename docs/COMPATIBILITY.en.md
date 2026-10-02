@@ -20,6 +20,8 @@ installed `autosamba` + `luci-app-samba4` pair matches; the preferred removal is
 meet the file-ownership condition.
 
 The index advertises `compatibility.v6.json.gz` to schema-6 consumers. The existing
+Root-asset fast publication collects every versioned file in the selected index-contract family, verifies hash/bytes, and stages them together. Missing or stale files fail publication; a legacy-only projection must never leave modern consumers on old content.
+
 `compatibility.json.gz` remains a schema-5 projection without `preferredDisable`,
 so old readers keep the same evidence and applicability boundaries. Preventive
 scope is not proof that every Source/Branch was observed failing.
