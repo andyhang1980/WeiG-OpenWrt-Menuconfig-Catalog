@@ -26,7 +26,7 @@ scope is not proof that every Source/Branch was observed failing.
 
 OWN-0003 applies when both `luci-app-pppoe-server` and `rp-pppoe-server` are installed, preferring removal of the latter. Reviewed preventive scope covers LEDE, ImmortalWrt and hanwckf branches containing both packages. `luci-app-rp-pppoe-server` is a different application: its N state says nothing about the former. The shared planner may disable the actual selecting root first; equivalent-plan deduplication retains all `resolvedPackages` identities.
 
-BLD-0006 records the `kmod-oaf` compile failure at LEDE/master source `6248ca158b90d640ece2c1a56c392cb0c430b665`, x86/64, Linux 6.18. `appfilter` shares its Source-Makefile: disabling one output must not leave an active same-source compile root. Trigger roots are derived from the graph, not a static list. Other versions/sources are not covered by this temporary rule; retired BLD-0004 is not reused.
+BLD-0006 uses a reviewed `preventive` policy restricted to LEDE/master, x86/64, `LINUX_6_18`, and an available failed package. A source commit change no longer silently bypasses prevention. Exact evidence preserves sources `6248ca158b90d640ece2c1a56c392cb0c430b665` and `bfec801a42f344bb7566d1f4f8960fb0cdb08350`, pinned feeds and failure references: both show Linux 6.18.54 and OpenAppFilter `a9e4637b5806b62f0e98fa6273384f849e93ae9a` calling missing `del_timer_sync`. `appfilter` shares its Source-Makefile, so disabling one output must not leave an active same-source compile root. Trigger roots come from the graph. Other sources, targets and kernels are outside this policy. Package-version auto-expiry is not supported: verify an upstream repair before narrowing or retiring the policy. Retired BLD-0004 is not reused.
 
 ## Schema 5
 

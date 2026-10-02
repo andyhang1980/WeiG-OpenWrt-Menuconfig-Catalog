@@ -27,13 +27,28 @@
       "id": "BLD-0006",
       "issue": "build-failure",
       "match": "all-selected",
-      "scope": { "lede": ["master"] },
-      "sourceCommits": ["6248ca158b90d640ece2c1a56c392cb0c430b665"],
-      "targetScope": { "system": ["x86"], "subtarget": ["64"] },
+      "policy": "preventive",
+      "environments": [
+        { "source": "lede", "branch": "master", "packageAvailability": "if-present",
+          "targetScope": { "system": ["x86"], "subtarget": ["64"] } }
+      ],
       "if": "LINUX_6_18",
       "packages": ["kmod-oaf"],
       "buildDependency": { "package": "kmod-oaf" },
-      "refs": ["run:36820724589", "feed:packages:d376de0bb5b05ccf1cb51cabdb1687726cfa6aad", "feed:luci:7494809a0bf0493a67f9e92823a4716b1b5e797e", "upstream:open-app-filter:a9e4637b5806b62f0e98fa6273384f849e93ae9a"],
+      "evidence": [
+        {
+          "source": "lede", "branch": "master",
+          "sourceCommit": "6248ca158b90d640ece2c1a56c392cb0c430b665",
+          "targetScope": { "system": ["x86"], "subtarget": ["64"] },
+          "refs": ["run:36820724589", "feed:packages:d376de0bb5b05ccf1cb51cabdb1687726cfa6aad", "feed:luci:7494809a0bf0493a67f9e92823a4716b1b5e797e", "upstream:open-app-filter:a9e4637b5806b62f0e98fa6273384f849e93ae9a"]
+        },
+        {
+          "source": "lede", "branch": "master",
+          "sourceCommit": "bfec801a42f344bb7566d1f4f8960fb0cdb08350",
+          "targetScope": { "system": ["x86"], "subtarget": ["64"] },
+          "refs": ["run:36993134180", "feed:packages:60400dc2e0ee47cd9c6c3fb850a6a9049792c742", "feed:luci:b4dade125b16d43d852c8b26cd93d2596701a2b4", "feed:routing:2d0f967bd6bd95d4c0d3c330e4713e79d75b4c54", "feed:telephony:d3bcb153813b1ff34b3dd0f1bf0dc913984f2921", "feed:helloworld:60393ff60e973444794199f78d9f4c523e097ce3", "upstream:open-app-filter:a9e4637b5806b62f0e98fa6273384f849e93ae9a"]
+        }
+      ],
       "failure": {
         "phase": "package-compile", "cause": "package-caused",
         "code": "kernel-timer-api-missing",

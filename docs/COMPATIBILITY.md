@@ -20,7 +20,7 @@ index 向新消费者公布 `compatibility.v6.json.gz`；原有 `compatibility.j
 
 OWN-0003 在 `luci-app-pppoe-server` 与 `rp-pppoe-server` 均安装时优先取消后者；预防范围为 LEDE、ImmortalWrt、hanwckf 各分支中两包均存在的环境。`luci-app-rp-pppoe-server` 是另一应用，它为 N 不代表前者为 N。共享 planner 可以先取消真实选择者以达到首选目标 N，等价动作去重保留所有 `resolvedPackages`。
 
-BLD-0006 记录 LEDE/master 精确源码提交 `6248ca158b90d640ece2c1a56c392cb0c430b665`、x86/64、Linux 6.18 的 `kmod-oaf` 编译失败。`appfilter` 与内核包共用 Source-Makefile，不能只关闭一个输出而留下同源活动编译入口；触发者由图动态推导。其它源/版本不外推此临时规则；退休的 BLD-0004 不复用。
+BLD-0006 使用经批准的 `preventive` 策略：范围限定 LEDE/master、x86/64、`LINUX_6_18` 且失败包存在，源码提交变化不再自动绕过预防。`evidence` 分别保存源码 `6248ca158b90d640ece2c1a56c392cb0c430b665` 与 `bfec801a42f344bb7566d1f4f8960fb0cdb08350` 的精确 feeds 和失败引用；两次都是 Linux 6.18.54、OpenAppFilter `a9e4637b5806b62f0e98fa6273384f849e93ae9a` 调用缺失的 `del_timer_sync`。`appfilter` 与内核包共用 Source-Makefile，不能只关闭一个输出而留下同源活动编译入口；触发者由图动态推导。其它源、目标或内核不外推；此策略不具备包版本自动失效能力，上游修复后须验证并缩小或撤销范围。退休的 BLD-0004 不复用。
 
 ## Schema 5
 

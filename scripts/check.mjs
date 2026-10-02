@@ -714,8 +714,24 @@ assert.equal(normalizedCompatibility.rules.find((rule) => rule.id === 'BLD-0004'
 const oafRule = normalizedCompatibility.rules.find((rule) => rule.id === 'BLD-0006');
 assert.deepEqual(oafRule.packages, ['kmod-oaf']);
 assert.deepEqual(oafRule.buildDependency, { package: 'kmod-oaf' });
-assert.deepEqual(oafRule.sourceCommits, ['6248ca158b90d640ece2c1a56c392cb0c430b665']);
+assert.equal(oafRule.policy, 'preventive');
+assert.equal(oafRule.sourceCommits, undefined, 'evidence commits must not restrict preventive applicability');
+assert.deepEqual(oafRule.environments, [{ source: 'lede', branch: 'master', packageAvailability: 'if-present',
+  targetScope: { system: ['x86'], subtarget: ['64'] } }]);
+assert.deepEqual(oafRule.evidence.map(row => row.sourceCommit), [
+  '6248ca158b90d640ece2c1a56c392cb0c430b665', 'bfec801a42f344bb7566d1f4f8960fb0cdb08350',
+]);
 assert.equal(oafRule.if, 'LINUX_6_18');
+const oafDocument = { schema: 6, rules: [oafRule] };
+const oafContext = { source: 'lede', branch: 'master', system: 'x86', subtarget: '64',
+  upstreamCommit: 'f'.repeat(40), conditions: ['LINUX_6_18'], availablePackages: ['kmod-oaf'] };
+assert.deepEqual(applicableBuildDependencies(oafDocument, oafContext).packages, ['kmod-oaf'],
+  'reviewed preventive scope must survive an unrelated source commit change');
+for (const overrides of [{ source: 'ImmortalWrt' }, { branch: 'stable' }, { system: 'armvirt' },
+  { subtarget: '32' }, { conditions: [] }, { availablePackages: [] }]) {
+  assert.deepEqual(applicableBuildDependencies(oafDocument, { ...oafContext, ...overrides }).packages, [],
+    `preventive OAF scope must not expand: ${JSON.stringify(overrides)}`);
+}
 assert.equal(normalizedCompatibility.rules.find((rule) => rule.id === 'BLD-0005')?.failure?.phase,
   'rootfs-install');
 assert.equal(dockerdRule.buildDependency.triggerPackages, undefined);
