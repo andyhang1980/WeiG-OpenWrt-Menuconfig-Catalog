@@ -147,6 +147,16 @@ archive from installed bytes. Count only final-Y concrete packages. Missing
 observations are unknown, never zero. Capacity percentages require complete
 installed-size coverage; they do not predict compressed firmware size.
 
+Repository discovery is data-driven through `curatedSizeSources`: inspect trusted
+architecture/feed listings, same-version-family releases and native Target
+repositories, with declared archive fallbacks. Preserve every package/version
+pair so a later repository cannot shadow the native version; conflicting
+installed-size observations for one identity remain unknown. Stable and future
+`openwrt-*` branches and snapshot lanes share the same collector. Lean LEDE and
+other forks without a declared matching official index remain explicitly
+unavailable; upstream OpenWrt binaries are not substitutes. No firmware build or
+additional Worker dependency gate is required for these optional observations.
+
 `curatedGroups` 是分组顺序的权威数据。公开应用只保留至少含一个精选应用的分组；刷新工具自动清理空分组，校验器拒绝空分组和重复分组。分组调整必须同步维护 `catalog.config.json` 与刷新元数据，禁止在 AutoBuild 按软件包名特判。
 
 为 WeiG OpenWrt 在线定制器生成静态 menuconfig 目录。项目本身不编译固件。

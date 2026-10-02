@@ -8,6 +8,7 @@ import { promisify } from 'node:util';
 import { gunzipSync } from 'node:zlib';
 import { parseApkDump, parseOpkgPackages } from './curated-sizes.mjs';
 import { matchPattern } from './source-policy.mjs';
+import { parseInfoRecords } from './lib.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const execute = promisify(execFile);
@@ -30,7 +31,9 @@ const targetInfoPath = cli.get('tree') ? join(resolve(cli.get('tree')), 'tmp', '
 const targetArchitectures = targetInfoPath && existsSync(targetInfoPath)
   ? [...new Set([...readFileSync(targetInfoPath, 'utf8').matchAll(/^Target-Arch-Packages:\s*([A-Za-z0-9_.+-]+)\s*$/gm)].map((row) => row[1]))].sort()
   : [];
-const config = JSON.parse(readFileSync(join(ROOT, 'catalog.config.json'), 'utf8'));
+const targets = targetInfoPath && existsSync(targetInfoPath)
+  ? parseInfoRecords(readFileSync(targetInfoPath, 'utf8')) : [];
+const config = JSON.parse(readFileSync(resolve(cli.get('config') || join(ROOT, 'catalog.config.json')), 'utf8'));
 mkdirSync(output, { recursive: true });
 if (outputFile) mkdirSync(dirname(outputFile), { recursive: true });
 const temp = mkdtempSync(join(tmpdir(), 'weig-curated-size-'));
@@ -45,21 +48,66 @@ async function fetchBytes(url) {
   if (!response.ok) throw new Error(`${url}: HTTP ${response.status}`);
   return Buffer.from(await response.arrayBuffer());
 }
+function directoryNames(text) {
+  return [...new Set([...String(text).matchAll(/href=["'](?:\.\/)?([A-Za-z0-9_.+-]+)\/["']/g)]
+    .map((row) => row[1]).filter((name) => name !== '.' && name !== '..'))];
+}
+function observationUrls(source, version, architecture) {
+  return [...new Set([source.baseUrl, ...(source.fallbackBaseUrls || [])].filter(Boolean)
+    .map((url) => url.replaceAll('{architecture}', architecture).replaceAll('{version}', version)))];
+}
+async function discoverTargetRepositories(source, version) {
+  const templates = [source.targetBaseUrl].filter(Boolean);
+  const failures = [];
+  for (const root of source.releaseRoots || []) {
+    try {
+      const releases = directoryNames((await fetchBytes(root)).toString('utf8'))
+        .filter((name) => name === version || name === `${version}-SNAPSHOT` ||
+          (name.startsWith(`${version}.`) && /^\d+(?:\.\d+)+$/.test(name)))
+        .sort((a, b) => b.localeCompare(a, 'en', { numeric: true })).slice(0, 3);
+      for (const release of releases) templates.push(`${root.replace(/\/$/, '')}/${release}/targets/{board}/{subtarget}/packages`);
+    } catch (error) { failures.push({ url: root, error: String(error.message || error) }); }
+  }
+  const repositories = new Map();
+  for (const target of targets) {
+    if (!templates.length) break;
+    if (![target.board, target.subtarget, target.archPackages].every((value) => /^[A-Za-z0-9_.+-]+$/.test(value))) continue;
+    const urls = repositories.get(target.archPackages) || new Set();
+    for (const template of templates) urls.add(template.replaceAll('{board}', target.board)
+      .replaceAll('{subtarget}', target.subtarget).replaceAll('{version}', version));
+    repositories.set(target.archPackages, urls);
+  }
+  return { repositories, failures };
+}
 
-async function collectArchitecture(source, branch, version, architecture) {
-  const baseUrl = source.baseUrl.replaceAll('{architecture}', architecture).replaceAll('{version}', version);
+async function collectArchitecture(source, branch, version, architecture, targetRepositories = []) {
+  const baseUrls = observationUrls(source, version, architecture);
+  const baseUrl = baseUrls[0];
   const packages = new Map();
   const failures = [];
-  for (const feed of source.feeds || []) {
+  const repositories = new Set();
+  for (const root of baseUrls) {
+    let feeds = source.feeds || [];
+    try {
+      // Discover extra official feeds without maintaining a browser/source
+      // package list. Configured feeds remain usable when listings are absent.
+      const discovered = directoryNames((await fetchBytes(root + '/')).toString('utf8'));
+      if (discovered.length) feeds = [...new Set([...feeds, ...discovered])];
+    } catch (error) { failures.push({ url: root, error: String(error.message || error) }); }
+    for (const feed of feeds) if (/^[A-Za-z0-9_.+-]+$/.test(feed)) repositories.add(`${root.replace(/\/$/, '')}/${feed}`);
+  }
+  // Common architecture feeds have priority within the optional time budget.
+  for (const repository of targetRepositories) repositories.add(repository);
+  for (const repository of repositories) {
     const formats = source.format === 'auto' ? ['apk', 'opkg'] : [source.format];
     for (const format of formats) {
       const extension = format === 'apk' ? 'packages.adb' : 'Packages.gz';
-      const url = `${baseUrl.replace(/\/$/, '')}/${feed}/${extension}`;
+      const url = `${repository.replace(/\/$/, '')}/${extension}`;
       try {
         const data = await fetchBytes(url);
         let rows;
         if (format === 'apk') {
-          const file = join(temp, `${source.id}-${branch}-${architecture}-${feed}.adb`.replace(/[^A-Za-z0-9_.-]/g, '-'));
+          const file = join(temp, `${source.id}-${branch}-${architecture}-${repositories.size}-${packages.size}.adb`.replace(/[^A-Za-z0-9_.-]/g, '-'));
           writeFileSync(file, data);
           const { stdout: json } = await execute('docker', [
             'run', '--rm', '-v', `${temp.replace(/\\/g, '/')}:/work`, 'alpine:edge',
@@ -69,17 +117,27 @@ async function collectArchitecture(source, branch, version, architecture) {
         } else {
           rows = parseOpkgPackages(gunzipSync(data).toString('utf8'));
         }
-        for (const row of rows) packages.set(row.name, row);
+        for (const row of rows) {
+          const key = JSON.stringify([row.name, row.version]);
+          const previous = packages.get(key);
+          // Preserve exact versions across repositories. Conflicting size
+          // observations for one identity must not become a guessed total.
+          if (previous?.sizeAmbiguous) continue;
+          if (previous?.installedSize > 0 && row.installedSize > 0 && previous.installedSize !== row.installedSize) {
+            packages.set(key, { ...previous, installedSize: null, sizeAmbiguous: true });
+          } else if (!previous || row.installedSize > 0 || !(previous.installedSize > 0)) packages.set(key, row);
+        }
         break;
       } catch (error) {
-        failures.push({ feed, url, error: String(error.message || error) });
+        failures.push({ repository, url, error: String(error.message || error) });
       }
     }
   }
   const sample = {
     schema: 2, generatedAt: new Date().toISOString(), source: source.id, branch,
     architecture, format: source.format, baseUrl, available: packages.size > 0,
-    packages: [...packages.values()].sort((a, b) => a.name.localeCompare(b.name)), failures,
+    repositories: [...repositories],
+    packages: [...packages.values()].sort((a, b) => a.name.localeCompare(b.name) || a.version.localeCompare(b.version)), failures,
   };
   if (!packages.size) {
     console.warn(`${source.id}/${branch}/${architecture}: no official observation`);
@@ -114,25 +172,31 @@ try {
       ? branch.slice(source.branchPrefix.length) : branch;
     const architectures = targetArchitectures.length ? targetArchitectures : [source.architecture].filter(Boolean);
     if (!architectures.length) continue;
+    const targetRepositories = await discoverTargetRepositories(source, version);
+    observations.push(...targetRepositories.failures.map((failure) => ({ available: false,
+      source: source.id, branch, reason: 'official-release-listing-unavailable', failures: [failure] })));
     let availableArchitectures = architectures;
     if (source.baseUrl.includes('{architecture}')) {
-      const rootUrl = source.baseUrl.replace(/\{architecture\}.*$/, '').replaceAll('{version}', version);
-      try {
-        const listing = (await fetchBytes(rootUrl)).toString('utf8');
-        const published = new Set([...listing.matchAll(/href="(?:\.\/)?([A-Za-z0-9_.+-]+)\/"/g)].map((row) => row[1]));
-        availableArchitectures = architectures.filter((architecture) => published.has(architecture));
-      } catch (error) {
-        observations.push({ available: false, source: source.id, branch, reason: 'official-index-root-unavailable',
-          failures: [{ url: rootUrl, error: String(error.message || error) }] });
-        continue;
+      const published = new Set(targetRepositories.repositories.keys());
+      for (const template of [source.baseUrl, ...(source.fallbackBaseUrls || [])]) {
+        const rootUrl = template.replace(/\{architecture\}.*$/, '').replaceAll('{version}', version);
+        try {
+          for (const name of directoryNames((await fetchBytes(rootUrl)).toString('utf8'))) published.add(name);
+        } catch (error) {
+          observations.push({ available: false, source: source.id, branch, reason: 'official-index-root-unavailable',
+            failures: [{ url: rootUrl, error: String(error.message || error) }] });
+        }
       }
+      availableArchitectures = architectures.filter((architecture) => published.has(architecture));
     }
     const collected = new Array(availableArchitectures.length);
     let next = 0;
     await Promise.all(Array.from({ length: Math.min(4, availableArchitectures.length) }, async () => {
       while (next < availableArchitectures.length) {
         const index = next++;
-        collected[index] = await collectArchitecture(source, branch, version, availableArchitectures[index]);
+        const architecture = availableArchitectures[index];
+        collected[index] = await collectArchitecture(source, branch, version, architecture,
+          targetRepositories.repositories.get(architecture) || []);
       }
     }));
     observations.push(...collected);

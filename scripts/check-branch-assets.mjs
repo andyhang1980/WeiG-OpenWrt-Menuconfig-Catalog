@@ -86,7 +86,9 @@ try {
   // observations; neither newer binaries nor another Source/Branch may leak in.
   const sample = JSON.parse(readFileSync(join(fixture, 'package-size-sample.json'), 'utf8'));
   const observations = [
-    { ...sample, architecture: 'arch_a' },
+    { ...sample, architecture: 'arch_a', packages: sample.packages.flatMap(row => [
+      row, { ...row, version: 'later-repository-version', size: 999999, installedSize: 999999 },
+    ]) },
     { ...sample, architecture: 'arch_b', packages: sample.packages.map(row => ({ ...row, size: row.size * 2, installedSize: row.installedSize * 2 })) },
     { ...sample, architecture: 'arch_new', packages: sample.packages.map(row => ({ ...row, version: 'mismatched-version' })) },
     { ...sample, architecture: 'arch_other_source', source: 'Other' },
@@ -103,6 +105,8 @@ try {
   const multiMeta = JSON.parse(readFileSync(join(output, 'fixture--test.meta.json'), 'utf8'));
   const a = readGzipJson(multiMeta.assets['packageSizes:arch_a'].asset);
   const b = readGzipJson(multiMeta.assets['packageSizes:arch_b'].asset);
+  assert.deepEqual(a.rows.find(row => row[0] === 'luci-app-demo'), ['luci-app-demo', 100, 240],
+    'a later repository version must not shadow the exact native package version');
   assert.equal(b.rows[0][1], a.rows[0][1] * 2);
   assert.equal(b.rows[0][2], a.rows[0][2] * 2);
   assert.equal(multiMeta.assets['packageSizes:arch_new'].installedItems, 0);

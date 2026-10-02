@@ -6,6 +6,7 @@
       "id": "OpenWrt",
       "branch": "main",
       "baseUrl": "https://downloads.openwrt.org/snapshots/packages/{architecture}",
+      "targetBaseUrl": "https://downloads.openwrt.org/snapshots/targets/{board}/{subtarget}/packages",
       "feeds": [
         "base",
         "packages",
@@ -13,12 +14,13 @@
         "routing",
         "telephony"
       ],
-      "format": "apk"
+      "format": "auto"
     },
     {
       "id": "ImmortalWrt",
       "branch": "master",
       "baseUrl": "https://downloads.immortalwrt.org/snapshots/packages/{architecture}",
+      "targetBaseUrl": "https://downloads.immortalwrt.org/snapshots/targets/{board}/{subtarget}/packages",
       "feeds": [
         "base",
         "packages",
@@ -26,16 +28,19 @@
         "routing",
         "telephony"
       ],
-      "format": "apk"
+      "format": "auto"
     },
     {
       "id": "OpenWrt", "branch": "openwrt-*", "branchPrefix": "openwrt-",
       "baseUrl": "https://downloads.openwrt.org/releases/packages-{version}/{architecture}",
+      "fallbackBaseUrls": ["https://archive.openwrt.org/releases/packages-{version}/{architecture}"],
+      "releaseRoots": ["https://downloads.openwrt.org/releases/", "https://archive.openwrt.org/releases/"],
       "feeds": ["base", "packages", "luci", "routing", "telephony"], "format": "auto"
     },
     {
       "id": "ImmortalWrt", "branch": "openwrt-*", "branchPrefix": "openwrt-",
       "baseUrl": "https://downloads.immortalwrt.org/releases/packages-{version}/{architecture}",
+      "releaseRoots": ["https://downloads.immortalwrt.org/releases/"],
       "feeds": ["base", "packages", "luci", "routing", "telephony"], "format": "auto"
     }
   ],

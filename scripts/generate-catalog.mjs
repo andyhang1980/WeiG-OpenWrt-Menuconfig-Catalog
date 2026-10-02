@@ -510,12 +510,12 @@ function packageSizeDocument(sample) {
   const exact = sample?.source === source.id && sample?.branch === source.branch && sample?.available === true;
   const observed = new Map((exact && Array.isArray(sample.packages) ? sample.packages : [])
     .filter((row) => row && typeof row.name === 'string')
-    .map((row) => [row.name, row]));
+    .map((row) => [JSON.stringify([row.name, row.version]), row]));
   const names = [...packageSymbols].sort((a, b) => a.localeCompare(b));
   const rows = names.flatMap((name) => {
-    const row = observed.get(name);
-    if (!row || !Number.isSafeInteger(Number(row.size)) || Number(row.size) < 0) return [];
     const version = nativePackageVersions.get(name);
+    const row = observed.get(JSON.stringify([name, version]));
+    if (!row || !Number.isSafeInteger(Number(row.size)) || Number(row.size) < 0) return [];
     if (!version || !row.version || version !== row.version) return [];
     const installed = Number(row.installedSize);
     return [[name, Number(row.size), Number.isSafeInteger(installed) && installed > 0 ? installed : null]];
@@ -537,6 +537,7 @@ function packageSizeDocument(sample) {
       format: sample.format || '',
       baseUrl: sample.baseUrl || '',
       match: 'exact-source-branch-architecture-package-version',
+      reason: rows.length ? '' : 'no-matching-native-package-versions',
     } : {
       architecture: '',
       match: 'unavailable',
@@ -576,6 +577,7 @@ Object.assign(packageSizesContract, {
   totalPackages: packageSizesPayload.coverage.total,
   architecture: packageSizesPayload.observation.architecture || '',
   installedItems: packageSizesPayload.rows.filter((row) => row[2] !== null).length,
+  reason: packageSizesPayload.observation.reason || '',
 });
 assets.packageSizes = packageSizesContract;
 for (const document of packageSizeDocuments) {
@@ -584,7 +586,8 @@ for (const document of packageSizeDocuments) {
   const logical = `packageSizes:${architecture}`;
   const contract = writeGzipAsset(logical, `${slug}.package-sizes.${safeSlug(architecture)}.json.gz`, document);
   Object.assign(contract, { schema: document.schema, kind: document.kind, items: document.rows.length,
-    totalPackages: document.coverage.total, architecture, installedItems: document.rows.filter((row) => row[2] !== null).length });
+    totalPackages: document.coverage.total, architecture, installedItems: document.rows.filter((row) => row[2] !== null).length,
+    reason: document.observation.reason || '' });
   assets[logical] = contract;
 }
 for (const [lang, value] of Object.entries(languagePayloads)) {
