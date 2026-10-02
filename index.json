@@ -11,11 +11,11 @@
   "assets": {
     "compatibility": {
       "asset": "compatibility.json.gz",
-      "hash": "01d8bd52375479ffa1a2834ae76e0a2f25131d87a6e51e5d0681dce92bcd566e",
-      "bytes": 1336,
+      "hash": "3f417709ec2127730a3dd5d7530d15a66ef2fa8b745eb721c03ac49eabb738ba",
+      "bytes": 1536,
       "schema": 5,
       "rules": 8,
-      "jsonBytes": 3986
+      "jsonBytes": 4690
     },
     "applications": {
       "asset": "applications.json.gz",
@@ -27,11 +27,11 @@
     },
     "compatibilityV6": {
       "asset": "compatibility.v6.json.gz",
-      "hash": "c270b9a9394e319c2a43773bdd6bb3f0a3ff1b6bb9f083e212a2c03416460b33",
-      "bytes": 1353,
+      "hash": "dc1c444b07cc7d8cbd220b114142996cff74bfb609b04674bdff492c9b1ad17d",
+      "bytes": 1554,
       "schema": 6,
       "rules": 8,
-      "jsonBytes": 4058
+      "jsonBytes": 4762
     }
   },
   "sources": [
@@ -11894,14 +11894,14 @@
       ]
     }
   ],
-  "assetRef": "4cf11137badeaa38b3c351ba5d69278bc3c26c8f",
+  "assetRef": "f1b0ed993ddefafb76532bddab28d67b601390a8",
   "assetRefType": "git-commit",
   "provenance": {
     "repository": "weigefenxiang/WeiG-OpenWrt-Menuconfig-Catalog",
     "codeRef": "dev",
-    "codeSha": "05b5d487cd8cccdf09fa3473e3e8865088d1b29f",
+    "codeSha": "a07a0f3427c81ae2da000a47e06d199de099f42b",
     "complete": true
   },
-  "hash": "6a78215b982e813d2de93d21ac568f366b51bdc113ec814e62078fda66944e4d",
+  "hash": "841f1dae9973753616efece353ab38596cdaf8037c9513fdf4373ad2ecb8d3d2",
   "bytes": 357385
 }
