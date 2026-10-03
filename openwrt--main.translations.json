@@ -4,7 +4,7 @@
     "id": "OpenWrt",
     "branch": "main"
   },
-  "generatedAt": "2026-09-27T00:55:49.501Z",
+  "generatedAt": "2026-10-02T05:08:05.632Z",
   "languages": [
     "en",
     "zh-CN",
@@ -18,7 +18,7 @@
     "fr",
     "vi"
   ],
-  "options": 11258,
+  "options": 11267,
   "translatedZhCN": 121,
   "missingZhCN": [
     {
@@ -555,13 +555,6 @@
     {
       "symbol": "TESTING_KERNEL",
       "promptEn": "Use the testing kernel version",
-      "path": [
-        "Global build settings"
-      ]
-    },
-    {
-      "symbol": "DISPLAY_SUPPORT",
-      "promptEn": "Show packages that require graphics support (local or remote)",
       "path": [
         "Global build settings"
       ]
@@ -2947,6 +2940,69 @@
       "symbol": "FEED_video",
       "promptEn": "Enable feed video",
       "path": []
+    },
+    {
+      "symbol": "PACKAGE_accel-support",
+      "promptEn": "Render and compute device support",
+      "path": [
+        "Hardware support"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_audio-support",
+      "promptEn": "Audio device support",
+      "path": [
+        "Hardware support"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_dvb-support",
+      "promptEn": "DVB device support",
+      "path": [
+        "Hardware support"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_hidraw-support",
+      "promptEn": "Raw HID device support",
+      "path": [
+        "Hardware support"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_input-support",
+      "promptEn": "Input device support",
+      "path": [
+        "Hardware support"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_kvm-support",
+      "promptEn": "KVM device support",
+      "path": [
+        "Hardware support"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_printer-support",
+      "promptEn": "Printer device support",
+      "path": [
+        "Hardware support"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_scanner-support",
+      "promptEn": "Scanner device support",
+      "path": [
+        "Hardware support"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_video-support",
+      "promptEn": "Video device support",
+      "path": [
+        "Hardware support"
+      ]
     },
     {
       "symbol": "PACKAGE_apk-mbedtls",
@@ -15561,6 +15617,14 @@
       ]
     },
     {
+      "symbol": "PACKAGE_ipq-wifi-glinet_gl-x2000",
+      "promptEn": "board-2.bin Overrides for GL.iNet GL-X2000",
+      "path": [
+        "Firmware",
+        "ath10k Board-Specific Overrides"
+      ]
+    },
+    {
       "symbol": "PACKAGE_ipq-wifi-huawei_ap4050dn",
       "promptEn": "board-2.bin Overrides for Huawei AP4050DN",
       "path": [
@@ -16019,6 +16083,14 @@
     {
       "symbol": "PACKAGE_ipq-wifi-tplink_eap625-outdoor-hd-v1",
       "promptEn": "board-2.bin Overrides for TP-Link EAP625-Outdoor HD v1",
+      "path": [
+        "Firmware",
+        "ath10k Board-Specific Overrides"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_ipq-wifi-tplink_eap650-outdoor-v1",
+      "promptEn": "board-2.bin Overrides for TP-Link EAP650-Outdoor v1",
       "path": [
         "Firmware",
         "ath10k Board-Specific Overrides"
@@ -20984,6 +21056,14 @@
       ]
     },
     {
+      "symbol": "PACKAGE_kmod-uhid",
+      "promptEn": "User-space HID device support",
+      "path": [
+        "Kernel modules",
+        "Input modules"
+      ]
+    },
+    {
       "symbol": "PACKAGE_kmod-input-leds",
       "promptEn": "Input device LED support",
       "path": [
@@ -25242,6 +25322,14 @@
     {
       "symbol": "PACKAGE_kmod-button-hotplug",
       "promptEn": "Button Hotplug driver",
+      "path": [
+        "Kernel modules",
+        "Other modules"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_kmod-clk-hog",
+      "promptEn": "GPCLK clock output support (clk-hog)",
       "path": [
         "Kernel modules",
         "Other modules"
@@ -44452,13 +44540,6 @@
       ]
     },
     {
-      "symbol": "PACKAGE_cog",
-      "promptEn": "launcher for WPE WebKit",
-      "path": [
-        "Libraries"
-      ]
-    },
-    {
       "symbol": "PACKAGE_confuse",
       "promptEn": "libConfuse is a configuration file parser library",
       "path": [
@@ -44989,13 +45070,6 @@
     {
       "symbol": "PACKAGE_libcoap",
       "promptEn": "CoAP (RFC 7252) library",
-      "path": [
-        "Libraries"
-      ]
-    },
-    {
-      "symbol": "PACKAGE_libcogcore",
-      "promptEn": "WPE WebKit API library",
       "path": [
         "Libraries"
       ]
@@ -50041,13 +50115,6 @@
       ]
     },
     {
-      "symbol": "PACKAGE_libwpe",
-      "promptEn": "WPE backend abstraction library",
-      "path": [
-        "Libraries"
-      ]
-    },
-    {
       "symbol": "PACKAGE_libwpewebkit",
       "promptEn": "WPEWebKit Library",
       "path": [
@@ -50551,13 +50618,6 @@
     {
       "symbol": "PACKAGE_vectorscan",
       "promptEn": "Vectorscan Runtime",
-      "path": [
-        "Libraries"
-      ]
-    },
-    {
-      "symbol": "PACKAGE_wpebackend-fdo",
-      "promptEn": "WPE's backend based on a freedesktop.org stack",
       "path": [
         "Libraries"
       ]
@@ -79946,6 +80006,13 @@
       ]
     },
     {
+      "symbol": "PACKAGE_kmscon-mod-gl",
+      "promptEn": "OpenGL ES rendering for kmscon",
+      "path": [
+        "Utilities"
+      ]
+    },
+    {
       "symbol": "PACKAGE_kobs-ng",
       "promptEn": "Application for writing bootstreams to NAND flash",
       "path": [
@@ -85787,6 +85854,7 @@
   "missingMenusZhCN": [
     "Kernel build options",
     "Filesystem ACL and attr support options",
+    "Hardware support",
     "Settings",
     "Archival Utilities",
     "Coreutils",
