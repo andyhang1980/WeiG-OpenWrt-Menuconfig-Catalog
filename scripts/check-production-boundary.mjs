@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-import { readdirSync, readFileSync } from 'node:fs';
+import { existsSync, readdirSync, readFileSync } from 'node:fs';
 import { join, resolve } from 'node:path';
 import { dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -22,6 +22,9 @@ const catalog = workflows.get('catalog.yml') || '';
 const reuse = workflows.get('catalog-reuse.yml') || '';
 const translation = workflows.get('translate.yml') || '';
 const failures = [];
+const retiredCompleteTag = ['menuconfig', 'catalog', 'complete'].join('-');
+const retiredPublisher = `scripts/${['publish', 'release'].join('-')}.sh`;
+const retiredPublicationTest = `scripts/${['check', 'release', 'publication'].join('-')}.mjs`;
 const channelContracts = [
   [buildDataBranchForCodeRef('main'), 'catalog-candidate', 'build main'],
   [buildDataBranchForCodeRef('dev'), 'catalog-dev', 'build dev'],
@@ -86,16 +89,29 @@ requireText(production, 'git -C candidate cat-file -e "${asset_ref}^{commit}"',
 forbidText(production, 'merge-base --is-ancestor "$asset_ref"',
   'production must not require cross-lane assetRef ancestry after snapshot copies');
 requireText(production, 'HEAD:catalog-main', 'production must be the catalog-main writer');
-requireText(production, 'scripts/publish-release.sh', 'production must own the complete Release alias');
+requireText(production, 'git -C production fetch --no-tags --depth=1 origin catalog-main',
+  'production must re-read catalog-main after promotion');
+requireText(production, 'catalog-main moved after promotion: expected $EXPECTED_PRODUCTION_SHA, got $remote_sha',
+  'production must reject post-promotion catalog-main drift');
+requireText(production, 'cmp -s candidate/index.json "$RUNNER_TEMP/production-index.json"',
+  'production must verify the published index still matches the verified candidate');
+requireText(production, 'scripts/stamp-catalog-snapshot.mjs verify-assets',
+  'production must verify catalog-main against its immutable asset manifest');
+forbidText(production, retiredPublisher, 'production must not publish the retired complete Release alias');
+forbidText(production, retiredCompleteTag, 'production must not reference the retired complete Release tag');
 forbidText(production, 'catalog-data', 'production workflow must not retain the retired catalog-data name');
+
+for (const retired of [retiredPublisher, retiredPublicationTest]) {
+  if (existsSync(join(ROOT, retired))) failures.push(`${retired} returned after Catalog complete Release retirement`);
+}
 
 for (const [name, text] of workflows) {
   if (/^\s*queue\s*:/m.test(text)) failures.push(`${name} contains unsupported concurrency queue syntax`);
   if (name !== productionName && /HEAD:catalog-main|HEAD:\$\{?[^\n]*catalog-main/.test(text)) {
     failures.push(`${name} writes catalog-main outside Production Gate`);
   }
-  if (name !== productionName && text.includes('scripts/publish-release.sh')) {
-    failures.push(`${name} publishes the complete Release outside Production Gate`);
+  if (text.includes(retiredPublisher) || text.includes(retiredCompleteTag)) {
+    failures.push(`${name} references the retired Catalog complete Release capability`);
   }
   if (text.includes('catalog-data')) failures.push(`${name} still references retired catalog-data`);
 }

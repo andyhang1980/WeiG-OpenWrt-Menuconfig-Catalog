@@ -65,8 +65,6 @@ try {
     generatedAt:
       '2026-01-01T00:00:00.000Z',
     commit: 'demo',
-    completeReleaseTag:
-      'menuconfig-catalog-complete',
     assets: {
       compatibility: { asset: compatibilityAsset, hash: 'stale-compatibility', bytes: 1, schema: 1 },
     },

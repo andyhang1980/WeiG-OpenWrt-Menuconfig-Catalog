@@ -236,13 +236,12 @@ hanwckf 仍只收录 `openwrt-21.02` 兼容分支。每个分支独立生成，
   完整错误日志放入该分支唯一的结果 Artifact，保留 60 天。
 - 本次失败或校验损坏但曾成功的分支沿用 `catalog-data` 中的 last-good 并标为
   `stale`；从未成功的分支标为 `unavailable`，不会伪装成最新数据。
-- 只有全部分支成功时才更新固定 Release `menuconfig-catalog-complete`；
-  部分失败只更新滚动目录，Workflow 保持失败状态。
+- 正式生产不再复制一份 Catalog 到 GitHub Release。Production Gate 的唯一生产发布结果是
+  `catalog-main`；其 `index.json` 通过 40 位 immutable `assetRef` 指向实际资产提交。
 - Publish 会逐个读取下载后的 Artifact 目录，核对成功分支的 catalog、
   meta、translations、attempt、SUMMARY、gzip 和 SHA-256；无效的“成功”结果进入隔离诊断，
   不得覆盖旧数据。`publish-inputs.json` 会逐分支记录 fresh/last-good/unavailable。
-  固定 Release 存在时原位覆盖，不会先删除旧 Release。Publish 成败都会
-  上传独立诊断 Artifact，记录输入清单、失败阶段和对应编号。
+  Publish 成败都会上传独立诊断 Artifact，记录输入清单、失败阶段和对应编号。
 
 ## Diagnostic identity and legacy metadata / 诊断身份与旧版元数据
 

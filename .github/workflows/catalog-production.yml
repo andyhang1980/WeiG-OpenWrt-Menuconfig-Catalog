@@ -80,15 +80,27 @@ jobs:
             git -C production push origin HEAD:catalog-main
           fi
           echo "production_sha=$(git -C production rev-parse HEAD)" >> "$GITHUB_OUTPUT"
-      - name: Publish complete catalog Release alias
+      - name: Re-read catalog-main identity
         env:
-          GH_TOKEN: ${{ github.token }}
-          CATALOG_RELEASE_TARGET_SHA: ${{ github.sha }}
-          CATALOG_RELEASE_SOURCE_SHA: ${{ steps.candidate.outputs.candidate_sha }}
+          EXPECTED_PRODUCTION_SHA: ${{ steps.data.outputs.production_sha }}
+          EXPECTED_ASSET_REF: ${{ steps.verify.outputs.asset_ref }}
         run: |
-          rm -rf dist
-          cp -a candidate dist
-          bash scripts/publish-release.sh
+          set -euo pipefail
+          git -C production fetch --no-tags --depth=1 origin catalog-main
+          remote_sha="$(git -C production rev-parse FETCH_HEAD)"
+          [[ "$remote_sha" == "$EXPECTED_PRODUCTION_SHA" ]] || {
+            echo "catalog-main moved after promotion: expected $EXPECTED_PRODUCTION_SHA, got $remote_sha"
+            exit 1
+          }
+          git -C production show "$remote_sha:index.json" > "$RUNNER_TEMP/production-index.json"
+          cmp -s candidate/index.json "$RUNNER_TEMP/production-index.json" || {
+            echo "catalog-main index does not match the verified candidate"
+            exit 1
+          }
+          git -C production fetch --no-tags --depth=1 origin "$EXPECTED_ASSET_REF"
+          git -C production cat-file -e "${EXPECTED_ASSET_REF}^{commit}"
+          git -C production show "$EXPECTED_ASSET_REF:index.json" > "$RUNNER_TEMP/production-asset-index.json"
+          node scripts/stamp-catalog-snapshot.mjs verify-assets             "$RUNNER_TEMP/production-index.json" "$RUNNER_TEMP/production-asset-index.json"
       - name: Production summary
         run: |
           {

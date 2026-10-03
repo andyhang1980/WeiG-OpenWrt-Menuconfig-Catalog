@@ -234,7 +234,6 @@ const body = {
   schema: 2,
   generatedAt,
   commit: process.env.CATALOG_COMMIT || '',
-  completeReleaseTag: 'menuconfig-catalog-complete',
   health: {
     fresh: branchRows.filter((item) => item.state === 'fresh').length,
     stale: branchRows.filter((item) => item.state === 'stale').length,
