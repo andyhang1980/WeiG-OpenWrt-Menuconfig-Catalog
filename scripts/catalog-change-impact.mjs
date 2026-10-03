@@ -13,6 +13,8 @@ const RETIRED_PATHS = new Map([
   ['curated-sizes.json', 'applications'],
   ['scripts/refresh-curated-sizes.mjs', 'none'],
   ['.github/workflows/curated-sizes.yml', 'none'],
+  ['scripts/check-release-publication.mjs', 'none'],
+  ['scripts/publish-release.sh', 'none'],
 ]);
 
 const REGISTRY = Object.freeze({
