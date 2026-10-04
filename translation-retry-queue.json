@@ -1,0 +1,18 @@
+{
+  "schema": 1,
+  "languages": {
+    "zh-CN": [
+      {
+        "id": "3d8f33c09b6778562f18652ea18c1e74135682b7fce27a55b594a97ed3993588",
+        "text": "This enables further checks in the kernel address sanitizer, for now\nit only includes the address-use-after-scope check that can lead\nto excessive kernel stack usage, frame size warnings and longer\ncompile time.\nhttps://gcc.gnu.org/bugzilla/show_bug.cgi?id=81715 has more",
+        "reason": "Batch incomplete: translated 498/500 queued descriptions"
+      },
+      {
+        "id": "30221851cb10191e8a1dbb211b1aca963d8f3c1e91b9a5a9cb1ac82b4ec39766",
+        "text": "This package contains a base filesystem and system scripts for OpenWrt. http://openwrt.org/",
+        "reason": "Batch incomplete: translated 498/500 queued descriptions"
+      }
+    ]
+  },
+  "updatedAt": "2026-10-04T23:40:43.220Z"
+}
