@@ -42,9 +42,13 @@ const copyUnique = (file, dir, scope) => {
   return true;
 };
 
+// Reports remain required producer evidence, not runtime assets. Older
+// snapshots stay addressable; carrying last-good may not republish retired
+// duplicate graphs or human-readable reports into the new snapshot.
+const isDiagnosticAsset = (file) =>
+  /\.(?:relations(?:\.debug)?\.json(?:\.gz)?|translations\.json|contract\.json|duplicates\.json|curated-candidates\.json)$/.test(file);
 for (const file of walk(previousDir).filter((item) =>
-  item.endsWith('.json.gz') || item.endsWith('.translations.json') || item.endsWith('.contract.json') ||
-  item.endsWith('.relations.json') || item.endsWith('.duplicates.json') || item.endsWith('.curated-candidates.json'))) {
+  item.endsWith('.json.gz') && !isDiagnosticAsset(item))) {
   copyFileSync(file, join(distDir, basename(file)));
 }
 for (const name of ['i18n-cache.json', 'translation-state.json', 'translation-retry-queue.json']) {
@@ -242,11 +246,8 @@ for (const artifactDir of artifactDirs) {
     fresh = copyUnique(assetFile, distDir, identity) &&
       shardFiles.every((file) => copyUnique(file, distDir, identity)) &&
       copyUnique(metaFiles[0], distDir, identity) &&
-      copyUnique(contractFile, distDir, identity) &&
-      copyUnique(relationsFile, distDir, identity) &&
-      copyUnique(duplicateFile, distDir, identity) &&
-      copyUnique(candidateFile, distDir, identity) &&
-      copyUnique(translationFile, distDir, identity);
+      [contractFile, relationsFile, duplicateFile, candidateFile, translationFile]
+        .every((file) => copyUnique(file, diagnosticsDir, identity));
     if (!fresh) issues.push('输出文件名冲突');
   }
   warnings.push(...issues.map((item) => `${identity}:${item}`));

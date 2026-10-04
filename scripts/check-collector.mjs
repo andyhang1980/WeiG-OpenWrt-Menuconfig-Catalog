@@ -163,6 +163,16 @@ try {
     join(valid, 'dist', 'openwrt--main.json.gz'))));
   if (!validManifest.complete || validManifest.fresh !== 1 ||
       validJson.generation !== 'current') throw new Error('valid current result was not published');
+  for (const suffix of ['contract.json', 'relations.json.gz', 'duplicates.json', 'curated-candidates.json', 'translations.json']) {
+    const name = `openwrt--main.${suffix}`;
+    if (existsSync(join(valid, 'dist', name)) || !existsSync(join(valid, 'diagnostics', name))) {
+      throw new Error(`diagnostic report must only be retained in Actions evidence: ${name}`);
+    }
+  }
+  if (!existsSync(join(valid, 'dist', 'openwrt--main.graph.json.gz')) ||
+      !existsSync(join(valid, 'dist', 'openwrt--main.profiles.json.gz'))) {
+    throw new Error('runtime graph/Profile shards must remain published');
+  }
 
   const fixValid = fixture('fix-valid', (root, previous) => {
     addPrevious(previous, 'main');

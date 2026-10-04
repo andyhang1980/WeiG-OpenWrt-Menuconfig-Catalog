@@ -1,5 +1,37 @@
 # WeiG OpenWrt Menuconfig Catalog
 
+## Source families and runtime publication / 版本族与运行资产
+
+| Source | Discovered branches | Default selection |
+| --- | --- | --- |
+| iStoreOS (`istoreos/istoreos`) | `istoreos-YY.MM`, newest first; no patch, experimental, `openwrt-*`, main/master branches | Upstream default when it belongs to the family |
+| Lienol (`Lienol/openwrt`) | `YY.MM`, newest first; no patch or experimental branches | Upstream default when it belongs to the family |
+
+`catalog.config.json` declares `branches.versionFamily` and `preferDefault`;
+existing discovery, metadata-only bootstrap, exact feeds, native Profile baseline,
+Kconfig and package graph generation are shared. A future family version is
+discovered automatically. A configured source becomes usable only after native
+generation/validation publishes a complete snapshot; configuration alone is not
+proof that every Profile or firmware builds. No other source's package sizes are borrowed.
+
+版本倒序和默认选择分开：iStoreOS 当前最新发现 `25.12`，官方默认仍为 `24.10`；
+这些是发现结果，不是网页写死的版本表。两新源复用原生成链，网页选择具体 Profile 后
+读取精确原生 baseline，不在浏览器再跑 defconfig。未来版本族自动发现；生成未成功的环境
+不作为可用数据。没有可信同源官方大小索引时明确未知，不借用其它源数字。
+
+New snapshots keep required contract/duplicate/translation/relations evidence in
+Actions artifacts, not the runtime data branch. Existing graph and legacy bundle
+contracts remain while older consumers still require them; immutable historical
+snapshots remain addressable. Modern translation reads full text from menu/help
+(`complete-text-v1`) and language projections, without decoding a graph to discover
+text; old snapshots retain the legacy path, and compatibility bundles are updated
+one branch at a time with non-text fields preserved.
+
+网页先显示验证过的 core 选择器，依赖图与 Native baseline 并行加载，菜单/长说明/语言/
+当前架构大小仍按需加载，不把所有数据合成 ZIP。代表性真实 `ImmortalWrt/openwrt-25.12`
+core+compact graph+profiles 为 6,659,160 bytes gzip；合并 gzip-9 为 6,657,709 bytes，
+只省 0.022%，不值得牺牲首屏、按需加载和独立缓存。该比较不等于所有源的浏览器性能承诺。
+
 ## Reproducible inputs and parallel Native Profiles
 
 Each new branch snapshot records `buildInputs` and `inputsHash`: the exact source
@@ -93,10 +125,10 @@ JavaScript 中写死分支、Target 或菜单项目。
 - Package metadata follows the selected upstream's native `metadata.pm` projection: the last concrete package declaration wins, while virtual-provider membership retains the native accumulated registrations. Raw `Provides:` tokens and canonical capability identities remain separate; a capability such as `@base-files-any` is not a Kconfig symbol. Description/Config multiline blocks cannot create phantom package records. Alternative, conditional, build-only, and versioned tokens retain their field-specific meaning; conflicts are not expanded into invented aliases. Provider projection is tested against native metadata generations, independently of complete Kconfig/firmware parity.
 - Target selectors are emitted as an ordered schema and tree. Empty trailing selectors are hidden,
   one-option selectors are auto-selected, and extra future selectors can be appended without HTML changes.
-- Every generation writes a `*.translations.json` coverage report.
+- Every generation writes a `*.translations.json` coverage report retained in Actions diagnostics, not republished as runtime data.
 - Catalog schema 6 splits each branch into `core`, `graph`, optional `graphCompact`, `menu`, `hidden`, `help`, and per-language menu gzip assets. The published index records every shard's compressed byte count, SHA-256, and immutable `assetRef` Git commit. New consumers initially fetch `core + graphCompact` when advertised; old consumers continue using `core + graph`. Advanced menu text and long help are loaded on demand. The schema-5 monolithic gzip remains temporarily as a compatibility fallback. A corrupt advertised compact asset is an error, not permission to silently mix assets from another snapshot.
 - Confirmed facts that upstream Kconfig cannot express live in the small global `compatibility.json`; it references package IDs only and never duplicates symbols, states, names, dependencies, or hashes. See [中文规则说明](docs/COMPATIBILITY.md) and [English rules](docs/COMPATIBILITY.en.md).
-- The daily translation workflow reads branch assets from `index.json`, reuses `i18n-cache.json`, and translates only new or changed descriptions. It reads and releases one legacy branch bundle at a time, then applies translations branch by branch; it never retains all parsed graphs in memory. An early run receipt distinguishes an interrupted job from a completed translation report.
+- The daily translation workflow reads branch assets from `index.json`, reuses `i18n-cache.json`, and translates only new or changed descriptions. Full modern text comes from menu/help and language projections; older snapshots still read one legacy branch at a time. Compatibility projections are updated one branch at a time; parsed graphs are never retained across branches. An early run receipt distinguishes an interrupted job from a completed translation report.
   Argos runs locally by default without a key; Azure is an explicit optional engine. Successful
   translations are published even when a batch is incomplete; remaining descriptions are kept in
   `translation-retry-queue.json` and retried first on the next run. A translation job is limited to

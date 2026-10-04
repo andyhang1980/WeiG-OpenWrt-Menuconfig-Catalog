@@ -1,6 +1,7 @@
 import { existsSync, readFileSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { gunzipSync, gzipSync } from 'node:zlib';
+import { createHash } from 'node:crypto';
 
 export const translationLanguages = [
   'zh-CN',
@@ -38,10 +39,88 @@ export function indexedTranslationCatalogs(index, directory) {
         name: asset,
         file,
         languageAssets,
+        textAssets: Object.fromEntries(['menu', 'help'].filter((logical) => branch.assets?.[logical]?.asset)
+          .map((logical) => [logical, { ...branch.assets[logical], file: join(directory, branch.assets[logical].asset) }])),
       });
     }
   }
   return rows;
+}
+
+export function readIndexedTranslationCatalog(entry) {
+  const read = (contract) => {
+    const bytes = readFileSync(contract.file);
+    if ((contract.hash && createHash('sha256').update(bytes).digest('hex') !== contract.hash) ||
+        (contract.bytes && bytes.length !== contract.bytes)) {
+      throw new Error(`translation text contract mismatch: ${contract.asset}`);
+    }
+    return JSON.parse(gunzipSync(bytes));
+  };
+  if (entry.textAssets?.menu && entry.textAssets?.help) {
+    const menu = read(entry.textAssets.menu);
+    const help = read(entry.textAssets.help);
+    if (help.translationInput === 'complete-text-v1') {
+      if (menu.kind !== 'menu' || help.kind !== 'help' ||
+          ['id', 'branch', 'commit'].some((key) => menu.source?.[key] !== help.source?.[key])) {
+        throw new Error('translation menu/help identity mismatch');
+      }
+      const usage = new Map((help.options || []).map((row) => [row.symbol, row]));
+      const catalog = { source: menu.source, menu: { ...menu,
+        options: (menu.options || []).map((row) => {
+          const full = usage.get(row.symbol);
+          return { ...row, usageEn: full?.en || row.usageEn || '',
+            promptZh: full?.promptZh || '', promptI18n: full?.promptI18n || {},
+            usageZh: full?.zhCN || '', usageI18n: full?.i18n || {} };
+        }), labels: structuredClone(help.labels || {}), choices: structuredClone(help.choices || []),
+      } };
+      const options = new Map(catalog.menu.options.map((row) => [row.symbol, row]));
+      const choices = new Map(catalog.menu.choices.map((row) => [row.id, row]));
+      for (const [language, file] of Object.entries(entry.languageAssets)) {
+        const document = JSON.parse(gunzipSync(readFileSync(file)));
+        const apply = (row, title, usageText, titleKey, usageKey) => {
+          if (!row) return;
+          // Keep the original manual Chinese fields and map spelling. A
+          // language projection may derive Chinese from a separate field;
+          // copying that back into the map would change legacy cache inputs.
+          const chineseTitle = titleKey === 'i18n' ? row.zhCN : row.promptZh;
+          if (title && (language !== 'zh-CN' || !chineseTitle)) (row[titleKey] ||= {})[language] = title;
+          if (usageText && (language !== 'zh-CN' || !row.usageZh)) (row[usageKey] ||= {})[language] = usageText;
+        };
+        for (const [symbol, title, text] of document.options || []) apply(options.get(symbol), title, text, 'promptI18n', 'usageI18n');
+        for (const [name, title, text] of document.labels || []) apply(catalog.menu.labels[name], title, text, 'i18n', 'usageI18n');
+        for (const [id, title, text] of document.choices || []) apply(choices.get(id), title, text, 'promptI18n', 'usageI18n');
+      }
+      return { catalog, modern: true };
+    }
+  }
+  const originalText = gunzipSync(readFileSync(entry.file)).toString('utf8');
+  return { catalog: JSON.parse(originalText), originalText, modern: false };
+}
+
+export function writeTranslatedLegacyProjection(entry, view, generatedAt) {
+  const originalText = view.originalText || gunzipSync(readFileSync(entry.file)).toString('utf8');
+  const legacy = view.modern ? JSON.parse(originalText) : view.catalog;
+  if (view.modern) {
+    const options = new Map(view.catalog.menu.options.map((row) => [row.symbol, row]));
+    const choices = new Map(view.catalog.menu.choices.map((row) => [row.id, row]));
+    for (const row of legacy.menu?.options || []) {
+      const next = options.get(row.symbol);
+      if (next) Object.assign(row, { usageEn: next.usageEn, promptI18n: next.promptI18n, usageI18n: next.usageI18n });
+    }
+    for (const [name, row] of Object.entries(legacy.menu?.labels || {})) {
+      const next = view.catalog.menu.labels[name];
+      if (next) Object.assign(row, { i18n: next.i18n, usageI18n: next.usageI18n });
+    }
+    for (const row of legacy.menu?.choices || []) {
+      const next = choices.get(row.id);
+      if (next) Object.assign(row, { promptI18n: next.promptI18n, usageI18n: next.usageI18n });
+    }
+  }
+  if (JSON.stringify(legacy) === originalText) return false;
+  legacy.translation = { ...(legacy.translation || {}), languages: ['en', ...translationLanguages],
+    fallback: 'en', updatedAt: generatedAt };
+  writeFileSync(entry.file, gzipSync(Buffer.from(JSON.stringify(legacy)), { level: 9 }));
+  return true;
 }
 
 export function menuLanguagePayload(catalog, language, generatedAt) {

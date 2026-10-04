@@ -35,7 +35,7 @@ import { applicableBuildDependencies, normalizeCompatibilityDocument } from './c
 import { buildProbeConfig, verifyProbeConfig } from './verify-target-contracts.mjs';
 import { activeCuratedGroups, buildCuratedApplications } from './curated-applications.mjs';
 import { parseApkDump, parseOpkgPackages } from './curated-sizes.mjs';
-import { sourceAllowsBranch } from './source-policy.mjs';
+import { sourceAllowsBranch, sourceBranchVersion, compareBranches, validateSourcePolicy } from './source-policy.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const fixture = join(ROOT, 'tests', 'fixture');
@@ -62,7 +62,7 @@ const translations = json('translations', 'zh-CN.json');
 const menuI18n = json('translations', 'menu-i18n.json');
 
 // Source/Branch policy is data-driven and future branches stay discoverable.
-assert.equal(policy.sources.length, 4);
+assert.equal(policy.sources.length, 6);
 const immortal = policy.sources.find((row) => row.id === 'ImmortalWrt');
 const openwrt = policy.sources.find((row) => row.id === 'OpenWrt');
 const lede = policy.sources.find((row) => row.id === 'lede');
@@ -76,6 +76,30 @@ assert(sourceAllowsBranch(openwrt, 'main'));
 assert(!sourceAllowsBranch(openwrt, 'master'));
 assert(sourceAllowsBranch(lede, 'master'));
 assert(sourceAllowsBranch(lede, 'openwrt-30.01'));
+const store = policy.sources.find((row) => row.id === 'iStoreOS');
+const lienol = policy.sources.find((row) => row.id === 'Lienol');
+for (const branch of ['istoreos-21.02', 'istoreos-22.03', 'istoreos-23.05', 'istoreos-24.10', 'istoreos-25.12', 'istoreos-30.01']) {
+  assert(sourceAllowsBranch(store, branch), branch);
+}
+for (const branch of ['main', 'master', 'openwrt-25.12', 'istoreos-24.10.4', 'istoreos-24.10.0-rc4',
+  'istoreos-22.03-dev', 'istoreos-24.10-rebase', 'istoreos-24.10-rk-opp-pvtm', 'istoreos-3.01', 'istoreos-next']) {
+  assert(!sourceAllowsBranch(store, branch), branch);
+}
+for (const branch of ['19.07', '23.05', '24.10', '25.12', '30.01']) assert(sourceAllowsBranch(lienol, branch), branch);
+for (const branch of ['main', 'master', '25.12.1', '25.12-dev', 'openwrt-25.12']) assert(!sourceAllowsBranch(lienol, branch), branch);
+assert.equal(sourceBranchVersion(store, 'istoreos-24.10'), '24.10');
+assert.equal(sourceBranchVersion(immortal, 'openwrt-18.06-k5.4'), '18.06-k5.4', 'existing version identities stay stable');
+assert.deepEqual(['istoreos-23.05', 'istoreos-25.12', 'istoreos-24.10'].sort((a, b) => compareBranches(a, b, store)),
+  ['istoreos-25.12', 'istoreos-24.10', 'istoreos-23.05']);
+assert.deepEqual(['main', 'openwrt-23.05', 'openwrt-25.12'].sort((a, b) => compareBranches(a, b, openwrt)),
+  ['openwrt-25.12', 'openwrt-23.05', 'main']);
+assert.throws(() => validateSourcePolicy({ ...store, branches: { ...store.branches, versionFamily: { prefix: '*', components: 2, width: 2 } } }), /versionFamily/);
+assert.throws(() => validateSourcePolicy({ ...store, branches: { ...store.branches, preferDefault: 'true' } }), /preferDefault/);
+assert(store.branches.preferDefault && lienol.branches.preferDefault);
+for (const source of [store, lienol]) {
+  assert.deepEqual(source.build, { diy1: 'diy-generic.sh', diy2: 'diy2-generic.sh' });
+  assert(!policy.curatedSizeSources.some((row) => row.id === source.id), 'never borrow another fork\'s package sizes');
+}
 
 // Official Target/Profile parsing and selector contracts.
 const targets = parseInfoRecords(readFileSync(join(fixture, 'targetinfo'), 'utf8'));

@@ -28,39 +28,57 @@ export function validateSourcePolicy(source) {
   if (exclude.some((pattern) => !BRANCH_RE.test(pattern) && !GLOB_RE.test(pattern))) {
     throw new Error(`${source?.id || 'source'}.exclude contains an invalid pattern`);
   }
-  return { patterns, exclude };
+  const family = source?.branches?.versionFamily;
+  if (family !== undefined && (!family || typeof family !== 'object' || Array.isArray(family) ||
+      Object.keys(family).some((key) => !['prefix', 'components', 'width'].includes(key)) ||
+      typeof family.prefix !== 'string' || (family.prefix && !BRANCH_RE.test(family.prefix)) ||
+      !Number.isInteger(family.components) || family.components < 1 || family.components > 4 ||
+      !Number.isInteger(family.width) || family.width < 1 || family.width > 4)) {
+    throw new Error(`${source?.id || 'source'}.branches.versionFamily is invalid`);
+  }
+  if (source?.branches?.preferDefault !== undefined && typeof source.branches.preferDefault !== 'boolean') {
+    throw new Error(`${source?.id || 'source'}.branches.preferDefault must be boolean`);
+  }
+  return { patterns, exclude, family };
 }
 
 export function sourceAllowsBranch(source, branch) {
-  const { patterns, exclude } = validateSourcePolicy(source);
+  const { patterns, exclude, family } = validateSourcePolicy(source);
+  if (family) {
+    const value = String(branch || '');
+    if (!value.startsWith(family.prefix)) return false;
+    const parts = value.slice(family.prefix.length).split('.');
+    if (parts.length !== family.components || parts.some((part) =>
+      part.length !== family.width || !/^\d+$/.test(part))) return false;
+  }
   return patterns.some((pattern) => matchPattern(branch, pattern)) &&
     !exclude.some((pattern) => matchPattern(branch, pattern));
+}
+
+export function sourceBranchVersion(source, branch) {
+  const text = String(branch || '');
+  const prefix = source?.branches?.versionFamily?.prefix;
+  if (prefix !== undefined && sourceAllowsBranch(source, text)) return text.slice(prefix.length);
+  return text.replace(/^openwrt-/, '');
 }
 
 export function sourceNeedsDiscovery(source) {
   return sourceBranchPatterns(source).some((pattern) => pattern.includes('*'));
 }
 
-function versionParts(value) {
-  return String(value).replace(/^openwrt-/, '').split(/[.-]/).map((part) => {
-    const number = Number(part);
-    return Number.isFinite(number) ? number : part;
-  });
-}
-
-export function compareBranches(left, right) {
-  const rank = (value) => value === 'main' || value === 'master' ? 0 : value.startsWith('openwrt-') ? 1 : 2;
+export function compareBranches(left, right, source = null) {
+  const version = (value) => sourceBranchVersion(source, value).match(/^\d+(?:\.\d+)*$/)?.[0];
+  const rank = (value) => version(value) ? 0 : value === 'main' || value === 'master' ? 1 : 2;
   const rankDelta = rank(left) - rank(right);
   if (rankDelta) return rankDelta;
-  if (rank(left) !== 1) return left.localeCompare(right);
-  const a = versionParts(left);
-  const b = versionParts(right);
+  if (rank(left) !== 0) return left.localeCompare(right, undefined, { numeric: true });
+  const a = version(left).split('.').map(Number);
+  const b = version(right).split('.').map(Number);
   for (let index = 0; index < Math.max(a.length, b.length); index++) {
     const av = a[index] ?? -1;
     const bv = b[index] ?? -1;
     if (av === bv) continue;
-    if (typeof av === 'number' && typeof bv === 'number') return bv - av;
-    return String(bv).localeCompare(String(av));
+    return bv - av;
   }
   return left.localeCompare(right);
 }

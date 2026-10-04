@@ -6,7 +6,7 @@ import { gzipSync } from 'node:zlib';
 import { normalizeCompatibilityDocument } from './compatibility-rules.mjs';
 import { buildCuratedApplications } from './curated-applications.mjs';
 import { fileContract, indexBody, indexContract, stampIndex } from './index-contract.mjs';
-import { compareBranches, sourceAllowsBranch } from './source-policy.mjs';
+import { compareBranches, sourceAllowsBranch, sourceBranchVersion } from './source-policy.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 
@@ -167,13 +167,14 @@ for (const row of rows) {
   }
   source.label = row.source.label || source.label || row.source.id;
   source.build = policy.sources.find((item) => item.id === row.source.id)?.build;
+  if (row.source.defaultBranch) source.defaultBranch = row.source.defaultBranch;
   const legacy = legacyContract(row);
   if (!legacy || legacy.catalogSchema < 5 || legacy.relationsSchema < 2) {
     throw new Error(`meta lacks an explicit legacy build contract: ${row.source.id}/${row.source.branch}`);
   }
   const branch = normalizeLegacyMirror({
     id: row.source.branch.startsWith('openwrt-') ? row.source.branch.slice(8) : row.source.branch,
-    version: row.source.branch.startsWith('openwrt-') ? row.source.branch.slice(8) : row.source.branch,
+    version: sourceBranchVersion(policy.sources.find((item) => item.id === row.source.id), row.source.branch),
     branch: row.source.branch, counts: row.counts,
     commit: row.commit || row.source.commit || '',
     ...(row.buildInputs ? { buildInputs: row.buildInputs, inputsHash: row.source.inputsHash } : {}),
@@ -227,7 +228,10 @@ for (const attempt of attempts) {
     branch.errorStage = attempt.stage || 'unknown';
   }
 }
-for (const source of sources) source.branches.sort((a, b) => compareBranches(a.branch, b.branch));
+for (const source of sources) {
+  const rule = policy.sources.find((item) => item.id === source.id);
+  source.branches.sort((a, b) => compareBranches(a.branch, b.branch, rule));
+}
 const branchRows = sources.flatMap((source) => source.branches);
 const generatedAt = new Date().toISOString();
 const body = {

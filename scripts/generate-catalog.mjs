@@ -36,6 +36,7 @@ const source = {
   id: args['source-id'], label: args.label || args['source-id'],
   repo: args.repo, branch: args.branch,
   commit, legacy: args.legacy === 'true',
+  ...(args['default-branch'] ? { defaultBranch: args['default-branch'] } : {}),
   ...(buildInputs ? { inputsHash: catalogInputsHash(buildInputs) } : {}),
 };
 const targets = parseInfoRecords(readFileSync(targetInfo, 'utf8'));
@@ -309,8 +310,11 @@ const payload = {
     symbolsUnique: true,
     duplicateSymbols: duplicateReport.summary.duplicateSymbols,
     duplicateNodes: duplicateReport.summary.duplicateNodes,
-    duplicateReport: `${slug}.duplicates.json`,
-    curatedCandidatesReport: `${slug}.curated-candidates.json`,
+    diagnostics: {
+      delivery: 'actions-artifact',
+      duplicateReport: `${slug}.duplicates.json`,
+      curatedCandidatesReport: `${slug}.curated-candidates.json`,
+    },
   },
   counts: {
     targets: targets.length,
@@ -474,10 +478,18 @@ const helpPayload = {
   kind: 'help',
   generatedAt,
   source,
+  translationInput: 'complete-text-v1',
+  // Full English/manual text stays in the lazy help projection. Translation
+  // no longer needs the dependency graph to discover source text.
+  labels: compactMenu.labels,
+  choices: compactMenu.choices.map(({ id, prompt, promptEn, promptZh, promptI18n, usageEn, usageZh, usageI18n }) =>
+    ({ id, prompt, promptEn, promptZh, promptI18n, usageEn, usageZh, usageI18n })),
   options: translatedOptions.filter((option) => option.help || option.usageEn || option.usageZh ||
     Object.keys(option.usageI18n || {}).length).map((option) => ({
     symbol: option.symbol,
     en: option.usageEn || option.help || '',
+    promptZh: option.promptZh || '',
+    promptI18n: option.promptI18n || {},
     zhCN: option.usageZh || '',
     i18n: option.usageI18n || {},
   })),
@@ -637,7 +649,8 @@ writeFileSync(join(outDir, `${slug}.meta.json`), JSON.stringify({
     legacy: { bytes: legacyCompressed.byteLength, jsonBytes: Buffer.byteLength(legacyJson) },
     split: {
       bytes: Object.values(assets).reduce((sum, item) => sum + item.bytes, 0),
-      initialBytes: assets.core.bytes + assets.graph.bytes,
+      pickerBytes: assets.core.bytes,
+      initialBytes: assets.core.bytes + assets.graphCompact.bytes,
       graphJsonBytes: assets.graph.jsonBytes,
     },
     readableRelationsJsonBytes: measureJsonBytes(relations, 2) + 1,
@@ -646,5 +659,5 @@ writeFileSync(join(outDir, `${slug}.meta.json`), JSON.stringify({
 }, null, 2) + '\n');
 console.log(`${asset}: ${payload.counts.selectableTargets}/${targets.length} selectable targets / ` +
   `${payload.counts.profiles} profiles / ${compactMenu.options.length} menu options / ${packages.length} packages` +
-  ` / schema6 initial ${assets.core.bytes + assets.graph.bytes} bytes` +
+  ` / schema6 core+compact graph ${assets.core.bytes + assets.graphCompact.bytes} bytes` +
   (unavailableTargets.length ? ` / unavailable contracts: ${unavailableTargets.length}` : ''));

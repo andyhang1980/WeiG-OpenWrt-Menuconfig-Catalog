@@ -8,6 +8,7 @@ import { fileURLToPath } from 'node:url';
 import { gunzipSync } from 'node:zlib';
 import { decodeCompactRelationTables } from './relation-table-codec.mjs';
 import { captureCatalogInputs, catalogInputsHash } from './catalog-inputs.mjs';
+import { indexedTranslationCatalogs, readIndexedTranslationCatalog, menuLanguagePayload } from './translation-catalog-assets.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const output = mkdtempSync(join(tmpdir(), 'weig-branch-assets-'));
@@ -46,6 +47,7 @@ try {
     '--label', 'Fixture',
     '--repo', 'example/fixture',
     '--branch', 'test',
+    '--default-branch', 'test',
     '--legacy', 'false',
     '--tree', tree,
     '--feeds-runtime', receiptPath,
@@ -65,6 +67,18 @@ try {
   assert.deepEqual(decodeCompactRelationTables(compactGraph.relations), legacyGraph.relations);
   assert.equal(meta.assets.graphCompact.asset, 'fixture--test.graph.compact.json.gz');
   assert.equal(compactGraph.source.commit, legacyGraph.source.commit);
+  assert.equal(core.source.defaultBranch, 'test', 'discovered upstream default must survive generated source metadata');
+  assert.equal(meta.sizeReport.split.initialBytes, meta.assets.core.bytes + meta.assets.graphCompact.bytes);
+  const textEntry = indexedTranslationCatalogs({ sources: [{ id: 'Fixture', branches: [{
+    branch: 'test', legacy: meta.legacy, assets: meta.assets,
+  }] }] }, output)[0];
+  const modernText = readIndexedTranslationCatalog(textEntry);
+  assert.equal(modernText.modern, true, 'fresh generator must publish a complete text projection');
+  const legacyText = readGzipJson('fixture--test.json.gz');
+  for (const language of ['zh-CN', 'zh-TW', 'ru', 'es', 'pt', 'ja', 'ko', 'de', 'fr', 'vi']) {
+    assert.deepEqual(menuLanguagePayload(modernText.catalog, language, 'same'),
+      menuLanguagePayload(legacyText, language, 'same'), 'producer modern text and legacy projection must match');
+  }
 
   assert.deepEqual(core.applications.fields, ['symbol', 'package', 'group', 'hot']);
   assert(core.applications.rows.some((row) => row[0] === 'PACKAGE_luci-app-demo' && row[1] === 'luci-app-demo'));

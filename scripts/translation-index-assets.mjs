@@ -1,6 +1,6 @@
 import { createHash } from 'node:crypto';
 import { existsSync, readFileSync } from 'node:fs';
-import { basename, join } from 'node:path';
+import { join } from 'node:path';
 import { gunzipSync } from 'node:zlib';
 import { branchLegacyContract, fileContract, indexContract } from './index-contract.mjs';
 
@@ -22,10 +22,9 @@ export function translationSparsePaths(index) {
       const legacy = branchLegacyContract(branch);
       if (legacy?.asset) {
         paths.add(`/${legacy.asset}`);
-        paths.add(`/${basename(legacy.asset, '.json.gz')}.translations.json`);
       }
       for (const [logical, contract] of Object.entries(branch.assets || {})) {
-        if (logical.startsWith('menu:') && contract?.asset) paths.add(`/${contract.asset}`);
+        if ((['menu', 'help'].includes(logical) || logical.startsWith('menu:')) && contract?.asset) paths.add(`/${contract.asset}`);
       }
     }
   }

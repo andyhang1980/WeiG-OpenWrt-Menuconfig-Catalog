@@ -4,7 +4,7 @@ import { mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import {
-  compareBranches, sourceAllowsBranch, sourceNeedsDiscovery, validateSourcePolicy,
+  compareBranches, sourceAllowsBranch, sourceBranchVersion, sourceNeedsDiscovery, validateSourcePolicy,
 } from './source-policy.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
@@ -35,15 +35,24 @@ const include = [];
 for (const source of config.sources) {
   const policy = validateSourcePolicy(source);
   const branches = sourceNeedsDiscovery(source) ? await remoteBranches(source.repo) : policy.patterns;
-  for (const branch of [...new Set(branches)].filter((item) => sourceAllowsBranch(source, item)).sort(compareBranches)) {
+  let defaultBranch = '';
+  if (source.branches?.preferDefault) {
+    const response = await fetch(`https://api.github.com/repos/${source.repo}`, { headers });
+    if (!response.ok) throw new Error(`${source.repo} default branch: HTTP ${response.status}`);
+    const candidate = (await response.json()).default_branch;
+    if (sourceAllowsBranch(source, candidate)) defaultBranch = candidate;
+  }
+  for (const branch of [...new Set(branches)].filter((item) => sourceAllowsBranch(source, item))
+    .sort((left, right) => compareBranches(left, right, source))) {
     if (!/^[A-Za-z0-9._/-]{1,96}$/.test(branch)) throw new Error(`非法分支名:${source.repo}/${branch}`);
-    const version = branch.startsWith('openwrt-') ? branch.slice(8) : branch;
+    const version = sourceBranchVersion(source, branch);
     include.push({
       source: source.id,
       label: source.label,
       repo: source.repo,
       branch,
       version,
+      defaultBranch,
       jobKey: safeKey(`${source.id}-${branch}`),
       metadataCompat: 'metadata-only',
       diy: source.diy,

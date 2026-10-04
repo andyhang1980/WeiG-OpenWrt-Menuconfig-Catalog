@@ -90,6 +90,7 @@ jobs:
             --label "${{ fromJSON(inputs.branch).label }}" \
             --repo "${{ fromJSON(inputs.branch).repo }}" \
             --branch "${{ fromJSON(inputs.branch).branch }}" \
+            --default-branch "${{ fromJSON(inputs.branch).defaultBranch }}" \
             --legacy "${{ fromJSON(inputs.branch).legacy }}" \
             --tree work/upstream \
             --feeds-runtime probe-feeds-runtime.json \
