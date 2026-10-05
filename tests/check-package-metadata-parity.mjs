@@ -1,12 +1,76 @@
 import assert from 'node:assert/strict';
-import { execFileSync } from 'node:child_process';
-import { mkdtempSync, writeFileSync, rmSync, readdirSync, readFileSync } from 'node:fs';
+import { execFileSync, spawnSync } from 'node:child_process';
+import { mkdtempSync, mkdirSync, writeFileSync, rmSync, readdirSync, readFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join, resolve } from 'node:path';
-import { parsePackageInfo } from '../scripts/lib.mjs';
+import { parsePackageInfo, nativePackageInstallationContract } from '../scripts/lib.mjs';
 import { buildKconfigRelations } from '../scripts/kconfig-relations.mjs';
 import { expandCompactRelations } from '../scripts/compact-relations.mjs';
 import { gunzipSync } from 'node:zlib';
+import { compactRelations, compareRelationSemantics } from '../scripts/compact-relations.mjs';
+
+const packagingTree = mkdtempSync(join(tmpdir(), 'catalog-packaging-contract-'));
+try {
+  mkdirSync(join(packagingTree, 'include'));
+  assert.equal(nativePackageInstallationContract(packagingTree), null, 'legacy trees must not assert APK semantics');
+  const packFunctions = [
+    'define AddProvide',
+    '$(strip $(if $(filter @%,$(1)),$(patsubst @%,%,$(1)),$(if $(3),$(1) $(1)$(call FormatABISuffix,$(1),$(3))=$(2),$(1)=$(2))))',
+    'endef', 'define FormatProvides',
+    '$(strip $(if $(call FormatABISuffix,$(1),$(3)),$(1) $(foreach provide,$(filter-out $(1),$(4)),$(call AddProvide,$(provide),$(2),$(3))),$(foreach provide,$(filter-out $(1),$(4)),$(call AddProvide,$(provide),$(2)))))',
+    'endef',
+  ].join('\n');
+  const abiFunction = [
+    'define FormatABISuffix',
+    '$(if $(filter-out kmod-%,$(1)),$(if $(2),$(if $(filter %0 %1 %2 %3 %4 %5 %6 %7 %8 %9,$(1)),-)$(2)))',
+    'endef',
+  ].join('\n');
+  writeFileSync(join(packagingTree, 'include/package-pack.mk'), packFunctions);
+  writeFileSync(join(packagingTree, 'include/package-dumpinfo.mk'), 'ABI-Version: $(ABI_VERSION)\n');
+  writeFileSync(join(packagingTree, 'include/feeds.mk'), abiFunction);
+  const contract = nativePackageInstallationContract(packagingTree);
+  assert.equal(contract.kind, 'openwrt-apk-provides-v1');
+  const nativePackages = parsePackageInfo([
+    'Package: implementation-a', 'Provides: alias @shared-any', 'ABI-Version: 3',
+    'Package: implementation-b', 'Provides: alias @shared-any', 'ABI-Version: 4',
+    'Package: implementation2', 'Provides: alias2', 'ABI-Version: 0',
+    'Package: kmod-implementation', 'Provides: kmod-alias ordinary-alias', 'ABI-Version: ignored',
+  ].join('\n'));
+  const installationGraph = buildKconfigRelations([], nativePackages, [], { packageInstallation: contract });
+  const apk = name => installationGraph.records.find(row => row.package === name).packageInfo.installation.apk;
+  assert.deepEqual(apk('implementation-a'), { name: 'implementation-a3', provides: ['alias3'] });
+  assert.deepEqual(apk('implementation-b'), { name: 'implementation-b4', provides: ['alias4'] });
+  assert.deepEqual(apk('implementation2'), { name: 'implementation2-0', provides: ['alias2-0'] });
+  assert.deepEqual(apk('kmod-implementation'), { name: 'kmod-implementation', provides: ['kmod-alias', 'ordinary-alias'] });
+  const makeCommand = process.env.WEIG_MAKE || 'make';
+  const makeAvailable = spawnSync(makeCommand, ['--version'], { encoding: 'utf8', windowsHide: true }).status === 0;
+  if (makeAvailable) {
+    for (const row of nativePackages) {
+      const makeInput = [packFunctions, abiFunction,
+        `$(info NAME|${row.name}$(call FormatABISuffix,${row.name},${row.abiVersion}))`,
+        `$(info PROVIDES|$(call FormatProvides,${row.name},1,${row.abiVersion},${(row.rawProvides || row.provides || []).join(' ')}))`,
+        '__metadata_only: ;', ''].join('\n');
+      const output = execFileSync(makeCommand, ['--no-print-directory', '-rR', '-f', '-'],
+        { input: makeInput, encoding: 'utf8', env: { ...process.env, MAKEFLAGS: '', MFLAGS: '', GNUMAKEFLAGS: '' } });
+      const name = output.match(/^NAME\|(.*)$/m)[1];
+      const provides = output.match(/^PROVIDES\|(.*)$/m)[1].split(/\s+/)
+        .filter(token => token.includes('=')).map(token => token.split('=')[0]);
+      assert.deepEqual(apk(row.name), { name, provides }, 'installation projection must match native GNU Make functions');
+    }
+  } else {
+    assert(process.platform === 'win32' && !process.env.CI, 'native installation oracle requires GNU Make in CI');
+  }
+  const compact = compactRelations(installationGraph);
+  const expanded = expandCompactRelations(compact);
+  assert(compareRelationSemantics(installationGraph, expanded).equal,
+    'installation facts must survive the existing positional codec without reinterpreting fields');
+  assert.deepEqual(expanded.packageInstallation, contract);
+  assert.deepEqual(expanded.records.find(row => row.package === 'implementation-a').packageInfo.installation.apk,
+    apk('implementation-a'));
+  writeFileSync(join(packagingTree, 'include/package-pack.mk'), packFunctions.replace('$(1)=$(2)', '$(1)'));
+  assert.equal(nativePackageInstallationContract(packagingTree), null,
+    'an upstream dialect change must not retain an unsupported installation assertion');
+} finally { rmSync(packagingTree, { recursive: true, force: true }); }
 
 const text = [
   'Source-Makefile: package/old/Makefile',

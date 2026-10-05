@@ -2,6 +2,54 @@
   "schema": 6,
   "rules": [
     {
+      "id": "OWN-0004",
+      "issue": "file-ownership",
+      "match": "all-installed",
+      "scope": { "Lienol": ["25.12"] },
+      "sourceCommits": ["a337df404ab3f6dc5b3e7b26a753343d3ad2f4c2"],
+      "targetScope": { "system": ["x86"], "subtarget": ["64"], "profile": ["DEVICE_generic"] },
+      "packages": ["softethervpn-base", "softethervpn5-libs"],
+      "paths": [
+        "/usr/bin/vpncmd",
+        "/usr/libexec/softethervpn/hamcore.se2",
+        "/usr/libexec/softethervpn/lang.config",
+        "/usr/libexec/softethervpn/launcher.sh",
+        "/usr/libexec/softethervpn/vpncmd"
+      ],
+      "refs": [
+        "run:37233040067",
+        "feed:lienol:eb8b7938c0e91065e2d60adcc2e8b6fd2f796261",
+        "feed:packages:fad5bd22ef3f137cad2add7904ac441291244a49",
+        "feed:luci:6998d0bd430ef7d1acca0e8f83cfc46221235e11",
+        "feed:routing:b32747dca62435f1ea01b7a5320c3da15eead46f",
+        "feed:telephony:2618106d5846a4a542fdf5809f0d3ed228ce439b",
+        "feed:video:094bf58da6682f895255a35a84349a79dab4bf95"
+      ]
+    },
+    {
+      "id": "BLD-0007",
+      "issue": "build-failure",
+      "match": "all-selected",
+      "scope": { "Lienol": ["25.12"] },
+      "sourceCommits": ["a337df404ab3f6dc5b3e7b26a753343d3ad2f4c2"],
+      "targetScope": { "system": ["x86"], "subtarget": ["64"], "profile": ["DEVICE_generic"] },
+      "packages": ["qt5-core"],
+      "buildDependency": { "package": "qt5-core" },
+      "refs": [
+        "run:37232152405",
+        "feed:lienol:eb8b7938c0e91065e2d60adcc2e8b6fd2f796261",
+        "feed:packages:fad5bd22ef3f137cad2add7904ac441291244a49",
+        "feed:luci:6998d0bd430ef7d1acca0e8f83cfc46221235e11",
+        "feed:routing:b32747dca62435f1ea01b7a5320c3da15eead46f",
+        "feed:telephony:2618106d5846a4a542fdf5809f0d3ed228ce439b",
+        "feed:video:094bf58da6682f895255a35a84349a79dab4bf95"
+      ],
+      "failure": {
+        "phase": "package-compile", "cause": "package-caused", "code": "qtbase-patch-hunk-failed",
+        "observed": { "version": "5.15.8", "patch": "010-gcc11.patch", "file": "src/corelib/text/qbytearraymatcher.h" }
+      }
+    },
+    {
       "id": "OWN-0003",
       "issue": "file-ownership",
       "match": "all-installed",

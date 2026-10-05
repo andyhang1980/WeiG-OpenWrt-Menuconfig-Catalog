@@ -32,6 +32,14 @@ BLD-0006 uses a reviewed `preventive` policy restricted to LEDE/master, x86/64, 
 
 ## Schema 5
 
+### Exact Lienol/25.12 evidence
+
+OWN-0004 is restricted to source `a337df404ab3f6dc5b3e7b26a753343d3ad2f4c2`, x86/64, DEVICE_generic. Run 37233040067 and its native metadata prove five duplicate installed paths between `softethervpn-base` 4.38-r3 and `softethervpn5-libs` 5.2.5188-r1. Both complete install definitions in packages feed `fad5bd22ef3f137cad2add7904ac441291244a49` were reviewed. Both packages must be Y; no variant preference is invented. The shared planner handles actual selecting roots and leaves distinct equal-cost solutions to the user.
+
+BLD-0007 uses the same exact environment boundary. Run 37232152405 failed applying QtBase 5.15.8 `010-gcc11.patch`, before compilation. The failed source is represented by its concrete output `qt5-core`, not an application blacklist. All Makefiles in pinned lienol feed `eb8b7938c0e91065e2d60adcc2e8b6fd2f796261` were scanned and the complete QtBase, QtTools, dynamic qBittorrent and LuCI entry definitions reviewed: dynamic uses Qt5, static does not; QtTools also has a Build-Depends edge to QtBase. The run's complete native `.packageinfo` / `.packagedeps` verifies active paths from the other installed feeds. Trigger roots remain graph-derived.
+
+Both rules preserve all six feed revisions as evidence refs. Source/Target changes are outside scope; evidence refs are not an independently implemented feed-matching field. Verysync's non-archive download is an upstream retrieval failure, not a package ban. Firmware Workers do not consume compatibility rules to review software selections. Offline diagnostics and Probe evidence validation retain their separate responsibilities.
+
 Readers remain compatible with schemas 2, 3, 4 and 5. The document still has only `schema` and `rules`. Schema 4 retains the existing meanings of `sourceCommits`, `targetScope`, `failure`, and `buildDependency`; schema 5 additionally permits explicitly reviewed global preventive rules:
 
 - `policy: "preventive"` declares an applicability policy without extrapolating evidence from one environment into a claim that every upstream was observed failing.

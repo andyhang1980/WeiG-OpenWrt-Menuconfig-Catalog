@@ -2,6 +2,7 @@ import {
   KCONFIG_RELATION_CAPABILITIES,
   parseKconfigExpression,
   parseKconfigRelation,
+  projectNativePackageInstallation,
   splitKconfigIfClause,
 } from './lib.mjs';
 
@@ -1076,6 +1077,9 @@ export function buildKconfigRelations(menuOptions = [], packages = [], choices =
       });
     }
     const packageFields = packageInfo ? {
+      ...(options.packageInstallation?.kind === 'openwrt-apk-provides-v1' ? {
+        installation: projectNativePackageInstallation(packageInfo, options.packageInstallation),
+      } : {}),
       depends: dependencyRelations,
       rawDepends: packageDepends,
       provides,
@@ -1393,6 +1397,7 @@ export function buildKconfigRelations(menuOptions = [], packages = [], choices =
     schema: 2,
     relationsComplete,
     packageClosureComplete: packageClosure.complete,
+    ...(options.packageInstallation ? { packageInstallation: options.packageInstallation } : {}),
     packageClosureCapabilities: packageClosure.capabilities,
     packageClosureValidation: packageClosure.validation,
     capabilities: [

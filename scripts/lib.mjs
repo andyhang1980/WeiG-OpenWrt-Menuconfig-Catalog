@@ -290,6 +290,7 @@ export function parsePackageInfo(text) {
     if (!item) continue;
     if (key === 'Title') item.title = value;
     else if (key === 'Version') item.version = value;
+    else if (key === 'ABI-Version') item.abiVersion = value.trim();
     else if (key === 'Description') {
       item.description = value;
       if (sourceMakefile) multiline = key;
@@ -309,6 +310,42 @@ export function parsePackageInfo(text) {
   }
   finish();
   return [...packages.values()];
+}
+
+// Identify the native packaging dialect from its actual implementation, not
+// Source/Branch names. Unsupported/legacy dialects stay readable without an
+// installation assertion. ABI absence is meaningful only with dump support.
+export function nativePackageInstallationContract(tree) {
+  const read = (file) => existsSync(join(tree, file)) ? readFileSync(join(tree, file), 'utf8') : '';
+  const pack = read('include/package-pack.mk');
+  const dump = read('include/package-dumpinfo.mk');
+  const feeds = read('include/feeds.mk');
+  const normalize = text => text.replace(/\\\r?\n/g, '').replace(/\s+/g, '');
+  const body = (text, name) => {
+    const matches = [...text.matchAll(new RegExp(`^define ${name}\\s*\\n([\\s\\S]*?)^endef\\s*$`, 'gm'))];
+    return matches.length === 1 ? normalize(matches[0][1]) : '';
+  };
+  // This bounded adapter recognizes one native dialect, not Make in general.
+  // An upstream implementation change must not retain an unsupported assertion.
+  if (!dump.includes('ABI-Version:') ||
+      body(pack, 'AddProvide') !== normalize('$(strip $(if $(filter @%,$(1)),$(patsubst @%,%,$(1)),$(if $(3),$(1) $(1)$(call FormatABISuffix,$(1),$(3))=$(2),$(1)=$(2))))') ||
+      body(pack, 'FormatProvides') !== normalize('$(strip $(if $(call FormatABISuffix,$(1),$(3)),$(1) $(foreach provide,$(filter-out $(1),$(4)),$(call AddProvide,$(provide),$(2),$(3))),$(foreach provide,$(filter-out $(1),$(4)),$(call AddProvide,$(provide),$(2)))))') ||
+      body(feeds, 'FormatABISuffix') !== normalize('$(if $(filter-out kmod-%,$(1)),$(if $(2),$(if $(filter %0 %1 %2 %3 %4 %5 %6 %7 %8 %9,$(1)),-)$(2)))')) return null;
+  return { schema: 1, kind: 'openwrt-apk-provides-v1', configSymbol: 'USE_APK' };
+}
+
+export function projectNativePackageInstallation(row, contract) {
+  if (contract?.kind !== 'openwrt-apk-provides-v1') return null;
+  const abi = !row.name.startsWith('kmod-') ? row.abiVersion || '' : '';
+  const suffix = name => !name.startsWith('kmod-') && abi ? `${/\d$/.test(name) ? '-' : ''}${abi}` : '';
+  const provides = row.rawProvides || row.provides || [];
+  const unresolvedProvides = provides.filter(raw => !raw.startsWith('@') && !/^[A-Za-z0-9][A-Za-z0-9+_.-]*$/.test(raw));
+  return { apk: {
+    name: row.name + suffix(row.name),
+    provides: provides.filter(raw => !raw.startsWith('@') && /^[A-Za-z0-9][A-Za-z0-9+_.-]*$/.test(raw))
+      .map(name => name + suffix(name)),
+    ...(unresolvedProvides.length ? { unresolvedProvides } : {}),
+  } };
 }
 
 // These are data capabilities, not evaluator capabilities.  The parser only

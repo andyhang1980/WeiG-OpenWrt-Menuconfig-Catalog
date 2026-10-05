@@ -7,7 +7,7 @@ import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import {
   buildTargetTree, incompleteSelectableTargets, parseInfoRecords, parseKconfigTree, parsePackageInfo, safeSlug,
-  resolvePackageOption, targetBuildContract,
+  resolvePackageOption, targetBuildContract, nativePackageInstallationContract,
 } from './lib.mjs';
 import { buildKconfigRelations } from './kconfig-relations.mjs';
 import { compactRelations, validateCompactRoundTrip } from './compact-relations.mjs';
@@ -225,6 +225,7 @@ const translatedOptions = menuOptions.map((option) => {
   };
 });
 const relations = buildKconfigRelations(relationOptions, packages, menu.choices, {
+  packageInstallation: nativePackageInstallationContract(tree),
   // The parser report is a data-support matrix, not an evaluator result. The
   // relation builder checks it together with source/graph diagnostics; the
   // compact serializer independently proves the readable round-trip below.

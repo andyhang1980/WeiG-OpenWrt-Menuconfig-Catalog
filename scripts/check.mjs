@@ -700,7 +700,7 @@ assert.equal(sizeRows[0].relationsReductionPercent, 75);
 // Compatibility v5 separates a global preventive applicability policy from exact evidence.
 const normalizedCompatibility = normalizeCompatibilityDocument(compatibility, policy);
 assert.equal(normalizedCompatibility.schema, 6);
-assert.equal(normalizedCompatibility.rules.length, 8);
+assert.equal(normalizedCompatibility.rules.length, 10);
 assert.equal(normalizedCompatibility.rules.find(rule => rule.id === 'OWN-0001')?.issue, 'file-ownership');
 const preferredOwnershipRule = normalizedCompatibility.rules.find(rule => rule.id === 'OWN-0002');
 assert.deepEqual(preferredOwnershipRule.preferredDisable, ['autosamba']);
@@ -728,6 +728,18 @@ assert.deepEqual(applicableBuildDependencies(normalizedCompatibility, {
   source: 'OpenWrt', branch: 'main', availablePackages: [],
 }).packages, [], 'if-present rules must skip unavailable failed packages');
 const pppoeRule = normalizedCompatibility.rules.find((rule) => rule.id === 'OWN-0003');
+const softetherRule = normalizedCompatibility.rules.find((rule) => rule.id === 'OWN-0004');
+assert.deepEqual(softetherRule.packages, ['softethervpn-base', 'softethervpn5-libs']);
+assert.equal(softetherRule.match, 'all-installed');
+assert.equal(softetherRule.preferredDisable, undefined, 'variant preference is a user choice, not a package-name heuristic');
+for (const id of ['OWN-0004', 'BLD-0007']) {
+  const rule = normalizedCompatibility.rules.find(row => row.id === id);
+  assert.deepEqual(rule.scope, { Lienol: ['25.12'] });
+  assert.deepEqual(rule.sourceCommits, ['a337df404ab3f6dc5b3e7b26a753343d3ad2f4c2']);
+  assert.deepEqual(rule.targetScope, { system: ['x86'], subtarget: ['64'], profile: ['DEVICE_generic'] });
+}
+assert.deepEqual(normalizedCompatibility.rules.find(row => row.id === 'BLD-0007').buildDependency,
+  { package: 'qt5-core' }, 'Qt failure belongs to the native qtbase source, not a manually listed application');
 assert.deepEqual(pppoeRule.packages, ['luci-app-pppoe-server', 'rp-pppoe-server']);
 assert.deepEqual(pppoeRule.preferredDisable, ['rp-pppoe-server']);
 assert.equal(pppoeRule.match, 'all-installed');
