@@ -1,6 +1,159 @@
 {
-  "schema": 6,
+  "schema": 7,
   "rules": [
+    {
+      "id": "OWN-0005",
+      "inputHashes": [
+        "9bc5eaee6bddea372f948fa70279c711f1757dbe6508ec5f09eb8817715ad074"
+      ],
+      "issue": "file-ownership",
+      "match": "all-installed",
+      "scope": {
+        "Lienol": [
+          "25.12"
+        ]
+      },
+      "sourceCommits": [
+        "a337df404ab3f6dc5b3e7b26a753343d3ad2f4c2"
+      ],
+      "targetScope": {
+        "system": [
+          "x86"
+        ],
+        "subtarget": [
+          "64"
+        ],
+        "profile": [
+          "DEVICE_generic"
+        ]
+      },
+      "packages": [
+        "luci-app-zerotier",
+        "zerotier"
+      ],
+      "preferredDisable": [
+        "luci-app-zerotier"
+      ],
+      "preservePackages": [
+        "zerotier"
+      ],
+      "paths": [
+        "/etc/init.d/zerotier"
+      ],
+      "refs": [
+        "run:37270058783",
+        "feed:lienol:eb8b7938c0e91065e2d60adcc2e8b6fd2f796261",
+        "feed:packages:fad5bd22ef3f137cad2add7904ac441291244a49",
+        "feed:luci:6998d0bd430ef7d1acca0e8f83cfc46221235e11",
+        "feed:routing:b32747dca62435f1ea01b7a5320c3da15eead46f",
+        "feed:telephony:2618106d5846a4a542fdf5809f0d3ed228ce439b",
+        "feed:video:094bf58da6682f895255a35a84349a79dab4bf95"
+      ]
+    },
+    {
+      "id": "BLD-0008",
+      "inputHashes": [
+        "9bc5eaee6bddea372f948fa70279c711f1757dbe6508ec5f09eb8817715ad074"
+      ],
+      "issue": "build-failure",
+      "match": "all-selected",
+      "scope": {
+        "Lienol": [
+          "25.12"
+        ]
+      },
+      "sourceCommits": [
+        "a337df404ab3f6dc5b3e7b26a753343d3ad2f4c2"
+      ],
+      "targetScope": {
+        "system": [
+          "x86"
+        ],
+        "subtarget": [
+          "64"
+        ],
+        "profile": [
+          "DEVICE_generic"
+        ]
+      },
+      "packages": [
+        "verysync"
+      ],
+      "buildDependency": {
+        "package": "verysync"
+      },
+      "refs": [
+        "run:37270201344",
+        "feed:lienol:eb8b7938c0e91065e2d60adcc2e8b6fd2f796261",
+        "feed:packages:fad5bd22ef3f137cad2add7904ac441291244a49",
+        "feed:luci:6998d0bd430ef7d1acca0e8f83cfc46221235e11",
+        "feed:routing:b32747dca62435f1ea01b7a5320c3da15eead46f",
+        "feed:telephony:2618106d5846a4a542fdf5809f0d3ed228ce439b",
+        "feed:video:094bf58da6682f895255a35a84349a79dab4bf95"
+      ],
+      "failure": {
+        "phase": "package-compile",
+        "cause": "package-caused",
+        "code": "download-not-gzip-archive",
+        "observed": {
+          "version": "v2.13.2",
+          "archive": "verysync-linux-amd64-v2.13.2.tar.gz",
+          "hashPolicy": "skip"
+        }
+      }
+    },
+    {
+      "id": "BLD-0009",
+      "inputHashes": [
+        "750cca36b6786ae99dd924ca03867f49e04982bd5264cc09a19d5775783543f5"
+      ],
+      "issue": "build-failure",
+      "match": "all-selected",
+      "scope": {
+        "iStoreOS": [
+          "istoreos-24.10"
+        ]
+      },
+      "sourceCommits": [
+        "fb971407ffd9a094e6f16d9c029f1f580ed5c2ad"
+      ],
+      "targetScope": {
+        "system": [
+          "x86"
+        ],
+        "subtarget": [
+          "64"
+        ],
+        "profile": [
+          "DEVICE_generic"
+        ]
+      },
+      "packages": [
+        "vlmcsd"
+      ],
+      "buildDependency": {
+        "package": "vlmcsd"
+      },
+      "refs": [
+        "run:37277262603",
+        "feed:packages:f1c73e13fc8c78f5f1c74096f25494817494dc47",
+        "feed:luci:b28d7f1da49c3cb4ce931aff3267473fb327a05b",
+        "feed:routing:00619bc7bc60d8b67ecc490121e45298b122cd6e",
+        "feed:telephony:92892fa285360b8981f62bf4e0a097e6449e7e33",
+        "feed:store:a97ace34f2da358a015b094d326bba2697697f2e",
+        "feed:third:335fa421e0fcd673a78986117981d4dfa3bf57d7"
+      ],
+      "failure": {
+        "phase": "package-compile",
+        "cause": "package-caused",
+        "code": "source-tag-not-found",
+        "observed": {
+          "version": "1113",
+          "requestedTag": "1113",
+          "availableTag": "svn1113"
+        }
+      }
+    },
     {
       "id": "OWN-0004",
       "issue": "file-ownership",

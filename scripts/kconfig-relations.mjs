@@ -95,6 +95,7 @@ function closurePackageRecord(raw) {
     name,
     depends: rawDepends.map((row) => typeof row === 'string' ? row : row?.raw || '').filter(Boolean),
     provides: Array.isArray(raw?.provides) ? raw.provides : raw?.packageInfo?.provides || [],
+    runtime: projectNativePackageInstallation(raw)?.runtime || raw?.packageInfo?.installation?.runtime || null,
   };
 }
 
@@ -433,12 +434,19 @@ export function validatePackageClosureGraph(packageRows = [], records, graph = {
  * package and never contains a package-name exception.
  */
 export function derivePackageDependencyClosure(records = [], roots = [], failedPackages = [], options = {}) {
+  const installed = options.installedPackages instanceof Set ? options.installedPackages :
+    new Set((options.installedPackages || []).map(packageName));
+  const runtimeUnknown = new Map();
   const byName = new Map();
   for (const raw of records) {
     const record = closurePackageRecord(raw);
     if (!record) continue;
     const current = byName.get(record.name) || { name: record.name, depends: [], provides: [] };
     current.depends.push(...record.depends);
+    if (installed.has(record.name) && record.runtime?.schema === 1) {
+      current.depends.push(...(record.runtime.dependencies || []).map(row => '+' + row.packages[0]));
+      if (record.runtime.unresolved?.length) runtimeUnknown.set(record.name, record.runtime.unresolved);
+    }
     current.provides.push(...record.provides);
     byName.set(record.name, current);
   }
@@ -507,6 +515,9 @@ export function derivePackageDependencyClosure(records = [], roots = [], failedP
     }
     if (ancestors.has(name)) return;
     const nextAncestors = new Set(ancestors).add(name);
+    for (const raw of runtimeUnknown.get(name) || []) {
+      addUnknown({ root, from: name, raw, reason: 'unsupported-installation-dependency' });
+    }
     for (const rawDependency of record.depends) {
       const dependency = parsePackageDependency(rawDependency);
       if (!dependency) continue;
@@ -1076,10 +1087,9 @@ export function buildKconfigRelations(menuOptions = [], packages = [], choices =
         symbol: option?.symbol || '', relation: 'kconfig-visibility', expression: condition.raw, error: condition.error,
       });
     }
+    const installation = packageInfo && projectNativePackageInstallation(packageInfo, options.packageInstallation);
     const packageFields = packageInfo ? {
-      ...(options.packageInstallation?.kind === 'openwrt-apk-provides-v1' ? {
-        installation: projectNativePackageInstallation(packageInfo, options.packageInstallation),
-      } : {}),
+      ...(installation ? { installation } : {}),
       depends: dependencyRelations,
       rawDepends: packageDepends,
       provides,

@@ -699,8 +699,31 @@ assert.equal(sizeRows[0].relationsReductionPercent, 75);
 
 // Compatibility v5 separates a global preventive applicability policy from exact evidence.
 const normalizedCompatibility = normalizeCompatibilityDocument(compatibility, policy);
-assert.equal(normalizedCompatibility.schema, 6);
-assert.equal(normalizedCompatibility.rules.length, 10);
+assert.equal(normalizedCompatibility.schema, 7);
+assert.equal(normalizedCompatibility.rules.length, 13);
+const retainedOwnership = normalizedCompatibility.rules.find(rule => rule.id === 'OWN-0005');
+assert.deepEqual(retainedOwnership.preferredDisable, ['luci-app-zerotier']);
+assert.deepEqual(retainedOwnership.preservePackages, ['zerotier']);
+assert.deepEqual(retainedOwnership.inputHashes, ['9bc5eaee6bddea372f948fa70279c711f1757dbe6508ec5f09eb8817715ad074']);
+const exactDownloadRule = normalizedCompatibility.rules.find(rule => rule.id === 'BLD-0008');
+const exactDownloadDocument = { schema: 7, rules: [exactDownloadRule] };
+const exactDownloadContext = { source: 'Lienol', branch: '25.12',
+  upstreamCommit: exactDownloadRule.sourceCommits[0], inputsHash: exactDownloadRule.inputHashes[0],
+  system: 'x86', subtarget: '64', profile: 'DEVICE_generic', availablePackages: ['verysync'] };
+assert.deepEqual(applicableBuildDependencies(exactDownloadDocument, exactDownloadContext).packages, ['verysync']);
+assert.deepEqual(applicableBuildDependencies(exactDownloadDocument,
+  { ...exactDownloadContext, inputsHash: 'f'.repeat(64) }).packages, [], 'changed feeds must not inherit an old package failure');
+assert.equal(applicableBuildDependencies(exactDownloadDocument,
+  { ...exactDownloadContext, inputsHash: '' }).unresolved[0].reason, 'exact-inputs-hash-unresolved');
+for (const mutate of [
+  row => { row.preservePackages = ['luci-app-zerotier']; },
+  row => { row.preservePackages = ['missing']; },
+  row => { row.match = 'all-selected'; },
+]) {
+  const invalid = structuredClone(retainedOwnership); mutate(invalid);
+  assert.throws(() => normalizeCompatibilityDocument({ schema: 7, rules: [invalid] }, policy), /preservePackages/);
+}
+assert.throws(() => normalizeCompatibilityDocument({ schema: 6, rules: [retainedOwnership] }, policy), /preservePackages|inputHashes/);
 assert.equal(normalizedCompatibility.rules.find(rule => rule.id === 'OWN-0001')?.issue, 'file-ownership');
 const preferredOwnershipRule = normalizedCompatibility.rules.find(rule => rule.id === 'OWN-0002');
 assert.deepEqual(preferredOwnershipRule.preferredDisable, ['autosamba']);
@@ -732,7 +755,7 @@ const softetherRule = normalizedCompatibility.rules.find((rule) => rule.id === '
 assert.deepEqual(softetherRule.packages, ['softethervpn-base', 'softethervpn5-libs']);
 assert.equal(softetherRule.match, 'all-installed');
 assert.equal(softetherRule.preferredDisable, undefined, 'variant preference is a user choice, not a package-name heuristic');
-for (const id of ['OWN-0004', 'BLD-0007']) {
+for (const id of ['OWN-0004', 'BLD-0007', 'OWN-0005', 'BLD-0008']) {
   const rule = normalizedCompatibility.rules.find(row => row.id === id);
   assert.deepEqual(rule.scope, { Lienol: ['25.12'] });
   assert.deepEqual(rule.sourceCommits, ['a337df404ab3f6dc5b3e7b26a753343d3ad2f4c2']);

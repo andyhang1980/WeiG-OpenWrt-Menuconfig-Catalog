@@ -17,6 +17,7 @@ echo "Metadata-only prerequisite boundary enabled."
 
 # Catalog only needs upstream target/package metadata. Do not resolve or rewrite
 # an OpenWrt .config here; build requests provide their own complete config.
+node "$(dirname "${BASH_SOURCE[0]}")/native-installation-metadata.mjs" "$PWD"
 make prepare-tmpinfo FORCE=1
 test -s tmp/.targetinfo
 test -s tmp/.packageinfo

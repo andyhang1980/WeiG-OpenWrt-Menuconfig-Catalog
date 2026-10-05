@@ -1,10 +1,10 @@
 # Compatibility Evidence Rules
 
-`compatibility.json` records only compatibility facts that upstream Kconfig/Catalog cannot currently express and real builds have confirmed. It is not a second dependency database and does not store symbol types, N/M/Y, names, translations, dependencies, providers, hashes, or timestamps.
+`compatibility.json` records only compatibility facts that upstream Kconfig/Catalog cannot currently express and real builds have confirmed. It is not a second dependency database and does not store symbol types, N/M/Y, names, translations, dependencies, providers, package-content hashes, or timestamps. Exact scope may reference existing source/feed input identities.
 
-## Schema 6 and backward-compatible publication
+## Schema 7 and backward-compatible publication
 
-The canonical document is schema 6. Its optional `preferredDisable` field names
+The canonical document is schema 7. Its optional `preferredDisable` field names
 participants to prefer disabling when a matching rule has several legal repairs.
 It is a recommendation preference, not a dependency, lock, or executable action:
 the shared Kconfig planner must still simulate and validate the repair. It never
@@ -19,7 +19,27 @@ installed `autosamba` + `luci-app-samba4` pair matches; the preferred removal is
 `autosamba`. Either package alone, or a module not installed in RootFS, does not
 meet the file-ownership condition.
 
-The index advertises `compatibility.v6.json.gz` to schema-6 consumers. The existing
+The index advertises `compatibility.v7.json.gz`; `preservePackages` constrains a
+reviewed all-installed recommendation to retain named participants at Y.
+It is enforced by both planning and the actual explicit-intent transaction,
+including orphan/default cleanup. It neither mutates imports nor prevents
+later manual changes. Retention cannot overlap preferredDisable or be used
+with buildDependency. New retention or input-identity rules are omitted from legacy projections
+rather than weakening the constraint. Existing rules remain in v6 and v5.
+`inputHashes` reuses Catalog source.inputsHash: SHA-256 of the normalized source/feed receipt.
+Only exact sourceCommits rules may use it. Missing or changed identities yield near-match
+diagnostics, not an old ban. Probe captures the same receipt; Worker gains no checks.
+
+OWN-0005 records the exact Lienol/25.12 ZeroTier ownership conflict from
+37270058783: recommend removing luci-app-zerotier while retaining zerotier.
+BLD-0008/0009 record verysync's invalid archive and iStoreOS vlmcsd's invalid
+tag URL at the recorded source/feed identities, not a global package ban.
+Native Make metadata instrumentation captures EXTRA_DEPENDS as separate
+installation.runtime facts for Y installation under OPKG or APK; it does not
+invent Kconfig selects or alter native defconfig baselines. Unknown syntax is
+deferred, and old metadata cannot assert that these facts were collected.
+
+The existing
 Root-asset fast publication collects every versioned file in the selected index-contract family, verifies hash/bytes, and stages them together. Missing or stale files fail publication; a legacy-only projection must never leave modern consumers on old content.
 
 `compatibility.json.gz` remains a schema-5 projection without `preferredDisable`,

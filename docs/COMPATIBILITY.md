@@ -1,10 +1,10 @@
 # Compatibility 证据规则
 
-`compatibility.json` 只记录上游 Kconfig/Catalog 当前无法表达、但真实构建已经确认的兼容性事实。它不是第二套 dependency 数据库，不保存 symbol 类型、N/M/Y、名称、翻译、依赖、provider、hash 或生成时间。
+`compatibility.json` 只记录上游 Kconfig/Catalog 当前无法表达、但真实构建已经确认的兼容性事实。它不是第二套 dependency 数据库，不保存 symbol 类型、N/M/Y、名称、翻译、依赖、provider、包内容 hash 或生成时间。精确适用范围可引用已有源码/feeds 输入身份。
 
-## Schema 6 与向后兼容发布
+## Schema 7 与向后兼容发布
 
-权威文档使用 schema 6。可选 `preferredDisable` 只指定规则命中后优先关闭的参与包，
+权威文档使用 schema 7。可选 `preferredDisable` 只指定规则命中后优先关闭的参与包，
 不是依赖、锁定或可执行指令；共享 Kconfig planner 仍须模拟并验证合法修改，
 不能因为包存在于 Catalog 就自动取消。
 
@@ -16,9 +16,30 @@ OWN-0002 只在 `autosamba` 与 `luci-app-samba4` 都安装时命中，优先取
 
 根资产轻量发布按 index 合同收集所选资产族的全部版本文件，逐项验证 hash/bytes 后一起提交；不能只发布旧版投影。缺失或陈旧文件必须使发布失败，源码、生成合同和浏览器实际读取的字节必须一致。
 
-index 向新消费者公布 `compatibility.v6.json.gz`；原有 `compatibility.json.gz`
-保留不含 `preferredDisable` 的 schema-5 投影，旧消费者继续使用相同证据与适用范围。
+schema 7 增加 `preservePackages`：只用于 all-installed 的普通参与包，
+不能与 preferredDisable 重叠，不能用于 buildDependency。推荐模拟与实际应用均须保留
+这些包的 Y；点击推荐才把保留值记为用户意图，不在导入时修改配置，也不禁止未来手动关闭。
+index 向新消费者公布 `compatibility.v7.json.gz`，同时保留 v6 与 schema-5 投影。
+要求保留约束或精确输入身份的新规则不能降级成旧消费者可能误用的推荐，故不进入旧投影；
+旧规则、证据与配置读取继续兼容。
+`inputHashes` 复用 Catalog 已有 source.inputsHash（规范化源码/feeds receipt 的 SHA-256），
+仅用于已有 sourceCommits 的精确规则。缺少或不同身份只记录近似命中诊断，不套用旧规则；
+Probe 使用同一 receipt 验证身份，Worker 不增加验证。改变 feeds 后需重新取证，不永久禁包。
 预防策略适用于多个源，不代表这些源均已实测失败。
+
+OWN-0005 限定 Lienol/25.12、源码 a337df404ab3f6dc5b3e7b26a753343d3ad2f4c2、
+x86/64/DEVICE_generic 与 Run 37270058783 的六个 feeds 证据：
+luci-app-zerotier 1.0-r21 与 zerotier 1.16.0-r1 都安装 /etc/init.d/zerotier。
+仅两者 Y 时推荐关闭界面，保留 zerotier=Y；仅后端或 M 不触发。
+BLD-0008 保存同环境 verysync v2.13.2 非 gzip 下载证据（37270201344），
+BLD-0009 保存 iStoreOS/istoreos-24.10 源码 fb971407ffd9a094e6f16d9c029f1f580ed5c2ad
+的 vlmcsd 1113 错误 tag URL 证据（37277262603）。三条新规则同时匹配精确源码、feeds 输入身份与目标；
+原生图推导反向取消，不写 triggerPackages，不改上游下载或 Worker。
+
+Catalog metadata-only 阶段在支持的原生 Dumpinfo/Package 中添加命名输出字段，
+由 GNU Make 展开 EXTRA_DEPENDS。安装依赖单独保存在 installation.runtime，不伪造
+Kconfig select、不改变原生 defconfig baseline；OPKG/APK 的 Y 安装检查共用该事实。
+未知版本约束或新方言保留待定。旧数据没有新事实，不能宣称已经覆盖安装依赖。
 
 OWN-0003 在 `luci-app-pppoe-server` 与 `rp-pppoe-server` 均安装时优先取消后者；预防范围为 LEDE、ImmortalWrt、hanwckf 各分支中两包均存在的环境。`luci-app-rp-pppoe-server` 是另一应用，它为 N 不代表前者为 N。共享 planner 可以先取消真实选择者以达到首选目标 N，等价动作去重保留所有 `resolvedPackages`。
 

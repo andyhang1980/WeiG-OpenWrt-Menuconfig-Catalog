@@ -52,13 +52,17 @@ function writeCompatibilityAsset(directory, policy) {
     return { asset, ...fileContract(join(directory, asset)), schema: document.schema,
       rules: document.rules.length, jsonBytes: Buffer.byteLength(json) };
   };
-  // One authority, two wire projections: old consumers still see every conflict.
+  // Retention or exact input scope cannot be dropped into legacy auto-repair.
+  // Older consumers retain their existing rules, not a weakened new rule.
+  const v6 = compatibility.schema >= 7 ? { schema: 6,
+    rules: compatibility.rules.filter(rule => !rule.preservePackages && !rule.inputHashes) } : compatibility;
   const legacy = compatibility.schema >= 6 ? { schema: 5,
-    rules: compatibility.rules.map(({ preferredDisable, ...rule }) => rule) } : compatibility;
+    rules: v6.rules.map(({ preferredDisable, ...rule }) => rule) } : compatibility;
   return {
     compatibility,
     contract: write('compatibility.json.gz', legacy),
-    ...(compatibility.schema >= 6 ? { v6Contract: write('compatibility.v6.json.gz', compatibility) } : {}),
+    ...(compatibility.schema >= 6 ? { v6Contract: write('compatibility.v6.json.gz', v6) } : {}),
+    ...(compatibility.schema >= 7 ? { v7Contract: write('compatibility.v7.json.gz', compatibility) } : {}),
   };
 }
 
@@ -115,7 +119,8 @@ if (fastAssetMode) {
   const next = stampIndex({
     ...body,
     assets: { ...body.assets, [fastAssetMode]: generated.contract,
-      ...(generated.v6Contract ? { compatibilityV6: generated.v6Contract } : {}) },
+      ...(generated.v6Contract ? { compatibilityV6: generated.v6Contract } : {}),
+      ...(generated.v7Contract ? { compatibilityV7: generated.v7Contract } : {}) },
   });
   writeFileSync(out, JSON.stringify(next, null, 2) + '\n');
   const count = fastAssetMode === 'compatibility'
@@ -141,7 +146,7 @@ if (!rows.length && !(previous.sources || []).length && !attempts.length) {
   throw new Error('没有当前、历史或失败状态数据');
 }
 const policy = JSON.parse(readFileSync(join(ROOT, 'catalog.config.json'), 'utf8'));
-const { compatibility, contract: compatibilityContract, v6Contract } = writeCompatibilityAsset(dir, policy);
+const { compatibility, contract: compatibilityContract, v6Contract, v7Contract } = writeCompatibilityAsset(dir, policy);
 const { applications, contract: applicationsContract } = writeApplicationsAsset(dir);
 const sources = (previous.sources || []).filter((source) => policy.sources.some((item) => item.id === source.id))
   .map((source) => {
@@ -245,7 +250,8 @@ const body = {
     unavailable: branchRows.filter((item) => item.state === 'unavailable').length,
   },
   assets: { compatibility: compatibilityContract, applications: applicationsContract,
-    ...(v6Contract ? { compatibilityV6: v6Contract } : {}) },
+    ...(v6Contract ? { compatibilityV6: v6Contract } : {}),
+    ...(v7Contract ? { compatibilityV7: v7Contract } : {}) },
   sources,
 };
 writeFileSync(

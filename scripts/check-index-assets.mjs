@@ -190,6 +190,10 @@ try {
   const modernBytes = Buffer.from('compatibility-modern-v1');
   writeFileSync(modernFile, modernBytes);
   fixed.assets.compatibilityV6 = { asset: modernAsset, ...fileContract(modernFile), schema: 6 };
+  const retainedAsset = 'compatibility.v7.json.gz';
+  const retainedFile = join(dist, retainedAsset);
+  writeFileSync(retainedFile, Buffer.from('compatibility-retention-v1'));
+  fixed.assets.compatibilityV7 = { asset: retainedAsset, ...fileContract(retainedFile), schema: 7 };
   const saveRootIndex = () => writeFileSync(indexFile, JSON.stringify(stampIndex(fixed)) + '\n');
   saveRootIndex();
   const selectRootAssets = (families = 'compatibility') => spawnSync(process.execPath,
@@ -197,7 +201,7 @@ try {
       env: { ...process.env, FAST_ASSETS: families } });
   const selected = selectRootAssets();
   if (selected.status !== 0 || selected.stdout.trim().split(/\r?\n/).join(',') !==
-      [compatibilityAsset, modernAsset].sort().join(',')) {
+      [compatibilityAsset, modernAsset, retainedAsset].sort().join(',')) {
     throw new Error(`versioned root publication selector failed: ${selected.stderr || selected.stdout}`);
   }
   writeFileSync(modernFile, Buffer.from('stale-modern-content'));

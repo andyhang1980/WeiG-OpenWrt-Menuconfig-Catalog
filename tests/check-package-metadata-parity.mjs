@@ -4,10 +4,65 @@ import { mkdtempSync, mkdirSync, writeFileSync, rmSync, readdirSync, readFileSyn
 import { tmpdir } from 'node:os';
 import { join, resolve } from 'node:path';
 import { parsePackageInfo, nativePackageInstallationContract } from '../scripts/lib.mjs';
-import { buildKconfigRelations } from '../scripts/kconfig-relations.mjs';
+import { buildKconfigRelations, derivePackageDependencyClosure } from '../scripts/kconfig-relations.mjs';
 import { expandCompactRelations } from '../scripts/compact-relations.mjs';
 import { gunzipSync } from 'node:zlib';
 import { compactRelations, compareRelationSemantics } from '../scripts/compact-relations.mjs';
+import { instrumentInstallationMetadata } from '../scripts/native-installation-metadata.mjs';
+
+const runtimeTree = mkdtempSync(join(tmpdir(), 'catalog-native-runtime-'));
+try {
+  mkdirSync(join(runtimeTree, 'include'));
+  const nativeDump = process.env.KCONFIG_NATIVE_TEST_TREE &&
+    join(resolve(process.env.KCONFIG_NATIVE_TEST_TREE), 'include/package-dumpinfo.mk');
+  const dump = nativeDump ? readFileSync(nativeDump, 'utf8') : [
+    'define Dumpinfo/Package', '$(info Package: $(1)',
+    'Depends: $(call PKG_FIXUP_DEPENDS,$(1),$(DEPENDS))', 'ABI-Version: $(ABI_VERSION)', ')', 'endef', '',
+  ].join('\n');
+  const dumpFile = join(runtimeTree, 'include/package-dumpinfo.mk');
+  writeFileSync(dumpFile, dump);
+  assert.equal(instrumentInstallationMetadata(runtimeTree).status, 'installed');
+  const instrumented = readFileSync(dumpFile, 'utf8');
+  assert.equal(instrumentInstallationMetadata(runtimeTree).status, 'present');
+  assert.equal(readFileSync(dumpFile, 'utf8'), instrumented, 'instrumentation must be idempotent');
+  const makeCommand = process.env.WEIG_MAKE || 'make';
+  const makeAvailable = spawnSync(makeCommand, ['--version'], { encoding: 'utf8', windowsHide: true }).status === 0;
+  if (makeAvailable) {
+    const source = [
+      instrumented, 'PKG_FIXUP_DEPENDS = $(2)', 'CONFIG_EXTRA:=y', 'BASE:=daemon',
+      'define Package/Default', 'DEPENDS:=+libc', 'EXTRA_DEPENDS:=', 'endef',
+      'define Package/interface', 'EXTRA_DEPENDS:=$(BASE), $(if $(CONFIG_EXTRA),admin,other)', 'endef',
+      'define BuildPackage', '$(eval $(Package/Default))', '$(eval $(Package/$(1)))', '$(Dumpinfo/Package)', 'endef',
+      '$(eval $(call BuildPackage,interface))', '$(eval $(call BuildPackage,backend))',
+      'FORCE: ;', '__metadata_only: ;', '',
+    ].join('\n');
+    const output = execFileSync(makeCommand, ['--no-print-directory', '-rR', 'DUMP=1', '-f', '-', '__metadata_only'],
+      { input: source, encoding: 'utf8', env: { ...process.env, MAKEFLAGS: '', MFLAGS: '', GNUMAKEFLAGS: '' } });
+    const rows = parsePackageInfo(output);
+    assert.equal(rows[0].extraDepends, 'daemon, admin', 'native Make must resolve computed and conditional names');
+    assert.equal(rows[1].extraDepends, '', 'Package/Default must reset EXTRA_DEPENDS between packages');
+    assert.deepEqual(rows[0].depends, ['+libc'], 'runtime instrumentation must not change Kconfig Depends');
+    const graph = buildKconfigRelations([], [...rows,
+      { name: 'daemon', depends: [], provides: [], conflicts: [] },
+      { name: 'admin', depends: [], provides: [], conflicts: [] }], []);
+    const runtime = graph.records.find(row => row.package === 'interface').packageInfo.installation.runtime;
+    assert.deepEqual(runtime.dependencies.map(row => row.packages[0]), ['daemon', 'admin']);
+    const expanded = expandCompactRelations(compactRelations(graph));
+    assert(compareRelationSemantics(graph, expanded).equal, 'runtime facts must survive the existing codec');
+    assert.deepEqual(expanded.records.find(row => row.package === 'interface').packageInfo.installation.runtime, runtime);
+    assert.equal(graph.records.find(row => row.package === 'backend').packageInfo.installation, undefined);
+    const closure = derivePackageDependencyClosure([...rows,
+      { name: 'daemon', depends: [], provides: [] }, { name: 'admin', depends: [], provides: [] },
+      { name: 'libc', depends: [], provides: [] }], ['interface'], ['admin'],
+      { installedPackages: new Set(['interface', 'admin', 'daemon']), selectedPackages: new Set(['interface']) });
+    assert.equal(closure.result, 'reachable', 'Probe must follow the same native runtime fact');
+    assert.equal(derivePackageDependencyClosure(rows, ['interface'], ['admin'],
+      { installedPackages: new Set() }).paths.length, 0, 'compile-only roots must not imply runtime installation');
+  } else assert(process.platform === 'win32' && !process.env.CI, 'native runtime oracle requires Make in CI');
+  writeFileSync(dumpFile, 'define DifferentDump\nendef\n');
+  assert.equal(instrumentInstallationMetadata(runtimeTree).status, 'unsupported');
+  assert.equal(readFileSync(dumpFile, 'utf8'), 'define DifferentDump\nendef\n');
+} finally { rmSync(runtimeTree, { recursive: true, force: true }); }
 
 const packagingTree = mkdtempSync(join(tmpdir(), 'catalog-packaging-contract-'));
 try {

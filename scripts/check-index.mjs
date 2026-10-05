@@ -6,7 +6,8 @@ import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
-const expectedRuleCount = JSON.parse(readFileSync(join(ROOT, 'compatibility.json'), 'utf8')).rules.length;
+const authorityRules = JSON.parse(readFileSync(join(ROOT, 'compatibility.json'), 'utf8')).rules;
+const expectedRuleCount = authorityRules.filter(rule => !rule.preservePackages && !rule.inputHashes).length;
 const temp = mkdtempSync(join(tmpdir(), 'weig-catalog-index-'));
 const dist = join(temp, 'dist');
 const attempts = join(temp, 'attempts');
@@ -101,7 +102,8 @@ try {
   if (JSON.stringify(fast.sources) !== JSON.stringify(index.sources) ||
       JSON.stringify(fast.health) !== JSON.stringify(index.health) ||
       fast.generatedAt !== index.generatedAt || fast.assets.compatibility.schema !== 5 ||
-      fast.assets.compatibility.rules !== expectedRuleCount || fast.assets.compatibilityV6?.schema !== 6) {
+      fast.assets.compatibility.rules !== expectedRuleCount || fast.assets.compatibilityV6?.schema !== 6 ||
+      fast.assets.compatibilityV7?.schema !== 7 || fast.assets.compatibilityV7.rules !== authorityRules.length) {
     throw new Error('compatibility-only publish changed non-compatibility Catalog data');
   }
   const firstFast = readFileSync(fastOut, 'utf8');

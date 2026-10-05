@@ -291,6 +291,8 @@ export function parsePackageInfo(text) {
     if (key === 'Title') item.title = value;
     else if (key === 'Version') item.version = value;
     else if (key === 'ABI-Version') item.abiVersion = value.trim();
+    else if (key === 'Weig-Installation-Metadata') item.installationMetadata = value.trim();
+    else if (key === 'Weig-Extra-Depends') item.extraDepends = value.trim();
     else if (key === 'Description') {
       item.description = value;
       if (sourceMakefile) multiline = key;
@@ -335,17 +337,33 @@ export function nativePackageInstallationContract(tree) {
 }
 
 export function projectNativePackageInstallation(row, contract) {
-  if (contract?.kind !== 'openwrt-apk-provides-v1') return null;
+  const runtime = row.installationMetadata === 'extra-depends-v1' && row.extraDepends
+    ? projectNativeExtraDependencies(row.extraDepends) : null;
+  if (contract?.kind !== 'openwrt-apk-provides-v1') return runtime ? { runtime } : null;
   const abi = !row.name.startsWith('kmod-') ? row.abiVersion || '' : '';
   const suffix = name => !name.startsWith('kmod-') && abi ? `${/\d$/.test(name) ? '-' : ''}${abi}` : '';
   const provides = row.rawProvides || row.provides || [];
   const unresolvedProvides = provides.filter(raw => !raw.startsWith('@') && !/^[A-Za-z0-9][A-Za-z0-9+_.-]*$/.test(raw));
-  return { apk: {
+  return { ...(runtime ? { runtime } : {}), apk: {
     name: row.name + suffix(row.name),
     provides: provides.filter(raw => !raw.startsWith('@') && /^[A-Za-z0-9][A-Za-z0-9+_.-]*$/.test(raw))
       .map(name => name + suffix(name)),
     ...(unresolvedProvides.length ? { unresolvedProvides } : {}),
   } };
+}
+
+// EXTRA_DEPENDS is already Make-expanded native installation metadata.
+// Preserve unsupported/versioned syntax instead of treating it as satisfied
+// or inventing Kconfig selects. Ordinary comma-separated names are shared by
+// OPKG and APK; more packaging dialects require an explicit adapter.
+export function projectNativeExtraDependencies(raw) {
+  const dependencies = [], unresolved = [];
+  for (const part of String(raw).split(',').map(value => value.trim()).filter(Boolean)) {
+    if (/^[A-Za-z0-9][A-Za-z0-9+_.-]*$/.test(part)) {
+      dependencies.push({ raw: part, packages: [part], required: true });
+    } else unresolved.push(part);
+  }
+  return { schema: 1, dependencies, ...(unresolved.length ? { unresolved } : {}) };
 }
 
 // These are data capabilities, not evaluator capabilities.  The parser only
