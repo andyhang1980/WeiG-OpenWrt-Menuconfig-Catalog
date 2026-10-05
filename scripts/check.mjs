@@ -700,7 +700,31 @@ assert.equal(sizeRows[0].relationsReductionPercent, 75);
 // Compatibility v5 separates a global preventive applicability policy from exact evidence.
 const normalizedCompatibility = normalizeCompatibilityDocument(compatibility, policy);
 assert.equal(normalizedCompatibility.schema, 7);
-assert.equal(normalizedCompatibility.rules.length, 13);
+assert.equal(normalizedCompatibility.rules.length, 17);
+// Exact compile facts are independent of application names and other sources.
+for (const id of ['BLD-0010', 'BLD-0011', 'BLD-0012', 'BLD-0013']) {
+  const rule = normalizedCompatibility.rules.find(row => row.id === id);
+  assert(rule, 'Missing reviewed compile fact: ' + id);
+  assert.deepEqual(Object.keys(rule.buildDependency), ['package']);
+  assert.deepEqual(rule.packages, [rule.buildDependency.package]);
+  assert.deepEqual(rule.targetScope, { system: ['x86'], subtarget: ['64'], profile: ['DEVICE_generic'] });
+  assert.equal(rule.failure.phase, 'package-compile');
+  assert.equal(rule.failure.observed.compileTarget, 'package/feeds/routing/cjdns/compile');
+  const source = Object.keys(rule.scope)[0];
+  const context = { source, branch: rule.scope[source][0], upstreamCommit: rule.sourceCommits[0],
+    inputsHash: rule.inputHashes[0], system: 'x86', subtarget: '64', profile: 'DEVICE_generic',
+    availablePackages: ['cjdns', 'cjdns-tests'], conditions: [rule.if] };
+  const document = { schema: 7, rules: [rule] };
+  assert.deepEqual(applicableBuildDependencies(document, context).packages, [rule.buildDependency.package]);
+  for (const changed of [
+    { source: 'ImmortalWrt' }, { branch: 'master' }, { upstreamCommit: 'f'.repeat(40) },
+    { inputsHash: 'f'.repeat(64) }, { subtarget: 'generic' }, { conditions: [] },
+  ]) assert.deepEqual(applicableBuildDependencies(document, { ...context, ...changed }).packages, []);
+  assert.equal(applicableBuildDependencies(document, { ...context, inputsHash: '' })
+    .unresolved[0].reason, 'exact-inputs-hash-unresolved');
+  assert(rule.refs.some(ref => ref.startsWith('makefile-sha256:')));
+  assert(rule.refs.some(ref => ref.startsWith('feed:routing:')));
+}
 const retainedOwnership = normalizedCompatibility.rules.find(rule => rule.id === 'OWN-0005');
 assert.deepEqual(retainedOwnership.preferredDisable, ['luci-app-zerotier']);
 assert.deepEqual(retainedOwnership.preservePackages, ['zerotier']);

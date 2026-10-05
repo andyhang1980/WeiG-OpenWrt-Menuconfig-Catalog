@@ -27,6 +27,11 @@ index 向新消费者公布 `compatibility.v7.json.gz`，同时保留 v6 与 sch
 Probe 使用同一 receipt 验证身份，Worker 不增加验证。改变 feeds 后需重新取证，不永久禁包。
 预防策略适用于多个源，不代表这些源均已实测失败。
 
+BLD-0010～BLD-0013 保存 iStoreOS/istoreos-24.10 与 Lienol/25.12 的 cjdns 编译故障，
+同时覆盖同 Source-Makefile 的 cjdns-tests 输出。精确源码/feeds/目标与 GCC_VERSION 才适用，
+消费者由原生图反向推导，不维护应用黑名单。完整身份、第一现场与同编译单元证据见
+[cjdns 编译故障取证与推荐边界](COMPATIBILITY-CJDNS-20261006.md)。
+
 OWN-0005 限定 Lienol/25.12、源码 a337df404ab3f6dc5b3e7b26a753343d3ad2f4c2、
 x86/64/DEVICE_generic 与 Run 37270058783 的六个 feeds 证据：
 luci-app-zerotier 1.0-r21 与 zerotier 1.16.0-r1 都安装 /etc/init.d/zerotier。

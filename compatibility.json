@@ -2,6 +2,238 @@
   "schema": 7,
   "rules": [
     {
+      "id": "BLD-0010",
+      "issue": "build-failure",
+      "match": "all-selected",
+      "scope": {
+        "iStoreOS": [
+          "istoreos-24.10"
+        ]
+      },
+      "sourceCommits": [
+        "fb971407ffd9a094e6f16d9c029f1f580ed5c2ad"
+      ],
+      "inputHashes": [
+        "750cca36b6786ae99dd924ca03867f49e04982bd5264cc09a19d5775783543f5"
+      ],
+      "targetScope": {
+        "system": [
+          "x86"
+        ],
+        "subtarget": [
+          "64"
+        ],
+        "profile": [
+          "DEVICE_generic"
+        ]
+      },
+      "if": "GCC_VERSION = \"13.3.0\"",
+      "packages": [
+        "cjdns"
+      ],
+      "buildDependency": {
+        "package": "cjdns"
+      },
+      "refs": [
+        "run:37320004199",
+        "makefile-sha256:5427d95108aa5d7b89eaa17b5ef7e9bdf18478ba29641da83f97628e4f109708",
+        "feed:packages:f1c73e13fc8c78f5f1c74096f25494817494dc47",
+        "feed:luci:b28d7f1da49c3cb4ce931aff3267473fb327a05b",
+        "feed:routing:00619bc7bc60d8b67ecc490121e45298b122cd6e",
+        "feed:telephony:92892fa285360b8981f62bf4e0a097e6449e7e33",
+        "feed:store:a97ace34f2da358a015b094d326bba2697697f2e",
+        "feed:third:335fa421e0fcd673a78986117981d4dfa3bf57d7"
+      ],
+      "failure": {
+        "phase": "package-compile",
+        "cause": "package-caused",
+        "code": "gyp-collections-mutableset-unavailable",
+        "observed": {
+          "version": "21.1-r6",
+          "compilerVersion": "13.3.0",
+          "sourceMakefile": "package/feeds/routing/cjdns/Makefile",
+          "compileTarget": "package/feeds/routing/cjdns/compile",
+          "evidenceBasis": "first-package-compile-failure",
+          "pythonVersion": "3.11.14",
+          "compatibilityImport": "six.moves.collections_abc",
+          "fallbackAPI": "collections.MutableSet"
+        }
+      }
+    },
+    {
+      "id": "BLD-0011",
+      "issue": "build-failure",
+      "match": "all-selected",
+      "scope": {
+        "Lienol": [
+          "25.12"
+        ]
+      },
+      "sourceCommits": [
+        "a337df404ab3f6dc5b3e7b26a753343d3ad2f4c2"
+      ],
+      "inputHashes": [
+        "9bc5eaee6bddea372f948fa70279c711f1757dbe6508ec5f09eb8817715ad074"
+      ],
+      "targetScope": {
+        "system": [
+          "x86"
+        ],
+        "subtarget": [
+          "64"
+        ],
+        "profile": [
+          "DEVICE_generic"
+        ]
+      },
+      "if": "GCC_VERSION = \"13.4.0\"",
+      "packages": [
+        "cjdns"
+      ],
+      "buildDependency": {
+        "package": "cjdns"
+      },
+      "refs": [
+        "run:37320749444",
+        "makefile-sha256:8ba53d00235c5d43f56caef4a752d57d5c35b75653156a5b1119ef78d0369576",
+        "feed:lienol:eb8b7938c0e91065e2d60adcc2e8b6fd2f796261",
+        "feed:packages:fad5bd22ef3f137cad2add7904ac441291244a49",
+        "feed:luci:6998d0bd430ef7d1acca0e8f83cfc46221235e11",
+        "feed:routing:b32747dca62435f1ea01b7a5320c3da15eead46f",
+        "feed:telephony:2618106d5846a4a542fdf5809f0d3ed228ce439b",
+        "feed:video:094bf58da6682f895255a35a84349a79dab4bf95"
+      ],
+      "failure": {
+        "phase": "package-compile",
+        "cause": "package-caused",
+        "code": "compiler-warning-option-unsupported",
+        "observed": {
+          "version": "21.1-r7",
+          "compilerVersion": "13.4.0",
+          "sourceMakefile": "package/feeds/routing/cjdns/Makefile",
+          "compileTarget": "package/feeds/routing/cjdns/compile",
+          "evidenceBasis": "first-package-compile-failure",
+          "compilerFlag": "-Wno-error=calloc-transposed-args"
+        }
+      }
+    },
+    {
+      "id": "BLD-0012",
+      "issue": "build-failure",
+      "match": "all-selected",
+      "scope": {
+        "iStoreOS": [
+          "istoreos-24.10"
+        ]
+      },
+      "sourceCommits": [
+        "fb971407ffd9a094e6f16d9c029f1f580ed5c2ad"
+      ],
+      "inputHashes": [
+        "750cca36b6786ae99dd924ca03867f49e04982bd5264cc09a19d5775783543f5"
+      ],
+      "targetScope": {
+        "system": [
+          "x86"
+        ],
+        "subtarget": [
+          "64"
+        ],
+        "profile": [
+          "DEVICE_generic"
+        ]
+      },
+      "if": "GCC_VERSION = \"13.3.0\"",
+      "packages": [
+        "cjdns-tests"
+      ],
+      "buildDependency": {
+        "package": "cjdns-tests"
+      },
+      "refs": [
+        "run:37320004199",
+        "makefile-sha256:5427d95108aa5d7b89eaa17b5ef7e9bdf18478ba29641da83f97628e4f109708",
+        "feed:packages:f1c73e13fc8c78f5f1c74096f25494817494dc47",
+        "feed:luci:b28d7f1da49c3cb4ce931aff3267473fb327a05b",
+        "feed:routing:00619bc7bc60d8b67ecc490121e45298b122cd6e",
+        "feed:telephony:92892fa285360b8981f62bf4e0a097e6449e7e33",
+        "feed:store:a97ace34f2da358a015b094d326bba2697697f2e",
+        "feed:third:335fa421e0fcd673a78986117981d4dfa3bf57d7"
+      ],
+      "failure": {
+        "phase": "package-compile",
+        "cause": "package-caused",
+        "code": "gyp-collections-mutableset-unavailable",
+        "observed": {
+          "version": "21.1-r6",
+          "compilerVersion": "13.3.0",
+          "sourceMakefile": "package/feeds/routing/cjdns/Makefile",
+          "compileTarget": "package/feeds/routing/cjdns/compile",
+          "evidenceBasis": "same-native-source-compile-target",
+          "pythonVersion": "3.11.14",
+          "compatibilityImport": "six.moves.collections_abc",
+          "fallbackAPI": "collections.MutableSet"
+        }
+      }
+    },
+    {
+      "id": "BLD-0013",
+      "issue": "build-failure",
+      "match": "all-selected",
+      "scope": {
+        "Lienol": [
+          "25.12"
+        ]
+      },
+      "sourceCommits": [
+        "a337df404ab3f6dc5b3e7b26a753343d3ad2f4c2"
+      ],
+      "inputHashes": [
+        "9bc5eaee6bddea372f948fa70279c711f1757dbe6508ec5f09eb8817715ad074"
+      ],
+      "targetScope": {
+        "system": [
+          "x86"
+        ],
+        "subtarget": [
+          "64"
+        ],
+        "profile": [
+          "DEVICE_generic"
+        ]
+      },
+      "if": "GCC_VERSION = \"13.4.0\"",
+      "packages": [
+        "cjdns-tests"
+      ],
+      "buildDependency": {
+        "package": "cjdns-tests"
+      },
+      "refs": [
+        "run:37320749444",
+        "makefile-sha256:8ba53d00235c5d43f56caef4a752d57d5c35b75653156a5b1119ef78d0369576",
+        "feed:lienol:eb8b7938c0e91065e2d60adcc2e8b6fd2f796261",
+        "feed:packages:fad5bd22ef3f137cad2add7904ac441291244a49",
+        "feed:luci:6998d0bd430ef7d1acca0e8f83cfc46221235e11",
+        "feed:routing:b32747dca62435f1ea01b7a5320c3da15eead46f",
+        "feed:telephony:2618106d5846a4a542fdf5809f0d3ed228ce439b",
+        "feed:video:094bf58da6682f895255a35a84349a79dab4bf95"
+      ],
+      "failure": {
+        "phase": "package-compile",
+        "cause": "package-caused",
+        "code": "compiler-warning-option-unsupported",
+        "observed": {
+          "version": "21.1-r7",
+          "compilerVersion": "13.4.0",
+          "sourceMakefile": "package/feeds/routing/cjdns/Makefile",
+          "compileTarget": "package/feeds/routing/cjdns/compile",
+          "evidenceBasis": "same-native-source-compile-target",
+          "compilerFlag": "-Wno-error=calloc-transposed-args"
+        }
+      }
+    },
+    {
       "id": "OWN-0005",
       "inputHashes": [
         "9bc5eaee6bddea372f948fa70279c711f1757dbe6508ec5f09eb8817715ad074"
