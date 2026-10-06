@@ -15,6 +15,7 @@ import { encodeCompactRelationTables } from './relation-table-codec.mjs';
 import { traceNativeKconfig, createNativeExpansionReplay } from './native-kconfig-preprocess.mjs';
 import { measureJsonBytes } from './catalog-size-report.mjs';
 import { captureCatalogInputs, catalogInputsHash } from './catalog-inputs.mjs';
+import { buildBranchApplicationRows } from './curated-applications.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const args = {};
@@ -159,20 +160,7 @@ if (curatedCandidates.some((candidate) => !candidate || typeof candidate !== 'ob
 const packageSymbols = new Set(allMenuOptions
   .filter((option) => option.symbol.startsWith('PACKAGE_') && packageByName.has(option.symbol.slice('PACKAGE_'.length)))
   .map((option) => option.symbol.slice('PACKAGE_'.length)));
-const curatedByPackage = new Map(curatedCandidates.flatMap((candidate) =>
-  (candidate.packages || []).map((packageName) => [packageName, candidate])));
-const luciApplicationOptions = allMenuOptions.filter((option) =>
-  /^PACKAGE_luci-app-[A-Za-z0-9_.+@-]+$/.test(String(option.symbol || '')) &&
-  packageSymbols.has(option.symbol.slice('PACKAGE_'.length)))
-  .sort((a, b) => a.symbol.localeCompare(b.symbol));
-const applicationRows = luciApplicationOptions.map((option) => {
-  const packageName = option.symbol.slice('PACKAGE_'.length);
-  const curated = curatedByPackage.get(packageName);
-  const path = (option.path || []).map((part) => String(part || '').trim()).filter(Boolean);
-  const luciIndex = path.findIndex((part) => /^luci$/i.test(part));
-  const derivedGroup = path[luciIndex + 1] || path.at(-1) || 'Applications';
-  return [option.symbol, packageName, curated?.group || derivedGroup, curated?.hot === true ? 1 : 0];
-});
+const applicationRows = buildBranchApplicationRows(allMenuOptions, packageSymbols, curatedCandidates);
 const branchApplications = {
   schema: 1,
   kind: 'branch-applications',

@@ -33,7 +33,7 @@ import {
 import { buildCatalogSizeReport } from './catalog-size-report.mjs';
 import { applicableBuildDependencies, normalizeCompatibilityDocument } from './compatibility-rules.mjs';
 import { buildProbeConfig, verifyProbeConfig } from './verify-target-contracts.mjs';
-import { activeCuratedGroups, buildCuratedApplications } from './curated-applications.mjs';
+import { activeCuratedGroups, buildCuratedApplications, buildBranchApplicationRows } from './curated-applications.mjs';
 import { parseApkDump, parseOpkgPackages } from './curated-sizes.mjs';
 import { sourceAllowsBranch, sourceBranchVersion, compareBranches, validateSourcePolicy } from './source-policy.mjs';
 
@@ -678,6 +678,15 @@ const groupFixture = activeCuratedGroups(['alpha', 'empty', 'alpha', 'beta'], [{
 assert.deepEqual(groupFixture, ['alpha', 'beta']);
 assert.equal(activeGroups.length, policy.curatedGroups.length);
 const curatedDocument = buildCuratedApplications(ROOT);
+const applicationOptions = [{ symbol: 'PACKAGE_luci-app-uncategorized', path: ['LuCI', '3. Applications'] },
+  { symbol: 'PACKAGE_luci-app-curated', path: ['Source-specific menu'] },
+  { symbol: 'PACKAGE_luci-app-absent', path: ['LuCI', '3. Applications'] }];
+assert.deepEqual(buildBranchApplicationRows(applicationOptions,
+  new Set(['luci-app-uncategorized', 'luci-app-curated']),
+  [{ packages: ['luci-app-curated'], group: 'Storage', hot: true }]),
+  [['PACKAGE_luci-app-curated', 'luci-app-curated', 'Storage', 1],
+    ['PACKAGE_luci-app-uncategorized', 'luci-app-uncategorized', 'Other', 0]]);
+assert.deepEqual(applicationOptions[0].path, ['LuCI', '3. Applications'], 'Native menu paths stay untouched');
 assert.deepEqual(curatedDocument.groups, activeGroups);
 assert.equal(curatedDocument.items.length, curated.length);
 assert(curatedDocument.items.every((row) => row.id && row.titleZh && row.usageZh));
@@ -700,7 +709,19 @@ assert.equal(sizeRows[0].relationsReductionPercent, 75);
 // Compatibility v5 separates a global preventive applicability policy from exact evidence.
 const normalizedCompatibility = normalizeCompatibilityDocument(compatibility, policy);
 assert.equal(normalizedCompatibility.schema, 7);
-assert.equal(normalizedCompatibility.rules.length, 17);
+assert.equal(normalizedCompatibility.rules.length, 18);
+const amuleRule = normalizedCompatibility.rules.find(row => row.id === 'BLD-0014');
+assert.deepEqual(amuleRule.packages, ['amule']);
+assert.deepEqual(amuleRule.buildDependency, { package: 'amule' });
+assert.equal(amuleRule.failure.observed.compileTarget, 'package/feeds/packages/amule/compile');
+const amuleContext = { source: 'ImmortalWrt', branch: 'master', upstreamCommit: amuleRule.sourceCommits[0],
+  inputsHash: amuleRule.inputHashes[0], system: 'x86', subtarget: '64', profile: 'DEVICE_generic', availablePackages: ['amule'] };
+const amuleDocument = { schema: 7, rules: [amuleRule] };
+assert.deepEqual(applicableBuildDependencies(amuleDocument, amuleContext).packages, ['amule']);
+for (const change of [{ source: 'lede' }, { branch: 'openwrt-25.12' }, { upstreamCommit: 'f'.repeat(40) },
+  { inputsHash: 'f'.repeat(64) }, { subtarget: 'generic' }]) {
+  assert.deepEqual(applicableBuildDependencies(amuleDocument, { ...amuleContext, ...change }).packages, []);
+}
 // Exact compile facts are independent of application names and other sources.
 for (const id of ['BLD-0010', 'BLD-0011', 'BLD-0012', 'BLD-0013']) {
   const rule = normalizedCompatibility.rules.find(row => row.id === id);

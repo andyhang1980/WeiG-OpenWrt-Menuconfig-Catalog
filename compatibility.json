@@ -2,6 +2,60 @@
   "schema": 7,
   "rules": [
     {
+      "id": "BLD-0014",
+      "issue": "build-failure",
+      "match": "all-selected",
+      "scope": {
+        "ImmortalWrt": [
+          "master"
+        ]
+      },
+      "sourceCommits": [
+        "8735c686ae30fe85d94de97669399c2117179f82"
+      ],
+      "inputHashes": [
+        "cf6ca04e8676f230db4327ddf76f826921e297ff93f13c6e6d4084ab61188960"
+      ],
+      "targetScope": {
+        "system": [
+          "x86"
+        ],
+        "subtarget": [
+          "64"
+        ],
+        "profile": [
+          "DEVICE_generic"
+        ]
+      },
+      "packages": [
+        "amule"
+      ],
+      "buildDependency": {
+        "package": "amule"
+      },
+      "refs": [
+        "run:37452632600",
+        "job:112232649656",
+        "feed:packages:e731ba76764082d9db71de60f1ddac43f4114101",
+        "feed:luci:5fc1fac5684cac6eee2c7fbff78c65b867980dd8",
+        "feed:routing:4b9891b9136259f93294a424507ed24c5e8c1cbd",
+        "feed:telephony:5d68d53c160a325ea9d03fce393e051573bcc736",
+        "feed:video:afb0a7453e4ecebe4b59f9c1b5f8d5413fb652f2"
+      ],
+      "failure": {
+        "phase": "package-compile",
+        "cause": "package-caused",
+        "code": "amule-autogen-missing-intl-makefile",
+        "observed": {
+          "package": "amule",
+          "version": "2.3.3-r5",
+          "sourceMakefile": "package/feeds/packages/amule/Makefile",
+          "compileTarget": "package/feeds/packages/amule/compile",
+          "error": "intl/Makefile.in.tmp: No such file or directory; required file intl/Makefile.in not found"
+        }
+      }
+    },
+    {
       "id": "BLD-0010",
       "issue": "build-failure",
       "match": "all-selected",

@@ -15,6 +15,20 @@ export function activeCuratedGroups(groups, items) {
   });
 }
 
+export function buildBranchApplicationRows(options, packageSymbols, curatedCandidates) {
+  const curatedByPackage = new Map(curatedCandidates.flatMap(candidate =>
+    (candidate.packages || []).map(name => [name, candidate])));
+  return options.filter(option => /^PACKAGE_luci-app-[A-Za-z0-9_.+@-]+$/.test(String(option.symbol || '')) &&
+    packageSymbols.has(option.symbol.slice('PACKAGE_'.length)))
+    .sort((a, b) => a.symbol.localeCompare(b.symbol))
+    .map(option => {
+      const name = option.symbol.slice('PACKAGE_'.length);
+      const curated = curatedByPackage.get(name);
+      // Presentation categories do not mutate Native option.path.
+      return [option.symbol, name, curated?.group || 'Other', curated?.hot === true ? 1 : 0];
+    });
+}
+
 export function buildCuratedApplications(root) {
   const config = readJson(join(root, 'catalog.config.json'));
   const translations = readJson(join(root, 'translations', 'zh-CN.json'));
