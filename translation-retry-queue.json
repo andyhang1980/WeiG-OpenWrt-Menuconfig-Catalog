@@ -5,14 +5,29 @@
       {
         "id": "3d8f33c09b6778562f18652ea18c1e74135682b7fce27a55b594a97ed3993588",
         "text": "This enables further checks in the kernel address sanitizer, for now\nit only includes the address-use-after-scope check that can lead\nto excessive kernel stack usage, frame size warnings and longer\ncompile time.\nhttps://gcc.gnu.org/bugzilla/show_bug.cgi?id=81715 has more",
-        "reason": "Batch incomplete: translated 498/500 queued descriptions"
+        "reason": "Batch incomplete: translated 495/500 queued descriptions"
       },
       {
         "id": "30221851cb10191e8a1dbb211b1aca963d8f3c1e91b9a5a9cb1ac82b4ec39766",
         "text": "This package contains a base filesystem and system scripts for OpenWrt. http://openwrt.org/",
-        "reason": "Batch incomplete: translated 498/500 queued descriptions"
+        "reason": "Batch incomplete: translated 495/500 queued descriptions"
+      },
+      {
+        "id": "22984b637cbae0159223c5b103a8f125066e6571a2240db46dcb2710f0db4dd1",
+        "text": "Without this, sort only supports -rusz, and an integer version\nof -n. Selecting this adds sort keys, floating point support, and\nmore. This adds a little over 3k to a nonstatic build on x86.\n\nThe SuSv3 sort standard is available at:\nhttp://www.opengroup.org/onlinepubs/007904975/utilities/sort.html",
+        "reason": "Batch incomplete: translated 495/500 queued descriptions"
+      },
+      {
+        "id": "0ac2f390872e0634e755893ff0d282962eb58d26e99a078611aefb17737788bb",
+        "text": "bc is a command-line, arbitrary-precision calculator with a\nTuring-complete language. See the GNU bc manual\n(https://www.gnu.org/software/bc/manual/bc.html) and bc spec\n(http://pubs.opengroup.org/onlinepubs/9699919799/utilities/bc.html).\n\nThis bc has five differences to the GNU bc:\n1) The period (.) is a shortcut for \"last\", as in the BSD bc.\n2) Arrays are copied before being passed as arguments to\nfunctions. This behavior is required by the bc spec.\n3) Arrays can be passed to the builtin \"length\" function to get\nthe number of elements in the array. This prints \"1\":\na[0] = 0; length(a[])\n4) The precedence of the boolean \"not\" operator (!) is equal to\nthat of the unary minus (-) negation operator. This still\nallows POSIX-compliant scripts to work while somewhat\npreserving expected behavior (versus C) and making parsing\neasier.\n5) \"read()\" accepts expressions, not only numeric literals.",
+        "reason": "Batch incomplete: translated 495/500 queued descriptions"
+      },
+      {
+        "id": "5f533b6d710406dc616aa3062123d676e9bc7312660b1b5bc9858214b955ea66",
+        "text": "dc is a reverse-polish notation command-line calculator which\nsupports unlimited precision arithmetic. See the FreeBSD man page\n(https://www.unix.com/man-page/FreeBSD/1/dc/) and GNU dc manual\n(https://www.gnu.org/software/bc/manual/dc-1.05/html_mono/dc.html).\n\nThis dc has a few differences from the two above:\n1) When printing a byte stream (command \"P\"), this dc follows what\nthe FreeBSD dc does.\n2) Implements the GNU extensions for divmod (\"~\") and\nmodular exponentiation (\"|\").\n3) Implements all FreeBSD extensions, except for \"J\" and \"M\".\n4) Like the FreeBSD dc, this dc supports extended registers.\nHowever, they are implemented differently. When it encounters\nwhitespace where a register should be, it skips the whitespace.\nIf the character following is not a lowercase letter, an error\nis issued. Otherwise, the register name is parsed by the\nfollowing regex: [a-z][a-z0-9_]*\nThis generally means that register names will be surrounded by\nwhitespace. Examples:\nl idx s temp L index S temp2 < do_thing\nAlso note that, like the FreeBSD dc, extended registers are not\nallowed unless the \"-x\" option is given.",
+        "reason": "Batch incomplete: translated 495/500 queued descriptions"
       }
     ]
   },
-  "updatedAt": "2026-10-04T23:40:43.220Z"
+  "updatedAt": "2026-10-06T01:31:27.781Z"
 }
