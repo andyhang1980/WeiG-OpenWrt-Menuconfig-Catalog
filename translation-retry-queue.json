@@ -5,29 +5,69 @@
       {
         "id": "3d8f33c09b6778562f18652ea18c1e74135682b7fce27a55b594a97ed3993588",
         "text": "This enables further checks in the kernel address sanitizer, for now\nit only includes the address-use-after-scope check that can lead\nto excessive kernel stack usage, frame size warnings and longer\ncompile time.\nhttps://gcc.gnu.org/bugzilla/show_bug.cgi?id=81715 has more",
-        "reason": "Batch incomplete: translated 495/500 queued descriptions"
+        "reason": "Batch incomplete: translated 487/500 queued descriptions"
       },
       {
         "id": "30221851cb10191e8a1dbb211b1aca963d8f3c1e91b9a5a9cb1ac82b4ec39766",
         "text": "This package contains a base filesystem and system scripts for OpenWrt. http://openwrt.org/",
-        "reason": "Batch incomplete: translated 495/500 queued descriptions"
+        "reason": "Batch incomplete: translated 487/500 queued descriptions"
       },
       {
         "id": "22984b637cbae0159223c5b103a8f125066e6571a2240db46dcb2710f0db4dd1",
         "text": "Without this, sort only supports -rusz, and an integer version\nof -n. Selecting this adds sort keys, floating point support, and\nmore. This adds a little over 3k to a nonstatic build on x86.\n\nThe SuSv3 sort standard is available at:\nhttp://www.opengroup.org/onlinepubs/007904975/utilities/sort.html",
-        "reason": "Batch incomplete: translated 495/500 queued descriptions"
+        "reason": "Batch incomplete: translated 487/500 queued descriptions"
       },
       {
         "id": "0ac2f390872e0634e755893ff0d282962eb58d26e99a078611aefb17737788bb",
         "text": "bc is a command-line, arbitrary-precision calculator with a\nTuring-complete language. See the GNU bc manual\n(https://www.gnu.org/software/bc/manual/bc.html) and bc spec\n(http://pubs.opengroup.org/onlinepubs/9699919799/utilities/bc.html).\n\nThis bc has five differences to the GNU bc:\n1) The period (.) is a shortcut for \"last\", as in the BSD bc.\n2) Arrays are copied before being passed as arguments to\nfunctions. This behavior is required by the bc spec.\n3) Arrays can be passed to the builtin \"length\" function to get\nthe number of elements in the array. This prints \"1\":\na[0] = 0; length(a[])\n4) The precedence of the boolean \"not\" operator (!) is equal to\nthat of the unary minus (-) negation operator. This still\nallows POSIX-compliant scripts to work while somewhat\npreserving expected behavior (versus C) and making parsing\neasier.\n5) \"read()\" accepts expressions, not only numeric literals.",
-        "reason": "Batch incomplete: translated 495/500 queued descriptions"
+        "reason": "Batch incomplete: translated 487/500 queued descriptions"
       },
       {
         "id": "5f533b6d710406dc616aa3062123d676e9bc7312660b1b5bc9858214b955ea66",
         "text": "dc is a reverse-polish notation command-line calculator which\nsupports unlimited precision arithmetic. See the FreeBSD man page\n(https://www.unix.com/man-page/FreeBSD/1/dc/) and GNU dc manual\n(https://www.gnu.org/software/bc/manual/dc-1.05/html_mono/dc.html).\n\nThis dc has a few differences from the two above:\n1) When printing a byte stream (command \"P\"), this dc follows what\nthe FreeBSD dc does.\n2) Implements the GNU extensions for divmod (\"~\") and\nmodular exponentiation (\"|\").\n3) Implements all FreeBSD extensions, except for \"J\" and \"M\".\n4) Like the FreeBSD dc, this dc supports extended registers.\nHowever, they are implemented differently. When it encounters\nwhitespace where a register should be, it skips the whitespace.\nIf the character following is not a lowercase letter, an error\nis issued. Otherwise, the register name is parsed by the\nfollowing regex: [a-z][a-z0-9_]*\nThis generally means that register names will be surrounded by\nwhitespace. Examples:\nl idx s temp L index S temp2 < do_thing\nAlso note that, like the FreeBSD dc, extended registers are not\nallowed unless the \"-x\" option is given.",
-        "reason": "Batch incomplete: translated 495/500 queued descriptions"
+        "reason": "Batch incomplete: translated 487/500 queued descriptions"
+      },
+      {
+        "id": "24dc96dd13936a1853dedf42fb9da516c939d98cceceaa0b2b9d4c6a6e8d069f",
+        "text": "This option allows you to define URLs that will be forwarded\nto another HTTP server. To setup add the following line to the\nconfiguration file\nP:/url/:http://hostname[:port]/new/path/\nThen a request to /url/myfile will be forwarded to\nhttp://hostname[:port]/new/path/myfile.",
+        "reason": "Batch incomplete: translated 487/500 queued descriptions"
+      },
+      {
+        "id": "fa16c44cac10daf7dccda848f638a764f17266d21496e33b1288368077cba60f",
+        "text": "A daemon for the TELNET protocol, allowing you to log onto the host\nrunning the daemon. Please keep in mind that the TELNET protocol\nsends passwords in plain text. If you can't afford the space for an\nSSH daemon and you trust your network, you may say 'y' here. As a\nmore secure alternative, you should seriously consider installing the\nvery small Dropbear SSH daemon instead:\nhttp://matt.ucc.asn.au/dropbear/dropbear.html\n\nNote that for busybox telnetd to work you need several things:\nFirst of all, your kernel needs:\nCONFIG_UNIX98_PTYS=y\n\nNext, you need a /dev/pts directory on your root filesystem:\n\n$ ls -ld /dev/pts\ndrwxr-xr-x  2 root root 0 Sep 23 13:21 /dev/pts/\n\nNext you need the pseudo terminal master multiplexer /dev/ptmx:\n\n$ ls -la /dev/ptmx\ncrw-rw-rw-  1 root tty 5, 2 Sep 23 13:55 /dev/ptmx\n\nAny /dev/ttyp[0-9]* files you may have can be removed.\nNext, you need to mount the devpts filesystem on /dev/pts using:\n\nmount -t devpts devpts /dev/pts\n\nYou need to be sure that busybox has LOGIN and\nFEATURE_SUID enabled. And finally, you should make\ncertain that busybox has been installed setuid root:\n\nchown root.root /bin/busybox\nchmod 4755 /bin/busybox\n\nwith all that done, telnetd _should_ work....",
+        "reason": "Batch incomplete: translated 487/500 queued descriptions"
+      },
+      {
+        "id": "d66d64cf8d266e29142324fefb34188d513a3c749e664a1c3212a50c92c6d182",
+        "text": "Enable support to modify to relabel files.\nNotice: If you built libselinux with -D_FILE_OFFSET_BITS=64,\n(It is default in libselinux's Makefile), you _must_ enable\nCONFIG_LFS.",
+        "reason": "Batch incomplete: translated 487/500 queued descriptions"
+      },
+      {
+        "id": "48705f6e3cbfaa1ed2d22cef5ad2925fefc22d7943f2b492bbc6f7a57ea10814",
+        "text": "It is intended to provide coupled DNS and DHCP service to a LAN. http://www.thekelleys.org.uk/dnsmasq/",
+        "reason": "Batch incomplete: translated 487/500 queued descriptions"
+      },
+      {
+        "id": "69946f183bbf9b4a572e1f2fe3ae03322b6f3b39c49eb2de4d662eba66324715",
+        "text": "Runtime library for ThreadSanitizer in GCC http://gcc.gnu.org/ Felix Fietkau <nbd@nbd.name>",
+        "reason": "Batch incomplete: translated 487/500 queued descriptions"
+      },
+      {
+        "id": "1e0a9d8d1e05420ff3c2f6a82761a2d3a6b341e7c13e423e7a6d9110b8e073df",
+        "text": "This package contains the hw watchdog script for the OM1P and OM2P device. http://openwrt.org/",
+        "reason": "Batch incomplete: translated 487/500 queued descriptions"
+      },
+      {
+        "id": "d1a2e35c6bc19559e71e10e08eb6e346ca6dd0e2efb51a27590f461f89e7991a",
+        "text": "The keyring of with the developer using and gpg public keys. https://openwrt.org/docs/guide-user/security/signatures John Crispin <john@phrozen.org>",
+        "reason": "Batch incomplete: translated 487/500 queued descriptions"
+      },
+      {
+        "id": "f817c1efc099563a7a352ab9a5e57006ca21f2712c69bad2af076c0cdb812aea",
+        "text": "This package contains a collection of tools for configuring wireless adapters implementing the \"Linux Wireless Extensions\". http://hplabs.hp.com/personal/Jean_Tourrilhes/Linux/Tools.html Felix Fietkau <nbd@nbd.name>",
+        "reason": "Batch incomplete: translated 487/500 queued descriptions"
       }
     ]
   },
-  "updatedAt": "2026-10-06T01:31:27.781Z"
+  "updatedAt": "2026-10-06T01:41:51.980Z"
 }
