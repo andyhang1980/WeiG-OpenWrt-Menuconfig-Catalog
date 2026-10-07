@@ -642,6 +642,13 @@
       "group": "系统工具"
     },
     {
+      "id": "emby",
+      "packages": [
+        "luci-app-emby"
+      ],
+      "group": "多媒体与外设"
+    },
+    {
       "id": "eoip",
       "packages": [
         "luci-app-eoip"
@@ -852,6 +859,13 @@
         "luci-app-irqbalance"
       ],
       "group": "系统工具"
+    },
+    {
+      "id": "jellyfin",
+      "packages": [
+        "luci-app-jellyfin"
+      ],
+      "group": "多媒体与外设"
     },
     {
       "id": "k3screenctrl",
@@ -1344,6 +1358,14 @@
       "hot": true
     },
     {
+      "id": "passwall2",
+      "packages": [
+        "luci-app-passwall2"
+      ],
+      "group": "魔法与加速",
+      "hot": true
+    },
+    {
       "id": "pbr",
       "packages": [
         "luci-app-pbr"
@@ -1717,6 +1739,13 @@
         "luci-app-statistics"
       ],
       "group": "监控统计"
+    },
+    {
+      "id": "store",
+      "packages": [
+        "luci-app-store"
+      ],
+      "group": "系统工具"
     },
     {
       "id": "strongswan-swanctl",

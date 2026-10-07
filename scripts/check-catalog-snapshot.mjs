@@ -6,6 +6,9 @@ import { join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { spawnSync } from 'node:child_process';
 import { indexContract, stampIndex } from './index-contract.mjs';
+
+const TEST_REPOSITORY = process.env.GITHUB_REPOSITORY || 'weigefenxiang/WeiG-OpenWrt-Menuconfig-Catalog';
+process.env.GITHUB_REPOSITORY = TEST_REPOSITORY;
 import {
   stampCatalogSnapshot, verifyCatalogRuntimeSurface, verifyReusableCatalogSnapshot,
   prepareCatalogAssetManifest, verifyCatalogAssetManifest,
@@ -85,7 +88,7 @@ const reusable = stampCatalogSnapshot(input, ref, {
   codeRef: 'dev', codeSha: previousCodeSha, complete: true,
 });
 const reuse = verifyReusableCatalogSnapshot(reusable, {
-  repository: 'weigefenxiang/WeiG-OpenWrt-Menuconfig-Catalog',
+  repository: TEST_REPOSITORY,
   codeRef: 'dev',
   previousCodeSha,
 });
@@ -96,7 +99,7 @@ const reusableF = stampCatalogSnapshot(input, ref, {
   codeRef: 'fix-F', codeSha: previousCodeSha, complete: true,
 });
 const reuseF = verifyReusableCatalogSnapshot(reusableF, {
-  repository: 'weigefenxiang/WeiG-OpenWrt-Menuconfig-Catalog',
+  repository: TEST_REPOSITORY,
   codeRef: 'fix-F',
   previousCodeSha,
 });
@@ -107,14 +110,14 @@ const legacyReusable = stampCatalogSnapshot(noProfiles, ref, {
   codeRef: 'fix-F', codeSha: previousCodeSha, complete: false,
 });
 assert.equal(verifyReusableCatalogSnapshot(legacyReusable, {
-  repository: 'weigefenxiang/WeiG-OpenWrt-Menuconfig-Catalog',
+  repository: TEST_REPOSITORY,
   codeRef: 'fix-F',
   previousCodeSha,
 }).complete, false, 'incomplete historical snapshot may be inspected but never promoted as complete');
 for (const invalidReuse of [
   () => verifyReusableCatalogSnapshot(reusable, { repository: 'other/repo', codeRef: 'dev', previousCodeSha }),
-  () => verifyReusableCatalogSnapshot(reusable, { repository: 'weigefenxiang/WeiG-OpenWrt-Menuconfig-Catalog', codeRef: 'staging', previousCodeSha }),
-  () => verifyReusableCatalogSnapshot(reusable, { repository: 'weigefenxiang/WeiG-OpenWrt-Menuconfig-Catalog', codeRef: 'dev', previousCodeSha: codeSha }),
+  () => verifyReusableCatalogSnapshot(reusable, { repository: TEST_REPOSITORY, codeRef: 'staging', previousCodeSha }),
+  () => verifyReusableCatalogSnapshot(reusable, { repository: TEST_REPOSITORY, codeRef: 'dev', previousCodeSha: codeSha }),
 ]) {
   let rejected = false;
   try { invalidReuse(); } catch { rejected = true; }
@@ -209,7 +212,7 @@ try {
     previousCodeSha,
   ], {
     encoding: 'utf8',
-    env: { ...process.env, GITHUB_REPOSITORY: 'weigefenxiang/WeiG-OpenWrt-Menuconfig-Catalog' },
+    env: { ...process.env, GITHUB_REPOSITORY: TEST_REPOSITORY },
   });
   if (reuseResult.status !== 0) {
     throw new Error(`snapshot reuse CLI failed: ${reuseResult.stderr || reuseResult.stdout}`);

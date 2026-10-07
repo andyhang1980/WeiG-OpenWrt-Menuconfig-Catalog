@@ -3880,6 +3880,37 @@
       },
       "source": "WeiG curated plugins"
     },
+    "PACKAGE_luci-app-passwall2": {
+      "titleEn": "PassWall 2",
+      "titleZh": "PassWall 2",
+      "usageEn": "Multi-protocol proxy with rule-based routing",
+      "usageZh": "多协议规则分流代理工具",
+      "titleI18n": {
+        "zh-TW": "PassWall 2",
+        "ru": "PassWall 2",
+        "es": "PassWall 2",
+        "pt": "PassWall 2",
+        "ja": "PassWall 2",
+        "ko": "PassWall 2",
+        "de": "PassWall 2",
+        "fr": "PassWall 2",
+        "vi": "PassWall 2",
+        "zh-CN": "PassWall 2"
+      },
+      "usageI18n": {
+        "ru": "Прокси-клиент с маршрутизацией по правилам",
+        "es": "Proxy multiprotocolo con enrutado por reglas",
+        "pt": "Proxy multiprotocolo com roteamento por regras",
+        "ja": "マルチプロトコルのルールルーティング対応プロキシ",
+        "ko": "규칙 기반 라우팅을 지원하는 다중 프로토콜 프록시",
+        "de": "Proxy-Client mit regelbasiertem Routing",
+        "fr": "Proxy multiprotocole avec routage basé sur des règles",
+        "vi": "Công cụ proxy đa giao thức, phân luồng theo quy tắc",
+        "zh-TW": "多協議規則分流代理工具",
+        "zh-CN": "多协议规则分流代理工具"
+      },
+      "source": "WeiG curated plugins"
+    },
     "PACKAGE_luci-app-pbr": {
       "titleEn": "Policy Based Routing",
       "titleZh": "策略路由 PBR",
@@ -5086,6 +5117,37 @@
         "vi": "Ghi lại và vẽ biểu đồ CPU, lưu lượng mạng",
         "zh-TW": "記錄並繪製CPU流量等曲線",
         "zh-CN": "记录并绘制CPU流量等曲线"
+      },
+      "source": "WeiG curated plugins"
+    },
+    "PACKAGE_luci-app-store": {
+      "titleEn": "iStore",
+      "titleZh": "iStore 应用商店",
+      "usageEn": "iStore app store and package manager",
+      "usageZh": "iStore 应用商店与软件包管理",
+      "titleI18n": {
+        "zh-TW": "iStore 應用程式商店",
+        "ru": "Магазин приложений iStore",
+        "es": "Tienda de aplicaciones iStore",
+        "pt": "Loja de aplicativos iStore",
+        "ja": "iStore アプリストア",
+        "ko": "iStore 앱스토어",
+        "de": "iStore App-Store",
+        "fr": "App Store iStore",
+        "vi": "Cửa hàng ứng dụng iStore",
+        "zh-CN": "iStore 应用商店"
+      },
+      "usageI18n": {
+        "ru": "Магазин приложений и менеджер пакетов iStore",
+        "es": "Tienda de aplicaciones iStore y gestor de paquetes",
+        "pt": "Loja de aplicativos iStore e gerenciador de pacotes",
+        "ja": "iStore アプリストアとパッケージマネージャー",
+        "ko": "iStore 앱스토어 및 패키지 관리자",
+        "de": "iStore App-Store und Paketmanager",
+        "fr": "App Store et gestionnaire de paquets iStore",
+        "vi": "Cửa hàng ứng dụng và trình quản lý gói iStore",
+        "zh-TW": "iStore 應用程式商店與軟體包管理",
+        "zh-CN": "iStore 应用商店与软件包管理"
       },
       "source": "WeiG curated plugins"
     },
@@ -7774,6 +7836,37 @@
       },
       "source": "Catalog curated applications"
     },
+    "PACKAGE_luci-app-emby": {
+      "titleEn": "Emby",
+      "titleZh": "Emby 影音中心",
+      "usageEn": "Emby media server with web management",
+      "usageZh": "Emby 媒体服务器与网页管理",
+      "titleI18n": {
+        "zh-TW": "Emby 影音中心",
+        "ru": "Медиа-центр Emby",
+        "es": "Centro multimedia Emby",
+        "pt": "Central de mídia Emby",
+        "ja": "Emby メディアセンター",
+        "ko": "Emby 미디어 센터",
+        "de": "Emby-Medienzentrum",
+        "fr": "Centre multimédia Emby",
+        "vi": "Trung tâm phương tiện Emby",
+        "zh-CN": "Emby 影音中心"
+      },
+      "usageI18n": {
+        "ru": "Медиа-сервер Emby с веб-управлением",
+        "es": "Servidor multimedia Emby con gestión web",
+        "pt": "Servidor de mídia Emby com gestão web",
+        "ja": "Web管理対応のEmbyメディアサーバー",
+        "ko": "Emby 미디어 서버 및 웹 관리",
+        "de": "Emby-Mediaserver mit Webverwaltung",
+        "fr": "Serveur multimédia Emby avec gestion web",
+        "vi": "Máy chủ đa phương tiện Emby với quản lý web",
+        "zh-TW": "Emby 媒體伺服器與網頁管理",
+        "zh-CN": "Emby 媒体服务器与网页管理"
+      },
+      "source": "WeiG curated plugins"
+    },
     "PACKAGE_luci-app-example": {
       "titleEn": "LuCI example",
       "titleZh": "LuCI 示例",
@@ -7838,6 +7931,37 @@
         "zh-CN": "Catalog 收录时提供的中断负载均衡服务"
       },
       "source": "Catalog curated applications"
+    },
+    "PACKAGE_luci-app-jellyfin": {
+      "titleEn": "Jellyfin",
+      "titleZh": "Jellyfin 影音中心",
+      "usageEn": "Free software media system server",
+      "usageZh": "Jellyfin 开源媒体系统服务器",
+      "titleI18n": {
+        "zh-TW": "Jellyfin 影音中心",
+        "ru": "Медиа-центр Jellyfin",
+        "es": "Centro multimedia Jellyfin",
+        "pt": "Central de mídia Jellyfin",
+        "ja": "Jellyfin メディアセンター",
+        "ko": "Jellyfin 미디어 센터",
+        "de": "Jellyfin-Medienzentrum",
+        "fr": "Centre multimédia Jellyfin",
+        "vi": "Trung tâm phương tiện Jellyfin",
+        "zh-CN": "Jellyfin 影音中心"
+      },
+      "usageI18n": {
+        "ru": "Бесплатный медиасервер Jellyfin",
+        "es": "Servidor del sistema multimedia libre Jellyfin",
+        "pt": "Servidor do sistema de mídia livre Jellyfin",
+        "ja": "フリーソフトウェアのメディアシステム Jellyfin",
+        "ko": "무료 미디어 시스템 서버 Jellyfin",
+        "de": "Freie Mediensystem-Software Jellyfin",
+        "fr": "Serveur de système multimédia libre Jellyfin",
+        "vi": "Máy chủ hệ thống truyền thông phần mềm tự do Jellyfin",
+        "zh-TW": "Jellyfin 開源媒體系統伺服器",
+        "zh-CN": "Jellyfin 开源媒体系统服务器"
+      },
+      "source": "WeiG curated plugins"
     },
     "PACKAGE_luci-app-k3screenctrl": {
       "titleEn": "K3 screen control",

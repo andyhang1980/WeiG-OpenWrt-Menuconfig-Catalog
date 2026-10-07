@@ -1,0 +1,25 @@
+# 每日把本 fork 与上游仓库保持同步 / Keep this fork synchronized with its upstream repository daily.
+name: Sync Fork with Upstream / 与上游同步
+run-name: Sync Fork with Upstream / 与上游同步
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '47 2 * * *'
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    name: Sync / 同步
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Sync with upstream / 同步上游提交
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          gh repo sync "$GITHUB_REPOSITORY" -b main
+          echo "Synced $GITHUB_REPOSITORY with its upstream / 已与上游仓库同步"
