@@ -7,13 +7,13 @@
     "branch": "openwrt-18.06",
     "commit": "9f2a40c72fdb0b9b077bf5b4b01aa17eac4bfb45",
     "legacy": false,
-    "inputsHash": "134aa4a122199ec3f5113dc82e5c708c2eb5c851b3842a5f5c7808669d6d5b8f"
+    "inputsHash": "9d316c4f924effd5bbdbc37699eba4caee885199c2a0c39c74a62fb9cbd7c08b"
   },
-  "generatedAt": "2026-10-02T05:07:22.410Z",
+  "generatedAt": "2026-10-07T05:09:41.128Z",
   "summary": {
-    "symbols": 13613,
-    "duplicateSymbols": 264,
-    "duplicateNodes": 264,
+    "symbols": 14871,
+    "duplicateSymbols": 312,
+    "duplicateNodes": 312,
     "conflicts": 0
   },
   "duplicates": [
@@ -43,6 +43,752 @@
       "variants": []
     },
     {
+      "symbol": "PREINITOPT",
+      "count": 2,
+      "paths": [
+        []
+      ],
+      "locations": [
+        {
+          "file": "package/base-files/image-config.in",
+          "line": 8
+        },
+        {
+          "file": "package/feeds/small_package/base-files/image-config.in",
+          "line": 15
+        }
+      ],
+      "sources": [
+        "package/base-files/image-config.in",
+        "package/feeds/small_package/base-files/image-config.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "TARGET_PREINIT_SUPPRESS_STDERR",
+      "count": 2,
+      "paths": [
+        []
+      ],
+      "locations": [
+        {
+          "file": "package/base-files/image-config.in",
+          "line": 16
+        },
+        {
+          "file": "package/feeds/small_package/base-files/image-config.in",
+          "line": 23
+        }
+      ],
+      "sources": [
+        "package/base-files/image-config.in",
+        "package/feeds/small_package/base-files/image-config.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "TARGET_PREINIT_DISABLE_FAILSAFE",
+      "count": 2,
+      "paths": [
+        []
+      ],
+      "locations": [
+        {
+          "file": "package/base-files/image-config.in",
+          "line": 27
+        },
+        {
+          "file": "package/feeds/small_package/base-files/image-config.in",
+          "line": 34
+        }
+      ],
+      "sources": [
+        "package/base-files/image-config.in",
+        "package/feeds/small_package/base-files/image-config.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "TARGET_PREINIT_TIMEOUT",
+      "count": 2,
+      "paths": [
+        []
+      ],
+      "locations": [
+        {
+          "file": "package/base-files/image-config.in",
+          "line": 37
+        },
+        {
+          "file": "package/feeds/small_package/base-files/image-config.in",
+          "line": 44
+        }
+      ],
+      "sources": [
+        "package/base-files/image-config.in",
+        "package/feeds/small_package/base-files/image-config.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "TARGET_PREINIT_SHOW_NETMSG",
+      "count": 2,
+      "paths": [
+        []
+      ],
+      "locations": [
+        {
+          "file": "package/base-files/image-config.in",
+          "line": 46
+        },
+        {
+          "file": "package/feeds/small_package/base-files/image-config.in",
+          "line": 53
+        }
+      ],
+      "sources": [
+        "package/base-files/image-config.in",
+        "package/feeds/small_package/base-files/image-config.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "TARGET_PREINIT_SUPPRESS_FAILSAFE_NETMSG",
+      "count": 2,
+      "paths": [
+        []
+      ],
+      "locations": [
+        {
+          "file": "package/base-files/image-config.in",
+          "line": 57
+        },
+        {
+          "file": "package/feeds/small_package/base-files/image-config.in",
+          "line": 64
+        }
+      ],
+      "sources": [
+        "package/base-files/image-config.in",
+        "package/feeds/small_package/base-files/image-config.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "TARGET_PREINIT_IFNAME",
+      "count": 2,
+      "paths": [
+        []
+      ],
+      "locations": [
+        {
+          "file": "package/base-files/image-config.in",
+          "line": 67
+        },
+        {
+          "file": "package/feeds/small_package/base-files/image-config.in",
+          "line": 74
+        }
+      ],
+      "sources": [
+        "package/base-files/image-config.in",
+        "package/feeds/small_package/base-files/image-config.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "TARGET_PREINIT_IP",
+      "count": 2,
+      "paths": [
+        []
+      ],
+      "locations": [
+        {
+          "file": "package/base-files/image-config.in",
+          "line": 76
+        },
+        {
+          "file": "package/feeds/small_package/base-files/image-config.in",
+          "line": 83
+        }
+      ],
+      "sources": [
+        "package/base-files/image-config.in",
+        "package/feeds/small_package/base-files/image-config.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "TARGET_PREINIT_NETMASK",
+      "count": 2,
+      "paths": [
+        []
+      ],
+      "locations": [
+        {
+          "file": "package/base-files/image-config.in",
+          "line": 84
+        },
+        {
+          "file": "package/feeds/small_package/base-files/image-config.in",
+          "line": 91
+        }
+      ],
+      "sources": [
+        "package/base-files/image-config.in",
+        "package/feeds/small_package/base-files/image-config.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "TARGET_PREINIT_BROADCAST",
+      "count": 2,
+      "paths": [
+        []
+      ],
+      "locations": [
+        {
+          "file": "package/base-files/image-config.in",
+          "line": 92
+        },
+        {
+          "file": "package/feeds/small_package/base-files/image-config.in",
+          "line": 99
+        }
+      ],
+      "sources": [
+        "package/base-files/image-config.in",
+        "package/feeds/small_package/base-files/image-config.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "INITOPT",
+      "count": 2,
+      "paths": [
+        []
+      ],
+      "locations": [
+        {
+          "file": "package/base-files/image-config.in",
+          "line": 101
+        },
+        {
+          "file": "package/feeds/small_package/base-files/image-config.in",
+          "line": 108
+        }
+      ],
+      "sources": [
+        "package/base-files/image-config.in",
+        "package/feeds/small_package/base-files/image-config.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "TARGET_INIT_PATH",
+      "count": 2,
+      "paths": [
+        []
+      ],
+      "locations": [
+        {
+          "file": "package/base-files/image-config.in",
+          "line": 110
+        },
+        {
+          "file": "package/feeds/small_package/base-files/image-config.in",
+          "line": 117
+        }
+      ],
+      "sources": [
+        "package/base-files/image-config.in",
+        "package/feeds/small_package/base-files/image-config.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "TARGET_INIT_ENV",
+      "count": 2,
+      "paths": [
+        []
+      ],
+      "locations": [
+        {
+          "file": "package/base-files/image-config.in",
+          "line": 117
+        },
+        {
+          "file": "package/feeds/small_package/base-files/image-config.in",
+          "line": 124
+        }
+      ],
+      "sources": [
+        "package/base-files/image-config.in",
+        "package/feeds/small_package/base-files/image-config.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "TARGET_INIT_CMD",
+      "count": 2,
+      "paths": [
+        []
+      ],
+      "locations": [
+        {
+          "file": "package/base-files/image-config.in",
+          "line": 127
+        },
+        {
+          "file": "package/feeds/small_package/base-files/image-config.in",
+          "line": 134
+        }
+      ],
+      "sources": [
+        "package/base-files/image-config.in",
+        "package/feeds/small_package/base-files/image-config.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "TARGET_INIT_SUPPRESS_STDERR",
+      "count": 2,
+      "paths": [
+        []
+      ],
+      "locations": [
+        {
+          "file": "package/base-files/image-config.in",
+          "line": 135
+        },
+        {
+          "file": "package/feeds/small_package/base-files/image-config.in",
+          "line": 142
+        }
+      ],
+      "sources": [
+        "package/base-files/image-config.in",
+        "package/feeds/small_package/base-files/image-config.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "VERSIONOPT",
+      "count": 2,
+      "paths": [
+        []
+      ],
+      "locations": [
+        {
+          "file": "package/base-files/image-config.in",
+          "line": 146
+        },
+        {
+          "file": "package/feeds/small_package/base-files/image-config.in",
+          "line": 153
+        }
+      ],
+      "sources": [
+        "package/base-files/image-config.in",
+        "package/feeds/small_package/base-files/image-config.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "VERSION_DIST",
+      "count": 2,
+      "paths": [
+        []
+      ],
+      "locations": [
+        {
+          "file": "package/base-files/image-config.in",
+          "line": 158
+        },
+        {
+          "file": "package/feeds/small_package/base-files/image-config.in",
+          "line": 165
+        }
+      ],
+      "sources": [
+        "package/base-files/image-config.in",
+        "package/feeds/small_package/base-files/image-config.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "VERSION_NUMBER",
+      "count": 2,
+      "paths": [
+        []
+      ],
+      "locations": [
+        {
+          "file": "package/base-files/image-config.in",
+          "line": 166
+        },
+        {
+          "file": "package/feeds/small_package/base-files/image-config.in",
+          "line": 173
+        }
+      ],
+      "sources": [
+        "package/base-files/image-config.in",
+        "package/feeds/small_package/base-files/image-config.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "VERSION_CODE",
+      "count": 2,
+      "paths": [
+        []
+      ],
+      "locations": [
+        {
+          "file": "package/base-files/image-config.in",
+          "line": 174
+        },
+        {
+          "file": "package/feeds/small_package/base-files/image-config.in",
+          "line": 181
+        }
+      ],
+      "sources": [
+        "package/base-files/image-config.in",
+        "package/feeds/small_package/base-files/image-config.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "VERSION_REPO",
+      "count": 2,
+      "paths": [
+        []
+      ],
+      "locations": [
+        {
+          "file": "package/base-files/image-config.in",
+          "line": 183
+        },
+        {
+          "file": "package/feeds/small_package/base-files/image-config.in",
+          "line": 190
+        }
+      ],
+      "sources": [
+        "package/base-files/image-config.in",
+        "package/feeds/small_package/base-files/image-config.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "VERSION_HOME_URL",
+      "count": 2,
+      "paths": [
+        []
+      ],
+      "locations": [
+        {
+          "file": "package/base-files/image-config.in",
+          "line": 205
+        },
+        {
+          "file": "package/feeds/small_package/base-files/image-config.in",
+          "line": 212
+        }
+      ],
+      "sources": [
+        "package/base-files/image-config.in",
+        "package/feeds/small_package/base-files/image-config.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "VERSION_MANUFACTURER",
+      "count": 2,
+      "paths": [
+        []
+      ],
+      "locations": [
+        {
+          "file": "package/base-files/image-config.in",
+          "line": 211
+        },
+        {
+          "file": "package/feeds/small_package/base-files/image-config.in",
+          "line": 218
+        }
+      ],
+      "sources": [
+        "package/base-files/image-config.in",
+        "package/feeds/small_package/base-files/image-config.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "VERSION_MANUFACTURER_URL",
+      "count": 2,
+      "paths": [
+        []
+      ],
+      "locations": [
+        {
+          "file": "package/base-files/image-config.in",
+          "line": 218
+        },
+        {
+          "file": "package/feeds/small_package/base-files/image-config.in",
+          "line": 225
+        }
+      ],
+      "sources": [
+        "package/base-files/image-config.in",
+        "package/feeds/small_package/base-files/image-config.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "VERSION_BUG_URL",
+      "count": 2,
+      "paths": [
+        []
+      ],
+      "locations": [
+        {
+          "file": "package/base-files/image-config.in",
+          "line": 225
+        },
+        {
+          "file": "package/feeds/small_package/base-files/image-config.in",
+          "line": 232
+        }
+      ],
+      "sources": [
+        "package/base-files/image-config.in",
+        "package/feeds/small_package/base-files/image-config.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "VERSION_SUPPORT_URL",
+      "count": 2,
+      "paths": [
+        []
+      ],
+      "locations": [
+        {
+          "file": "package/base-files/image-config.in",
+          "line": 231
+        },
+        {
+          "file": "package/feeds/small_package/base-files/image-config.in",
+          "line": 238
+        }
+      ],
+      "sources": [
+        "package/base-files/image-config.in",
+        "package/feeds/small_package/base-files/image-config.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "VERSION_PRODUCT",
+      "count": 2,
+      "paths": [
+        []
+      ],
+      "locations": [
+        {
+          "file": "package/base-files/image-config.in",
+          "line": 237
+        },
+        {
+          "file": "package/feeds/small_package/base-files/image-config.in",
+          "line": 244
+        }
+      ],
+      "sources": [
+        "package/base-files/image-config.in",
+        "package/feeds/small_package/base-files/image-config.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "VERSION_HWREV",
+      "count": 2,
+      "paths": [
+        []
+      ],
+      "locations": [
+        {
+          "file": "package/base-files/image-config.in",
+          "line": 244
+        },
+        {
+          "file": "package/feeds/small_package/base-files/image-config.in",
+          "line": 251
+        }
+      ],
+      "sources": [
+        "package/base-files/image-config.in",
+        "package/feeds/small_package/base-files/image-config.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "VERSION_FILENAMES",
+      "count": 2,
+      "paths": [
+        []
+      ],
+      "locations": [
+        {
+          "file": "package/base-files/image-config.in",
+          "line": 251
+        },
+        {
+          "file": "package/feeds/small_package/base-files/image-config.in",
+          "line": 258
+        }
+      ],
+      "sources": [
+        "package/base-files/image-config.in",
+        "package/feeds/small_package/base-files/image-config.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "VERSION_CODE_FILENAMES",
+      "count": 2,
+      "paths": [
+        []
+      ],
+      "locations": [
+        {
+          "file": "package/base-files/image-config.in",
+          "line": 259
+        },
+        {
+          "file": "package/feeds/small_package/base-files/image-config.in",
+          "line": 266
+        }
+      ],
+      "sources": [
+        "package/base-files/image-config.in",
+        "package/feeds/small_package/base-files/image-config.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PER_FEED_REPO",
+      "count": 2,
+      "paths": [
+        []
+      ],
+      "locations": [
+        {
+          "file": "package/base-files/image-config.in",
+          "line": 270
+        },
+        {
+          "file": "package/feeds/small_package/base-files/image-config.in",
+          "line": 277
+        }
+      ],
+      "sources": [
+        "package/base-files/image-config.in",
+        "package/feeds/small_package/base-files/image-config.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_dnsmasq_full_ipset",
+      "count": 2,
+      "paths": [
+        [
+          "Base system"
+        ],
+        [
+          "LuCI",
+          "3. Applications"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 269
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 44597
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_dnsmasq_full_nftset",
+      "count": 2,
+      "paths": [
+        [
+          "Base system"
+        ],
+        [
+          "LuCI",
+          "3. Applications"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 272
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 44600
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
       "symbol": "PACKAGE_sane-abaton",
       "count": 2,
       "paths": [
@@ -57,11 +803,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 4238
+          "line": 4532
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 103938
+          "line": 120202
         }
       ],
       "sources": [
@@ -85,11 +831,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 4253
+          "line": 4547
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 103941
+          "line": 120205
         }
       ],
       "sources": [
@@ -113,11 +859,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 4268
+          "line": 4562
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 103944
+          "line": 120208
         }
       ],
       "sources": [
@@ -141,11 +887,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 4283
+          "line": 4577
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 103947
+          "line": 120211
         }
       ],
       "sources": [
@@ -169,11 +915,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 4298
+          "line": 4592
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 103950
+          "line": 120214
         }
       ],
       "sources": [
@@ -197,11 +943,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 4313
+          "line": 4607
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 103953
+          "line": 120217
         }
       ],
       "sources": [
@@ -225,11 +971,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 4328
+          "line": 4622
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 103956
+          "line": 120220
         }
       ],
       "sources": [
@@ -253,11 +999,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 4343
+          "line": 4637
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 103959
+          "line": 120223
         }
       ],
       "sources": [
@@ -281,11 +1027,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 4358
+          "line": 4652
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 103962
+          "line": 120226
         }
       ],
       "sources": [
@@ -309,11 +1055,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 4373
+          "line": 4667
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 103965
+          "line": 120229
         }
       ],
       "sources": [
@@ -337,11 +1083,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 4388
+          "line": 4682
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 103968
+          "line": 120232
         }
       ],
       "sources": [
@@ -365,11 +1111,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 4403
+          "line": 4697
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 103971
+          "line": 120235
         }
       ],
       "sources": [
@@ -393,11 +1139,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 4418
+          "line": 4712
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 103974
+          "line": 120238
         }
       ],
       "sources": [
@@ -421,11 +1167,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 4433
+          "line": 4727
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 103977
+          "line": 120241
         }
       ],
       "sources": [
@@ -449,11 +1195,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 4448
+          "line": 4742
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 103980
+          "line": 120244
         }
       ],
       "sources": [
@@ -477,11 +1223,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 4463
+          "line": 4757
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 103983
+          "line": 120247
         }
       ],
       "sources": [
@@ -505,11 +1251,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 4479
+          "line": 4773
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 103986
+          "line": 120250
         }
       ],
       "sources": [
@@ -533,11 +1279,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 4495
+          "line": 4789
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 103989
+          "line": 120253
         }
       ],
       "sources": [
@@ -561,11 +1307,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 4510
+          "line": 4804
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 103992
+          "line": 120256
         }
       ],
       "sources": [
@@ -589,11 +1335,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 4526
+          "line": 4820
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 103995
+          "line": 120259
         }
       ],
       "sources": [
@@ -617,11 +1363,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 4541
+          "line": 4835
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 103998
+          "line": 120262
         }
       ],
       "sources": [
@@ -645,11 +1391,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 4556
+          "line": 4850
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 104001
+          "line": 120265
         }
       ],
       "sources": [
@@ -673,11 +1419,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 4571
+          "line": 4865
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 104007
+          "line": 120271
         }
       ],
       "sources": [
@@ -701,11 +1447,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 4586
+          "line": 4880
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 104004
+          "line": 120268
         }
       ],
       "sources": [
@@ -729,11 +1475,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 4602
+          "line": 4896
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 104010
+          "line": 120274
         }
       ],
       "sources": [
@@ -757,11 +1503,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 4617
+          "line": 4911
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 104013
+          "line": 120277
         }
       ],
       "sources": [
@@ -785,11 +1531,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 4632
+          "line": 4926
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 104016
+          "line": 120280
         }
       ],
       "sources": [
@@ -813,11 +1559,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 4647
+          "line": 4941
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 104019
+          "line": 120283
         }
       ],
       "sources": [
@@ -841,11 +1587,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 4662
+          "line": 4956
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 104022
+          "line": 120286
         }
       ],
       "sources": [
@@ -869,11 +1615,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 4677
+          "line": 4971
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 104025
+          "line": 120289
         }
       ],
       "sources": [
@@ -897,11 +1643,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 4693
+          "line": 4987
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 104028
+          "line": 120292
         }
       ],
       "sources": [
@@ -925,11 +1671,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 4708
+          "line": 5002
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 104031
+          "line": 120295
         }
       ],
       "sources": [
@@ -953,11 +1699,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 4723
+          "line": 5017
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 104034
+          "line": 120298
         }
       ],
       "sources": [
@@ -981,11 +1727,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 4738
+          "line": 5032
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 104037
+          "line": 120301
         }
       ],
       "sources": [
@@ -1009,11 +1755,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 4753
+          "line": 5047
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 104040
+          "line": 120304
         }
       ],
       "sources": [
@@ -1037,11 +1783,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 4768
+          "line": 5062
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 104043
+          "line": 120307
         }
       ],
       "sources": [
@@ -1065,11 +1811,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 4783
+          "line": 5077
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 104046
+          "line": 120310
         }
       ],
       "sources": [
@@ -1093,11 +1839,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 4798
+          "line": 5092
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 104049
+          "line": 120313
         }
       ],
       "sources": [
@@ -1121,11 +1867,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 4813
+          "line": 5107
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 104058
+          "line": 120322
         }
       ],
       "sources": [
@@ -1149,11 +1895,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 4828
+          "line": 5122
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 104052
+          "line": 120316
         }
       ],
       "sources": [
@@ -1177,11 +1923,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 4843
+          "line": 5137
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 104055
+          "line": 120319
         }
       ],
       "sources": [
@@ -1205,11 +1951,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 4858
+          "line": 5152
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 104061
+          "line": 120325
         }
       ],
       "sources": [
@@ -1233,11 +1979,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 4873
+          "line": 5167
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 104064
+          "line": 120328
         }
       ],
       "sources": [
@@ -1261,11 +2007,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 4888
+          "line": 5182
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 104067
+          "line": 120331
         }
       ],
       "sources": [
@@ -1289,11 +2035,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 4903
+          "line": 5197
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 104070
+          "line": 120334
         }
       ],
       "sources": [
@@ -1317,11 +2063,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 4918
+          "line": 5212
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 104073
+          "line": 120337
         }
       ],
       "sources": [
@@ -1345,11 +2091,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 4933
+          "line": 5227
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 104076
+          "line": 120340
         }
       ],
       "sources": [
@@ -1373,11 +2119,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 4948
+          "line": 5242
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 104079
+          "line": 120343
         }
       ],
       "sources": [
@@ -1401,11 +2147,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 4963
+          "line": 5257
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 104082
+          "line": 120346
         }
       ],
       "sources": [
@@ -1429,11 +2175,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 4978
+          "line": 5272
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 104085
+          "line": 120349
         }
       ],
       "sources": [
@@ -1457,11 +2203,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 4993
+          "line": 5287
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 104088
+          "line": 120352
         }
       ],
       "sources": [
@@ -1485,11 +2231,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 5008
+          "line": 5302
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 104091
+          "line": 120355
         }
       ],
       "sources": [
@@ -1513,11 +2259,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 5023
+          "line": 5317
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 104094
+          "line": 120358
         }
       ],
       "sources": [
@@ -1541,11 +2287,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 5038
+          "line": 5332
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 104097
+          "line": 120361
         }
       ],
       "sources": [
@@ -1569,11 +2315,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 5053
+          "line": 5347
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 104100
+          "line": 120364
         }
       ],
       "sources": [
@@ -1597,11 +2343,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 5068
+          "line": 5362
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 104103
+          "line": 120367
         }
       ],
       "sources": [
@@ -1625,11 +2371,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 5083
+          "line": 5377
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 104106
+          "line": 120370
         }
       ],
       "sources": [
@@ -1653,11 +2399,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 5098
+          "line": 5392
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 104109
+          "line": 120373
         }
       ],
       "sources": [
@@ -1681,11 +2427,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 5113
+          "line": 5407
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 104112
+          "line": 120376
         }
       ],
       "sources": [
@@ -1709,11 +2455,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 5128
+          "line": 5422
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 104115
+          "line": 120379
         }
       ],
       "sources": [
@@ -1737,11 +2483,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 5143
+          "line": 5437
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 104118
+          "line": 120382
         }
       ],
       "sources": [
@@ -1765,11 +2511,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 5159
+          "line": 5453
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 104122
+          "line": 120386
         }
       ],
       "sources": [
@@ -1793,11 +2539,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 5174
+          "line": 5468
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 104125
+          "line": 120389
         }
       ],
       "sources": [
@@ -1821,11 +2567,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 5189
+          "line": 5483
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 104128
+          "line": 120392
         }
       ],
       "sources": [
@@ -1849,11 +2595,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 5204
+          "line": 5498
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 104131
+          "line": 120395
         }
       ],
       "sources": [
@@ -1877,11 +2623,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 5219
+          "line": 5513
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 104134
+          "line": 120398
         }
       ],
       "sources": [
@@ -1905,11 +2651,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 5234
+          "line": 5528
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 104137
+          "line": 120401
         }
       ],
       "sources": [
@@ -1933,11 +2679,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 5249
+          "line": 5543
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 104140
+          "line": 120404
         }
       ],
       "sources": [
@@ -1961,11 +2707,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 5264
+          "line": 5558
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 104143
+          "line": 120407
         }
       ],
       "sources": [
@@ -1989,11 +2735,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 5279
+          "line": 5573
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 104146
+          "line": 120410
         }
       ],
       "sources": [
@@ -2017,11 +2763,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 5294
+          "line": 5588
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 104149
+          "line": 120413
         }
       ],
       "sources": [
@@ -2045,11 +2791,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 5309
+          "line": 5603
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 104152
+          "line": 120416
         }
       ],
       "sources": [
@@ -2073,11 +2819,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 5324
+          "line": 5618
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 104155
+          "line": 120419
         }
       ],
       "sources": [
@@ -2101,11 +2847,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 5339
+          "line": 5633
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 104158
+          "line": 120422
         }
       ],
       "sources": [
@@ -2129,11 +2875,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 5354
+          "line": 5648
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 104161
+          "line": 120425
         }
       ],
       "sources": [
@@ -2157,11 +2903,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 5369
+          "line": 5663
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 104164
+          "line": 120428
         }
       ],
       "sources": [
@@ -2185,11 +2931,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 5384
+          "line": 5678
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 104167
+          "line": 120431
         }
       ],
       "sources": [
@@ -2213,11 +2959,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 5399
+          "line": 5693
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 104170
+          "line": 120434
         }
       ],
       "sources": [
@@ -2241,11 +2987,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 5414
+          "line": 5708
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 104173
+          "line": 120437
         }
       ],
       "sources": [
@@ -2269,11 +3015,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 5429
+          "line": 5723
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 104176
+          "line": 120440
         }
       ],
       "sources": [
@@ -2297,11 +3043,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 5444
+          "line": 5738
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 104179
+          "line": 120443
         }
       ],
       "sources": [
@@ -2325,11 +3071,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 5459
+          "line": 5753
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 104182
+          "line": 120446
         }
       ],
       "sources": [
@@ -2353,11 +3099,40 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 5476
+          "line": 5770
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 104185
+          "line": 120449
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_kmod-ipt-nat",
+      "count": 2,
+      "paths": [
+        [
+          "Kernel modules",
+          "Netfilter Extensions"
+        ],
+        [
+          "LuCI",
+          "3. Applications"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 10810
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 44588
         }
       ],
       "sources": [
@@ -2378,11 +3153,131 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 26957
+          "line": 27362
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 28199
+          "line": 28604
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_qt5-core",
+      "count": 2,
+      "paths": [
+        [
+          "Libraries",
+          "Qt5"
+        ],
+        [
+          "Libraries",
+          "Qt5",
+          "Select Qtbase Libraries"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 31320
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 31433
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_qt5-network",
+      "count": 2,
+      "paths": [
+        [
+          "Libraries",
+          "Qt5"
+        ],
+        [
+          "Libraries",
+          "Qt5",
+          "Select Qtbase Libraries"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 31338
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 31437
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_qt5-sql",
+      "count": 2,
+      "paths": [
+        [
+          "Libraries",
+          "Qt5"
+        ],
+        [
+          "Libraries",
+          "Qt5",
+          "Select Qtbase Libraries"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 31356
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 31445
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_qt5-xml",
+      "count": 2,
+      "paths": [
+        [
+          "Libraries",
+          "Qt5"
+        ],
+        [
+          "Libraries",
+          "Qt5",
+          "Select Qtbase Libraries"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 31372
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 31441
         }
       ],
       "sources": [
@@ -2406,11 +3301,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 32126
+          "line": 33107
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 32242
+          "line": 33223
         }
       ],
       "sources": [
@@ -2434,11 +3329,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 32130
+          "line": 33111
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 32258
+          "line": 33239
         }
       ],
       "sources": [
@@ -2462,11 +3357,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 32134
+          "line": 33115
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 32274
+          "line": 33255
         }
       ],
       "sources": [
@@ -2490,11 +3385,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 32138
+          "line": 33119
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 32289
+          "line": 33270
         }
       ],
       "sources": [
@@ -2518,11 +3413,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 32142
+          "line": 33123
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 32307
+          "line": 33288
         }
       ],
       "sources": [
@@ -2546,11 +3441,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 32146
+          "line": 33127
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 32323
+          "line": 33304
         }
       ],
       "sources": [
@@ -2574,11 +3469,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 32150
+          "line": 33131
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 32342
+          "line": 33323
         }
       ],
       "sources": [
@@ -2602,11 +3497,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 32154
+          "line": 33135
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 32357
+          "line": 33338
         }
       ],
       "sources": [
@@ -2630,11 +3525,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 32158
+          "line": 33139
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 32375
+          "line": 33356
         }
       ],
       "sources": [
@@ -2658,11 +3553,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 32162
+          "line": 33143
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 32391
+          "line": 33372
         }
       ],
       "sources": [
@@ -2686,11 +3581,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 32166
+          "line": 33147
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 32407
+          "line": 33388
         }
       ],
       "sources": [
@@ -2714,11 +3609,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 32170
+          "line": 33151
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 32469
+          "line": 33450
         }
       ],
       "sources": [
@@ -2742,11 +3637,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 32174
+          "line": 33155
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 32487
+          "line": 33468
         }
       ],
       "sources": [
@@ -2770,11 +3665,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 32178
+          "line": 33159
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 32508
+          "line": 33489
         }
       ],
       "sources": [
@@ -2798,11 +3693,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 32182
+          "line": 33163
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 32523
+          "line": 33504
         }
       ],
       "sources": [
@@ -2826,11 +3721,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 32186
+          "line": 33167
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 32538
+          "line": 33519
         }
       ],
       "sources": [
@@ -2854,11 +3749,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 32190
+          "line": 33171
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 32554
+          "line": 33535
         }
       ],
       "sources": [
@@ -2882,11 +3777,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 32194
+          "line": 33175
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 32570
+          "line": 33551
         }
       ],
       "sources": [
@@ -2910,11 +3805,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 32198
+          "line": 33179
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 32586
+          "line": 33567
         }
       ],
       "sources": [
@@ -2938,11 +3833,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 32202
+          "line": 33183
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 32601
+          "line": 33582
         }
       ],
       "sources": [
@@ -2966,11 +3861,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 32206
+          "line": 33187
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 32748
+          "line": 33729
         }
       ],
       "sources": [
@@ -2994,11 +3889,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 32210
+          "line": 33191
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 32616
+          "line": 33597
         }
       ],
       "sources": [
@@ -3022,11 +3917,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 32214
+          "line": 33195
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 32631
+          "line": 33612
         }
       ],
       "sources": [
@@ -3050,11 +3945,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 32218
+          "line": 33199
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 32646
+          "line": 33627
         }
       ],
       "sources": [
@@ -3078,11 +3973,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 32222
+          "line": 33203
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 32678
+          "line": 33659
         }
       ],
       "sources": [
@@ -3106,11 +4001,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 32226
+          "line": 33207
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 32696
+          "line": 33677
         }
       ],
       "sources": [
@@ -3134,11 +4029,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 32230
+          "line": 33211
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 32712
+          "line": 33693
         }
       ],
       "sources": [
@@ -3162,11 +4057,234 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 32234
+          "line": 33215
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 32730
+          "line": 33711
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_luci-compat",
+      "count": 2,
+      "paths": [
+        [
+          "LuCI",
+          "2. Modules"
+        ],
+        [
+          "LuCI",
+          "3. Applications"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 41319
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 44582
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_luci-app-ikoolproxy",
+      "count": 2,
+      "paths": [
+        [
+          "LuCI",
+          "3. Applications"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 43373
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 43395
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_iptables-mod-tproxy",
+      "count": 2,
+      "paths": [
+        [
+          "LuCI",
+          "3. Applications"
+        ],
+        [
+          "Network",
+          "Firewall"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 44591
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 70960
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_iptables-mod-extra",
+      "count": 2,
+      "paths": [
+        [
+          "LuCI",
+          "3. Applications"
+        ],
+        [
+          "Network",
+          "Firewall"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 44594
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 70471
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_ipset",
+      "count": 2,
+      "paths": [
+        [
+          "LuCI",
+          "3. Applications"
+        ],
+        [
+          "Network"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 44603
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 102686
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_luci-app-openclaw",
+      "count": 2,
+      "paths": [
+        [
+          "LuCI",
+          "3. Applications"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 44606
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 44622
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_luci-app-tencentcloud-cos",
+      "count": 2,
+      "paths": [
+        [
+          "LuCI",
+          "3. Applications"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 46093
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 46105
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": [
+        {
+          "field": "prompt",
+          "values": [
+            "luci-app-tencentcloud-cos............. LuCI luci-app-tencentcloud-cos app",
+            "luci-app-tencentcloud-cos.......................... COSFS Client for LuCI"
+          ]
+        }
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-theme-atmaterial_new",
+      "count": 2,
+      "paths": [
+        [
+          "LuCI",
+          "4. Themes"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 47089
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 47101
         }
       ],
       "sources": [
@@ -3190,11 +4308,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 52564
+          "line": 65606
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 54806
+          "line": 67848
         }
       ],
       "sources": [
@@ -3218,11 +4336,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 52584
+          "line": 65626
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 54809
+          "line": 67851
         }
       ],
       "sources": [
@@ -3246,11 +4364,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 52604
+          "line": 65646
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 54812
+          "line": 67854
         }
       ],
       "sources": [
@@ -3274,11 +4392,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 52625
+          "line": 65667
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 55067
+          "line": 68109
         }
       ],
       "sources": [
@@ -3302,11 +4420,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 52643
+          "line": 65685
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 55070
+          "line": 68112
         }
       ],
       "sources": [
@@ -3330,11 +4448,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 52661
+          "line": 65703
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 55073
+          "line": 68115
         }
       ],
       "sources": [
@@ -3358,11 +4476,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 52679
+          "line": 65721
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 54941
+          "line": 67983
         }
       ],
       "sources": [
@@ -3386,11 +4504,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 52699
+          "line": 65741
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 55076
+          "line": 68118
         }
       ],
       "sources": [
@@ -3414,11 +4532,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 52719
+          "line": 65761
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 54944
+          "line": 67986
         }
       ],
       "sources": [
@@ -3442,11 +4560,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 52736
+          "line": 65778
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 55255
+          "line": 68297
         }
       ],
       "sources": [
@@ -3470,11 +4588,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 52759
+          "line": 65801
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 54815
+          "line": 67857
         }
       ],
       "sources": [
@@ -3498,11 +4616,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 52779
+          "line": 65821
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 54947
+          "line": 67989
         }
       ],
       "sources": [
@@ -3526,11 +4644,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 52796
+          "line": 65838
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 55079
+          "line": 68121
         }
       ],
       "sources": [
@@ -3554,11 +4672,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 52816
+          "line": 65858
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 55082
+          "line": 68124
         }
       ],
       "sources": [
@@ -3582,11 +4700,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 52835
+          "line": 65877
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 54950
+          "line": 67992
         }
       ],
       "sources": [
@@ -3610,11 +4728,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 52853
+          "line": 65895
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 54953
+          "line": 67995
         }
       ],
       "sources": [
@@ -3638,11 +4756,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 52871
+          "line": 65913
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 54956
+          "line": 67998
         }
       ],
       "sources": [
@@ -3666,11 +4784,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 52890
+          "line": 65932
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 55085
+          "line": 68127
         }
       ],
       "sources": [
@@ -3694,11 +4812,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 52909
+          "line": 65951
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 54818
+          "line": 67860
         }
       ],
       "sources": [
@@ -3722,11 +4840,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 52928
+          "line": 65970
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 55088
+          "line": 68130
         }
       ],
       "sources": [
@@ -3750,11 +4868,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 52945
+          "line": 65987
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 55091
+          "line": 68133
         }
       ],
       "sources": [
@@ -3778,11 +4896,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 52966
+          "line": 66008
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 54821
+          "line": 67863
         }
       ],
       "sources": [
@@ -3806,11 +4924,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 52986
+          "line": 66028
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 54824
+          "line": 67866
         }
       ],
       "sources": [
@@ -3834,11 +4952,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 53008
+          "line": 66050
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 55094
+          "line": 68136
         }
       ],
       "sources": [
@@ -3862,11 +4980,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 53026
+          "line": 66068
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 55097
+          "line": 68139
         }
       ],
       "sources": [
@@ -3890,11 +5008,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 53043
+          "line": 66085
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 54827
+          "line": 67869
         }
       ],
       "sources": [
@@ -3918,11 +5036,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 53063
+          "line": 66105
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 55100
+          "line": 68142
         }
       ],
       "sources": [
@@ -3946,11 +5064,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 53081
+          "line": 66123
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 55103
+          "line": 68145
         }
       ],
       "sources": [
@@ -3974,11 +5092,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 53099
+          "line": 66141
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 54830
+          "line": 67872
         }
       ],
       "sources": [
@@ -4002,11 +5120,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 53119
+          "line": 66161
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 55106
+          "line": 68148
         }
       ],
       "sources": [
@@ -4030,11 +5148,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 53137
+          "line": 66179
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 55109
+          "line": 68151
         }
       ],
       "sources": [
@@ -4058,11 +5176,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 53156
+          "line": 66198
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 54833
+          "line": 67875
         }
       ],
       "sources": [
@@ -4086,11 +5204,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 53176
+          "line": 66218
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 54836
+          "line": 67878
         }
       ],
       "sources": [
@@ -4114,11 +5232,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 53196
+          "line": 66238
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 55112
+          "line": 68154
         }
       ],
       "sources": [
@@ -4142,11 +5260,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 53216
+          "line": 66258
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 55115
+          "line": 68157
         }
       ],
       "sources": [
@@ -4170,11 +5288,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 53236
+          "line": 66278
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 55118
+          "line": 68160
         }
       ],
       "sources": [
@@ -4198,11 +5316,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 53253
+          "line": 66295
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 54842
+          "line": 67884
         }
       ],
       "sources": [
@@ -4226,11 +5344,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 53274
+          "line": 66316
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 54962
+          "line": 68004
         }
       ],
       "sources": [
@@ -4254,11 +5372,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 53290
+          "line": 66332
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 55124
+          "line": 68166
         }
       ],
       "sources": [
@@ -4282,11 +5400,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 53309
+          "line": 66351
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 55121
+          "line": 68163
         }
       ],
       "sources": [
@@ -4310,11 +5428,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 53328
+          "line": 66370
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 54839
+          "line": 67881
         }
       ],
       "sources": [
@@ -4338,11 +5456,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 53350
+          "line": 66392
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 55127
+          "line": 68169
         }
       ],
       "sources": [
@@ -4366,11 +5484,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 53369
+          "line": 66411
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 55130
+          "line": 68172
         }
       ],
       "sources": [
@@ -4394,11 +5512,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 53387
+          "line": 66429
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 54845
+          "line": 67887
         }
       ],
       "sources": [
@@ -4422,11 +5540,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 53407
+          "line": 66449
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 55133
+          "line": 68175
         }
       ],
       "sources": [
@@ -4450,11 +5568,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 53424
+          "line": 66466
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 55136
+          "line": 68178
         }
       ],
       "sources": [
@@ -4478,11 +5596,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 53442
+          "line": 66484
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 55139
+          "line": 68181
         }
       ],
       "sources": [
@@ -4506,11 +5624,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 53464
+          "line": 66506
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 55142
+          "line": 68184
         }
       ],
       "sources": [
@@ -4534,11 +5652,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 53483
+          "line": 66525
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 54848
+          "line": 67890
         }
       ],
       "sources": [
@@ -4562,11 +5680,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 53503
+          "line": 66545
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 55258
+          "line": 68300
         }
       ],
       "sources": [
@@ -4590,11 +5708,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 53521
+          "line": 66563
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 55145
+          "line": 68187
         }
       ],
       "sources": [
@@ -4618,11 +5736,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 53539
+          "line": 66581
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 55148
+          "line": 68190
         }
       ],
       "sources": [
@@ -4646,11 +5764,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 53560
+          "line": 66602
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 55264
+          "line": 68306
         }
       ],
       "sources": [
@@ -4674,11 +5792,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 53578
+          "line": 66620
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 54851
+          "line": 67893
         }
       ],
       "sources": [
@@ -4702,11 +5820,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 53597
+          "line": 66639
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 54854
+          "line": 67896
         }
       ],
       "sources": [
@@ -4730,11 +5848,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 53616
+          "line": 66658
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 55261
+          "line": 68303
         }
       ],
       "sources": [
@@ -4758,11 +5876,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 53637
+          "line": 66679
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 55151
+          "line": 68193
         }
       ],
       "sources": [
@@ -4786,11 +5904,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 53655
+          "line": 66697
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 55154
+          "line": 68196
         }
       ],
       "sources": [
@@ -4814,11 +5932,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 53673
+          "line": 66715
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 55157
+          "line": 68199
         }
       ],
       "sources": [
@@ -4842,11 +5960,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 53690
+          "line": 66732
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 54857
+          "line": 67899
         }
       ],
       "sources": [
@@ -4870,11 +5988,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 53712
+          "line": 66754
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 55160
+          "line": 68202
         }
       ],
       "sources": [
@@ -4898,11 +6016,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 53730
+          "line": 66772
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 54965
+          "line": 68007
         }
       ],
       "sources": [
@@ -4926,11 +6044,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 53751
+          "line": 66793
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 54968
+          "line": 68010
         }
       ],
       "sources": [
@@ -4954,11 +6072,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 53770
+          "line": 66812
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 54860
+          "line": 67902
         }
       ],
       "sources": [
@@ -4982,11 +6100,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 53790
+          "line": 66832
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 55163
+          "line": 68205
         }
       ],
       "sources": [
@@ -5010,11 +6128,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 53809
+          "line": 66851
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 55166
+          "line": 68208
         }
       ],
       "sources": [
@@ -5038,11 +6156,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 53827
+          "line": 66869
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 54863
+          "line": 67905
         }
       ],
       "sources": [
@@ -5066,11 +6184,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 53846
+          "line": 66888
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 54959
+          "line": 68001
         }
       ],
       "sources": [
@@ -5094,11 +6212,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 53863
+          "line": 66905
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 55169
+          "line": 68211
         }
       ],
       "sources": [
@@ -5122,11 +6240,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 53882
+          "line": 66924
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 54866
+          "line": 67908
         }
       ],
       "sources": [
@@ -5150,11 +6268,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 53902
+          "line": 66944
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 55172
+          "line": 68214
         }
       ],
       "sources": [
@@ -5178,11 +6296,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 53919
+          "line": 66961
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 54869
+          "line": 67911
         }
       ],
       "sources": [
@@ -5206,11 +6324,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 53939
+          "line": 66981
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 55178
+          "line": 68220
         }
       ],
       "sources": [
@@ -5234,11 +6352,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 53960
+          "line": 67002
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 55175
+          "line": 68217
         }
       ],
       "sources": [
@@ -5262,11 +6380,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 53982
+          "line": 67024
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 55181
+          "line": 68223
         }
       ],
       "sources": [
@@ -5290,11 +6408,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 54003
+          "line": 67045
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 54872
+          "line": 67914
         }
       ],
       "sources": [
@@ -5318,11 +6436,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 54024
+          "line": 67066
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 54875
+          "line": 67917
         }
       ],
       "sources": [
@@ -5346,11 +6464,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 54044
+          "line": 67086
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 55184
+          "line": 68226
         }
       ],
       "sources": [
@@ -5374,11 +6492,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 54062
+          "line": 67104
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 54878
+          "line": 67920
         }
       ],
       "sources": [
@@ -5402,11 +6520,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 54082
+          "line": 67124
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 54881
+          "line": 67923
         }
       ],
       "sources": [
@@ -5430,11 +6548,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 54103
+          "line": 67145
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 55187
+          "line": 68229
         }
       ],
       "sources": [
@@ -5458,11 +6576,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 54121
+          "line": 67163
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 55190
+          "line": 68232
         }
       ],
       "sources": [
@@ -5486,11 +6604,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 54141
+          "line": 67183
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 55193
+          "line": 68235
         }
       ],
       "sources": [
@@ -5514,11 +6632,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 54160
+          "line": 67202
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 54884
+          "line": 67926
         }
       ],
       "sources": [
@@ -5542,11 +6660,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 54180
+          "line": 67222
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 54887
+          "line": 67929
         }
       ],
       "sources": [
@@ -5570,11 +6688,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 54200
+          "line": 67242
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 54971
+          "line": 68013
         }
       ],
       "sources": [
@@ -5598,11 +6716,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 54217
+          "line": 67259
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 54974
+          "line": 68016
         }
       ],
       "sources": [
@@ -5626,11 +6744,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 54237
+          "line": 67279
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 54977
+          "line": 68019
         }
       ],
       "sources": [
@@ -5654,11 +6772,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 54257
+          "line": 67299
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 55196
+          "line": 68238
         }
       ],
       "sources": [
@@ -5682,11 +6800,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 54275
+          "line": 67317
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 55199
+          "line": 68241
         }
       ],
       "sources": [
@@ -5710,11 +6828,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 54295
+          "line": 67337
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 55202
+          "line": 68244
         }
       ],
       "sources": [
@@ -5738,11 +6856,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 54313
+          "line": 67355
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 54980
+          "line": 68022
         }
       ],
       "sources": [
@@ -5766,11 +6884,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 54330
+          "line": 67372
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 55205
+          "line": 68247
         }
       ],
       "sources": [
@@ -5794,11 +6912,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 54348
+          "line": 67390
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 55208
+          "line": 68250
         }
       ],
       "sources": [
@@ -5822,11 +6940,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 54366
+          "line": 67408
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 55211
+          "line": 68253
         }
       ],
       "sources": [
@@ -5850,11 +6968,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 54384
+          "line": 67426
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 54983
+          "line": 68025
         }
       ],
       "sources": [
@@ -5878,11 +6996,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 54401
+          "line": 67443
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 54986
+          "line": 68028
         }
       ],
       "sources": [
@@ -5906,11 +7024,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 54418
+          "line": 67460
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 54989
+          "line": 68031
         }
       ],
       "sources": [
@@ -5934,11 +7052,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 54436
+          "line": 67478
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 54992
+          "line": 68034
         }
       ],
       "sources": [
@@ -5962,11 +7080,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 54455
+          "line": 67497
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 54995
+          "line": 68037
         }
       ],
       "sources": [
@@ -5990,11 +7108,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 54475
+          "line": 67517
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 55214
+          "line": 68256
         }
       ],
       "sources": [
@@ -6018,11 +7136,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 54495
+          "line": 67537
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 55217
+          "line": 68259
         }
       ],
       "sources": [
@@ -6046,11 +7164,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 54513
+          "line": 67555
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 55220
+          "line": 68262
         }
       ],
       "sources": [
@@ -6074,11 +7192,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 54762
+          "line": 67804
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 55663
+          "line": 68719
         }
       ],
       "sources": [
@@ -6102,11 +7220,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 54765
+          "line": 67807
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 55440
+          "line": 68496
         }
       ],
       "sources": [
@@ -6130,11 +7248,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 54768
+          "line": 67810
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 55457
+          "line": 68513
         }
       ],
       "sources": [
@@ -6158,11 +7276,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 54771
+          "line": 67813
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 55490
+          "line": 68546
         }
       ],
       "sources": [
@@ -6186,11 +7304,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 54894
+          "line": 67936
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 55331
+          "line": 68387
         }
       ],
       "sources": [
@@ -6214,11 +7332,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 54897
+          "line": 67939
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 55526
+          "line": 68582
         }
       ],
       "sources": [
@@ -6242,11 +7360,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 54900
+          "line": 67942
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 55420
+          "line": 68476
         }
       ],
       "sources": [
@@ -6270,11 +7388,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 54903
+          "line": 67945
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 55628
+          "line": 68684
         }
       ],
       "sources": [
@@ -6298,11 +7416,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 54906
+          "line": 67948
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 55401
+          "line": 68457
         }
       ],
       "sources": [
@@ -6326,11 +7444,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 55002
+          "line": 68044
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 55352
+          "line": 68408
         }
       ],
       "sources": [
@@ -6354,11 +7472,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 55005
+          "line": 68047
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 55368
+          "line": 68424
         }
       ],
       "sources": [
@@ -6382,11 +7500,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 55008
+          "line": 68050
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 55384
+          "line": 68440
         }
       ],
       "sources": [
@@ -6410,11 +7528,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 55011
+          "line": 68053
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 55474
+          "line": 68530
         }
       ],
       "sources": [
@@ -6438,11 +7556,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 55014
+          "line": 68056
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 55507
+          "line": 68563
         }
       ],
       "sources": [
@@ -6466,11 +7584,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 55017
+          "line": 68059
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 55545
+          "line": 68601
         }
       ],
       "sources": [
@@ -6494,11 +7612,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 55020
+          "line": 68062
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 55563
+          "line": 68619
         }
       ],
       "sources": [
@@ -6522,11 +7640,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 55023
+          "line": 68065
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 55579
+          "line": 68635
         }
       ],
       "sources": [
@@ -6550,11 +7668,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 55026
+          "line": 68068
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 55595
+          "line": 68651
         }
       ],
       "sources": [
@@ -6578,11 +7696,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 55029
+          "line": 68071
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 55612
+          "line": 68668
         }
       ],
       "sources": [
@@ -6606,11 +7724,85 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 55032
+          "line": 68074
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 55647
+          "line": 68703
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_qbittorrent",
+      "count": 2,
+      "paths": [
+        [
+          "Network",
+          "BitTorrent"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 69003
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 69030
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_mentohust",
+      "count": 2,
+      "paths": [
+        [
+          "Network",
+          "Ruijie"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 76584
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 76599
+        }
+      ],
+      "sources": [
+        "tmp/.config-package.in"
+      ],
+      "conflicts": [],
+      "variants": []
+    },
+    {
+      "symbol": "PACKAGE_natmap",
+      "count": 2,
+      "paths": [
+        [
+          "Network"
+        ]
+      ],
+      "locations": [
+        {
+          "file": "tmp/.config-package.in",
+          "line": 103595
+        },
+        {
+          "file": "tmp/.config-package.in",
+          "line": 103611
         }
       ],
       "sources": [
@@ -6630,11 +7822,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 92259
+          "line": 108139
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 92305
+          "line": 108185
         }
       ],
       "sources": [
@@ -6654,11 +7846,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 92265
+          "line": 108145
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 92311
+          "line": 108191
         }
       ],
       "sources": [
@@ -6678,11 +7870,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 92271
+          "line": 108151
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 92317
+          "line": 108197
         }
       ],
       "sources": [
@@ -6706,11 +7898,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 103932
+          "line": 120196
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 104192
+          "line": 120456
         }
       ],
       "sources": [
@@ -6734,11 +7926,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 104375
+          "line": 120639
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 104737
+          "line": 121001
         }
       ],
       "sources": [
@@ -6762,11 +7954,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 104389
+          "line": 120653
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 104743
+          "line": 121007
         }
       ],
       "sources": [
@@ -6790,11 +7982,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 104403
+          "line": 120667
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 104740
+          "line": 121004
         }
       ],
       "sources": [
@@ -6818,11 +8010,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 104417
+          "line": 120681
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 104746
+          "line": 121010
         }
       ],
       "sources": [
@@ -6846,11 +8038,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 104445
+          "line": 120709
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 104749
+          "line": 121013
         }
       ],
       "sources": [
@@ -6874,11 +8066,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 104459
+          "line": 120723
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 104752
+          "line": 121016
         }
       ],
       "sources": [
@@ -6902,11 +8094,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 104473
+          "line": 120737
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 104755
+          "line": 121019
         }
       ],
       "sources": [
@@ -6930,11 +8122,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 104487
+          "line": 120751
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 104758
+          "line": 121022
         }
       ],
       "sources": [
@@ -6958,11 +8150,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 104501
+          "line": 120765
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 104761
+          "line": 121025
         }
       ],
       "sources": [
@@ -6986,11 +8178,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 104515
+          "line": 120779
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 104764
+          "line": 121028
         }
       ],
       "sources": [
@@ -7014,11 +8206,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 104529
+          "line": 120793
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 104767
+          "line": 121031
         }
       ],
       "sources": [
@@ -7042,11 +8234,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 104543
+          "line": 120807
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 104770
+          "line": 121034
         }
       ],
       "sources": [
@@ -7070,11 +8262,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 104557
+          "line": 120821
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 104773
+          "line": 121037
         }
       ],
       "sources": [
@@ -7098,11 +8290,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 104571
+          "line": 120835
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 104776
+          "line": 121040
         }
       ],
       "sources": [
@@ -7126,11 +8318,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 104585
+          "line": 120849
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 104779
+          "line": 121043
         }
       ],
       "sources": [
@@ -7154,11 +8346,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 104599
+          "line": 120863
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 104782
+          "line": 121046
         }
       ],
       "sources": [
@@ -7182,11 +8374,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 104613
+          "line": 120877
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 104785
+          "line": 121049
         }
       ],
       "sources": [
@@ -7210,11 +8402,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 104627
+          "line": 120891
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 104788
+          "line": 121052
         }
       ],
       "sources": [
@@ -7238,11 +8430,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 104641
+          "line": 120905
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 104791
+          "line": 121055
         }
       ],
       "sources": [
@@ -7266,11 +8458,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 104655
+          "line": 120919
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 104794
+          "line": 121058
         }
       ],
       "sources": [
@@ -7294,11 +8486,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 104669
+          "line": 120933
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 104797
+          "line": 121061
         }
       ],
       "sources": [
@@ -7322,11 +8514,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 104683
+          "line": 120947
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 104800
+          "line": 121064
         }
       ],
       "sources": [
@@ -7350,11 +8542,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 104697
+          "line": 120961
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 104803
+          "line": 121067
         }
       ],
       "sources": [
@@ -7378,11 +8570,11 @@
       "locations": [
         {
           "file": "tmp/.config-package.in",
-          "line": 104806
+          "line": 121070
         },
         {
           "file": "tmp/.config-package.in",
-          "line": 104814
+          "line": 121078
         }
       ],
       "sources": [

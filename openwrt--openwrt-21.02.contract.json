@@ -7,9 +7,9 @@
     "branch": "openwrt-21.02",
     "commit": "78e4cffcd882389cb8f0bf818303f85f8d1e9c8e",
     "legacy": false,
-    "inputsHash": "f08455adbde71d885db0efb568381cc56d3a9c69cc889252ccd83a26401d74b0"
+    "inputsHash": "a917288bdf975a9c23e85f114a6e66c9e60d8aeb3c74398d5bdd079621b05e20"
   },
-  "generatedAt": "2026-10-02T05:07:59.680Z",
+  "generatedAt": "2026-10-07T05:11:24.778Z",
   "summary": {
     "targets": 100,
     "selectableTargets": 68,
@@ -48,7 +48,7 @@
   "kconfigProbe": {
     "schema": 1,
     "mode": "target-chain-and-representative-profile",
-    "generatedAt": "2026-10-02T05:08:58.876Z",
+    "generatedAt": "2026-10-07T05:12:29.067Z",
     "targets": 68,
     "passed": 68,
     "passedScope": "target chain plus one representative profile; all siblings remain hidden on failure",

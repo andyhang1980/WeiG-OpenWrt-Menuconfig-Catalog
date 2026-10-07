@@ -4,7 +4,7 @@
     "id": "ImmortalWrt",
     "branch": "master"
   },
-  "generatedAt": "2026-10-02T05:07:34.629Z",
+  "generatedAt": "2026-10-07T05:10:13.890Z",
   "languages": [
     "en",
     "zh-CN",
@@ -18,8 +18,8 @@
     "fr",
     "vi"
   ],
-  "options": 11756,
-  "translatedZhCN": 184,
+  "options": 12221,
+  "translatedZhCN": 221,
   "missingZhCN": [
     {
       "symbol": "TARGET_uml",
@@ -562,13 +562,6 @@
     {
       "symbol": "TESTING_KERNEL",
       "promptEn": "Use the testing kernel version",
-      "path": [
-        "Global build settings"
-      ]
-    },
-    {
-      "symbol": "DISPLAY_SUPPORT",
-      "promptEn": "Show packages that require graphics support (local or remote)",
       "path": [
         "Global build settings"
       ]
@@ -2970,6 +2963,124 @@
       "symbol": "FEED_video",
       "promptEn": "Enable feed video",
       "path": []
+    },
+    {
+      "symbol": "FEED_passwall_packages",
+      "promptEn": "Enable feed passwall_packages",
+      "path": []
+    },
+    {
+      "symbol": "FEED_passwall_luci",
+      "promptEn": "Enable feed passwall_luci",
+      "path": []
+    },
+    {
+      "symbol": "FEED_passwall2_luci",
+      "promptEn": "Enable feed passwall2_luci",
+      "path": []
+    },
+    {
+      "symbol": "FEED_helloworld",
+      "promptEn": "Enable feed helloworld",
+      "path": []
+    },
+    {
+      "symbol": "FEED_openclash",
+      "promptEn": "Enable feed openclash",
+      "path": []
+    },
+    {
+      "symbol": "FEED_mosdns",
+      "promptEn": "Enable feed mosdns",
+      "path": []
+    },
+    {
+      "symbol": "FEED_homeproxy",
+      "promptEn": "Enable feed homeproxy",
+      "path": []
+    },
+    {
+      "symbol": "FEED_v2raya",
+      "promptEn": "Enable feed v2raya",
+      "path": []
+    },
+    {
+      "symbol": "FEED_istore",
+      "promptEn": "Enable feed istore",
+      "path": []
+    },
+    {
+      "symbol": "FEED_app_actions",
+      "promptEn": "Enable feed app_actions",
+      "path": []
+    },
+    {
+      "symbol": "FEED_small_package",
+      "promptEn": "Enable feed small_package",
+      "path": []
+    },
+    {
+      "symbol": "PACKAGE_accel-support",
+      "promptEn": "Render and compute device support",
+      "path": [
+        "Hardware support"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_audio-support",
+      "promptEn": "Audio device support",
+      "path": [
+        "Hardware support"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_dvb-support",
+      "promptEn": "DVB device support",
+      "path": [
+        "Hardware support"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_hidraw-support",
+      "promptEn": "Raw HID device support",
+      "path": [
+        "Hardware support"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_input-support",
+      "promptEn": "Input device support",
+      "path": [
+        "Hardware support"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_kvm-support",
+      "promptEn": "KVM device support",
+      "path": [
+        "Hardware support"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_printer-support",
+      "promptEn": "Printer device support",
+      "path": [
+        "Hardware support"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_scanner-support",
+      "promptEn": "Scanner device support",
+      "path": [
+        "Hardware support"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_video-support",
+      "promptEn": "Video device support",
+      "path": [
+        "Hardware support"
+      ]
     },
     {
       "symbol": "PACKAGE_apk-mbedtls",
@@ -15425,6 +15536,22 @@
       ]
     },
     {
+      "symbol": "PACKAGE_LingTiGameAcc",
+      "promptEn": "LingTi Game Accelerator",
+      "path": [
+        "eSir Playground",
+        "2. GameAcc"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-app-LingTiGameAcc",
+      "promptEn": "LuCI support for LingTiGameAcc",
+      "path": [
+        "eSir Playground",
+        "2. GameAcc"
+      ]
+    },
+    {
       "symbol": "PACKAGE_autocore",
       "promptEn": "auto core loadbalance script.",
       "path": [
@@ -15446,8 +15573,29 @@
       ]
     },
     {
+      "symbol": "PACKAGE_autoshare-ksmbd",
+      "promptEn": "Samba autoconfig hotplug script.",
+      "path": [
+        "Extra packages"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_autoshare-samba",
+      "promptEn": "Samba autoconfig hotplug script.",
+      "path": [
+        "Extra packages"
+      ]
+    },
+    {
       "symbol": "PACKAGE_cpufreq",
       "promptEn": "CPU Frequency Scaling adjustment tool",
+      "path": [
+        "Extra packages"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_ipv6helper",
+      "promptEn": "IPv6 Helper and Dynamic Update he.net of ip",
       "path": [
         "Extra packages"
       ]
@@ -15460,8 +15608,99 @@
       ]
     },
     {
+      "symbol": "PACKAGE_k3wifi",
+      "promptEn": "k3wifi",
+      "path": [
+        "Extra packages"
+      ]
+    },
+    {
       "symbol": "PACKAGE_libjose",
       "promptEn": "Provides a full crypto stack including key generation, signing and encryption.",
+      "path": [
+        "Extra packages"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-app-xray",
+      "promptEn": "LuCI Support for Xray",
+      "path": [
+        "Extra packages"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_XRAY_INCLUDE_CLOUDFLARE_ORIGIN_ROOT_CA",
+      "promptEn": "Include Cloudflare Origin Root CA",
+      "path": [
+        "Extra packages",
+        "luci-app-xray Configuration"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_XRAY_RLIMIT_NOFILE_LARGE",
+      "promptEn": "Increase Max Open Files Limit (recommended)",
+      "path": [
+        "Extra packages",
+        "luci-app-xray Configuration"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_XRAY_RESTART_DNSMASQ_ON_IFACE_CHANGE",
+      "promptEn": "Restart dnsmasq on interface change (select this if using dnsmasq v2.87)",
+      "path": [
+        "Extra packages",
+        "luci-app-xray Configuration"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_XRAY_IGNORE_TP_SPEC_DEF_GW",
+      "promptEn": "Ignore TP_SPEC_DEF_GW (select this if using private IPv4 address)",
+      "path": [
+        "Extra packages",
+        "luci-app-xray Configuration"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_XRAY_RLIMIT_DATA_UNLIMITED",
+      "promptEn": "Not limited",
+      "path": [
+        "Extra packages",
+        "luci-app-xray Configuration"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_XRAY_RLIMIT_DATA_SMALL",
+      "promptEn": "Small limit (about 50MB)",
+      "path": [
+        "Extra packages",
+        "luci-app-xray Configuration"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_XRAY_RLIMIT_DATA_LARGE",
+      "promptEn": "Large limit (about 321MB)",
+      "path": [
+        "Extra packages",
+        "luci-app-xray Configuration"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-app-xray-geodata",
+      "promptEn": "LuCI Support for Xray (geodata page)",
+      "path": [
+        "Extra packages"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-app-xray-status",
+      "promptEn": "LuCI Support for Xray (status page)",
+      "path": [
+        "Extra packages"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_nanohatoled",
+      "promptEn": "Support for NanoHatOLED.",
       "path": [
         "Extra packages"
       ]
@@ -16108,6 +16347,14 @@
     {
       "symbol": "PACKAGE_ipq-wifi-tplink_eap660hd-v1",
       "promptEn": "board-2.bin Overrides for TP-Link EAP660 HD v1",
+      "path": [
+        "Firmware",
+        "ath10k Board-Specific Overrides"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_ipq-wifi-tplink_re700x",
+      "promptEn": "board-2.bin Overrides for TP-Link RE700X",
       "path": [
         "Firmware",
         "ath10k Board-Specific Overrides"
@@ -18284,6 +18531,13 @@
       "promptEn": "Versatile Commodore Emulator (SDL2)",
       "path": [
         "Games"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_vmlinux-btf",
+      "promptEn": "Kernel vmlinux.btf for CO-RE compatibility",
+      "path": [
+        "Kernel"
       ]
     },
     {
@@ -22928,7 +23182,7 @@
     },
     {
       "symbol": "PACKAGE_kmod-oaf",
-      "promptEn": "open app filter kernel module",
+      "promptEn": "OAF netfilter module",
       "path": [
         "Kernel modules",
         "Netfilter Extensions"
@@ -32032,6 +32286,14 @@
     {
       "symbol": "PACKAGE_luasrcdiet",
       "promptEn": "luasrcdiet",
+      "path": [
+        "Languages",
+        "Lua"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-lib-fs",
+      "promptEn": "luci-lib-fs",
       "path": [
         "Languages",
         "Lua"
@@ -43961,6 +44223,22 @@
       ]
     },
     {
+      "symbol": "PACKAGE_qtbase",
+      "promptEn": "qtbase all libs",
+      "path": [
+        "Libraries",
+        "Qt5"
+      ]
+    },
+    {
+      "symbol": "QT5_INCLUDE_ATOMIC",
+      "promptEn": "Depends on libatomic",
+      "path": [
+        "Libraries",
+        "Qt5"
+      ]
+    },
+    {
       "symbol": "PACKAGE_libQt6Concurrent",
       "promptEn": "Qt6 Concurrent Library",
       "path": [
@@ -47151,8 +47429,8 @@
       ]
     },
     {
-      "symbol": "LIBCURL_TLS_SRP",
-      "promptEn": "Enable TLS-SRP authentication",
+      "symbol": "LIBCURL_KERBEROS_AUTH",
+      "promptEn": "Enable Kerberos authentication",
       "path": [
         "Libraries"
       ]
@@ -47751,773 +48029,1010 @@
       ]
     },
     {
-      "symbol": "PACKAGE_libffmpeg-audio-dec",
-      "promptEn": "FFmpeg libraries (audio)",
+      "symbol": "PACKAGE_libffmpeg",
+      "promptEn": "FFmpeg libraries",
       "path": [
         "Libraries"
       ]
     },
     {
-      "symbol": "PACKAGE_libffmpeg-custom",
-      "promptEn": "FFmpeg libraries (custom)",
+      "symbol": "FFMPEG_GPL",
+      "promptEn": "Include GPL components (libpostproc, GPL filters)",
       "path": [
-        "Libraries"
+        "Libraries",
+        "FFmpeg configuration"
+      ]
+    },
+    {
+      "symbol": "FFMPEG_VERSION3",
+      "promptEn": "Allow (L)GPL v3 components",
+      "path": [
+        "Libraries",
+        "FFmpeg configuration"
+      ]
+    },
+    {
+      "symbol": "FFMPEG_NONFREE",
+      "promptEn": "Allow non-redistributable components",
+      "path": [
+        "Libraries",
+        "FFmpeg configuration"
       ]
     },
     {
       "symbol": "FFMPEG_X86ASM",
-      "promptEn": "Compile x86 ASM",
+      "promptEn": "Compile x86 assembly optimizations",
       "path": [
-        "Libraries"
+        "Libraries",
+        "FFmpeg configuration"
       ]
     },
     {
-      "symbol": "FFMPEG_CUSTOM_GPL",
-      "promptEn": "Allow use of GPL code",
+      "symbol": "FFMPEG_OPTIMIZE_SIZE",
+      "promptEn": "Optimize for size instead of speed",
       "path": [
-        "Libraries"
+        "Libraries",
+        "FFmpeg configuration"
       ]
     },
     {
-      "symbol": "FFMPEG_CUSTOM_GPLV3",
-      "promptEn": "Use (L)GPL v3",
+      "symbol": "FFMPEG_PROGRAMS",
+      "promptEn": "Build the command line programs (ffmpeg, ffprobe)",
       "path": [
-        "Libraries"
+        "Libraries",
+        "FFmpeg configuration"
       ]
     },
     {
-      "symbol": "FFMPEG_CUSTOM_NONFREE",
-      "promptEn": "Use code with complex licensing requirements; see help",
+      "symbol": "FFMPEG_LIBDRM",
+      "promptEn": "DRM support (libdrm, needed for DRM_PRIME zero-copy)",
       "path": [
-        "Libraries"
+        "Libraries",
+        "FFmpeg configuration"
       ]
     },
     {
-      "symbol": "FFMPEG_CUSTOM_PATENTED",
-      "promptEn": "Include patented codecs and technologies",
+      "symbol": "FFMPEG_V4L2_M2M",
+      "promptEn": "V4L2 mem2mem (stateful) decoders/encoders",
       "path": [
-        "Libraries"
+        "Libraries",
+        "FFmpeg configuration"
       ]
     },
     {
-      "symbol": "FFMPEG_CUSTOM_LARGE",
-      "promptEn": "Build libffmpeg for performance instead of minimizing size on disk",
+      "symbol": "FFMPEG_V4L2_REQUEST",
+      "promptEn": "V4L2 Request API (stateless) hwaccels",
       "path": [
-        "Libraries"
+        "Libraries",
+        "FFmpeg configuration"
       ]
     },
     {
-      "symbol": "FFMPEG_CUSTOM_MINIDLNA_SUPPORT",
-      "promptEn": "Include support for minidlna",
+      "symbol": "FFMPEG_TLS_NONE",
+      "promptEn": "none (no https/tls protocol)",
       "path": [
-        "Libraries"
+        "Libraries",
+        "FFmpeg configuration"
       ]
     },
     {
-      "symbol": "FFMPEG_CUSTOM_AUDIO_DEC_SUPPORT",
-      "promptEn": "Include support for most audio decoding requirements",
+      "symbol": "FFMPEG_TLS_GNUTLS",
+      "promptEn": "GnuTLS",
       "path": [
-        "Libraries"
+        "Libraries",
+        "FFmpeg configuration"
       ]
     },
     {
-      "symbol": "FFMPEG_CUSTOM_PROGRAMS",
-      "promptEn": "Include ffmpeg command-line utilities",
+      "symbol": "FFMPEG_TLS_OPENSSL",
+      "promptEn": "OpenSSL",
       "path": [
-        "Libraries"
+        "Libraries",
+        "FFmpeg configuration"
       ]
     },
     {
-      "symbol": "FFMPEG_CUSTOM_SELECT_libfdk-aac",
-      "promptEn": "Fraunhofer FDK AAC encoding library (libfdk-aac)",
+      "symbol": "FFMPEG_TLS_MBEDTLS",
+      "promptEn": "mbedTLS",
       "path": [
-        "Libraries"
+        "Libraries",
+        "FFmpeg configuration"
       ]
     },
     {
-      "symbol": "FFMPEG_CUSTOM_SELECT_libmp3lame",
-      "promptEn": "Libmp3lame",
+      "symbol": "FFMPEG_LIBOPUS",
+      "promptEn": "Opus encoding via libopus",
       "path": [
-        "Libraries"
+        "Libraries",
+        "FFmpeg configuration"
       ]
     },
     {
-      "symbol": "FFMPEG_CUSTOM_SELECT_libopus",
-      "promptEn": "Libopus",
+      "symbol": "FFMPEG_LIBVORBIS",
+      "promptEn": "Vorbis encoding via libvorbis",
       "path": [
-        "Libraries"
+        "Libraries",
+        "FFmpeg configuration"
       ]
     },
     {
-      "symbol": "FFMPEG_CUSTOM_SELECT_libshine",
-      "promptEn": "Libshine",
+      "symbol": "FFMPEG_LIBVPX",
+      "promptEn": "VP8/VP9 encoding via libvpx",
       "path": [
-        "Libraries"
+        "Libraries",
+        "FFmpeg configuration"
       ]
     },
     {
-      "symbol": "FFMPEG_CUSTOM_SELECT_libx264",
-      "promptEn": "Libx264",
+      "symbol": "FFMPEG_LIBWEBP",
+      "promptEn": "WebP encoding via libwebp",
       "path": [
-        "Libraries"
+        "Libraries",
+        "FFmpeg configuration"
       ]
     },
     {
-      "symbol": "FFMPEG_CUSTOM_ENCODER_ac3",
+      "symbol": "FFMPEG_LIBSPEEX",
+      "promptEn": "Speex encoding via libspeex",
+      "path": [
+        "Libraries",
+        "FFmpeg configuration"
+      ]
+    },
+    {
+      "symbol": "FFMPEG_LIBXML2",
+      "promptEn": "XML parsing via libxml2 (DASH/IMF demuxers)",
+      "path": [
+        "Libraries",
+        "FFmpeg configuration"
+      ]
+    },
+    {
+      "symbol": "FFMPEG_LAME",
+      "promptEn": "MP3 encoding via LAME",
+      "path": [
+        "Libraries",
+        "FFmpeg configuration"
+      ]
+    },
+    {
+      "symbol": "FFMPEG_SHINE",
+      "promptEn": "Fixed-point MP3 encoding via libshine",
+      "path": [
+        "Libraries",
+        "FFmpeg configuration"
+      ]
+    },
+    {
+      "symbol": "FFMPEG_LIBX264",
+      "promptEn": "H.264 encoding via libx264",
+      "path": [
+        "Libraries",
+        "FFmpeg configuration"
+      ]
+    },
+    {
+      "symbol": "FFMPEG_FDK_AAC",
+      "promptEn": "AAC encoding via libfdk-aac",
+      "path": [
+        "Libraries",
+        "FFmpeg configuration"
+      ]
+    },
+    {
+      "symbol": "FFMPEG_LIBV4L2",
+      "promptEn": "V4L2 capture device via libv4l2 (pixel format conversion)",
+      "path": [
+        "Libraries",
+        "FFmpeg configuration"
+      ]
+    },
+    {
+      "symbol": "FFMPEG_BZLIB",
+      "promptEn": "bzip2 support",
+      "path": [
+        "Libraries",
+        "FFmpeg configuration"
+      ]
+    },
+    {
+      "symbol": "FFMPEG_LZMA",
+      "promptEn": "lzma support",
+      "path": [
+        "Libraries",
+        "FFmpeg configuration"
+      ]
+    },
+    {
+      "symbol": "FFMPEG_ICONV",
+      "promptEn": "iconv support (subtitle charset conversion)",
+      "path": [
+        "Libraries",
+        "FFmpeg configuration"
+      ]
+    },
+    {
+      "symbol": "FFMPEG_SELECT_COMPONENTS",
+      "promptEn": "Manual component selection",
+      "path": [
+        "Libraries",
+        "FFmpeg configuration"
+      ]
+    },
+    {
+      "symbol": "FFMPEG_ENCODER_ac3",
       "promptEn": "AC3",
       "path": [
-        "Libraries"
+        "Libraries",
+        "FFmpeg configuration"
       ]
     },
     {
-      "symbol": "FFMPEG_CUSTOM_ENCODER_jpegls",
+      "symbol": "FFMPEG_ENCODER_jpegls",
       "promptEn": "JPEG-LS",
       "path": [
-        "Libraries"
+        "Libraries",
+        "FFmpeg configuration"
       ]
     },
     {
-      "symbol": "FFMPEG_CUSTOM_ENCODER_mpeg1video",
+      "symbol": "FFMPEG_ENCODER_mpeg1video",
       "promptEn": "MPEG-1 Video",
       "path": [
-        "Libraries"
+        "Libraries",
+        "FFmpeg configuration"
       ]
     },
     {
-      "symbol": "FFMPEG_CUSTOM_ENCODER_mpeg2video",
+      "symbol": "FFMPEG_ENCODER_mpeg2video",
       "promptEn": "MPEG-2 Video",
       "path": [
-        "Libraries"
+        "Libraries",
+        "FFmpeg configuration"
       ]
     },
     {
-      "symbol": "FFMPEG_CUSTOM_ENCODER_mpeg4",
+      "symbol": "FFMPEG_ENCODER_mpeg4",
       "promptEn": "MPEG-4",
       "path": [
-        "Libraries"
+        "Libraries",
+        "FFmpeg configuration"
       ]
     },
     {
-      "symbol": "FFMPEG_CUSTOM_ENCODER_pcm_s16be",
+      "symbol": "FFMPEG_ENCODER_pcm_s16be",
       "promptEn": "PCM signed 16-bit big-endian",
       "path": [
-        "Libraries"
+        "Libraries",
+        "FFmpeg configuration"
       ]
     },
     {
-      "symbol": "FFMPEG_CUSTOM_ENCODER_pcm_s16le",
+      "symbol": "FFMPEG_ENCODER_pcm_s16le",
       "promptEn": "PCM signed 16-bit little-endian",
       "path": [
-        "Libraries"
+        "Libraries",
+        "FFmpeg configuration"
       ]
     },
     {
-      "symbol": "FFMPEG_CUSTOM_ENCODER_png",
+      "symbol": "FFMPEG_ENCODER_png",
       "promptEn": "PNG",
       "path": [
-        "Libraries"
+        "Libraries",
+        "FFmpeg configuration"
       ]
     },
     {
-      "symbol": "FFMPEG_CUSTOM_ENCODER_vorbis",
+      "symbol": "FFMPEG_ENCODER_vorbis",
       "promptEn": "Vorbis",
       "path": [
-        "Libraries"
+        "Libraries",
+        "FFmpeg configuration"
       ]
     },
     {
-      "symbol": "FFMPEG_CUSTOM_ENCODER_zlib",
+      "symbol": "FFMPEG_ENCODER_zlib",
       "promptEn": "Zlib",
       "path": [
-        "Libraries"
+        "Libraries",
+        "FFmpeg configuration"
       ]
     },
     {
-      "symbol": "FFMPEG_CUSTOM_DECODER_aac",
+      "symbol": "FFMPEG_DECODER_aac",
       "promptEn": "AAC (Advanced Audio Coding)",
       "path": [
-        "Libraries"
+        "Libraries",
+        "FFmpeg configuration"
       ]
     },
     {
-      "symbol": "FFMPEG_CUSTOM_SELECT_adpcm",
+      "symbol": "FFMPEG_DECODER_aac_latm",
+      "promptEn": "AAC LATM",
+      "path": [
+        "Libraries",
+        "FFmpeg configuration"
+      ]
+    },
+    {
+      "symbol": "FFMPEG_DECODER_adpcm",
       "promptEn": "ADPCM (multiple types)",
       "path": [
-        "Libraries"
+        "Libraries",
+        "FFmpeg configuration"
       ]
     },
     {
-      "symbol": "FFMPEG_CUSTOM_DECODER_ac3",
+      "symbol": "FFMPEG_DECODER_ac3",
       "promptEn": "AC3",
       "path": [
-        "Libraries"
+        "Libraries",
+        "FFmpeg configuration"
       ]
     },
     {
-      "symbol": "FFMPEG_CUSTOM_DECODER_alac",
+      "symbol": "FFMPEG_DECODER_alac",
       "promptEn": "ALAC",
       "path": [
-        "Libraries"
+        "Libraries",
+        "FFmpeg configuration"
       ]
     },
     {
-      "symbol": "FFMPEG_CUSTOM_DECODER_amrnb",
+      "symbol": "FFMPEG_DECODER_amrnb",
       "promptEn": "AMR-NB",
       "path": [
-        "Libraries"
+        "Libraries",
+        "FFmpeg configuration"
       ]
     },
     {
-      "symbol": "FFMPEG_CUSTOM_DECODER_amrwb",
+      "symbol": "FFMPEG_DECODER_amrwb",
       "promptEn": "AMR-WB",
       "path": [
-        "Libraries"
+        "Libraries",
+        "FFmpeg configuration"
       ]
     },
     {
-      "symbol": "FFMPEG_CUSTOM_DECODER_ape",
+      "symbol": "FFMPEG_DECODER_ape",
       "promptEn": "APE",
       "path": [
-        "Libraries"
+        "Libraries",
+        "FFmpeg configuration"
       ]
     },
     {
-      "symbol": "FFMPEG_CUSTOM_DECODER_atrac3",
+      "symbol": "FFMPEG_DECODER_atrac3",
       "promptEn": "ATRAC3",
       "path": [
-        "Libraries"
+        "Libraries",
+        "FFmpeg configuration"
       ]
     },
     {
-      "symbol": "FFMPEG_CUSTOM_DECODER_flac",
+      "symbol": "FFMPEG_DECODER_flac",
       "promptEn": "FLAC",
       "path": [
-        "Libraries"
+        "Libraries",
+        "FFmpeg configuration"
       ]
     },
     {
-      "symbol": "FFMPEG_CUSTOM_DECODER_gif",
+      "symbol": "FFMPEG_DECODER_gif",
       "promptEn": "GIF",
       "path": [
-        "Libraries"
+        "Libraries",
+        "FFmpeg configuration"
       ]
     },
     {
-      "symbol": "FFMPEG_CUSTOM_DECODER_h264",
+      "symbol": "FFMPEG_DECODER_h264",
       "promptEn": "H.264",
       "path": [
-        "Libraries"
+        "Libraries",
+        "FFmpeg configuration"
       ]
     },
     {
-      "symbol": "FFMPEG_CUSTOM_DECODER_hevc",
+      "symbol": "FFMPEG_DECODER_hevc",
       "promptEn": "HEVC / H.265 Video",
       "path": [
-        "Libraries"
+        "Libraries",
+        "FFmpeg configuration"
       ]
     },
     {
-      "symbol": "FFMPEG_CUSTOM_DECODER_jpegls",
+      "symbol": "FFMPEG_DECODER_jpegls",
       "promptEn": "JPEG-LS",
       "path": [
-        "Libraries"
+        "Libraries",
+        "FFmpeg configuration"
       ]
     },
     {
-      "symbol": "FFMPEG_CUSTOM_DECODER_mp2",
+      "symbol": "FFMPEG_DECODER_mp2",
       "promptEn": "MP2 (MPEG Audio Layer 2)",
       "path": [
-        "Libraries"
+        "Libraries",
+        "FFmpeg configuration"
       ]
     },
     {
-      "symbol": "FFMPEG_CUSTOM_DECODER_mp3",
+      "symbol": "FFMPEG_DECODER_mp3",
       "promptEn": "MP3 (MPEG Audio Layer 3)",
       "path": [
-        "Libraries"
+        "Libraries",
+        "FFmpeg configuration"
       ]
     },
     {
-      "symbol": "FFMPEG_CUSTOM_DECODER_mpegvideo",
+      "symbol": "FFMPEG_DECODER_mpegvideo",
       "promptEn": "MPEG Video",
       "path": [
-        "Libraries"
+        "Libraries",
+        "FFmpeg configuration"
       ]
     },
     {
-      "symbol": "FFMPEG_CUSTOM_DECODER_mpeg1video",
+      "symbol": "FFMPEG_DECODER_mpeg1video",
       "promptEn": "MPEG-1 Video",
       "path": [
-        "Libraries"
+        "Libraries",
+        "FFmpeg configuration"
       ]
     },
     {
-      "symbol": "FFMPEG_CUSTOM_DECODER_mpeg2video",
+      "symbol": "FFMPEG_DECODER_mpeg2video",
       "promptEn": "MPEG-2 Video",
       "path": [
-        "Libraries"
+        "Libraries",
+        "FFmpeg configuration"
       ]
     },
     {
-      "symbol": "FFMPEG_CUSTOM_DECODER_mpeg4",
+      "symbol": "FFMPEG_DECODER_mpeg4",
       "promptEn": "MPEG-4",
       "path": [
-        "Libraries"
+        "Libraries",
+        "FFmpeg configuration"
       ]
     },
     {
-      "symbol": "FFMPEG_CUSTOM_DECODER_mpc7",
+      "symbol": "FFMPEG_DECODER_mpc7",
       "promptEn": "Musepack 7",
       "path": [
-        "Libraries"
+        "Libraries",
+        "FFmpeg configuration"
       ]
     },
     {
-      "symbol": "FFMPEG_CUSTOM_DECODER_mpc8",
+      "symbol": "FFMPEG_DECODER_mpc8",
       "promptEn": "Musepack 8",
       "path": [
-        "Libraries"
+        "Libraries",
+        "FFmpeg configuration"
       ]
     },
     {
-      "symbol": "FFMPEG_CUSTOM_DECODER_opus",
+      "symbol": "FFMPEG_DECODER_opus",
       "promptEn": "Opus",
       "path": [
-        "Libraries"
+        "Libraries",
+        "FFmpeg configuration"
       ]
     },
     {
-      "symbol": "FFMPEG_CUSTOM_DECODER_pcm_s16be",
+      "symbol": "FFMPEG_DECODER_pcm_s16be",
       "promptEn": "PCM signed 16-bit big-endian",
       "path": [
-        "Libraries"
+        "Libraries",
+        "FFmpeg configuration"
       ]
     },
     {
-      "symbol": "FFMPEG_CUSTOM_DECODER_pcm_s16le",
+      "symbol": "FFMPEG_DECODER_pcm_s16le",
       "promptEn": "PCM signed 16-bit little-endian",
       "path": [
-        "Libraries"
+        "Libraries",
+        "FFmpeg configuration"
       ]
     },
     {
-      "symbol": "FFMPEG_CUSTOM_DECODER_png",
+      "symbol": "FFMPEG_DECODER_png",
       "promptEn": "PNG",
       "path": [
-        "Libraries"
+        "Libraries",
+        "FFmpeg configuration"
       ]
     },
     {
-      "symbol": "FFMPEG_CUSTOM_DECODER_vc1",
+      "symbol": "FFMPEG_DECODER_vc1",
       "promptEn": "VC-1 / WMV9",
       "path": [
-        "Libraries"
+        "Libraries",
+        "FFmpeg configuration"
       ]
     },
     {
-      "symbol": "FFMPEG_CUSTOM_DECODER_vorbis",
+      "symbol": "FFMPEG_DECODER_vorbis",
       "promptEn": "Vorbis",
       "path": [
-        "Libraries"
+        "Libraries",
+        "FFmpeg configuration"
       ]
     },
     {
-      "symbol": "FFMPEG_CUSTOM_DECODER_wavpack",
+      "symbol": "FFMPEG_DECODER_wavpack",
       "promptEn": "Wavpack",
       "path": [
-        "Libraries"
+        "Libraries",
+        "FFmpeg configuration"
       ]
     },
     {
-      "symbol": "FFMPEG_CUSTOM_DECODER_wmav1",
+      "symbol": "FFMPEG_DECODER_wmav1",
       "promptEn": "WMAv1",
       "path": [
-        "Libraries"
+        "Libraries",
+        "FFmpeg configuration"
       ]
     },
     {
-      "symbol": "FFMPEG_CUSTOM_DECODER_wmav2",
+      "symbol": "FFMPEG_DECODER_wmav2",
       "promptEn": "WMAv2",
       "path": [
-        "Libraries"
+        "Libraries",
+        "FFmpeg configuration"
       ]
     },
     {
-      "symbol": "FFMPEG_CUSTOM_DECODER_zlib",
+      "symbol": "FFMPEG_DECODER_wmalossless",
+      "promptEn": "WMA Lossless",
+      "path": [
+        "Libraries",
+        "FFmpeg configuration"
+      ]
+    },
+    {
+      "symbol": "FFMPEG_DECODER_wmapro",
+      "promptEn": "WMA Pro",
+      "path": [
+        "Libraries",
+        "FFmpeg configuration"
+      ]
+    },
+    {
+      "symbol": "FFMPEG_DECODER_zlib",
       "promptEn": "Zlib",
       "path": [
-        "Libraries"
+        "Libraries",
+        "FFmpeg configuration"
       ]
     },
     {
-      "symbol": "FFMPEG_CUSTOM_MUXER_ac3",
+      "symbol": "FFMPEG_MUXER_ac3",
       "promptEn": "AC3",
       "path": [
-        "Libraries"
+        "Libraries",
+        "FFmpeg configuration"
       ]
     },
     {
-      "symbol": "FFMPEG_CUSTOM_MUXER_avi",
+      "symbol": "FFMPEG_MUXER_avi",
       "promptEn": "AVI",
       "path": [
-        "Libraries"
+        "Libraries",
+        "FFmpeg configuration"
       ]
     },
     {
-      "symbol": "FFMPEG_CUSTOM_MUXER_h264",
+      "symbol": "FFMPEG_MUXER_h264",
       "promptEn": "H.264 Raw Video",
       "path": [
-        "Libraries"
+        "Libraries",
+        "FFmpeg configuration"
       ]
     },
     {
-      "symbol": "FFMPEG_CUSTOM_MUXER_hevc",
+      "symbol": "FFMPEG_MUXER_hevc",
       "promptEn": "HEVC / H265 Raw Video",
       "path": [
-        "Libraries"
+        "Libraries",
+        "FFmpeg configuration"
       ]
     },
     {
-      "symbol": "FFMPEG_CUSTOM_MUXER_mp3",
+      "symbol": "FFMPEG_MUXER_mp3",
       "promptEn": "MP3 (MPEG Audio Layer 3)",
       "path": [
-        "Libraries"
+        "Libraries",
+        "FFmpeg configuration"
       ]
     },
     {
-      "symbol": "FFMPEG_CUSTOM_MUXER_mp4",
+      "symbol": "FFMPEG_MUXER_mp4",
       "promptEn": "MP4",
       "path": [
-        "Libraries"
+        "Libraries",
+        "FFmpeg configuration"
       ]
     },
     {
-      "symbol": "FFMPEG_CUSTOM_MUXER_mpeg1video",
+      "symbol": "FFMPEG_MUXER_mpeg1video",
       "promptEn": "MPEG-1 Video",
       "path": [
-        "Libraries"
+        "Libraries",
+        "FFmpeg configuration"
       ]
     },
     {
-      "symbol": "FFMPEG_CUSTOM_MUXER_mpeg2video",
+      "symbol": "FFMPEG_MUXER_mpeg2video",
       "promptEn": "MPEG-2 Video",
       "path": [
-        "Libraries"
+        "Libraries",
+        "FFmpeg configuration"
       ]
     },
     {
-      "symbol": "FFMPEG_CUSTOM_MUXER_mpegts",
+      "symbol": "FFMPEG_MUXER_mpegts",
       "promptEn": "MPEG-2 (TS)",
       "path": [
-        "Libraries"
+        "Libraries",
+        "FFmpeg configuration"
       ]
     },
     {
-      "symbol": "FFMPEG_CUSTOM_MUXER_ogg",
+      "symbol": "FFMPEG_MUXER_ogg",
       "promptEn": "Ogg",
       "path": [
-        "Libraries"
+        "Libraries",
+        "FFmpeg configuration"
       ]
     },
     {
-      "symbol": "FFMPEG_CUSTOM_MUXER_rtp",
+      "symbol": "FFMPEG_MUXER_rtp",
       "promptEn": "RTP",
       "path": [
-        "Libraries"
+        "Libraries",
+        "FFmpeg configuration"
       ]
     },
     {
-      "symbol": "FFMPEG_CUSTOM_DEMUXER_aac",
+      "symbol": "FFMPEG_DEMUXER_aac",
       "promptEn": "AAC",
       "path": [
-        "Libraries"
+        "Libraries",
+        "FFmpeg configuration"
       ]
     },
     {
-      "symbol": "FFMPEG_CUSTOM_DEMUXER_avi",
+      "symbol": "FFMPEG_DEMUXER_avi",
       "promptEn": "AVI (Audio Video Interleave)",
       "path": [
-        "Libraries"
+        "Libraries",
+        "FFmpeg configuration"
       ]
     },
     {
-      "symbol": "FFMPEG_CUSTOM_DEMUXER_ac3",
+      "symbol": "FFMPEG_DEMUXER_ac3",
       "promptEn": "AC3",
       "path": [
-        "Libraries"
+        "Libraries",
+        "FFmpeg configuration"
       ]
     },
     {
-      "symbol": "FFMPEG_CUSTOM_DEMUXER_amr",
+      "symbol": "FFMPEG_DEMUXER_aiff",
+      "promptEn": "AIFF",
+      "path": [
+        "Libraries",
+        "FFmpeg configuration"
+      ]
+    },
+    {
+      "symbol": "FFMPEG_DEMUXER_amr",
       "promptEn": "AMR",
       "path": [
-        "Libraries"
+        "Libraries",
+        "FFmpeg configuration"
       ]
     },
     {
-      "symbol": "FFMPEG_CUSTOM_DEMUXER_ape",
+      "symbol": "FFMPEG_DEMUXER_ape",
       "promptEn": "APE",
       "path": [
-        "Libraries"
+        "Libraries",
+        "FFmpeg configuration"
       ]
     },
     {
-      "symbol": "FFMPEG_CUSTOM_DEMUXER_flac",
+      "symbol": "FFMPEG_DEMUXER_flac",
       "promptEn": "FLAC",
       "path": [
-        "Libraries"
+        "Libraries",
+        "FFmpeg configuration"
       ]
     },
     {
-      "symbol": "FFMPEG_CUSTOM_DEMUXER_h264",
+      "symbol": "FFMPEG_DEMUXER_h264",
       "promptEn": "H.264 Raw Video",
       "path": [
-        "Libraries"
+        "Libraries",
+        "FFmpeg configuration"
       ]
     },
     {
-      "symbol": "FFMPEG_CUSTOM_DEMUXER_hevc",
+      "symbol": "FFMPEG_DEMUXER_hevc",
       "promptEn": "HEVC / H265 Raw Video",
       "path": [
-        "Libraries"
+        "Libraries",
+        "FFmpeg configuration"
       ]
     },
     {
-      "symbol": "FFMPEG_CUSTOM_DEMUXER_matroska",
+      "symbol": "FFMPEG_DEMUXER_matroska",
       "promptEn": "Matroska (MKA,MKV)",
       "path": [
-        "Libraries"
+        "Libraries",
+        "FFmpeg configuration"
       ]
     },
     {
-      "symbol": "FFMPEG_CUSTOM_DEMUXER_mov",
+      "symbol": "FFMPEG_DEMUXER_mov",
       "promptEn": "MOV/MP4/M4A/3GP/3G2/MJ2",
       "path": [
-        "Libraries"
+        "Libraries",
+        "FFmpeg configuration"
       ]
     },
     {
-      "symbol": "FFMPEG_CUSTOM_DEMUXER_mp3",
+      "symbol": "FFMPEG_DEMUXER_mp3",
       "promptEn": "MP3 (MPEG Audio Layer 3)",
       "path": [
-        "Libraries"
+        "Libraries",
+        "FFmpeg configuration"
       ]
     },
     {
-      "symbol": "FFMPEG_CUSTOM_DEMUXER_mpegvideo",
+      "symbol": "FFMPEG_DEMUXER_mpegvideo",
       "promptEn": "MPEG Video (Raw)",
       "path": [
-        "Libraries"
+        "Libraries",
+        "FFmpeg configuration"
       ]
     },
     {
-      "symbol": "FFMPEG_CUSTOM_DEMUXER_mpegps",
+      "symbol": "FFMPEG_DEMUXER_mpegps",
       "promptEn": "MPEG-2 (PS)",
       "path": [
-        "Libraries"
+        "Libraries",
+        "FFmpeg configuration"
       ]
     },
     {
-      "symbol": "FFMPEG_CUSTOM_DEMUXER_mpegts",
+      "symbol": "FFMPEG_DEMUXER_mpegts",
       "promptEn": "MPEG-2 (TS)",
       "path": [
-        "Libraries"
+        "Libraries",
+        "FFmpeg configuration"
       ]
     },
     {
-      "symbol": "FFMPEG_CUSTOM_DEMUXER_mpc",
+      "symbol": "FFMPEG_DEMUXER_mpc",
       "promptEn": "Musepack",
       "path": [
-        "Libraries"
+        "Libraries",
+        "FFmpeg configuration"
       ]
     },
     {
-      "symbol": "FFMPEG_CUSTOM_DEMUXER_mpc8",
+      "symbol": "FFMPEG_DEMUXER_mpc8",
       "promptEn": "Musepack 8",
       "path": [
-        "Libraries"
+        "Libraries",
+        "FFmpeg configuration"
       ]
     },
     {
-      "symbol": "FFMPEG_CUSTOM_DEMUXER_ogg",
+      "symbol": "FFMPEG_DEMUXER_ogg",
       "promptEn": "Ogg",
       "path": [
-        "Libraries"
+        "Libraries",
+        "FFmpeg configuration"
       ]
     },
     {
-      "symbol": "FFMPEG_CUSTOM_DEMUXER_rm",
+      "symbol": "FFMPEG_DEMUXER_rm",
       "promptEn": "RM",
       "path": [
-        "Libraries"
+        "Libraries",
+        "FFmpeg configuration"
       ]
     },
     {
-      "symbol": "FFMPEG_CUSTOM_DEMUXER_rtsp",
+      "symbol": "FFMPEG_DEMUXER_rtsp",
       "promptEn": "RTSP",
       "path": [
-        "Libraries"
+        "Libraries",
+        "FFmpeg configuration"
       ]
     },
     {
-      "symbol": "FFMPEG_CUSTOM_DEMUXER_sdp",
+      "symbol": "FFMPEG_DEMUXER_sdp",
       "promptEn": "SDP",
       "path": [
-        "Libraries"
+        "Libraries",
+        "FFmpeg configuration"
       ]
     },
     {
-      "symbol": "FFMPEG_CUSTOM_DEMUXER_rtp",
+      "symbol": "FFMPEG_DEMUXER_rtp",
       "promptEn": "RTP",
       "path": [
-        "Libraries"
+        "Libraries",
+        "FFmpeg configuration"
       ]
     },
     {
-      "symbol": "FFMPEG_CUSTOM_DEMUXER_vc1",
+      "symbol": "FFMPEG_DEMUXER_vc1",
       "promptEn": "VC-1 / WMV9 Raw Video",
       "path": [
-        "Libraries"
+        "Libraries",
+        "FFmpeg configuration"
       ]
     },
     {
-      "symbol": "FFMPEG_CUSTOM_DEMUXER_wav",
+      "symbol": "FFMPEG_DEMUXER_wav",
       "promptEn": "WAV",
       "path": [
-        "Libraries"
+        "Libraries",
+        "FFmpeg configuration"
       ]
     },
     {
-      "symbol": "FFMPEG_CUSTOM_DEMUXER_wv",
+      "symbol": "FFMPEG_DEMUXER_wv",
       "promptEn": "WV",
       "path": [
-        "Libraries"
+        "Libraries",
+        "FFmpeg configuration"
       ]
     },
     {
-      "symbol": "FFMPEG_CUSTOM_PARSER_aac",
+      "symbol": "FFMPEG_PARSER_aac",
       "promptEn": "AAC (Advanced Audio Coding)",
       "path": [
-        "Libraries"
+        "Libraries",
+        "FFmpeg configuration"
       ]
     },
     {
-      "symbol": "FFMPEG_CUSTOM_PARSER_ac3",
+      "symbol": "FFMPEG_PARSER_ac3",
       "promptEn": "AC3",
       "path": [
-        "Libraries"
+        "Libraries",
+        "FFmpeg configuration"
       ]
     },
     {
-      "symbol": "FFMPEG_CUSTOM_PARSER_flac",
+      "symbol": "FFMPEG_PARSER_flac",
       "promptEn": "FLAC",
       "path": [
-        "Libraries"
+        "Libraries",
+        "FFmpeg configuration"
       ]
     },
     {
-      "symbol": "FFMPEG_CUSTOM_PARSER_h264",
+      "symbol": "FFMPEG_PARSER_h264",
       "promptEn": "H.264",
       "path": [
-        "Libraries"
+        "Libraries",
+        "FFmpeg configuration"
       ]
     },
     {
-      "symbol": "FFMPEG_CUSTOM_PARSER_hevc",
+      "symbol": "FFMPEG_PARSER_hevc",
       "promptEn": "HEVC / H265",
       "path": [
-        "Libraries"
+        "Libraries",
+        "FFmpeg configuration"
       ]
     },
     {
-      "symbol": "FFMPEG_CUSTOM_PARSER_mpegaudio",
+      "symbol": "FFMPEG_PARSER_mpegaudio",
       "promptEn": "MPEG Audio",
       "path": [
-        "Libraries"
+        "Libraries",
+        "FFmpeg configuration"
       ]
     },
     {
-      "symbol": "FFMPEG_CUSTOM_PARSER_mpegvideo",
+      "symbol": "FFMPEG_PARSER_mpegvideo",
       "promptEn": "MPEG Video",
       "path": [
-        "Libraries"
+        "Libraries",
+        "FFmpeg configuration"
       ]
     },
     {
-      "symbol": "FFMPEG_CUSTOM_PARSER_mpeg4video",
+      "symbol": "FFMPEG_PARSER_mpeg4video",
       "promptEn": "MPEG-4 Video",
       "path": [
-        "Libraries"
+        "Libraries",
+        "FFmpeg configuration"
       ]
     },
     {
-      "symbol": "FFMPEG_CUSTOM_PARSER_opus",
+      "symbol": "FFMPEG_PARSER_opus",
       "promptEn": "Opus",
       "path": [
-        "Libraries"
+        "Libraries",
+        "FFmpeg configuration"
       ]
     },
     {
-      "symbol": "FFMPEG_CUSTOM_PARSER_vc1",
+      "symbol": "FFMPEG_PARSER_vc1",
       "promptEn": "VC-1 / WMV9",
       "path": [
-        "Libraries"
+        "Libraries",
+        "FFmpeg configuration"
       ]
     },
     {
-      "symbol": "FFMPEG_CUSTOM_PROTOCOL_file",
+      "symbol": "FFMPEG_PROTOCOL_file",
       "promptEn": "file:",
       "path": [
-        "Libraries"
+        "Libraries",
+        "FFmpeg configuration"
       ]
     },
     {
-      "symbol": "FFMPEG_CUSTOM_PROTOCOL_http",
+      "symbol": "FFMPEG_PROTOCOL_http",
       "promptEn": "http:",
       "path": [
-        "Libraries"
+        "Libraries",
+        "FFmpeg configuration"
       ]
     },
     {
-      "symbol": "FFMPEG_CUSTOM_PROTOCOL_icecast",
+      "symbol": "FFMPEG_PROTOCOL_icecast",
       "promptEn": "icecast:",
       "path": [
-        "Libraries"
+        "Libraries",
+        "FFmpeg configuration"
       ]
     },
     {
-      "symbol": "FFMPEG_CUSTOM_PROTOCOL_pipe",
+      "symbol": "FFMPEG_PROTOCOL_pipe",
       "promptEn": "pipe:",
       "path": [
-        "Libraries"
+        "Libraries",
+        "FFmpeg configuration"
       ]
     },
     {
-      "symbol": "FFMPEG_CUSTOM_PROTOCOL_rtp",
+      "symbol": "FFMPEG_PROTOCOL_rtp",
       "promptEn": "rtp:",
       "path": [
-        "Libraries"
+        "Libraries",
+        "FFmpeg configuration"
       ]
     },
     {
-      "symbol": "FFMPEG_CUSTOM_PROTOCOL_tcp",
+      "symbol": "FFMPEG_PROTOCOL_tcp",
       "promptEn": "tcp:",
       "path": [
-        "Libraries"
+        "Libraries",
+        "FFmpeg configuration"
       ]
     },
     {
-      "symbol": "FFMPEG_CUSTOM_PROTOCOL_udp",
+      "symbol": "FFMPEG_PROTOCOL_udp",
       "promptEn": "udp:",
       "path": [
-        "Libraries"
-      ]
-    },
-    {
-      "symbol": "PACKAGE_libffmpeg-full",
-      "promptEn": "FFmpeg libraries (full)",
-      "path": [
-        "Libraries"
+        "Libraries",
+        "FFmpeg configuration"
       ]
     },
     {
@@ -50695,6 +51210,13 @@
       ]
     },
     {
+      "symbol": "PACKAGE_libpulse",
+      "promptEn": "Client library for PulseAudio",
+      "path": [
+        "Libraries"
+      ]
+    },
+    {
       "symbol": "PACKAGE_libqmi",
       "promptEn": "Helper library to talk to QMI enabled modems",
       "path": [
@@ -51506,6 +52028,13 @@
       ]
     },
     {
+      "symbol": "PACKAGE_libucl",
+      "promptEn": "Portable lossless data compression library",
+      "path": [
+        "Libraries"
+      ]
+    },
+    {
       "symbol": "PACKAGE_libuclient",
       "promptEn": "HTTP/1.1 client library",
       "path": [
@@ -52105,6 +52634,13 @@
       ]
     },
     {
+      "symbol": "PACKAGE_rblibtorrent",
+      "promptEn": "Rasterbar BitTorrent library",
+      "path": [
+        "Libraries"
+      ]
+    },
+    {
       "symbol": "PACKAGE_re2",
       "promptEn": "RE2 - C++ regular expression library",
       "path": [
@@ -52347,6 +52883,14 @@
     {
       "symbol": "PACKAGE_luci-layer2",
       "promptEn": "LuCI interface for layer-2 devices, using Uhttpd (layer-2)",
+      "path": [
+        "LuCI",
+        "1. Collections"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-lib-docker",
+      "promptEn": "LuCI library for docker",
       "path": [
         "LuCI",
         "1. Collections"
@@ -52851,6 +53395,14 @@
       ]
     },
     {
+      "symbol": "PACKAGE_luci-mod-istorenext",
+      "promptEn": "iStoreNext",
+      "path": [
+        "LuCI",
+        "2. Modules"
+      ]
+    },
+    {
       "symbol": "PACKAGE_luci-mod-network",
       "promptEn": "LuCI Network Administration",
       "path": [
@@ -52872,6 +53424,294 @@
       "path": [
         "LuCI",
         "2. Modules"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-app-UUGameAcc",
+      "promptEn": "LuCI support for UUGameAcc",
+      "path": [
+        "LuCI",
+        "3. Applications"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-app-advanced",
+      "promptEn": "LuCI Support for advanced and filebrowser",
+      "path": [
+        "LuCI",
+        "3. Applications"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-app-agentflow",
+      "promptEn": "AgentFlow",
+      "path": [
+        "LuCI",
+        "3. Applications"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-app-airconnect",
+      "promptEn": "LuCI support for airconnect",
+      "path": [
+        "LuCI",
+        "3. Applications"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-app-aliyundrive-fuse",
+      "promptEn": "LuCI Support for aliyundrive-fuse",
+      "path": [
+        "LuCI",
+        "3. Applications"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-app-aliyundrive-webdav",
+      "promptEn": "LuCI Support for aliyundrive-webdav",
+      "path": [
+        "LuCI",
+        "3. Applications"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-app-alpha-config",
+      "promptEn": "LuCI for Alpha theme configuration",
+      "path": [
+        "LuCI",
+        "3. Applications"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-app-amlogic",
+      "promptEn": "LuCI support for custom TV boxes",
+      "path": [
+        "LuCI",
+        "3. Applications"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-app-ap-modem",
+      "promptEn": "Easy Access AP / Modem",
+      "path": [
+        "LuCI",
+        "3. Applications"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-app-arcadia",
+      "promptEn": "LuCI support for arcadia",
+      "path": [
+        "LuCI",
+        "3. Applications"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-app-argone-config",
+      "promptEn": "LuCI page for Argone Config",
+      "path": [
+        "LuCI",
+        "3. Applications"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-app-autoipsetadder",
+      "promptEn": "LuCI Support for autoipsetadder",
+      "path": [
+        "LuCI",
+        "3. Applications"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-app-autorepeater",
+      "promptEn": "AutoRepeater LuCI interface",
+      "path": [
+        "LuCI",
+        "3. Applications"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-app-autoshell",
+      "promptEn": "LuCI support for autoshell",
+      "path": [
+        "LuCI",
+        "3. Applications"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-app-autoupdate",
+      "promptEn": "LuCI Support for autoupdate",
+      "path": [
+        "LuCI",
+        "3. Applications"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-app-baidudrive",
+      "promptEn": "baidudrive",
+      "path": [
+        "LuCI",
+        "3. Applications"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-app-chatgpt-web",
+      "promptEn": "LuCI Support for chatgpt-web Client",
+      "path": [
+        "LuCI",
+        "3. Applications"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-app-chinesesubfinder",
+      "promptEn": "LuCI support for ChineseSubFinder",
+      "path": [
+        "LuCI",
+        "3. Applications"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-app-chongyoung",
+      "promptEn": "chongyoung for luci",
+      "path": [
+        "LuCI",
+        "3. Applications"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-app-chongyoung2.0",
+      "promptEn": "chongyoung",
+      "path": [
+        "LuCI",
+        "3. Applications"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-app-clash",
+      "promptEn": "LuCI app for clash",
+      "path": [
+        "LuCI",
+        "3. Applications"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-app-clashoo",
+      "promptEn": "LuCI app for Clashoo",
+      "path": [
+        "LuCI",
+        "3. Applications"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-app-clouddrive2",
+      "promptEn": "LuCI support for CloudDrive2",
+      "path": [
+        "LuCI",
+        "3. Applications"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-app-cloudflarespeedtest",
+      "promptEn": "LuCI support for Cloudflares Speed Test",
+      "path": [
+        "LuCI",
+        "3. Applications"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-app-cloudreve",
+      "promptEn": "LuCI support for Cloudreve",
+      "path": [
+        "LuCI",
+        "3. Applications"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-app-codeserver",
+      "promptEn": "LuCI support for CodeServer",
+      "path": [
+        "LuCI",
+        "3. Applications"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-app-control-timewol",
+      "promptEn": "LuCI support for Timewol",
+      "path": [
+        "LuCI",
+        "3. Applications"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-app-control-webrestriction",
+      "promptEn": "LuCI support for Webrestriction",
+      "path": [
+        "LuCI",
+        "3. Applications"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-app-control-weburl",
+      "promptEn": "LuCI support for Weburl",
+      "path": [
+        "LuCI",
+        "3. Applications"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-app-daed-next",
+      "promptEn": "LuCI support for daed-next",
+      "path": [
+        "LuCI",
+        "3. Applications"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-app-daede",
+      "promptEn": "LuCI app for daede dashboard",
+      "path": [
+        "LuCI",
+        "3. Applications"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-app-daede_daed",
+      "promptEn": "daed backend",
+      "path": [
+        "LuCI",
+        "3. Applications"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-app-daede_dae",
+      "promptEn": "dae backend",
+      "path": [
+        "LuCI",
+        "3. Applications"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-app-ddnsto",
+      "promptEn": "LuCI support for ddnsto",
+      "path": [
+        "LuCI",
+        "3. Applications"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-app-demon",
+      "promptEn": "LuCI support for demon",
+      "path": [
+        "LuCI",
+        "3. Applications"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-app-design-config",
+      "promptEn": "LuCI page for Design Config",
+      "path": [
+        "LuCI",
+        "3. Applications"
       ]
     },
     {
@@ -52915,6 +53755,126 @@
       ]
     },
     {
+      "symbol": "PACKAGE_luci-app-dnscrypt-proxy2",
+      "promptEn": "DNSCrypt Proxy LuCI interface",
+      "path": [
+        "LuCI",
+        "3. Applications"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-app-dnscrypt-proxy2_INCLUDE_minisign",
+      "promptEn": "Include minisign for customized offline resolvers list self-sign.",
+      "path": [
+        "LuCI",
+        "3. Applications"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-app-dnsfilter",
+      "promptEn": "LuCI support for DNSFilter",
+      "path": [
+        "LuCI",
+        "3. Applications"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-app-dnsmasq-ipset",
+      "promptEn": "LuCI Support for ipset feature of dnsmasq-full",
+      "path": [
+        "LuCI",
+        "3. Applications"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-app-dnsproxy",
+      "promptEn": "LuCI Support for dnsproxy",
+      "path": [
+        "LuCI",
+        "3. Applications"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-app-dockermanager",
+      "promptEn": "LuCI support for Docker Manager",
+      "path": [
+        "LuCI",
+        "3. Applications"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-app-dogcom",
+      "promptEn": "LuCI app for openwrt-dogcom",
+      "path": [
+        "LuCI",
+        "3. Applications"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-app-dpanel",
+      "promptEn": "LuCI support for DPanel",
+      "path": [
+        "LuCI",
+        "3. Applications"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-app-drawio",
+      "promptEn": "LuCI support for DrawIO",
+      "path": [
+        "LuCI",
+        "3. Applications"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-app-droidmodem",
+      "promptEn": "LuCI for DroidNet",
+      "path": [
+        "LuCI",
+        "3. Applications"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-app-easymesh",
+      "promptEn": "LuCI Support for easymesh",
+      "path": [
+        "LuCI",
+        "3. Applications"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-app-easytier",
+      "promptEn": "LuCI support for EasyTier",
+      "path": [
+        "LuCI",
+        "3. Applications"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-app-easyupdate",
+      "promptEn": "LuCI support for EasyUpdate From sundaqiang",
+      "path": [
+        "LuCI",
+        "3. Applications"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-app-eqosplus",
+      "promptEn": "LuCI support for eqosplus.",
+      "path": [
+        "LuCI",
+        "3. Applications"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-app-excalidraw",
+      "promptEn": "LuCI support for Excalidraw",
+      "path": [
+        "LuCI",
+        "3. Applications"
+      ]
+    },
+    {
       "symbol": "PACKAGE_luci-app-fancontrol",
       "promptEn": "LuCI support for the generic PWM fan controller",
       "path": [
@@ -52923,8 +53883,560 @@
       ]
     },
     {
+      "symbol": "PACKAGE_luci-app-fastnet",
+      "promptEn": "LuCI support for fastnet",
+      "path": [
+        "LuCI",
+        "3. Applications"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-app-fchomo",
+      "promptEn": "FullCombo Shark! supplies flexible customization of mihomo on OpenWrt.",
+      "path": [
+        "LuCI",
+        "3. Applications"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-app-feishuvpn",
+      "promptEn": "LuCI support for FeiShuVpn",
+      "path": [
+        "LuCI",
+        "3. Applications"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-app-floatip",
+      "promptEn": "LuCI support for floatip",
+      "path": [
+        "LuCI",
+        "3. Applications"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-app-fullconenat",
+      "promptEn": "LuCI support for FullConeNat",
+      "path": [
+        "LuCI",
+        "3. Applications"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-app-gecoosac",
+      "promptEn": "LuCI Support for gecoosac",
+      "path": [
+        "LuCI",
+        "3. Applications"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-app-ghttpd",
+      "promptEn": "LuCI support for ghttpd",
+      "path": [
+        "LuCI",
+        "3. Applications"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-app-go-aliyundrive-webdav",
+      "promptEn": "Luci for go-aliyundrive-webdav",
+      "path": [
+        "LuCI",
+        "3. Applications"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-app-gogs",
+      "promptEn": "LuCI support for Gogs",
+      "path": [
+        "LuCI",
+        "3. Applications"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-app-heimdall",
+      "promptEn": "LuCI support for heimdall",
+      "path": [
+        "LuCI",
+        "3. Applications"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-app-hermes",
+      "promptEn": "LuCI support for Hermes",
+      "path": [
+        "LuCI",
+        "3. Applications"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-app-homeassistant",
+      "promptEn": "LuCI support for homeassistant",
+      "path": [
+        "LuCI",
+        "3. Applications"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-app-homebridge",
+      "promptEn": "LuCI Support for homebridge",
+      "path": [
+        "LuCI",
+        "3. Applications"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-app-homeredirect",
+      "promptEn": "LuCI for HomeRedirect",
+      "path": [
+        "LuCI",
+        "3. Applications"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-app-honk",
+      "promptEn": "LuCI support for honk",
+      "path": [
+        "LuCI",
+        "3. Applications"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-app-htreader",
+      "promptEn": "LuCI support for HTReader",
+      "path": [
+        "LuCI",
+        "3. Applications"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-app-ikoolproxy",
+      "promptEn": "LuCI support for koolproxy",
+      "path": [
+        "LuCI",
+        "3. Applications"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-app-immich",
+      "promptEn": "LuCI support for Immich",
+      "path": [
+        "LuCI",
+        "3. Applications"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-app-internet-detector",
+      "promptEn": "LuCI support for internet-detector",
+      "path": [
+        "LuCI",
+        "3. Applications"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-app-iperf3-server",
+      "promptEn": "LuCI support for iPerf3 Server",
+      "path": [
+        "LuCI",
+        "3. Applications"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-app-ipsec-server",
+      "promptEn": "LuCI support for IPSec VPN Server",
+      "path": [
+        "LuCI",
+        "3. Applications"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-app-istoredup",
+      "promptEn": "LuCI support for istoredup",
+      "path": [
+        "LuCI",
+        "3. Applications"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-app-istoreenhance",
+      "promptEn": "LuCI support for KSpeeder",
+      "path": [
+        "LuCI",
+        "3. Applications"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-app-istorego",
+      "promptEn": "LuCI support for istorego ",
+      "path": [
+        "LuCI",
+        "3. Applications"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-app-istorepanel",
+      "promptEn": "LuCI support for 1Panel",
+      "path": [
+        "LuCI",
+        "3. Applications"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-app-istorerouter",
+      "promptEn": "iStoreRouter",
+      "path": [
+        "LuCI",
+        "3. Applications"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-app-istorex",
+      "promptEn": "IstoreX",
+      "path": [
+        "LuCI",
+        "3. Applications"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-app-ittools",
+      "promptEn": "LuCI support for ITTools",
+      "path": [
+        "LuCI",
+        "3. Applications"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-app-jackett",
+      "promptEn": "LuCI support for jackett",
+      "path": [
+        "LuCI",
+        "3. Applications"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-app-kai",
+      "promptEn": "kai",
+      "path": [
+        "LuCI",
+        "3. Applications"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-app-kaiplus",
+      "promptEn": "KaiPlus",
+      "path": [
+        "LuCI",
+        "3. Applications"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-app-koolproxyR",
+      "promptEn": "LuCI support for koolproxyR",
+      "path": [
+        "LuCI",
+        "3. Applications"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-app-lanraragi",
+      "promptEn": "LuCI support for LANraragi",
+      "path": [
+        "LuCI",
+        "3. Applications"
+      ]
+    },
+    {
       "symbol": "PACKAGE_luci-app-librespeed",
       "promptEn": "LibreSpeed internet speed measurements",
+      "path": [
+        "LuCI",
+        "3. Applications"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-app-lingtigameacc",
+      "promptEn": "LingTi Game Acc",
+      "path": [
+        "LuCI",
+        "3. Applications"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-app-linkease",
+      "promptEn": "LuCI support for linkease",
+      "path": [
+        "LuCI",
+        "3. Applications"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-app-linkeasefull",
+      "promptEn": "LuCI support for linkeasefull",
+      "path": [
+        "LuCI",
+        "3. Applications"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-app-linkeasefull-embed",
+      "promptEn": "LinkEaseFull LuCI desktop embed",
+      "path": [
+        "LuCI",
+        "3. Applications"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-app-mac",
+      "promptEn": "mac for luci",
+      "path": [
+        "LuCI",
+        "3. Applications"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-app-mail",
+      "promptEn": "LuCI Mail Configuration",
+      "path": [
+        "LuCI",
+        "3. Applications"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-app-memos",
+      "promptEn": "LuCI support for Memos",
+      "path": [
+        "LuCI",
+        "3. Applications"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-app-mfun",
+      "promptEn": "LuCI support for mfun",
+      "path": [
+        "LuCI",
+        "3. Applications"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-app-momo",
+      "promptEn": "LuCI Support for momo",
+      "path": [
+        "LuCI",
+        "3. Applications"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-app-mtphotos",
+      "promptEn": "LuCI support for MTPhotos",
+      "path": [
+        "LuCI",
+        "3. Applications"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-app-multiaccountdial",
+      "promptEn": "multi account Virtual WAN config generator",
+      "path": [
+        "LuCI",
+        "3. Applications"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-app-my-dnshelper",
+      "promptEn": "LuCI App for my-dnshelper.",
+      "path": [
+        "LuCI",
+        "3. Applications"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-app-mymind",
+      "promptEn": "LuCI support for mymind",
+      "path": [
+        "LuCI",
+        "3. Applications"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-app-nastools",
+      "promptEn": "LuCI support for nastools",
+      "path": [
+        "LuCI",
+        "3. Applications"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-app-nat6-helper",
+      "promptEn": "LuCI support for nat6",
+      "path": [
+        "LuCI",
+        "3. Applications"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-app-natter",
+      "promptEn": "LuCI Support for Natter",
+      "path": [
+        "LuCI",
+        "3. Applications"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-app-natter2",
+      "promptEn": "LuCI Support for Natter v2.2.1",
+      "path": [
+        "LuCI",
+        "3. Applications"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-app-navidrome",
+      "promptEn": "LuCI support for Navidrome",
+      "path": [
+        "LuCI",
+        "3. Applications"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-app-nekobox",
+      "promptEn": "LuCI support for mihomo & sing-box",
+      "path": [
+        "LuCI",
+        "3. Applications"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-app-netkeeper-interception",
+      "promptEn": "LuCI Support for Netkeeper-Interception",
+      "path": [
+        "LuCI",
+        "3. Applications"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-app-netwizard",
+      "promptEn": "LuCI Support for wizard",
+      "path": [
+        "LuCI",
+        "3. Applications"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-app-nextcloud",
+      "promptEn": "LuCI support for nextcloud",
+      "path": [
+        "LuCI",
+        "3. Applications"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-app-nginx-manager",
+      "promptEn": "LuCI support for NginxManager From sundaqiang",
+      "path": [
+        "LuCI",
+        "3. Applications"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-app-nikki",
+      "promptEn": "LuCI Support for nikki",
+      "path": [
+        "LuCI",
+        "3. Applications"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-app-npc",
+      "promptEn": "LuCI support for NPS Client(NPC)",
+      "path": [
+        "LuCI",
+        "3. Applications"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-app-oaf",
+      "promptEn": "LuCI app for OAF",
+      "path": [
+        "LuCI",
+        "3. Applications"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-app-oneapi",
+      "promptEn": "LuCI support for OneAPI",
+      "path": [
+        "LuCI",
+        "3. Applications"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-app-openclaw",
+      "promptEn": "OpenClaw AI Gateway",
+      "path": [
+        "LuCI",
+        "3. Applications"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-app-openclawmgr",
+      "promptEn": "LuCI support for OpenClaw Launcher",
+      "path": [
+        "LuCI",
+        "3. Applications"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-app-openlist2",
+      "promptEn": "LuCI support for openlist",
+      "path": [
+        "LuCI",
+        "3. Applications"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-app-openvpn-client",
+      "promptEn": "LuCI support for OpenVPN Client",
+      "path": [
+        "LuCI",
+        "3. Applications"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-app-openwebui",
+      "promptEn": "LuCI support for OpenWebUI",
+      "path": [
+        "LuCI",
+        "3. Applications"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-app-ota",
+      "promptEn": "LuCI for OTA upgrade",
+      "path": [
+        "LuCI",
+        "3. Applications"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-app-owntone",
+      "promptEn": "LuCI support for Owntone",
+      "path": [
+        "LuCI",
+        "3. Applications"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-app-packet-capture",
+      "promptEn": "Packet capture application",
+      "path": [
+        "LuCI",
+        "3. Applications"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-app-partexp",
+      "promptEn": "LuCI Support for Automatic Partition Mount",
       "path": [
         "LuCI",
         "3. Applications"
@@ -53048,6 +54560,194 @@
       ]
     },
     {
+      "symbol": "PACKAGE_luci-app-passwall2_Basic_Core_Xray",
+      "promptEn": "Xray",
+      "path": [
+        "LuCI",
+        "3. Applications",
+        "Configuration"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-app-passwall2_Basic_Core_SingBox",
+      "promptEn": "SingBox",
+      "path": [
+        "LuCI",
+        "3. Applications",
+        "Configuration"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-app-passwall2_Basic_Core_All",
+      "promptEn": "All",
+      "path": [
+        "LuCI",
+        "3. Applications",
+        "Configuration"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-app-passwall2_Iptables_Transparent_Proxy",
+      "promptEn": "Iptables Transparent Proxy",
+      "path": [
+        "LuCI",
+        "3. Applications",
+        "Configuration"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-app-passwall2_Nftables_Transparent_Proxy",
+      "promptEn": "Nftables Transparent Proxy",
+      "path": [
+        "LuCI",
+        "3. Applications",
+        "Configuration"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-app-passwall2_INCLUDE_Haproxy",
+      "promptEn": "Include Haproxy",
+      "path": [
+        "LuCI",
+        "3. Applications",
+        "Configuration"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-app-passwall2_INCLUDE_Shadowsocks_Rust_Client",
+      "promptEn": "Include Shadowsocks Rust Client",
+      "path": [
+        "LuCI",
+        "3. Applications",
+        "Configuration"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-app-passwall2_INCLUDE_Shadowsocks_Rust_Server",
+      "promptEn": "Include Shadowsocks Rust Server",
+      "path": [
+        "LuCI",
+        "3. Applications",
+        "Configuration"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-app-passwall2_INCLUDE_ShadowsocksR_Libev_Client",
+      "promptEn": "Include ShadowsocksR Libev Client",
+      "path": [
+        "LuCI",
+        "3. Applications",
+        "Configuration"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-app-passwall2_INCLUDE_ShadowsocksR_Libev_Server",
+      "promptEn": "Include ShadowsocksR Libev Server",
+      "path": [
+        "LuCI",
+        "3. Applications",
+        "Configuration"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-app-passwall2_INCLUDE_Simple_Obfs",
+      "promptEn": "Include Simple-Obfs (Shadowsocks Plugin)",
+      "path": [
+        "LuCI",
+        "3. Applications",
+        "Configuration"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-app-passwall2_INCLUDE_V2ray_Plugin",
+      "promptEn": "Include V2ray-Plugin (Shadowsocks Plugin)",
+      "path": [
+        "LuCI",
+        "3. Applications",
+        "Configuration"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-app-penpot",
+      "promptEn": "LuCI support for Penpot",
+      "path": [
+        "LuCI",
+        "3. Applications"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-app-photoprism",
+      "promptEn": "LuCI support for PhotoPrism",
+      "path": [
+        "LuCI",
+        "3. Applications"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-app-plex",
+      "promptEn": "LuCI support for Plex",
+      "path": [
+        "LuCI",
+        "3. Applications"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-app-poweroff",
+      "promptEn": "LuCI Support of PowerOff Router",
+      "path": [
+        "LuCI",
+        "3. Applications"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-app-poweroffdevice",
+      "promptEn": "LuCI support for poweroffdevice Router",
+      "path": [
+        "LuCI",
+        "3. Applications"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-app-pptp-server",
+      "promptEn": "LuCI support for PPTP VPN Server",
+      "path": [
+        "LuCI",
+        "3. Applications"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-app-pushbot",
+      "promptEn": "LuCI support for Pushbot",
+      "path": [
+        "LuCI",
+        "3. Applications"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-app-pve",
+      "promptEn": "LuCI support for pve",
+      "path": [
+        "LuCI",
+        "3. Applications"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-app-quickfile",
+      "promptEn": "LuCI File Manager module",
+      "path": [
+        "LuCI",
+        "3. Applications"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-app-quickstart",
+      "promptEn": "LuCI support for quickstart ",
+      "path": [
+        "LuCI",
+        "3. Applications"
+      ]
+    },
+    {
       "symbol": "PACKAGE_luci-app-rclone_INCLUDE_rclone-webui",
       "promptEn": "Include rclone-webui",
       "path": [
@@ -53064,8 +54764,56 @@
       ]
     },
     {
+      "symbol": "PACKAGE_luci-app-routerdog",
+      "promptEn": "RouterDog",
+      "path": [
+        "LuCI",
+        "3. Applications"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-app-rtbwmon",
+      "promptEn": "LuCI realtime client bandwidth monitor",
+      "path": [
+        "LuCI",
+        "3. Applications"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-app-runmynas",
+      "promptEn": "LuCI support for runmynas",
+      "path": [
+        "LuCI",
+        "3. Applications"
+      ]
+    },
+    {
       "symbol": "PACKAGE_luci-app-sfp-info",
       "promptEn": "SFP/QSFP Transceiver Diagnostics",
+      "path": [
+        "LuCI",
+        "3. Applications"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-app-shadowrt",
+      "promptEn": "LuCI support for shadowrt",
+      "path": [
+        "LuCI",
+        "3. Applications"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-app-shanligong",
+      "promptEn": "shanligong web for luci",
+      "path": [
+        "LuCI",
+        "3. Applications"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-app-shortcutmenu",
+      "promptEn": "LuCI Support for shortcutmenu",
       "path": [
         "LuCI",
         "3. Applications"
@@ -53080,8 +54828,440 @@
       ]
     },
     {
+      "symbol": "PACKAGE_luci-app-shutdown",
+      "promptEn": "LuCI Support for shutdown/reboot",
+      "path": [
+        "LuCI",
+        "3. Applications"
+      ]
+    },
+    {
       "symbol": "PACKAGE_luci-app-smartdns_INCLUDE_WebUI",
       "promptEn": "Include WebUI support",
+      "path": [
+        "LuCI",
+        "3. Applications"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-app-sms-tool",
+      "promptEn": "LuCI Support for sms-tool",
+      "path": [
+        "LuCI",
+        "3. Applications"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-app-speedtest-web",
+      "promptEn": "LuCI support for speedtest-web",
+      "path": [
+        "LuCI",
+        "3. Applications"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-app-ssr-plus_Iptables_Transparent_Proxy",
+      "promptEn": "Iptables Transparent Proxy",
+      "path": [
+        "LuCI",
+        "3. Applications"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-app-ssr-plus_Nftables_Transparent_Proxy",
+      "promptEn": "Nftables Transparent Proxy",
+      "path": [
+        "LuCI",
+        "3. Applications"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-app-ssr-plus_INCLUDE_Shadowsocks_NONE_Client",
+      "promptEn": "None",
+      "path": [
+        "LuCI",
+        "3. Applications"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-app-ssr-plus_INCLUDE_Shadowsocks_Rust_Client",
+      "promptEn": "Shadowsocks Rust",
+      "path": [
+        "LuCI",
+        "3. Applications"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-app-ssr-plus_INCLUDE_Shadowsocks_NONE_Server",
+      "promptEn": "None",
+      "path": [
+        "LuCI",
+        "3. Applications"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-app-ssr-plus_INCLUDE_Shadowsocks_Rust_Server",
+      "promptEn": "Shadowsocks Rust",
+      "path": [
+        "LuCI",
+        "3. Applications"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-app-ssr-plus_INCLUDE_NONE_V2RAY",
+      "promptEn": "None",
+      "path": [
+        "LuCI",
+        "3. Applications"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-app-ssr-plus_INCLUDE_Xray",
+      "promptEn": "Xray-core",
+      "path": [
+        "LuCI",
+        "3. Applications"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-app-ssr-plus_INCLUDE_ChinaDNS_NG",
+      "promptEn": "Include ChinaDNS-NG",
+      "path": [
+        "LuCI",
+        "3. Applications"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-app-ssr-plus_INCLUDE_MosDNS",
+      "promptEn": "Include MosDNS",
+      "path": [
+        "LuCI",
+        "3. Applications"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-app-ssr-plus_INCLUDE_Http_Proxy",
+      "promptEn": "Include HTTP(S) Proxy Server",
+      "path": [
+        "LuCI",
+        "3. Applications"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-app-ssr-plus_INCLUDE_Mihomo",
+      "promptEn": "Include Mihomo (Clash Support)",
+      "path": [
+        "LuCI",
+        "3. Applications"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-app-ssr-plus_INCLUDE_GeoData",
+      "promptEn": "Include GeoData (GeoIP and GeoSite)",
+      "path": [
+        "LuCI",
+        "3. Applications"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-app-ssr-plus_INCLUDE_Shadow_TLS",
+      "promptEn": "Include Shadow-TLS",
+      "path": [
+        "LuCI",
+        "3. Applications"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-app-ssr-plus_INCLUDE_Kcptun",
+      "promptEn": "Include Kcptun",
+      "path": [
+        "LuCI",
+        "3. Applications"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-app-ssr-plus_INCLUDE_NaiveProxy",
+      "promptEn": "Include NaiveProxy",
+      "path": [
+        "LuCI",
+        "3. Applications"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-app-ssr-plus_INCLUDE_Shadowsocks_Simple_Obfs",
+      "promptEn": "Include Shadowsocks Simple Obfs Plugin",
+      "path": [
+        "LuCI",
+        "3. Applications"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-app-ssr-plus_INCLUDE_Shadowsocks_V2ray_Plugin",
+      "promptEn": "Include Shadowsocks V2ray Plugin",
+      "path": [
+        "LuCI",
+        "3. Applications"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-app-ssr-plus_INCLUDE_ShadowsocksR_Libev_Client",
+      "promptEn": "Include ShadowsocksR Libev Client",
+      "path": [
+        "LuCI",
+        "3. Applications"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-app-ssr-plus_INCLUDE_ShadowsocksR_Libev_Server",
+      "promptEn": "Include ShadowsocksR Libev Server",
+      "path": [
+        "LuCI",
+        "3. Applications"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-app-subconverter",
+      "promptEn": "Subconverter",
+      "path": [
+        "LuCI",
+        "3. Applications"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-app-sunpanel",
+      "promptEn": "LuCI support for sunpanel",
+      "path": [
+        "LuCI",
+        "3. Applications"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-app-supervisord",
+      "promptEn": "LuCI support for NginxManager From sundaqiang",
+      "path": [
+        "LuCI",
+        "3. Applications"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-app-suselogin",
+      "promptEn": "SUSE Login for LuCI",
+      "path": [
+        "LuCI",
+        "3. Applications"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-app-systools",
+      "promptEn": "LuCI support for SysTools",
+      "path": [
+        "LuCI",
+        "3. Applications"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-app-tailscale",
+      "promptEn": "LuCI for Tailscale",
+      "path": [
+        "LuCI",
+        "3. Applications"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-app-taskplan",
+      "promptEn": "LuCI luci-app-taskplan app",
+      "path": [
+        "LuCI",
+        "3. Applications"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-app-tencentcloud-cos",
+      "promptEn": "COSFS Client for LuCI",
+      "path": [
+        "LuCI",
+        "3. Applications"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-app-tencentddns",
+      "promptEn": "LuCI Support for tencentddns",
+      "path": [
+        "LuCI",
+        "3. Applications"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-app-tinyfilemanager",
+      "promptEn": "LuCI Tiny File Manager",
+      "path": [
+        "LuCI",
+        "3. Applications"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-app-tower",
+      "promptEn": "Tower - manage subscriptions and generate client configs",
+      "path": [
+        "LuCI",
+        "3. Applications"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-app-ttnode",
+      "promptEn": "Luci for ttnode Automatic collection Script ",
+      "path": [
+        "LuCI",
+        "3. Applications"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-app-turboacc_INCLUDE_OFFLOADING",
+      "promptEn": "Include Flow Offload",
+      "path": [
+        "LuCI",
+        "3. Applications"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-app-turboacc_INCLUDE_BBR_CCA",
+      "promptEn": "Include BBR CCA",
+      "path": [
+        "LuCI",
+        "3. Applications"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-app-typecho",
+      "promptEn": "LuCI support for TypeCho",
+      "path": [
+        "LuCI",
+        "3. Applications"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-app-ubuntu",
+      "promptEn": "LuCI support for ubuntu",
+      "path": [
+        "LuCI",
+        "3. Applications"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-app-ubuntu2",
+      "promptEn": "LuCI support for Ubuntu2",
+      "path": [
+        "LuCI",
+        "3. Applications"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-app-unblockmusic_INCLUDE_UnblockNeteaseMusic_Go",
+      "promptEn": "UnblockNeteaseMusic Golang Version",
+      "path": [
+        "LuCI",
+        "3. Applications"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-app-unblockmusic_INCLUDE_UnblockNeteaseMusic_NodeJS",
+      "promptEn": "UnblockNeteaseMusic NodeJS Version",
+      "path": [
+        "LuCI",
+        "3. Applications"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-app-unifi",
+      "promptEn": "LuCI support for UnifiController",
+      "path": [
+        "LuCI",
+        "3. Applications"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-app-unishare",
+      "promptEn": "LuCI for UniShare",
+      "path": [
+        "LuCI",
+        "3. Applications"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-app-uptimekuma",
+      "promptEn": "LuCI support for UptimeKuma",
+      "path": [
+        "LuCI",
+        "3. Applications"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-app-vaultwarden",
+      "promptEn": "LuCI support for Vaultwarden",
+      "path": [
+        "LuCI",
+        "3. Applications"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-app-virtualdog",
+      "promptEn": "virtualdog",
+      "path": [
+        "LuCI",
+        "3. Applications"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-app-wan-mac",
+      "promptEn": "Generate MAC address for WAN",
+      "path": [
+        "LuCI",
+        "3. Applications"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-app-watchdog",
+      "promptEn": "LuCI support for watchdog",
+      "path": [
+        "LuCI",
+        "3. Applications"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-app-webd",
+      "promptEn": "LuCI support for Webd Netdisk",
+      "path": [
+        "LuCI",
+        "3. Applications"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-app-webd_INCLUDE_WEBD_BINARY",
+      "promptEn": "Include webd Binary",
+      "path": [
+        "LuCI",
+        "3. Applications"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-app-webdav",
+      "promptEn": "LuCI support for WebDav",
+      "path": [
+        "LuCI",
+        "3. Applications"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-app-webviewdev",
+      "promptEn": "Luci App WevviewDev",
+      "path": [
+        "LuCI",
+        "3. Applications"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-app-webvirtcloud",
+      "promptEn": "LuCI support for webvirtcloud",
       "path": [
         "LuCI",
         "3. Applications"
@@ -53112,8 +55292,104 @@
       ]
     },
     {
+      "symbol": "PACKAGE_luci-app-wifi-ap",
+      "promptEn": "LuCI Support for WiFi AP",
+      "path": [
+        "LuCI",
+        "3. Applications"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-app-wifidog",
+      "promptEn": "LuCI wifidog config",
+      "path": [
+        "LuCI",
+        "3. Applications"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-app-wizard",
+      "promptEn": "LuCI Support for wizard",
+      "path": [
+        "LuCI",
+        "3. Applications"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-app-wolplus",
+      "promptEn": "LuCI support for wolplus From sundaqiang",
+      "path": [
+        "LuCI",
+        "3. Applications"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-app-wxedge",
+      "promptEn": "LuCI support for wxedge",
+      "path": [
+        "LuCI",
+        "3. Applications"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-app-xteve",
+      "promptEn": "LuCI support for Xteve",
+      "path": [
+        "LuCI",
+        "3. Applications"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-app-xunyou",
+      "promptEn": "LuCI support for xunyou",
+      "path": [
+        "LuCI",
+        "3. Applications"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-app-zdinnav",
+      "promptEn": "LuCI support for ZdinNav",
+      "path": [
+        "LuCI",
+        "3. Applications"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-nginxer",
+      "promptEn": "Nginxer",
+      "path": [
+        "LuCI",
+        "3. Applications"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-themedog",
+      "promptEn": "ThemeDog",
+      "path": [
+        "LuCI",
+        "3. Applications"
+      ]
+    },
+    {
       "symbol": "PACKAGE_luci-theme-argon",
       "promptEn": "Argon Theme",
+      "path": [
+        "LuCI",
+        "4. Themes"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-theme-argone",
+      "promptEn": "Argone Theme",
+      "path": [
+        "LuCI",
+        "4. Themes"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-theme-atmaterial_new",
+      "promptEn": "Atmaterial_new kenzo",
       "path": [
         "LuCI",
         "4. Themes"
@@ -53128,6 +55404,22 @@
       ]
     },
     {
+      "symbol": "PACKAGE_luci-theme-design",
+      "promptEn": "Design Theme",
+      "path": [
+        "LuCI",
+        "4. Themes"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-theme-edge",
+      "promptEn": "Edge Theme",
+      "path": [
+        "LuCI",
+        "4. Themes"
+      ]
+    },
+    {
       "symbol": "PACKAGE_luci-theme-footstrap",
       "promptEn": "Footstrap Theme",
       "path": [
@@ -53136,8 +55428,56 @@
       ]
     },
     {
+      "symbol": "PACKAGE_luci-theme-glass",
+      "promptEn": "Glass - Apple-inspired glassmorphism theme for LuCI",
+      "path": [
+        "LuCI",
+        "4. Themes"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-theme-ifit",
+      "promptEn": "ifit",
+      "path": [
+        "LuCI",
+        "4. Themes"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-theme-inas",
+      "promptEn": "INas Theme",
+      "path": [
+        "LuCI",
+        "4. Themes"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-theme-istorenas",
+      "promptEn": "iStoreNAS Login Page",
+      "path": [
+        "LuCI",
+        "4. Themes"
+      ]
+    },
+    {
       "symbol": "PACKAGE_luci-theme-material",
       "promptEn": "Material Theme",
+      "path": [
+        "LuCI",
+        "4. Themes"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-theme-material3",
+      "promptEn": "Material3 Theme (default)",
+      "path": [
+        "LuCI",
+        "4. Themes"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-theme-opentopd",
+      "promptEn": "LuCI luci-theme-opentopd theme",
       "path": [
         "LuCI",
         "4. Themes"
@@ -53154,6 +55494,14 @@
     {
       "symbol": "PACKAGE_luci-theme-openwrt-2020",
       "promptEn": "LuCI modern OpenWrt theme",
+      "path": [
+        "LuCI",
+        "4. Themes"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-theme-tomato",
+      "promptEn": "Tomato new kenzo",
       "path": [
         "LuCI",
         "4. Themes"
@@ -53290,6 +55638,14 @@
     {
       "symbol": "PACKAGE_luci-proto-nebula",
       "promptEn": "Support for Nebula",
+      "path": [
+        "LuCI",
+        "6. Protocols"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-proto-netkeeper",
+      "promptEn": "Support for Netkeeper",
       "path": [
         "LuCI",
         "6. Protocols"
@@ -53448,6 +55804,14 @@
       ]
     },
     {
+      "symbol": "PACKAGE_luci-lib-iform",
+      "promptEn": "LuCI library for json form",
+      "path": [
+        "LuCI",
+        "7. Libraries"
+      ]
+    },
+    {
       "symbol": "PACKAGE_luci-lib-ip",
       "promptEn": "Lua library for IP calculation and routing information",
       "path": [
@@ -53482,6 +55846,22 @@
     {
       "symbol": "PACKAGE_luci-lib-jsonc",
       "promptEn": "Lua binding for JSON-C",
+      "path": [
+        "LuCI",
+        "7. Libraries"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-lib-linkeaseauth",
+      "promptEn": "LuCI shared integration for LinkEase apps",
+      "path": [
+        "LuCI",
+        "7. Libraries"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-lib-linkeasefile",
+      "promptEn": "LuCI support for linkease file",
       "path": [
         "LuCI",
         "7. Libraries"
@@ -53528,11 +55908,35 @@
       ]
     },
     {
+      "symbol": "PACKAGE_luci-lib-taskd",
+      "promptEn": "Task library",
+      "path": [
+        "LuCI",
+        "7. Libraries"
+      ]
+    },
+    {
       "symbol": "PACKAGE_luci-lib-uqr",
       "promptEn": "µQR - micro QR: SVG QRcode generator JS library",
       "path": [
         "LuCI",
         "7. Libraries"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-lib-xterm",
+      "promptEn": "Xterm.js library",
+      "path": [
+        "LuCI",
+        "7. Libraries"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-theme-alpha",
+      "promptEn": "LuCi Theme For OpenWrt And Alpha OS ONLY - Alpha",
+      "path": [
+        "LuCI",
+        "9. Themes"
       ]
     },
     {
@@ -53545,6 +55949,13 @@
     {
       "symbol": "PACKAGE_default-settings-chn",
       "promptEn": "LuCI support for Default Settings (Optimize for CHN users)",
+      "path": [
+        "LuCI"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-app-torbp",
+      "promptEn": "Tor bridges proxy",
       "path": [
         "LuCI"
       ]
@@ -54027,6 +56438,55 @@
       ]
     },
     {
+      "symbol": "PACKAGE_UnblockNeteaseMusic",
+      "promptEn": "Revive Netease Cloud Music (NodeJS)",
+      "path": [
+        "Multimedia"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_UnblockNeteaseMusic-Go",
+      "promptEn": "Revive Netease Cloud Music (Golang)",
+      "path": [
+        "Multimedia"
+      ]
+    },
+    {
+      "symbol": "UNBLOCKNETEASEMUSIC_GO_COMPRESS_GOPROXY",
+      "promptEn": "Compiling with GOPROXY proxy",
+      "path": [
+        "Multimedia"
+      ]
+    },
+    {
+      "symbol": "UNBLOCKNETEASEMUSIC_GO_COMPRESS_UPX",
+      "promptEn": "Compress executable files with UPX",
+      "path": [
+        "Multimedia"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_airconnect",
+      "promptEn": "AirConnect",
+      "path": [
+        "Multimedia"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_aliyundrive-fuse",
+      "promptEn": "FUSE for AliyunDrive",
+      "path": [
+        "Multimedia"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_aliyundrive-webdav",
+      "promptEn": "WebDAV server for AliyunDrive",
+      "path": [
+        "Multimedia"
+      ]
+    },
+    {
       "symbol": "PACKAGE_ffmpeg",
       "promptEn": "FFmpeg program",
       "path": [
@@ -54034,8 +56494,8 @@
       ]
     },
     {
-      "symbol": "PACKAGE_ffmpeg-custom",
-      "promptEn": "FFmpeg program (custom)",
+      "symbol": "PACKAGE_ffmpeg-remux",
+      "promptEn": "FFmpeg remux",
       "path": [
         "Multimedia"
       ]
@@ -54043,13 +56503,6 @@
     {
       "symbol": "PACKAGE_ffprobe",
       "promptEn": "FFmpeg CLI media identifier",
-      "path": [
-        "Multimedia"
-      ]
-    },
-    {
-      "symbol": "PACKAGE_ffprobe-custom",
-      "promptEn": "FFmpeg CLI media identifier (custom)",
       "path": [
         "Multimedia"
       ]
@@ -54485,6 +56938,13 @@
       ]
     },
     {
+      "symbol": "PACKAGE_koolproxy",
+      "promptEn": "koolproxy bin is from koolshare",
+      "path": [
+        "Multimedia"
+      ]
+    },
+    {
       "symbol": "PACKAGE_lcdgrilo",
       "promptEn": "lcdgrilo",
       "path": [
@@ -54788,8 +57248,16 @@
       ]
     },
     {
+      "symbol": "PACKAGE_qBittorrent-static",
+      "promptEn": "bittorrent client programmed in C++ / Qt",
+      "path": [
+        "Network",
+        "BitTorrent"
+      ]
+    },
+    {
       "symbol": "PACKAGE_qbittorrent",
-      "promptEn": "A BitTorrent client in Qt",
+      "promptEn": "bittorrent client programmed in C++ / Qt",
       "path": [
         "Network",
         "BitTorrent"
@@ -54869,7 +57337,7 @@
     },
     {
       "symbol": "PACKAGE_minieap",
-      "promptEn": "Extendable 802.1x client",
+      "promptEn": "Extensible 802.1x client with Ruijie v3 (v4) plugin",
       "path": [
         "Network",
         "Campus Network"
@@ -55108,6 +57576,14 @@
       ]
     },
     {
+      "symbol": "PACKAGE_BaiduPCS-Go",
+      "promptEn": "Terminal utility for Baidu Network Disk",
+      "path": [
+        "Network",
+        "Download Manager"
+      ]
+    },
+    {
       "symbol": "PACKAGE_ariang",
       "promptEn": "AriaNg webui for uhttpd webserver",
       "path": [
@@ -55316,6 +57792,14 @@
       ]
     },
     {
+      "symbol": "PACKAGE_go-aliyundrive-webdav",
+      "promptEn": "A WebDav server for AliyunDrive",
+      "path": [
+        "Network",
+        "File Transfer"
+      ]
+    },
+    {
       "symbol": "PACKAGE_lftp",
       "promptEn": "a sophisticated file transfer program with command line interface.",
       "path": [
@@ -55420,6 +57904,14 @@
       ]
     },
     {
+      "symbol": "RSYNC_idn",
+      "promptEn": "Enable international domain names support",
+      "path": [
+        "Network",
+        "File Transfer"
+      ]
+    },
+    {
       "symbol": "PACKAGE_rsyncd",
       "promptEn": "Rsync daemon",
       "path": [
@@ -55436,6 +57928,14 @@
       ]
     },
     {
+      "symbol": "PACKAGE_unishare",
+      "promptEn": "Unified Network Shares Manager",
+      "path": [
+        "Network",
+        "File Transfer"
+      ]
+    },
+    {
       "symbol": "PACKAGE_vsftpd",
       "promptEn": "Fast and secure FTP server (no TLS)",
       "path": [
@@ -55444,8 +57944,32 @@
       ]
     },
     {
+      "symbol": "PACKAGE_vsftpd-alt",
+      "promptEn": "A fast and secure FTP server (with aio support)",
+      "path": [
+        "Network",
+        "File Transfer"
+      ]
+    },
+    {
+      "symbol": "VSFTPD_USE_UCI_SCRIPTS",
+      "promptEn": "Uses UCI scripts",
+      "path": [
+        "Network",
+        "File Transfer"
+      ]
+    },
+    {
       "symbol": "PACKAGE_vsftpd-tls",
       "promptEn": "Fast and secure FTP server (TLS)",
+      "path": [
+        "Network",
+        "File Transfer"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_webdav2",
+      "promptEn": "Simple Go WebDAV server.",
       "path": [
         "Network",
         "File Transfer"
@@ -57528,6 +60052,14 @@
       ]
     },
     {
+      "symbol": "PACKAGE_ddns-scripts_aliyun",
+      "promptEn": "DDNS extension for AliYun.com",
+      "path": [
+        "Network",
+        "IP Addresses and Names"
+      ]
+    },
+    {
       "symbol": "PACKAGE_dhtd",
       "promptEn": "DHT Daemon",
       "path": [
@@ -57546,6 +60078,14 @@
     {
       "symbol": "PACKAGE_dns2socks",
       "promptEn": "DNS to SOCKS or HTTP proxy",
+      "path": [
+        "Network",
+        "IP Addresses and Names"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_dns2socks-rust",
+      "promptEn": "DNS forwards to SOCKS5 server",
       "path": [
         "Network",
         "IP Addresses and Names"
@@ -57905,6 +60445,14 @@
     {
       "symbol": "PACKAGE_family-dns",
       "promptEn": "Family DNS",
+      "path": [
+        "Network",
+        "IP Addresses and Names"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_floatip",
+      "promptEn": "Float IP",
       "path": [
         "Network",
         "IP Addresses and Names"
@@ -58483,6 +61031,14 @@
     {
       "symbol": "PACKAGE_pdns-tools",
       "promptEn": "Tools for DNS debugging by PowerDNS",
+      "path": [
+        "Network",
+        "IP Addresses and Names"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_pdnsd-alt",
+      "promptEn": "Proxy DNS Server",
       "path": [
         "Network",
         "IP Addresses and Names"
@@ -59362,6 +61918,14 @@
       ]
     },
     {
+      "symbol": "PACKAGE_luci-app-bandwidthd",
+      "promptEn": "luci for bandwidthd",
+      "path": [
+        "Network",
+        "Luci"
+      ]
+    },
+    {
       "symbol": "PACKAGE_mesh11sd",
       "promptEn": "Dynamic 802.11s Mesh Management Daemon",
       "path": [
@@ -60043,6 +62607,14 @@
       ]
     },
     {
+      "symbol": "PACKAGE_iptvhelper",
+      "promptEn": "Scripts for configure IPTV easily",
+      "path": [
+        "Network",
+        "Routing and Redirection"
+      ]
+    },
+    {
       "symbol": "PACKAGE_lldpd",
       "promptEn": "Link Layer Discovery Protocol daemon",
       "path": [
@@ -60422,6 +62994,14 @@
       ]
     },
     {
+      "symbol": "PACKAGE_tcfilter",
+      "promptEn": "Persistent tc ingress filters (UCI-managed)",
+      "path": [
+        "Network",
+        "Routing and Redirection"
+      ]
+    },
+    {
       "symbol": "PACKAGE_tcpproxy",
       "promptEn": "IPv4/IPv6 tcp connection proxy",
       "path": [
@@ -60431,7 +63011,7 @@
     },
     {
       "symbol": "PACKAGE_ua2f",
-      "promptEn": "Change User-Agent to Fwords",
+      "promptEn": "Change User-Agent to Fwords on the fly.",
       "path": [
         "Network",
         "Routing and Redirection"
@@ -60483,6 +63063,14 @@
       "path": [
         "Network",
         "Routing and Redirection"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_mentohust",
+      "promptEn": "A Ruijie Client Daemon",
+      "path": [
+        "Network",
+        "Ruijie"
       ]
     },
     {
@@ -68180,6 +70768,14 @@
       ]
     },
     {
+      "symbol": "PACKAGE_wrtbwmon",
+      "promptEn": "A Traffic Usage Monitor",
+      "path": [
+        "Network",
+        "Tools"
+      ]
+    },
+    {
       "symbol": "PACKAGE_chaosvpn",
       "promptEn": "Config generator for chaos vpn",
       "path": [
@@ -68375,6 +70971,14 @@
       ]
     },
     {
+      "symbol": "PACKAGE_headscale",
+      "promptEn": "A Tailscale control server",
+      "path": [
+        "Network",
+        "VPN"
+      ]
+    },
+    {
       "symbol": "PACKAGE_libreswan",
       "promptEn": "Libreswan",
       "path": [
@@ -68417,6 +71021,22 @@
     {
       "symbol": "PACKAGE_netbird",
       "promptEn": "Connect your devices into a single secure private WireGuard®-based mesh network",
+      "path": [
+        "Network",
+        "VPN"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_netmaker",
+      "promptEn": "Netmaker for OpenWRT",
+      "path": [
+        "Network",
+        "VPN"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_netmaker-dev",
+      "promptEn": "(source files)",
       "path": [
         "Network",
         "VPN"
@@ -68520,6 +71140,14 @@
     },
     {
       "symbol": "PACKAGE_openvpn-easy-rsa",
+      "promptEn": "CLI utility to build and manage a PKI CA.",
+      "path": [
+        "Network",
+        "VPN"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_openvpn-easy-rsa-whisky",
       "promptEn": "CLI utility to build and manage a PKI CA.",
       "path": [
         "Network",
@@ -68753,6 +71381,14 @@
     {
       "symbol": "OPENVPN_wolfssl_ENABLE_SMALL",
       "promptEn": "Enable size optimization",
+      "path": [
+        "Network",
+        "VPN"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_pgyvpn",
+      "promptEn": "PuGongYing VPN, Fast networking",
       "path": [
         "Network",
         "VPN"
@@ -69995,6 +72631,22 @@
       ]
     },
     {
+      "symbol": "PACKAGE_agentflow",
+      "promptEn": "AgentFlow",
+      "path": [
+        "Network",
+        "Web Servers/Proxies"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_alist",
+      "promptEn": "A file list program that supports multiple storage",
+      "path": [
+        "Network",
+        "Web Servers/Proxies"
+      ]
+    },
+    {
       "symbol": "PACKAGE_apache",
       "promptEn": "The Apache Web Server",
       "path": [
@@ -70139,6 +72791,22 @@
       ]
     },
     {
+      "symbol": "PACKAGE_baidudrive",
+      "promptEn": "BaiduDrive",
+      "path": [
+        "Network",
+        "Web Servers/Proxies"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_baidusdk",
+      "promptEn": "Baidu NAS SDK runtime",
+      "path": [
+        "Network",
+        "Web Servers/Proxies"
+      ]
+    },
+    {
       "symbol": "PACKAGE_brook",
       "promptEn": "A cross-platform proxy software",
       "path": [
@@ -70219,6 +72887,22 @@
       ]
     },
     {
+      "symbol": "PACKAGE_daed-next",
+      "promptEn": "daed-next is a backend of dae",
+      "path": [
+        "Network",
+        "Web Servers/Proxies"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_ddnsto",
+      "promptEn": "DDNS.to - the reverse proxy (standard)",
+      "path": [
+        "Network",
+        "Web Servers/Proxies"
+      ]
+    },
+    {
       "symbol": "PACKAGE_dufs",
       "promptEn": "A distinctive utility file server",
       "path": [
@@ -70237,6 +72921,14 @@
     {
       "symbol": "PACKAGE_etebase-src",
       "promptEn": "End-to-end encrypted backend (sources)",
+      "path": [
+        "Network",
+        "Web Servers/Proxies"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_fastnet",
+      "promptEn": "FastNet - network test Web UI",
       "path": [
         "Network",
         "Web Servers/Proxies"
@@ -70283,6 +72975,14 @@
       ]
     },
     {
+      "symbol": "PACKAGE_ghttpd",
+      "promptEn": "ghttpd",
+      "path": [
+        "Network",
+        "Web Servers/Proxies"
+      ]
+    },
+    {
       "symbol": "PACKAGE_haproxy",
       "promptEn": "TCP/HTTP Load Balancer with SSL support",
       "path": [
@@ -70301,6 +73001,46 @@
     {
       "symbol": "PACKAGE_haproxy-nossl",
       "promptEn": "TCP/HTTP Load Balancer without SSL support",
+      "path": [
+        "Network",
+        "Web Servers/Proxies"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_honk",
+      "promptEn": "honk - eBPF transparent proxy engine (dae-compatible)",
+      "path": [
+        "Network",
+        "Web Servers/Proxies"
+      ]
+    },
+    {
+      "symbol": "HONK_USE_KERNEL_BTF",
+      "promptEn": "Use kernel BTF (integrated)",
+      "path": [
+        "Network",
+        "Web Servers/Proxies"
+      ]
+    },
+    {
+      "symbol": "HONK_USE_VMLINUX_BTF",
+      "promptEn": "Use vmlinux-btf package",
+      "path": [
+        "Network",
+        "Web Servers/Proxies"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_ipt2socks-rs",
+      "promptEn": "Convert iptables/nftables to SOCKS5",
+      "path": [
+        "Network",
+        "Web Servers/Proxies"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_istoreenhance",
+      "promptEn": "iStoreEnhance - Fix some net issues for istore",
       "path": [
         "Network",
         "Web Servers/Proxies"
@@ -70739,6 +73479,46 @@
       ]
     },
     {
+      "symbol": "PACKAGE_linkease",
+      "promptEn": "LinkEase - the file cloud",
+      "path": [
+        "Network",
+        "Web Servers/Proxies"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_linkease-app-entry",
+      "promptEn": "LinkEase application entry arbiter and fallback gateway",
+      "path": [
+        "Network",
+        "Web Servers/Proxies"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_linkease-common-bin",
+      "promptEn": "LinkEase common binary tools",
+      "path": [
+        "Network",
+        "Web Servers/Proxies"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_linkease-runtime-transition",
+      "promptEn": "LinkEase split-runtime transition contract",
+      "path": [
+        "Network",
+        "Web Servers/Proxies"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_linkeasefull",
+      "promptEn": "LinkEase Full - the local web desktop",
+      "path": [
+        "Network",
+        "Web Servers/Proxies"
+      ]
+    },
+    {
       "symbol": "PACKAGE_microsocks",
       "promptEn": "SOCKS5 TCP/IP only proxy",
       "path": [
@@ -70757,6 +73537,62 @@
     {
       "symbol": "PACKAGE_nginx-full",
       "promptEn": "Nginx web server with ALL config selected",
+      "path": [
+        "Network",
+        "Web Servers/Proxies"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_nginx-mod-brotli",
+      "promptEn": "Nginx brotli module",
+      "path": [
+        "Network",
+        "Web Servers/Proxies"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_nginx-mod-dav-ext",
+      "promptEn": "Nginx dav-ext module",
+      "path": [
+        "Network",
+        "Web Servers/Proxies"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_nginx-mod-geoip2",
+      "promptEn": "Nginx geoip2 module",
+      "path": [
+        "Network",
+        "Web Servers/Proxies"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_nginx-mod-headers-more",
+      "promptEn": "Nginx headers-more module",
+      "path": [
+        "Network",
+        "Web Servers/Proxies"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_nginx-mod-lua",
+      "promptEn": "Nginx lua module",
+      "path": [
+        "Network",
+        "Web Servers/Proxies"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_nginx-mod-lua-resty-core",
+      "promptEn": "Nginx Lua OpenResty core module",
+      "path": [
+        "Network",
+        "Web Servers/Proxies"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_nginx-mod-lua-resty-lrucache",
+      "promptEn": "Nginx Lua OpenResty lrucache module",
       "path": [
         "Network",
         "Web Servers/Proxies"
@@ -71113,62 +73949,6 @@
       ]
     },
     {
-      "symbol": "PACKAGE_nginx-mod-brotli",
-      "promptEn": "Nginx brotli module",
-      "path": [
-        "Network",
-        "Web Servers/Proxies"
-      ]
-    },
-    {
-      "symbol": "PACKAGE_nginx-mod-dav-ext",
-      "promptEn": "Nginx dav-ext module",
-      "path": [
-        "Network",
-        "Web Servers/Proxies"
-      ]
-    },
-    {
-      "symbol": "PACKAGE_nginx-mod-geoip2",
-      "promptEn": "Nginx geoip2 module",
-      "path": [
-        "Network",
-        "Web Servers/Proxies"
-      ]
-    },
-    {
-      "symbol": "PACKAGE_nginx-mod-headers-more",
-      "promptEn": "Nginx headers-more module",
-      "path": [
-        "Network",
-        "Web Servers/Proxies"
-      ]
-    },
-    {
-      "symbol": "PACKAGE_nginx-mod-lua",
-      "promptEn": "Nginx lua module",
-      "path": [
-        "Network",
-        "Web Servers/Proxies"
-      ]
-    },
-    {
-      "symbol": "PACKAGE_nginx-mod-lua-resty-core",
-      "promptEn": "Nginx Lua OpenResty core module",
-      "path": [
-        "Network",
-        "Web Servers/Proxies"
-      ]
-    },
-    {
-      "symbol": "PACKAGE_nginx-mod-lua-resty-lrucache",
-      "promptEn": "Nginx Lua OpenResty lrucache module",
-      "path": [
-        "Network",
-        "Web Servers/Proxies"
-      ]
-    },
-    {
       "symbol": "PACKAGE_nginx-mod-luci",
       "promptEn": "Support file for Nginx",
       "path": [
@@ -71259,6 +74039,22 @@
     {
       "symbol": "PACKAGE_nps",
       "promptEn": "A intranet penetration proxy server (nps)",
+      "path": [
+        "Network",
+        "Web Servers/Proxies"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_openlist2",
+      "promptEn": "A file list program that supports multiple storage",
+      "path": [
+        "Network",
+        "Web Servers/Proxies"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_phtunnel",
+      "promptEn": "HSK Intranet penetration",
       "path": [
         "Network",
         "Web Servers/Proxies"
@@ -71433,6 +74229,22 @@
       ]
     },
     {
+      "symbol": "PACKAGE_quickfile",
+      "promptEn": "Quick File Manager",
+      "path": [
+        "Network",
+        "Web Servers/Proxies"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_quickstart",
+      "promptEn": "Quickstart, the quick start.",
+      "path": [
+        "Network",
+        "Web Servers/Proxies"
+      ]
+    },
+    {
       "symbol": "PACKAGE_radicale3",
       "promptEn": "Radicale 3.x CalDAV/CardDAV server",
       "path": [
@@ -71457,8 +74269,64 @@
       ]
     },
     {
+      "symbol": "PACKAGE_routergo",
+      "promptEn": "RouterGo",
+      "path": [
+        "Network",
+        "Web Servers/Proxies"
+      ]
+    },
+    {
       "symbol": "PACKAGE_shadow-tls",
       "promptEn": "A proxy to expose real tls handshake to the firewall",
+      "path": [
+        "Network",
+        "Web Servers/Proxies"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_shadowsocks-libev-config",
+      "promptEn": "shadowsocks-libev config scripts",
+      "path": [
+        "Network",
+        "Web Servers/Proxies"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_shadowsocks-libev-ss-local",
+      "promptEn": "shadowsocks-libev ss-local",
+      "path": [
+        "Network",
+        "Web Servers/Proxies"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_shadowsocks-libev-ss-redir",
+      "promptEn": "shadowsocks-libev ss-redir",
+      "path": [
+        "Network",
+        "Web Servers/Proxies"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_shadowsocks-libev-ss-rules",
+      "promptEn": "shadowsocks-libev ss-rules",
+      "path": [
+        "Network",
+        "Web Servers/Proxies"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_shadowsocks-libev-ss-server",
+      "promptEn": "shadowsocks-libev ss-server",
+      "path": [
+        "Network",
+        "Web Servers/Proxies"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_shadowsocks-libev-ss-tunnel",
+      "promptEn": "shadowsocks-libev ss-tunnel",
       "path": [
         "Network",
         "Web Servers/Proxies"
@@ -71499,6 +74367,46 @@
     {
       "symbol": "PACKAGE_shadowsocks-rust-ssurl",
       "promptEn": "shadowsocks-rust ssurl",
+      "path": [
+        "Network",
+        "Web Servers/Proxies"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_shadowsocksr-libev-ssr-check",
+      "promptEn": "shadowsocksr-libev ssr-check",
+      "path": [
+        "Network",
+        "Web Servers/Proxies"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_shadowsocksr-libev-ssr-local",
+      "promptEn": "shadowsocksr-libev ssr-local",
+      "path": [
+        "Network",
+        "Web Servers/Proxies"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_shadowsocksr-libev-ssr-nat",
+      "promptEn": "shadowsocksr-libev ssr-nat",
+      "path": [
+        "Network",
+        "Web Servers/Proxies"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_shadowsocksr-libev-ssr-redir",
+      "promptEn": "shadowsocksr-libev ssr-redir",
+      "path": [
+        "Network",
+        "Web Servers/Proxies"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_shadowsocksr-libev-ssr-server",
+      "promptEn": "shadowsocksr-libev ssr-server",
       "path": [
         "Network",
         "Web Servers/Proxies"
@@ -71633,6 +74541,14 @@
       ]
     },
     {
+      "symbol": "PACKAGE_speedtestcli",
+      "promptEn": "SpeedTestCli - network speed test",
+      "path": [
+        "Network",
+        "Web Servers/Proxies"
+      ]
+    },
+    {
       "symbol": "PACKAGE_squid",
       "promptEn": "full-featured Web proxy cache",
       "path": [
@@ -71761,6 +74677,14 @@
       ]
     },
     {
+      "symbol": "PACKAGE_sunpanel",
+      "promptEn": "SunPanel, NAS navigation panel.",
+      "path": [
+        "Network",
+        "Web Servers/Proxies"
+      ]
+    },
+    {
       "symbol": "PACKAGE_tinyproxy",
       "promptEn": "Tinyproxy is a lightweight HTTP and HTTPS proxy",
       "path": [
@@ -71769,8 +74693,24 @@
       ]
     },
     {
+      "symbol": "PACKAGE_tower",
+      "promptEn": "Tower subscription parser and config generator",
+      "path": [
+        "Network",
+        "Web Servers/Proxies"
+      ]
+    },
+    {
       "symbol": "PACKAGE_trojan",
       "promptEn": "An unidentifiable mechanism that helps you bypass GFW",
+      "path": [
+        "Network",
+        "Web Servers/Proxies"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_trojan-go",
+      "promptEn": "A Trojan proxy written in Go",
       "path": [
         "Network",
         "Web Servers/Proxies"
@@ -71889,6 +74829,30 @@
       ]
     },
     {
+      "symbol": "PACKAGE_virtualdog",
+      "promptEn": "VirtualDog",
+      "path": [
+        "Network",
+        "Web Servers/Proxies"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_virtualdog-efi",
+      "promptEn": "VirtualDog ARM64 UEFI firmware",
+      "path": [
+        "Network",
+        "Web Servers/Proxies"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_vmease",
+      "promptEn": "VmEase - webvirtcloud helper",
+      "path": [
+        "Network",
+        "Web Servers/Proxies"
+      ]
+    },
+    {
       "symbol": "PACKAGE_xfrpc",
       "promptEn": "C language fast reverse proxy client",
       "path": [
@@ -71899,6 +74863,14 @@
     {
       "symbol": "PACKAGE_xray-plugin",
       "promptEn": "SIP003 plugin for Shadowsocks, based on Xray",
+      "path": [
+        "Network",
+        "Web Servers/Proxies"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_xunyou",
+      "promptEn": "xunyou",
       "path": [
         "Network",
         "Web Servers/Proxies"
@@ -72517,6 +75489,13 @@
       ]
     },
     {
+      "symbol": "PACKAGE_HomeRedirect",
+      "promptEn": "Port forwarding utility for HomeLede.",
+      "path": [
+        "Network"
+      ]
+    },
+    {
       "symbol": "PACKAGE_ShadowVPN",
       "promptEn": "A fast, safe VPN based on libsodium",
       "path": [
@@ -72568,6 +75547,13 @@
     {
       "symbol": "PACKAGE_adblock-fast",
       "promptEn": "AdBlock Fast Service",
+      "path": [
+        "Network"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_adbyby",
+      "promptEn": "Powerful adblock module to block ad.",
       "path": [
         "Network"
       ]
@@ -72652,6 +75638,13 @@
     {
       "symbol": "PACKAGE_appfilter",
       "promptEn": "App filter userspace module",
+      "path": [
+        "Network"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_baidupcs-web",
+      "promptEn": "BaiduPCS-Web is a web controller for BaiduPCS-Go",
       "path": [
         "Network"
       ]
@@ -72853,6 +75846,13 @@
       ]
     },
     {
+      "symbol": "PACKAGE_clashoo",
+      "promptEn": "Clashoo (Mihomo)",
+      "path": [
+        "Network"
+      ]
+    },
+    {
       "symbol": "PACKAGE_cni-route-override",
       "promptEn": "Meta CNI plugin for overriding IP route",
       "path": [
@@ -72937,8 +75937,43 @@
       ]
     },
     {
+      "symbol": "PACKAGE_docker-lan-bridge",
+      "promptEn": "Docker LAN Bridge",
+      "path": [
+        "Network"
+      ]
+    },
+    {
       "symbol": "PACKAGE_ds-lite",
       "promptEn": "IPv4 over IPv6 (RFC2473 and DS-Lite) configuration support",
+      "path": [
+        "Network"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_dsmboot",
+      "promptEn": "Synology DSM pxeboot from TFTP",
+      "path": [
+        "Network"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_easytier",
+      "promptEn": "A simple, decentralized mesh VPN with WireGuard support.",
+      "path": [
+        "Network"
+      ]
+    },
+    {
+      "symbol": "EASYTIER_INCLUDE_WEBCONSOLE",
+      "promptEn": "Include Web Console (easytier-web)",
+      "path": [
+        "Network"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_easytier-noweb",
+      "promptEn": "A simple, decentralized mesh VPN with WireGuard support.",
       "path": [
         "Network"
       ]
@@ -73002,6 +76037,13 @@
     {
       "symbol": "PACKAGE_fail2ban-src",
       "promptEn": "ban hosts that cause multiple authentication errors (sources)",
+      "path": [
+        "Network"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_fail2banop",
+      "promptEn": "fail2banop - Auto ban ip if the login is failed",
       "path": [
         "Network"
       ]
@@ -73476,6 +76518,34 @@
       ]
     },
     {
+      "symbol": "PACKAGE_internet-detector",
+      "promptEn": "Internet detector",
+      "path": [
+        "Network"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_internet-detector-mod-email",
+      "promptEn": "Email module for internet-detector",
+      "path": [
+        "Network"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_internet-detector-mod-modem-restart",
+      "promptEn": "Modem restart module for internet-detector",
+      "path": [
+        "Network"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_internet-detector-mod-telegram",
+      "promptEn": "Telegram messenger module for internet-detector",
+      "path": [
+        "Network"
+      ]
+    },
+    {
       "symbol": "PACKAGE_iperf",
       "promptEn": "Internet Protocol bandwidth measuring tool",
       "path": [
@@ -73881,6 +76951,13 @@
       ]
     },
     {
+      "symbol": "PACKAGE_lingtigameacc",
+      "promptEn": "LingTi Game Acc",
+      "path": [
+        "Network"
+      ]
+    },
+    {
       "symbol": "PACKAGE_linknx",
       "promptEn": "KNX home automation platform",
       "path": [
@@ -73932,6 +77009,13 @@
     {
       "symbol": "PACKAGE_ltq-vdsl-vr9-vectoring-fw-installer",
       "promptEn": "VDSL2 Vectoring Firmware installer",
+      "path": [
+        "Network"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_lucky",
+      "promptEn": "Lucky dynamic domain name ddns-go service, socat,frp ",
       "path": [
         "Network"
       ]
@@ -74002,6 +77086,13 @@
     {
       "symbol": "PACKAGE_memcached",
       "promptEn": "The high-performance, distributed memory object caching system",
+      "path": [
+        "Network"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_mihomo",
+      "promptEn": "A rule based proxy in Go.",
       "path": [
         "Network"
       ]
@@ -74482,6 +77573,13 @@
       ]
     },
     {
+      "symbol": "PACKAGE_momo",
+      "promptEn": "Transparent Proxy with sing-box on OpenWrt.",
+      "path": [
+        "Network"
+      ]
+    },
+    {
       "symbol": "PACKAGE_mosquitto-client-nossl",
       "promptEn": "mosquitto - client tools (Without SSL support)",
       "path": [
@@ -74573,6 +77671,13 @@
       ]
     },
     {
+      "symbol": "PACKAGE_my-dnshelper",
+      "promptEn": "my-dnshelper",
+      "path": [
+        "Network"
+      ]
+    },
+    {
       "symbol": "PACKAGE_nanomq",
       "promptEn": "NanoMQ Broker",
       "path": [
@@ -74582,6 +77687,20 @@
     {
       "symbol": "PACKAGE_natmap",
       "promptEn": "TCP/UDP port mapping tool for full cone NAT",
+      "path": [
+        "Network"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_natter",
+      "promptEn": "Open Port under FullCone NAT (NAT 1)",
+      "path": [
+        "Network"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_natter2",
+      "promptEn": "Open Port under FullCone NAT (NAT 1)",
       "path": [
         "Network"
       ]
@@ -74715,6 +77834,13 @@
       ]
     },
     {
+      "symbol": "PACKAGE_netkeeper-interception",
+      "promptEn": "Netkeeper Account Dump Plugin",
+      "path": [
+        "Network"
+      ]
+    },
+    {
       "symbol": "PACKAGE_netperf",
       "promptEn": "Network performance measurement tool",
       "path": [
@@ -74738,6 +77864,13 @@
     {
       "symbol": "PACKAGE_nfdump",
       "promptEn": "nfdump",
+      "path": [
+        "Network"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_nikki",
+      "promptEn": "Transparent Proxy with Mihomo on OpenWrt.",
       "path": [
         "Network"
       ]
@@ -76009,6 +79142,13 @@
       ]
     },
     {
+      "symbol": "PACKAGE_prplmesh",
+      "promptEn": "prplMesh controller and agent for stock OpenWrt",
+      "path": [
+        "Network"
+      ]
+    },
+    {
       "symbol": "PACKAGE_q",
       "promptEn": "A tiny command line DNS client.",
       "path": [
@@ -76450,6 +79590,27 @@
       ]
     },
     {
+      "symbol": "PACKAGE_speedtest-web",
+      "promptEn": "speedtest-web is a Openwrt package for speedtest-go, a Go backend for LibreSpeed",
+      "path": [
+        "Network"
+      ]
+    },
+    {
+      "symbol": "SPEEDTEST_WEB_COMPRESS_GOPROXY",
+      "promptEn": "Compiling with GOPROXY proxy",
+      "path": [
+        "Network"
+      ]
+    },
+    {
+      "symbol": "SPEEDTEST_WEB_COMPRESS_UPX",
+      "promptEn": "Compress executable files with UPX",
+      "path": [
+        "Network"
+      ]
+    },
+    {
       "symbol": "PACKAGE_speedtestcpp",
       "promptEn": "SpeedTest++",
       "path": [
@@ -76466,6 +79627,20 @@
     {
       "symbol": "PACKAGE_sscep",
       "promptEn": "A Simple SCEP (Simple Certificate Enrollment Protocol) client",
+      "path": [
+        "Network"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_ssocks",
+      "promptEn": "sSocks Relay",
+      "path": [
+        "Network"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_ssocksd",
+      "promptEn": "sSocks Server",
       "path": [
         "Network"
       ]
@@ -76543,6 +79718,13 @@
     {
       "symbol": "PACKAGE_tcping",
       "promptEn": "tcping measures the latency of a tcp-connection",
+      "path": [
+        "Network"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_tcpping",
+      "promptEn": "TCP Ping Tool",
       "path": [
         "Network"
       ]
@@ -76662,6 +79844,13 @@
     {
       "symbol": "PACKAGE_travelmate",
       "promptEn": "A wlan connection manager for travel router",
+      "path": [
+        "Network"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_trojan-plus",
+      "promptEn": "An unidentifiable mechanism that helps you bypass GFW. It's compatible with original trojan with experimental features.",
       "path": [
         "Network"
       ]
@@ -76940,6 +80129,27 @@
       ]
     },
     {
+      "symbol": "PACKAGE_uugamebooster",
+      "promptEn": "NetEase UU Game Booster",
+      "path": [
+        "Network"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_v2fly-geoip",
+      "promptEn": "A list to be used for routing purpose in Project V (geoip)",
+      "path": [
+        "Network"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_v2fly-geosite",
+      "promptEn": "A list to be used for routing purpose in Project V (geosite)",
+      "path": [
+        "Network"
+      ]
+    },
+    {
       "symbol": "PACKAGE_v2ray-core",
       "promptEn": "A proxy platform to bypass network restrictions",
       "path": [
@@ -76963,6 +80173,13 @@
     {
       "symbol": "PACKAGE_vallumd",
       "promptEn": "Centralized or distributed blacklist",
+      "path": [
+        "Network"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_verysync",
+      "promptEn": "A efficient data transmission tool",
       "path": [
         "Network"
       ]
@@ -77019,6 +80236,13 @@
     {
       "symbol": "PACKAGE_wakeonlan",
       "promptEn": "Sends 'magic packets' to wake-on-LAN enabled ethernet adapters",
+      "path": [
+        "Network"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_webd",
+      "promptEn": "A Lightweight self-hosted netdisk application",
       "path": [
         "Network"
       ]
@@ -77643,6 +80867,48 @@
       ]
     },
     {
+      "symbol": "PACKAGE_dockermanager",
+      "promptEn": "Docker Manager",
+      "path": [
+        "System"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_ffmpeg-static",
+      "promptEn": "FFMPEG",
+      "path": [
+        "System"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_kai",
+      "promptEn": "KAI",
+      "path": [
+        "System"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_kai-agent",
+      "promptEn": "KAI OpenCode Agent bundle",
+      "path": [
+        "System"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_kai_session",
+      "promptEn": "KAI_SESSION",
+      "path": [
+        "System"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_kaiplus",
+      "promptEn": "KaiPlus",
+      "path": [
+        "System"
+      ]
+    },
+    {
       "symbol": "PACKAGE_apparmor-profiles",
       "promptEn": "AppArmor default profiles",
       "path": [
@@ -77787,14 +81053,6 @@
       ]
     },
     {
-      "symbol": "PACKAGE_lzmadec",
-      "promptEn": "lzmadec utility from XZ Utils",
-      "path": [
-        "Utilities",
-        "Compression"
-      ]
-    },
-    {
       "symbol": "PACKAGE_lzmainfo",
       "promptEn": "lzmainfo utility from XZ Utils",
       "path": [
@@ -77835,8 +81093,24 @@
       ]
     },
     {
+      "symbol": "PACKAGE_upx-static",
+      "promptEn": "UPX - The Ultimate Packer for eXecutables",
+      "path": [
+        "Utilities",
+        "Compression"
+      ]
+    },
+    {
       "symbol": "PACKAGE_xz-utils",
       "promptEn": "XZ Utils (meta)",
+      "path": [
+        "Utilities",
+        "Compression"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_lzmadec",
+      "promptEn": "lzmadec utility from XZ Utils",
       "path": [
         "Utilities",
         "Compression"
@@ -80350,6 +83624,13 @@
       ]
     },
     {
+      "symbol": "PACKAGE_autoupdate",
+      "promptEn": "Upgrade OpenWrt by one-key",
+      "path": [
+        "Utilities"
+      ]
+    },
+    {
       "symbol": "PACKAGE_base16384",
       "promptEn": "Encode binary files to printable utf16be",
       "path": [
@@ -80814,6 +84095,20 @@
     {
       "symbol": "PACKAGE_cgroup-tools",
       "promptEn": "CGroup config and exec tools",
+      "path": [
+        "Utilities"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_cgroupfs-mount",
+      "promptEn": "cgroup mount scripts",
+      "path": [
+        "Utilities"
+      ]
+    },
+    {
+      "symbol": "CGROUPFS_MOUNT_KERNEL_CGROUPS",
+      "promptEn": "Enable kernel cgroups support",
       "path": [
         "Utilities"
       ]
@@ -82611,6 +85906,13 @@
       ]
     },
     {
+      "symbol": "PACKAGE_fastfetch",
+      "promptEn": "Fetch and display system information",
+      "path": [
+        "Utilities"
+      ]
+    },
+    {
       "symbol": "PACKAGE_fbtest",
       "promptEn": "Frame buffer device testing tool",
       "path": [
@@ -82866,6 +86168,13 @@
     {
       "symbol": "PACKAGE_gddrescue",
       "promptEn": "Data recovery tool",
+      "path": [
+        "Utilities"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_geo2txt",
+      "promptEn": "V2ray geosite & geoip unpacking CLI tool",
       "path": [
         "Utilities"
       ]
@@ -83160,6 +86469,13 @@
     {
       "symbol": "PACKAGE_jshn",
       "promptEn": "JSON SHell Notation",
+      "path": [
+        "Utilities"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_k3screenctrl",
+      "promptEn": "LCD screen controller on PHICOMM K3",
       "path": [
         "Utilities"
       ]
@@ -83903,6 +87219,13 @@
       ]
     },
     {
+      "symbol": "PACKAGE_lcdsimple",
+      "promptEn": "Simple monitor screen",
+      "path": [
+        "Utilities"
+      ]
+    },
+    {
       "symbol": "PACKAGE_ldconfig",
       "promptEn": "Shared library path configuration",
       "path": [
@@ -83979,6 +87302,13 @@
     {
       "symbol": "PACKAGE_librespeed-cli-rust",
       "promptEn": "Command line client for LibreSpeed (Rust)",
+      "path": [
+        "Utilities"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_librespeed-common",
+      "promptEn": "LibreSpeed measurement orchestration",
       "path": [
         "Utilities"
       ]
@@ -84552,6 +87882,13 @@
       ]
     },
     {
+      "symbol": "PACKAGE_mise",
+      "promptEn": "mise - polyglot tool version manager",
+      "path": [
+        "Utilities"
+      ]
+    },
+    {
       "symbol": "PACKAGE_mmc-utils",
       "promptEn": "Userspace tools for MMC/SD devices",
       "path": [
@@ -84659,6 +87996,13 @@
     {
       "symbol": "PACKAGE_nerdctl",
       "promptEn": "contaiNERD CTL - Docker-compatible CLI for containerd",
+      "path": [
+        "Utilities"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_netkeeper",
+      "promptEn": "Netkeeper",
       "path": [
         "Utilities"
       ]
@@ -87209,6 +90553,13 @@
       ]
     },
     {
+      "symbol": "PACKAGE_taskd",
+      "promptEn": "Simple Task Manager",
+      "path": [
+        "Utilities"
+      ]
+    },
+    {
       "symbol": "PACKAGE_taskset",
       "promptEn": "set or retrieve a process's CPU affinity",
       "path": [
@@ -88413,6 +91764,13 @@
       ]
     },
     {
+      "symbol": "PACKAGE_v2dat",
+      "promptEn": "V2ray geo/ip data unpack tools",
+      "path": [
+        "Utilities"
+      ]
+    },
+    {
       "symbol": "PACKAGE_v4l-utils",
       "promptEn": "Video 4 Linux utilities",
       "path": [
@@ -88443,6 +91801,13 @@
     {
       "symbol": "PACKAGE_watchcat",
       "promptEn": "Enable the configuration of programmed reboots or network interface restarts",
+      "path": [
+        "Utilities"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_watchdog",
+      "promptEn": "Routing Security Watchdog for OpenWrt",
       "path": [
         "Utilities"
       ]
@@ -89124,6 +92489,70 @@
       ]
     },
     {
+      "symbol": "PACKAGE_luci-app-fakemesh",
+      "promptEn": "LuCI Support for fakemesh",
+      "path": [
+        "X",
+        "Configuration Fake Mesh Support"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_kmod-natflow",
+      "promptEn": "natflow kernel driver",
+      "path": [
+        "X",
+        "Fast Forward Stacks"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_natflow-auth",
+      "promptEn": "natflow auth init script",
+      "path": [
+        "X",
+        "Fast Forward Stacks"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_natflow-boot",
+      "promptEn": "natflow boot init script",
+      "path": [
+        "X",
+        "Fast Forward Stacks"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_natflow-dpi-reader",
+      "promptEn": "natflow dpi reader",
+      "path": [
+        "X",
+        "Fast Forward Stacks"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_natflow-hostacl",
+      "promptEn": "natflow hostacl init script",
+      "path": [
+        "X",
+        "Fast Forward Stacks"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_lua-ipops",
+      "promptEn": "lua ipops lib",
+      "path": [
+        "X",
+        "Libs"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_luci-app-macvlan",
+      "promptEn": "LuCI Support for macvlan",
+      "path": [
+        "X",
+        "Macvlan"
+      ]
+    },
+    {
       "symbol": "PACKAGE_fontconfig",
       "promptEn": "fontconfig",
       "path": [
@@ -89135,6 +92564,7 @@
   "missingMenusZhCN": [
     "Kernel build options",
     "Filesystem ACL and attr support options",
+    "Hardware support",
     "Settings",
     "Archival Utilities",
     "Coreutils",
@@ -89165,8 +92595,12 @@
     "Modify features for non-core variants",
     "openwisp",
     "netjson-monitoring Configuration",
+    "eSir Playground",
+    "2. GameAcc",
+    "luci-app-xray Configuration",
     "ath10k Board-Specific Overrides",
     "DejaVu",
+    "Kernel",
     "Block Devices",
     "Bluetooth Support",
     "CAN Support",
@@ -89222,6 +92656,7 @@
     "IoT",
     "Networking",
     "Printing",
+    "Qt5",
     "Qt6",
     "SSL",
     "wolfSSL Library Configuration",
@@ -89229,6 +92664,7 @@
     "libimobiledevice",
     "Select Boost Options",
     "Select Boost libraries",
+    "FFmpeg configuration",
     "Select libxmlb options",
     "1. Collections",
     "2. Modules",
@@ -89238,6 +92674,7 @@
     "5. Plugins",
     "6. Protocols",
     "7. Libraries",
+    "9. Themes",
     "Select dovecot build options",
     "Streaming",
     "Select GStreamer libraries",
@@ -89262,6 +92699,7 @@
     "Instant Messaging",
     "Linux ATM tools",
     "LoRaWAN",
+    "Luci",
     "Mesh",
     "Meshtastic",
     "NMAP Suite",
@@ -89270,6 +92708,7 @@
     "OpenLDAP",
     "P2P",
     "Routing and Redirection",
+    "Ruijie",
     "SSH",
     "THC-IPv6 attack and analyzing toolkit",
     "Tcpreplay",
@@ -89277,6 +92716,7 @@
     "coturn configuration",
     "Telephony Lantiq",
     "Time Synchronization",
+    "Tools",
     "VPN",
     "Version Control Systems",
     "WWAN",
@@ -89288,6 +92728,7 @@
     "Readers",
     "Card readers",
     "Snapcast feature selection",
+    "System",
     "AppArmor",
     "BigClown",
     "Disc",
@@ -89305,6 +92746,11 @@
     "Select SANE backends",
     "Select shadow utilities",
     "Frameworks and Toolkits",
+    "X",
+    "Configuration Fake Mesh Support",
+    "Fast Forward Stacks",
+    "Libs",
+    "Macvlan",
     "Font-Utils"
   ],
   "missingChoicesZhCN": [
@@ -89446,246 +92892,203 @@
     },
     {
       "id": "choice-35",
-      "promptEn": "ZRAM Default compressor"
+      "promptEn": "Limit memory use by setting rlimit_data (experimental)"
     },
     {
       "id": "choice-36",
-      "promptEn": "device selection"
+      "promptEn": "ZRAM Default compressor"
     },
     {
       "id": "choice-37",
-      "promptEn": "FXS coefficients"
+      "promptEn": "device selection"
     },
     {
       "id": "choice-38",
-      "promptEn": "b43 firmware version"
+      "promptEn": "FXS coefficients"
     },
     {
       "id": "choice-39",
-      "promptEn": "Supported buses"
+      "promptEn": "b43 firmware version"
     },
     {
       "id": "choice-40",
-      "promptEn": "SSL Library"
+      "promptEn": "Supported buses"
     },
     {
       "id": "choice-41",
-      "promptEn": "Version Selection"
-    },
-    {
-      "id": "choice-42",
-      "promptEn": "i18n features"
-    },
-    {
-      "id": "choice-43",
-      "promptEn": "Hardware Acceleration"
-    },
-    {
-      "id": "choice-44",
-      "promptEn": "Compile Visibility."
-    },
-    {
-      "id": "choice-45",
-      "promptEn": "Compile Boost libraries."
-    },
-    {
-      "id": "choice-46",
-      "promptEn": "Selects Boost Runtime linkage."
-    },
-    {
-      "id": "choice-47",
-      "promptEn": "Select a Variant."
-    },
-    {
-      "id": "choice-48",
-      "promptEn": "Selected SSL library"
-    },
-    {
-      "id": "choice-49",
-      "promptEn": "Encryption library"
-    },
-    {
-      "id": "choice-50",
-      "promptEn": "Namespace zero definition"
-    },
-    {
-      "id": "choice-51",
-      "promptEn": "Select QMI message collection to build"
-    },
-    {
-      "id": "choice-52",
-      "promptEn": "Choose crypto backend"
-    },
-    {
-      "id": "choice-53",
-      "promptEn": "Select XML library"
-    },
-    {
-      "id": "choice-54",
-      "promptEn": "Selected Encryption library"
-    },
-    {
-      "id": "choice-55",
-      "promptEn": "TLS Provider"
-    },
-    {
-      "id": "choice-56",
-      "promptEn": "Select TSL library"
-    },
-    {
-      "id": "choice-57",
-      "promptEn": "Regular Expression"
-    },
-    {
-      "id": "choice-58",
-      "promptEn": "SSL library"
-    },
-    {
-      "id": "choice-59",
       "promptEn": "SSL Library"
     },
     {
-      "id": "choice-60",
-      "promptEn": "Crypto Library"
+      "id": "choice-42",
+      "promptEn": "Version Selection"
     },
     {
-      "id": "choice-61",
-      "promptEn": "XML Library"
+      "id": "choice-43",
+      "promptEn": "i18n features"
     },
     {
-      "id": "choice-62",
-      "promptEn": "CNID backends"
+      "id": "choice-44",
+      "promptEn": "Hardware Acceleration"
     },
     {
-      "id": "choice-63",
-      "promptEn": "SSL library"
+      "id": "choice-45",
+      "promptEn": "Compile Visibility."
     },
     {
-      "id": "choice-64",
+      "id": "choice-46",
+      "promptEn": "Compile Boost libraries."
+    },
+    {
+      "id": "choice-47",
+      "promptEn": "Selects Boost Runtime linkage."
+    },
+    {
+      "id": "choice-48",
+      "promptEn": "Select a Variant."
+    },
+    {
+      "id": "choice-49",
       "promptEn": "Selected SSL library"
     },
     {
+      "id": "choice-50",
+      "promptEn": "TLS backend"
+    },
+    {
+      "id": "choice-51",
+      "promptEn": "Encryption library"
+    },
+    {
+      "id": "choice-52",
+      "promptEn": "Namespace zero definition"
+    },
+    {
+      "id": "choice-53",
+      "promptEn": "Select QMI message collection to build"
+    },
+    {
+      "id": "choice-54",
+      "promptEn": "Choose crypto backend"
+    },
+    {
+      "id": "choice-55",
+      "promptEn": "Select XML library"
+    },
+    {
+      "id": "choice-56",
+      "promptEn": "Selected Encryption library"
+    },
+    {
+      "id": "choice-57",
+      "promptEn": "Backend dependency"
+    },
+    {
+      "id": "choice-58",
+      "promptEn": "Basic Core"
+    },
+    {
+      "id": "choice-59",
+      "promptEn": "Transparent Proxy Backend"
+    },
+    {
+      "id": "choice-60",
+      "promptEn": "Shadowsocks Client Selection"
+    },
+    {
+      "id": "choice-61",
+      "promptEn": "Shadowsocks Server Selection"
+    },
+    {
+      "id": "choice-62",
+      "promptEn": "V2ray-core Selection"
+    },
+    {
+      "id": "choice-63",
+      "promptEn": "TLS Provider"
+    },
+    {
+      "id": "choice-64",
+      "promptEn": "Select TSL library"
+    },
+    {
       "id": "choice-65",
-      "promptEn": "Selected SSL MD5 library"
+      "promptEn": "Regular Expression"
     },
     {
       "id": "choice-66",
-      "promptEn": "Enable SNMP support"
+      "promptEn": "SSL library"
     },
     {
       "id": "choice-67",
-      "promptEn": "SSL library"
+      "promptEn": "SSL Library"
     },
     {
       "id": "choice-68",
-      "promptEn": "SSL library"
+      "promptEn": "Crypto Library"
     },
     {
       "id": "choice-69",
-      "promptEn": "crypto library"
+      "promptEn": "XML Library"
     },
     {
       "id": "choice-70",
-      "promptEn": "Choose SSL Library"
+      "promptEn": "CNID backends"
     },
     {
       "id": "choice-71",
-      "promptEn": "Select SSL library"
+      "promptEn": "SSL library"
     },
     {
       "id": "choice-72",
-      "promptEn": "Select command-line editing support"
+      "promptEn": "Selected SSL library"
     },
     {
       "id": "choice-73",
-      "promptEn": "GL.iNet target"
+      "promptEn": "Selected SSL MD5 library"
     },
     {
       "id": "choice-74",
-      "promptEn": "stack tracing support"
+      "promptEn": "Enable SNMP support"
     },
     {
       "id": "choice-75",
+      "promptEn": "SSL library"
+    },
+    {
+      "id": "choice-76",
+      "promptEn": "SSL library"
+    },
+    {
+      "id": "choice-77",
+      "promptEn": "BTF source for CO-RE"
+    },
+    {
+      "id": "choice-78",
+      "promptEn": "crypto library"
+    },
+    {
+      "id": "choice-79",
+      "promptEn": "Choose SSL Library"
+    },
+    {
+      "id": "choice-80",
+      "promptEn": "Select SSL library"
+    },
+    {
+      "id": "choice-81",
+      "promptEn": "Select command-line editing support"
+    },
+    {
+      "id": "choice-82",
+      "promptEn": "GL.iNet target"
+    },
+    {
+      "id": "choice-83",
+      "promptEn": "stack tracing support"
+    },
+    {
+      "id": "choice-84",
       "promptEn": "Which OpenGL variant to use"
     }
-  ],
-  "automation": {
-    "generatedAt": "2026-10-06T02:17:12.462Z",
-    "catalogs": 17,
-    "cachedTexts": 42638,
-    "trigger": "schedule",
-    "phase": "zh-CN-usage",
-    "activeLanguage": "zh-CN",
-    "nextLanguage": "zh-CN",
-    "rotationLanguages": [
-      "ru",
-      "es",
-      "pt",
-      "ja",
-      "ko",
-      "de",
-      "fr",
-      "vi"
-    ],
-    "frozenLanguages": [
-      "zh-TW"
-    ],
-    "batchNumber": 5,
-    "batchCount": 5,
-    "queuedThisRun": 500,
-    "retryQueuedAfter": 56,
-    "batchLimit": 500,
-    "queuedCharacters": 44586,
-    "requestedCharactersThisRun": 0,
-    "runCharacterBudget": null,
-    "translatedThisRun": 444,
-    "targetPendingBefore": 23247,
-    "targetPendingAfter": 22803,
-    "localizedFields": 89395,
-    "pendingFields": 3393685,
-    "localizedByLanguage": {
-      "zh-CN": 46767,
-      "zh-TW": 5147,
-      "ru": 5147,
-      "es": 5113,
-      "pt": 5130,
-      "ja": 5147,
-      "ko": 5147,
-      "de": 5092,
-      "fr": 5130,
-      "vi": 5126
-    },
-    "pendingByLanguage": {
-      "zh-CN": 309883,
-      "zh-TW": 351503,
-      "ru": 351503,
-      "es": 351537,
-      "pt": 351520,
-      "ja": 351503,
-      "ko": 351503,
-      "de": 351558,
-      "fr": 351520,
-      "vi": 351524
-    },
-    "uniqueDescriptionPendingByLanguage": {
-      "zh-CN": 22803,
-      "zh-TW": 25738,
-      "ru": 25738,
-      "es": 25738,
-      "pt": 25738,
-      "ja": 25738,
-      "ko": 25738,
-      "de": 25738,
-      "fr": 25738,
-      "vi": 25738
-    },
-    "provider": "argos",
-    "providerConfigured": true,
-    "translationEnabled": true,
-    "model": "en-zh:installed",
-    "rejected": 56,
-    "timedOut": false,
-    "apiError": "",
-    "warning": "Batch incomplete: translated 444/500 queued descriptions"
-  }
+  ]
 }
