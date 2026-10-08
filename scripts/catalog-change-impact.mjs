@@ -30,6 +30,8 @@ const REGISTRY = Object.freeze({
     'catalog.config.json',
     'translations/menu-i18n.json',
     'translations/zh-CN.json',
+    'extra-feeds.conf',
+    'scripts/append-extra-feeds.sh',
     'scripts/build-index.mjs',
     'scripts/clone-upstream.sh',
     'scripts/compact-relations.mjs',

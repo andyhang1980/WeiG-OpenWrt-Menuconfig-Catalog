@@ -54,11 +54,7 @@ jobs:
         id: extra_feeds
         timeout-minutes: 5
         working-directory: work/upstream
-        run: |
-          bash "$GITHUB_WORKSPACE/scripts/run-stage.sh" extra_feeds bash -c \
-            '[ -f feeds.conf ] || cp feeds.conf.default feeds.conf; \
-             cat "$GITHUB_WORKSPACE/extra-feeds.conf" >> feeds.conf; \
-             ./scripts/feeds list -sf > /dev/null'
+        run: bash "$GITHUB_WORKSPACE/scripts/run-stage.sh" extra_feeds bash "$GITHUB_WORKSPACE/scripts/append-extra-feeds.sh"
       - name: Prepare feeds
         id: feeds
         # Three attempts on each of three trusted providers can take just over

@@ -18,9 +18,11 @@ on:
     paths:
       - "catalog.config.json"
       - "compatibility.json"
+      - "extra-feeds.conf"
       - "translations/menu-i18n.json"
       - "translations/zh-CN.json"
       - "translations/probe-ui.json"
+      - "scripts/append-extra-feeds.sh"
       - "scripts/build-index.mjs"
       - "scripts/clone-upstream.sh"
       - "scripts/compact-relations.mjs"
