@@ -1,14 +1,20 @@
-# 每日把本 fork 与上游仓库保持同步 / Keep this fork synchronized with its upstream repository daily.
+# 每日将上游主分支合并进本 fork（保留本地提交）/ Merge upstream main into this fork daily (keeps local commits).
 name: Sync Fork with Upstream / 与上游同步
 run-name: Sync Fork with Upstream / 与上游同步
 
 on:
   workflow_dispatch:
+    inputs:
+      upstream_repo:
+        description: 'Upstream repository (owner/name) / 上游仓库'
+        required: false
+        default: 'weigefenxiang/WeiG-OpenWrt-Menuconfig-Catalog'
   schedule:
     - cron: '47 2 * * *'
 
 permissions:
   contents: write
+  actions: write
 
 jobs:
   sync:
@@ -16,10 +22,47 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
-      - name: Sync with upstream / 同步上游提交
+      - name: Check out fork main / 检出主分支
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          ref: main
+
+      - name: Merge upstream main / 合并上游提交
+        env:
+          UPSTREAM_REPO: ${{ github.event.inputs.upstream_repo || 'weigefenxiang/WeiG-OpenWrt-Menuconfig-Catalog' }}
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          sync_base="$(git rev-parse HEAD)"
+          git remote add upstream-sync "https://github.com/${UPSTREAM_REPO}.git"
+          git fetch --no-tags upstream-sync main:refs/remotes/upstream-sync/main
+          if git merge-base --is-ancestor refs/remotes/upstream-sync/main HEAD; then
+            echo "Already up to date with ${UPSTREAM_REPO}/main / 已与上游一致"
+            exit 0
+          fi
+          if ! git merge --no-edit refs/remotes/upstream-sync/main; then
+            echo "::error::Merge conflict while syncing with ${UPSTREAM_REPO}; resolve manually. / 与上游合并存在冲突，需人工解决。"
+            git status --short | head -40
+            git merge --abort || true
+            exit 1
+          fi
+          if [ "$(git rev-parse HEAD)" = "$sync_base" ]; then
+            echo "Merge produced no new commit / 合并未产生新提交"
+            exit 0
+          fi
+          node scripts/check.mjs
+          git push origin HEAD:main
+          echo "Merged and pushed ${UPSTREAM_REPO}/main / 已合并并推送上游主分支"
+
+      - name: Validate with CI / 触发持续集成
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
           set -euo pipefail
-          gh repo sync "$GITHUB_REPOSITORY" -b main
-          echo "Synced $GITHUB_REPOSITORY with its upstream / 已与上游仓库同步"
+          workflow="probe-contracts"
+          if gh workflow view "$workflow" >/dev/null 2>&1; then
+            gh workflow run "$workflow" --ref main || echo "::warning::Could not dispatch ${workflow} / 无法触发 ${workflow}"
+          fi
+          echo "Sync complete / 同步完成"
