@@ -7,9 +7,9 @@
     "branch": "openwrt-22.03",
     "commit": "4e1d1b7df0ce6fa96d7462dc883917682f428046",
     "legacy": false,
-    "inputsHash": "608f861dc3ba0c12e1c77c7868f73944be8a8f0c57b79e925609370ce386dede"
+    "inputsHash": "f898ed9bd3d25cc741e1194ac2a751b50d3013490d1095ff48306a173eb231c5"
   },
-  "generatedAt": "2026-10-07T05:12:26.855Z",
+  "generatedAt": "2026-10-08T02:33:32.751Z",
   "summary": {
     "targets": 110,
     "selectableTargets": 76,
@@ -66,7 +66,7 @@
   "kconfigProbe": {
     "schema": 1,
     "mode": "target-chain-and-representative-profile",
-    "generatedAt": "2026-10-07T05:13:46.374Z",
+    "generatedAt": "2026-10-08T02:34:24.132Z",
     "targets": 76,
     "passed": 76,
     "passedScope": "target chain plus one representative profile; all siblings remain hidden on failure",

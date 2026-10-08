@@ -4,7 +4,7 @@
     "id": "ImmortalWrt",
     "branch": "master"
   },
-  "generatedAt": "2026-10-07T05:10:13.890Z",
+  "generatedAt": "2026-10-08T02:30:54.036Z",
   "languages": [
     "en",
     "zh-CN",
@@ -18,7 +18,7 @@
     "fr",
     "vi"
   ],
-  "options": 12221,
+  "options": 12222,
   "translatedZhCN": 221,
   "missingZhCN": [
     {
@@ -86549,6 +86549,13 @@
     {
       "symbol": "PACKAGE_kmscon-mod-gl",
       "promptEn": "OpenGL ES rendering for kmscon",
+      "path": [
+        "Utilities"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_kmscon-mod-unifont",
+      "promptEn": "GNU Unifont font engine for kmscon",
       "path": [
         "Utilities"
       ]

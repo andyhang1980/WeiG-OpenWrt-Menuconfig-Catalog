@@ -5,11 +5,11 @@
     "label": "OpenWrt",
     "repo": "openwrt/openwrt",
     "branch": "main",
-    "commit": "d09134f6edeff8d445cb96ed3689f4d072a9666f",
+    "commit": "2250b8eb93eaa8da909fb22457977def74a0a059",
     "legacy": false,
-    "inputsHash": "b88973d8ef13ccc53aed6e62241d24938b91d1477327988615c45c0e7e8fe371"
+    "inputsHash": "a8195078cd1ff4644927db3a8b8576dce97e89fa5d8661d79996a5eab9956490"
   },
-  "generatedAt": "2026-10-07T05:10:16.163Z",
+  "generatedAt": "2026-10-08T02:32:26.098Z",
   "summary": {
     "targets": 153,
     "selectableTargets": 109,
@@ -76,7 +76,7 @@
   "kconfigProbe": {
     "schema": 1,
     "mode": "target-chain-and-representative-profile",
-    "generatedAt": "2026-10-07T05:11:52.106Z",
+    "generatedAt": "2026-10-08T02:33:28.523Z",
     "targets": 109,
     "passed": 109,
     "passedScope": "target chain plus one representative profile; all siblings remain hidden on failure",

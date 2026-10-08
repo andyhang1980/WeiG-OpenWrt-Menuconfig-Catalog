@@ -4,7 +4,7 @@
     "id": "OpenWrt",
     "branch": "main"
   },
-  "generatedAt": "2026-10-07T05:10:23.298Z",
+  "generatedAt": "2026-10-08T02:32:30.904Z",
   "languages": [
     "en",
     "zh-CN",
@@ -18,7 +18,7 @@
     "fr",
     "vi"
   ],
-  "options": 11932,
+  "options": 11961,
   "translatedZhCN": 195,
   "missingZhCN": [
     {
@@ -17824,6 +17824,13 @@
       ]
     },
     {
+      "symbol": "PACKAGE_panthor-firmware",
+      "promptEn": "ARM Mali CSF GPU firmware",
+      "path": [
+        "Firmware"
+      ]
+    },
+    {
       "symbol": "PACKAGE_r8152-firmware",
       "promptEn": "RealTek RTL8152 firmware",
       "path": [
@@ -26106,6 +26113,14 @@
       ]
     },
     {
+      "symbol": "PACKAGE_kmod-rockchip-dfi",
+      "promptEn": "Rockchip DDR monitor (DFI) devfreq event driver",
+      "path": [
+        "Kernel modules",
+        "Other modules"
+      ]
+    },
+    {
       "symbol": "PACKAGE_kmod-rp1-adc",
       "promptEn": "RP1 ADC and temperature sensor driver",
       "path": [
@@ -27076,14 +27091,6 @@
       ]
     },
     {
-      "symbol": "PACKAGE_kmod-sound-soc-bcm2835-i2s",
-      "promptEn": "SoC Audio support for the Broadcom 2835 I2S module",
-      "path": [
-        "Kernel modules",
-        "Sound Support"
-      ]
-    },
-    {
       "symbol": "PACKAGE_kmod-sound-soc-adau1977-adc",
       "promptEn": "Support for ADAU1977 ADC",
       "path": [
@@ -27134,6 +27141,22 @@
     {
       "symbol": "PACKAGE_kmod-sound-soc-allo-piano-dac-plus",
       "promptEn": "Support for Allo Piano DAC Plus",
+      "path": [
+        "Kernel modules",
+        "Sound Support"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_kmod-sound-soc-audio-graph-card",
+      "promptEn": "ASoC audio graph sound card support",
+      "path": [
+        "Kernel modules",
+        "Sound Support"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_kmod-sound-soc-bcm2835-i2s",
+      "promptEn": "SoC Audio support for the Broadcom 2835 I2S module",
       "path": [
         "Kernel modules",
         "Sound Support"
@@ -27222,6 +27245,14 @@
     {
       "symbol": "PACKAGE_kmod-sound-soc-dmic",
       "promptEn": "Generic Digital Microphone CODEC",
+      "path": [
+        "Kernel modules",
+        "Sound Support"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_kmod-sound-soc-es8316",
+      "promptEn": "Everest Semi ES8316 codec support",
       "path": [
         "Kernel modules",
         "Sound Support"
@@ -27436,6 +27467,30 @@
       ]
     },
     {
+      "symbol": "PACKAGE_kmod-sound-soc-rockchip-i2s",
+      "promptEn": "Rockchip I2S support",
+      "path": [
+        "Kernel modules",
+        "Sound Support"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_kmod-sound-soc-rockchip-i2s-tdm",
+      "promptEn": "Rockchip I2S/TDM support",
+      "path": [
+        "Kernel modules",
+        "Sound Support"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_kmod-sound-soc-rockchip-spdif",
+      "promptEn": "Rockchip S/PDIF support",
+      "path": [
+        "Kernel modules",
+        "Sound Support"
+      ]
+    },
+    {
       "symbol": "PACKAGE_kmod-sound-soc-rpi-cirrus",
       "promptEn": "Support for Cirrus Logic Audio Card",
       "path": [
@@ -27470,6 +27525,14 @@
     {
       "symbol": "PACKAGE_kmod-sound-soc-rpi-wm8804-soundcard",
       "promptEn": "Support for Raspberry Pi generic WM8804 soundcards",
+      "path": [
+        "Kernel modules",
+        "Sound Support"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_kmod-sound-soc-simple-card",
+      "promptEn": "ASoC simple sound card support",
       "path": [
         "Kernel modules",
         "Sound Support"
@@ -28460,6 +28523,54 @@
       ]
     },
     {
+      "symbol": "PACKAGE_kmod-drm-analogix-dp",
+      "promptEn": "Analogix DisplayPort bridge support",
+      "path": [
+        "Kernel modules",
+        "Video Support"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_kmod-drm-dw-dp",
+      "promptEn": "Synopsys DesignWare DisplayPort bridge support",
+      "path": [
+        "Kernel modules",
+        "Video Support"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_kmod-drm-dw-hdmi",
+      "promptEn": "Synopsys DesignWare HDMI bridge support",
+      "path": [
+        "Kernel modules",
+        "Video Support"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_kmod-drm-dw-hdmi-qp",
+      "promptEn": "Synopsys DesignWare HDMI QP bridge support",
+      "path": [
+        "Kernel modules",
+        "Video Support"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_kmod-drm-dw-mipi-dsi",
+      "promptEn": "Synopsys DesignWare MIPI DSI bridge support",
+      "path": [
+        "Kernel modules",
+        "Video Support"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_kmod-drm-dw-mipi-dsi2",
+      "promptEn": "Synopsys DesignWare MIPI DSI2 bridge support",
+      "path": [
+        "Kernel modules",
+        "Video Support"
+      ]
+    },
+    {
       "symbol": "PACKAGE_kmod-drm-i915",
       "promptEn": "Intel i915 DRM support",
       "path": [
@@ -28532,8 +28643,32 @@
       ]
     },
     {
+      "symbol": "PACKAGE_kmod-drm-panthor",
+      "promptEn": "Panthor (ARM Mali CSF GPU) DRM support",
+      "path": [
+        "Kernel modules",
+        "Video Support"
+      ]
+    },
+    {
       "symbol": "PACKAGE_kmod-drm-radeon",
       "promptEn": "Radeon DRM support",
+      "path": [
+        "Kernel modules",
+        "Video Support"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_kmod-drm-rockchip",
+      "promptEn": "Rockchip DRM support",
+      "path": [
+        "Kernel modules",
+        "Video Support"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_kmod-drm-rocket",
+      "promptEn": "Rockchip NPU accelerator support",
       "path": [
         "Kernel modules",
         "Video Support"
@@ -28684,6 +28819,30 @@
       ]
     },
     {
+      "symbol": "PACKAGE_kmod-phy-rockchip-inno-csidphy",
+      "promptEn": "Rockchip Innosilicon MIPI CSI DPHY",
+      "path": [
+        "Kernel modules",
+        "Video Support"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_kmod-phy-rockchip-samsung-dcphy",
+      "promptEn": "Rockchip Samsung MIPI DCPHY",
+      "path": [
+        "Kernel modules",
+        "Video Support"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_kmod-phy-rockchip-samsung-hdptx",
+      "promptEn": "Rockchip Samsung HDMI/eDP combo PHY",
+      "path": [
+        "Kernel modules",
+        "Video Support"
+      ]
+    },
+    {
       "symbol": "PACKAGE_kmod-rp1-cfe",
       "promptEn": "RP1 Camera Front-End",
       "path": [
@@ -28774,6 +28933,14 @@
     {
       "symbol": "PACKAGE_kmod-video-coda",
       "promptEn": "i.MX VPU support",
+      "path": [
+        "Kernel modules",
+        "Video Support"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_kmod-video-dw-mipi-csi2rx",
+      "promptEn": "Synopsys DesignWare MIPI CSI-2 receiver",
       "path": [
         "Kernel modules",
         "Video Support"
@@ -29084,8 +29251,24 @@
       ]
     },
     {
+      "symbol": "PACKAGE_kmod-video-hantro",
+      "promptEn": "Hantro VPU support",
+      "path": [
+        "Kernel modules",
+        "Video Support"
+      ]
+    },
+    {
       "symbol": "PACKAGE_kmod-video-imx-mipi-csis",
       "promptEn": "i.MX7/8 MIPI-CSI2 CSIS receiver",
+      "path": [
+        "Kernel modules",
+        "Video Support"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_kmod-video-imx415",
+      "promptEn": "Sony IMX415 sensor support",
       "path": [
         "Kernel modules",
         "Video Support"
@@ -29148,8 +29331,40 @@
       ]
     },
     {
+      "symbol": "PACKAGE_kmod-video-rockchip-cif",
+      "promptEn": "Rockchip Camera Interface (VICAP)",
+      "path": [
+        "Kernel modules",
+        "Video Support"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_kmod-video-rockchip-rga",
+      "promptEn": "Rockchip RGA 2D graphics acceleration",
+      "path": [
+        "Kernel modules",
+        "Video Support"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_kmod-video-rockchip-vdec",
+      "promptEn": "Rockchip video decoder support",
+      "path": [
+        "Kernel modules",
+        "Video Support"
+      ]
+    },
+    {
       "symbol": "PACKAGE_kmod-video-sun6i-csi",
       "promptEn": "Allwinner A31 Camera Sensor Interface (CSI)",
+      "path": [
+        "Kernel modules",
+        "Video Support"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_kmod-video-synopsys-hdmirx",
+      "promptEn": "Synopsys DesignWare HDMI receiver support",
       "path": [
         "Kernel modules",
         "Video Support"
@@ -50749,6 +50964,13 @@
     {
       "symbol": "PACKAGE_libyang",
       "promptEn": "YANG data modeling language library",
+      "path": [
+        "Libraries"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_libyang-legacy",
+      "promptEn": "YANG data modeling language library (legacy v3 ABI)",
       "path": [
         "Libraries"
       ]
@@ -84546,6 +84768,13 @@
     {
       "symbol": "PACKAGE_kmscon-mod-gl",
       "promptEn": "OpenGL ES rendering for kmscon",
+      "path": [
+        "Utilities"
+      ]
+    },
+    {
+      "symbol": "PACKAGE_kmscon-mod-unifont",
+      "promptEn": "GNU Unifont font engine for kmscon",
       "path": [
         "Utilities"
       ]
