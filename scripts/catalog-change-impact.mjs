@@ -50,6 +50,7 @@ const REGISTRY = Object.freeze({
     'scripts/native-kconfig-preprocess.mjs',
     'scripts/native-kconfig-trace.c',
     'scripts/prepare-metadata.sh',
+    'scripts/native-installation-metadata.mjs',
     'scripts/profile-config-contract.mjs',
     'scripts/source-policy.mjs',
   ]),

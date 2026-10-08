@@ -20,6 +20,7 @@ function makeTree() {
   const tree = mkdtempSync(join(tmpdir(), 'weig-legacy-metadata-'));
   cpSync(fixture, tree, { recursive: true });
   copyFileSync(scriptPath, join(tree, 'prepare-metadata.sh'));
+  copyFileSync(join(ROOT, 'scripts', 'native-installation-metadata.mjs'), join(tree, 'native-installation-metadata.mjs'));
   return tree;
 }
 

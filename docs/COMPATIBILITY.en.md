@@ -1,10 +1,10 @@
 # Compatibility Evidence Rules
 
-`compatibility.json` records only compatibility facts that upstream Kconfig/Catalog cannot currently express and real builds have confirmed. It is not a second dependency database and does not store symbol types, N/M/Y, names, translations, dependencies, providers, hashes, or timestamps.
+`compatibility.json` records only compatibility facts that upstream Kconfig/Catalog cannot currently express and real builds have confirmed. It is not a second dependency database and does not store symbol types, N/M/Y, names, translations, dependencies, providers, package-content hashes, or timestamps. Exact scope may reference existing source/feed input identities.
 
-## Schema 6 and backward-compatible publication
+## Schema 7 and backward-compatible publication
 
-The canonical document is schema 6. Its optional `preferredDisable` field names
+The canonical document is schema 7. Its optional `preferredDisable` field names
 participants to prefer disabling when a matching rule has several legal repairs.
 It is a recommendation preference, not a dependency, lock, or executable action:
 the shared Kconfig planner must still simulate and validate the repair. It never
@@ -19,7 +19,27 @@ installed `autosamba` + `luci-app-samba4` pair matches; the preferred removal is
 `autosamba`. Either package alone, or a module not installed in RootFS, does not
 meet the file-ownership condition.
 
-The index advertises `compatibility.v6.json.gz` to schema-6 consumers. The existing
+The index advertises `compatibility.v7.json.gz`; `preservePackages` constrains a
+reviewed all-installed recommendation to retain named participants at Y.
+It is enforced by both planning and the actual explicit-intent transaction,
+including orphan/default cleanup. It neither mutates imports nor prevents
+later manual changes. Retention cannot overlap preferredDisable or be used
+with buildDependency. New retention or input-identity rules are omitted from legacy projections
+rather than weakening the constraint. Existing rules remain in v6 and v5.
+`inputHashes` reuses Catalog source.inputsHash: SHA-256 of the normalized source/feed receipt.
+Only exact sourceCommits rules may use it. Missing or changed identities yield near-match
+diagnostics, not an old ban. Probe captures the same receipt; Worker gains no checks.
+
+OWN-0005 records the exact Lienol/25.12 ZeroTier ownership conflict from
+37270058783: recommend removing luci-app-zerotier while retaining zerotier.
+BLD-0008/0009 record verysync's invalid archive and iStoreOS vlmcsd's invalid
+tag URL at the recorded source/feed identities, not a global package ban.
+Native Make metadata instrumentation captures EXTRA_DEPENDS as separate
+installation.runtime facts for Y installation under OPKG or APK; it does not
+invent Kconfig selects or alter native defconfig baselines. Unknown syntax is
+deferred, and old metadata cannot assert that these facts were collected.
+
+The existing
 Root-asset fast publication collects every versioned file in the selected index-contract family, verifies hash/bytes, and stages them together. Missing or stale files fail publication; a legacy-only projection must never leave modern consumers on old content.
 
 `compatibility.json.gz` remains a schema-5 projection without `preferredDisable`,
@@ -31,6 +51,14 @@ OWN-0003 applies when both `luci-app-pppoe-server` and `rp-pppoe-server` are ins
 BLD-0006 uses a reviewed `preventive` policy restricted to LEDE/master, x86/64, `LINUX_6_18`, and an available failed package. A source commit change no longer silently bypasses prevention. Exact evidence preserves sources `6248ca158b90d640ece2c1a56c392cb0c430b665` and `bfec801a42f344bb7566d1f4f8960fb0cdb08350`, pinned feeds and failure references: both show Linux 6.18.54 and OpenAppFilter `a9e4637b5806b62f0e98fa6273384f849e93ae9a` calling missing `del_timer_sync`. `appfilter` shares its Source-Makefile, so disabling one output must not leave an active same-source compile root. Trigger roots come from the graph. Other sources, targets and kernels are outside this policy. Package-version auto-expiry is not supported: verify an upstream repair before narrowing or retiring the policy. Retired BLD-0004 is not reused.
 
 ## Schema 5
+
+### Exact Lienol/25.12 evidence
+
+OWN-0004 is restricted to source `a337df404ab3f6dc5b3e7b26a753343d3ad2f4c2`, x86/64, DEVICE_generic. Run 37233040067 and its native metadata prove five duplicate installed paths between `softethervpn-base` 4.38-r3 and `softethervpn5-libs` 5.2.5188-r1. Both complete install definitions in packages feed `fad5bd22ef3f137cad2add7904ac441291244a49` were reviewed. Both packages must be Y; no variant preference is invented. The shared planner handles actual selecting roots and leaves distinct equal-cost solutions to the user.
+
+BLD-0007 uses the same exact environment boundary. Run 37232152405 failed applying QtBase 5.15.8 `010-gcc11.patch`, before compilation. The failed source is represented by its concrete output `qt5-core`, not an application blacklist. All Makefiles in pinned lienol feed `eb8b7938c0e91065e2d60adcc2e8b6fd2f796261` were scanned and the complete QtBase, QtTools, dynamic qBittorrent and LuCI entry definitions reviewed: dynamic uses Qt5, static does not; QtTools also has a Build-Depends edge to QtBase. The run's complete native `.packageinfo` / `.packagedeps` verifies active paths from the other installed feeds. Trigger roots remain graph-derived.
+
+Both rules preserve all six feed revisions as evidence refs. Source/Target changes are outside scope; evidence refs are not an independently implemented feed-matching field. Verysync's non-archive download is an upstream retrieval failure, not a package ban. Firmware Workers do not consume compatibility rules to review software selections. Offline diagnostics and Probe evidence validation retain their separate responsibilities.
 
 Readers remain compatible with schemas 2, 3, 4 and 5. The document still has only `schema` and `rules`. Schema 4 retains the existing meanings of `sourceCommits`, `targetScope`, `failure`, and `buildDependency`; schema 5 additionally permits explicitly reviewed global preventive rules:
 

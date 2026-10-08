@@ -6,6 +6,7 @@ const RULE_KEYS_V3 = new Set([...RULE_KEYS_V2, 'sourceCommits', 'targetScope', '
 const RULE_KEYS_V4 = new Set([...RULE_KEYS_V3, 'buildDependency']);
 const RULE_KEYS_V5 = new Set([...RULE_KEYS_V4, 'policy', 'environments', 'evidence']);
 const RULE_KEYS_V6 = new Set([...RULE_KEYS_V5, 'preferredDisable']);
+const RULE_KEYS_V7 = new Set([...RULE_KEYS_V6, 'preservePackages', 'inputHashes']);
 const TARGET_SCOPE_KEYS = new Set(['system', 'subtarget', 'profile']);
 const FAILURE_KEYS = new Set(['phase', 'cause', 'code', 'observed']);
 const BUILD_DEPENDENCY_KEYS = new Set(['package', 'triggerPackages']);
@@ -20,6 +21,7 @@ const PATH_RE = /^\/(?!.*(?:^|\/)\.\.(?:\/|$))[^\0\r\n]{1,255}$/;
 const REF_RE = /^[A-Za-z0-9][A-Za-z0-9+_.:/@#-]{0,255}$/;
 const CONDITION_RE = /^[A-Za-z0-9_().!&|=<>+\-\s\"']{1,512}$/;
 const COMMIT_RE = /^[a-f0-9]{40}$/;
+const INPUT_HASH_RE = /^[a-f0-9]{64}$/;
 const TARGET_RE = /^[A-Za-z0-9_+@./-]{1,160}$/;
 const FAILURE_CODE_RE = /^[a-z][a-z0-9-]{2,95}$/;
 const OBSERVED_KEY_RE = /^[A-Za-z][A-Za-z0-9]{0,63}$/;
@@ -290,6 +292,12 @@ export function applicableBuildDependencies(document, context = {}) {
       unresolved.push({ rule: rule.id, package: dependency.package, reason: 'exact-source-commit-unresolved' });
       continue;
     }
+    if (rule.inputHashes && !INPUT_HASH_RE.test(String(context.inputsHash || ''))) {
+      unresolved.push({ rule: rule.id, package: dependency.package, reason: 'exact-inputs-hash-unresolved' });
+      continue;
+    }
+    // A changed feed receipt is a different environment, not an ongoing ban.
+    if (rule.inputHashes && !rule.inputHashes.includes(context.inputsHash)) continue;
     if (rule.if && context.conditions !== true && !new Set(context.conditions || []).has(rule.if)) {
       unresolved.push({ rule: rule.id, package: dependency.package, reason: 'rule-condition-unresolved', condition: rule.if });
       continue;
@@ -312,8 +320,8 @@ export function normalizeCompatibilityDocument(raw, policy = { sources: [] }) {
   if (!plainObject(raw)) throw new Error('compatibility document must be an object');
   rejectUnknownKeys(raw, DOCUMENT_KEYS, 'compatibility document');
   const schema = Number(raw.schema);
-  if (![2, 3, 4, 5, 6].includes(schema) || !Array.isArray(raw.rules)) {
-    throw new Error('compatibility document requires schema 2, 3, 4, 5, or 6 and a rules array');
+  if (![2, 3, 4, 5, 6, 7].includes(schema) || !Array.isArray(raw.rules)) {
+    throw new Error('compatibility document requires schema 2, 3, 4, 5, 6, or 7 and a rules array');
   }
   const sourcePolicy = new Map((policy.sources || []).map((source) => [source.id, source]));
   const seen = new Set();
@@ -321,7 +329,7 @@ export function normalizeCompatibilityDocument(raw, policy = { sources: [] }) {
     const label = `compatibility.rules[${index}]`;
     if (!plainObject(rule)) throw new Error(`${label} must be an object`);
     rejectUnknownKeys(rule, schema === 2 ? RULE_KEYS_V2 : schema === 3 ? RULE_KEYS_V3 :
-      schema === 4 ? RULE_KEYS_V4 : schema === 5 ? RULE_KEYS_V5 : RULE_KEYS_V6, label);
+      schema === 4 ? RULE_KEYS_V4 : schema === 5 ? RULE_KEYS_V5 : schema === 6 ? RULE_KEYS_V6 : RULE_KEYS_V7, label);
     const id = String(rule.id || '').trim();
     if (!RULE_ID_RE.test(id)) throw new Error(`${label}.id is invalid`);
     if (seen.has(id)) throw new Error(`duplicate compatibility rule id: ${id}`);
@@ -371,6 +379,14 @@ export function normalizeCompatibilityDocument(raw, policy = { sources: [] }) {
         label: `${id}.sourceCommits`, min: 1, max: 32, pattern: COMMIT_RE,
       });
     }
+    if (rule.inputHashes !== undefined) {
+      if (preventive || !normalized.sourceCommits?.length) {
+        throw new Error(`${id}.inputHashes requires an exact sourceCommits rule`);
+      }
+      normalized.inputHashes = uniqueStrings(rule.inputHashes, {
+        label: `${id}.inputHashes`, min: 1, max: 32, pattern: INPUT_HASH_RE,
+      });
+    }
     if (schema >= 3 && rule.targetScope !== undefined) {
       normalized.targetScope = normalizeTargetScope(rule.targetScope, `${id}.targetScope`);
     }
@@ -400,6 +416,16 @@ export function normalizeCompatibilityDocument(raw, policy = { sources: [] }) {
       });
       if (rule.buildDependency || normalized.preferredDisable.some((name) => !normalized.packages.includes(name))) {
         throw new Error(`${id}.preferredDisable requires ordinary rule participants`);
+      }
+    }
+    if (rule.preservePackages !== undefined) {
+      normalized.preservePackages = uniqueStrings(rule.preservePackages, {
+        label: `${id}.preservePackages`, min: 1, max: 16, pattern: PACKAGE_RE,
+      });
+      if (rule.buildDependency || normalized.match !== 'all-installed' ||
+          normalized.preservePackages.some((name) => !normalized.packages.includes(name) ||
+            normalized.preferredDisable?.includes(name))) {
+        throw new Error(`${id}.preservePackages requires non-disabled all-installed participants`);
       }
     }
     return normalized;

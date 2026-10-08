@@ -3,11 +3,12 @@ import { spawn } from 'node:child_process';
 import { createHash } from 'node:crypto';
 import { existsSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { dirname, join, resolve } from 'node:path';
-import { gunzipSync, gzipSync } from 'node:zlib';
 import {
   indexedTranslationCatalogs,
   readTranslationIndex,
   writeIndexedLanguageAssets,
+  readIndexedTranslationCatalog,
+  writeTranslatedLegacyProjection,
 } from './translation-catalog-assets.mjs';
 
 const [distArg = 'dist', previousArg = 'previous/i18n-cache.json'] = process.argv.slice(2);
@@ -68,8 +69,8 @@ const register = (kind, english, manual = {}) => {
   if (kind === 'usage' && !seen.has(id)) { seen.add(id); usage.push(id); }
   return translations;
 };
-for (const { file } of catalogs) {
-  const catalog = JSON.parse(gunzipSync(readFileSync(file)).toString('utf8'));
+for (const entry of catalogs) {
+  const { catalog } = readIndexedTranslationCatalog(entry);
   for (const row of catalog.menu?.options || []) { row.usageEn ||= fallback(row); row.promptI18n = register('title', row.promptEn || row.prompt || row.symbol, row.promptI18n); row.usageI18n = register('usage', row.usageEn, row.usageI18n); }
   for (const row of Object.values(catalog.menu?.labels || {})) { row.i18n = register('title', row.en, { ...row.i18n, 'zh-CN': row.zhCN || row.i18n?.['zh-CN'] }); row.usageI18n = register('usage', row.usageEn, { ...row.usageI18n, 'zh-CN': row.usageZh || row.usageI18n?.['zh-CN'] }); }
   for (const row of catalog.menu?.choices || []) { row.promptI18n = register('title', row.promptEn || row.prompt, { ...row.promptI18n, 'zh-CN': row.promptZh || row.promptI18n?.['zh-CN'] }); row.usageI18n = register('usage', row.usageEn, { ...row.usageI18n, 'zh-CN': row.usageZh || row.usageI18n?.['zh-CN'] }); }
@@ -136,24 +137,21 @@ const localizedByLanguage = Object.fromEntries(languages.map((lang) => [lang, 0]
 const pendingByLanguage = Object.fromEntries(languages.map((lang) => [lang, 0]));
 const count = (translations) => languages.forEach((lang) => translations[lang] ? localizedByLanguage[lang]++ : pendingByLanguage[lang]++);
 for (const entry of catalogs) {
-  const { file } = entry;
-  const originalText = gunzipSync(readFileSync(file)).toString('utf8');
-  const catalog = JSON.parse(originalText);
+  const view = readIndexedTranslationCatalog(entry);
+  const { catalog } = view;
   for (const row of catalog.menu?.options || []) row.usageEn ||= fallback(row);
   for (const row of catalog.menu?.options || []) for (const [kind, english] of [['title', row.promptEn || row.prompt || row.symbol], ['usage', row.usageEn]]) { const translations = clean(cache.entries[hash(kind, String(english || '').trim())]?.translations, english); if (kind === 'title') row.promptI18n = translations; else row.usageI18n = translations; localizedFields += Object.keys(translations).length; pendingFields += languages.filter((lang) => !translations[lang]).length; count(translations); }
   for (const row of Object.values(catalog.menu?.labels || {})) { row.i18n = clean(cache.entries[hash('title', String(row.en || '').trim())]?.translations, row.en); row.usageI18n = clean(cache.entries[hash('usage', String(row.usageEn || '').trim())]?.translations, row.usageEn); count(row.i18n); count(row.usageI18n); }
   for (const row of catalog.menu?.choices || []) { const title = row.promptEn || row.prompt; row.promptI18n = clean(cache.entries[hash('title', String(title || '').trim())]?.translations, title); row.usageI18n = clean(cache.entries[hash('usage', String(row.usageEn || '').trim())]?.translations, row.usageEn); count(row.promptI18n); count(row.usageI18n); }
   const translationUpdatedAt = new Date().toISOString();
-  if (JSON.stringify(catalog) !== originalText) {
-    catalog.translation = { ...(catalog.translation || {}), languages: ['en', ...languages], fallback: 'en', updatedAt: translationUpdatedAt };
-    writeFileSync(file, gzipSync(Buffer.from(JSON.stringify(catalog)), { level: 9 }));
-  }
+  writeTranslatedLegacyProjection(entry, view, translationUpdatedAt);
   writeIndexedLanguageAssets(entry, catalog, translationUpdatedAt);
 }
 cache.schema = 2; cache.updatedAt = new Date().toISOString();
 writeFileSync(join(distDir, 'i18n-cache.json'), JSON.stringify(cache) + '\n'); writeFileSync(join(distDir, 'translation-state.json'), JSON.stringify(state, null, 2) + '\n');
 const summary = { generatedAt: cache.updatedAt, catalogs: catalogs.length, cachedTexts: Object.keys(cache.entries).length, trigger, phase: state.phase, activeLanguage, nextLanguage, rotationLanguages, frozenLanguages, batchNumber, batchCount, queuedThisRun: pending.length, retryQueuedAfter: retryQueue.languages?.[activeLanguage]?.length || 0, batchLimit: maxItems, queuedCharacters: chars, requestedCharactersThisRun: requestedCharacters, runCharacterBudget: provider === 'azure' ? runBudget : null, translatedThisRun: translated, targetPendingBefore: candidates.length, targetPendingAfter: missing(activeLanguage).length, localizedFields, pendingFields, localizedByLanguage, pendingByLanguage, uniqueDescriptionPendingByLanguage: Object.fromEntries(languages.map((lang) => [lang, missing(lang).length])), provider, providerConfigured: provider === 'argos' ? !fatalError : provider === 'azure' ? Boolean(azureKey) : true, translationEnabled: enabled, model, rejected, timedOut, apiError: fatalMessage, warning };
 writeFileSync(summaryFile, JSON.stringify({ ...summary, status: fatalError ? 'failed' : 'completed' }, null, 2) + '\n');
-for (const { name } of catalogs) { const reportFile = join(distDir, name.replace(/\.json\.gz$/, '.translations.json')); const report = existsSync(reportFile) ? JSON.parse(readFileSync(reportFile, 'utf8')) : {}; report.languages = ['en', ...languages]; report.automation = summary; writeFileSync(reportFile, JSON.stringify(report, null, 2) + '\n'); }
+// One run summary/state is sufficient. Branch reports are producer diagnostics
+// retained in Actions artifacts, not duplicated runtime publication payloads.
 console.log(`translations: catalogs=${catalogs.length} cache=${Object.keys(cache.entries).length} provider=${provider} active=${activeLanguage} translated=${translated} next=${nextLanguage}${warning ? ` warning=${warning}` : ''}`);
 if (enabled && fatalError) process.exitCode = 1;

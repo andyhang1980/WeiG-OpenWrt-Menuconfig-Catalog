@@ -320,6 +320,7 @@ function relationRecordSemantics(record) {
     // normalize the readable side to the same semantic defaults.
     kconfig: Object.fromEntries(RELATION_KCONFIG_FIELDS.map((field) => [field, kconfig[field] ?? []])),
     packageInfo: Object.fromEntries(RELATION_PACKAGE_FIELDS.map((field) => [field, record?.packageInfo?.[field] ?? []])),
+    ...(record?.packageInfo?.installation ? { packageInstallation: record.packageInfo.installation } : {}),
   };
 }
 
@@ -358,6 +359,7 @@ export function relationSemanticProjection(relations = {}) {
     packageClosureComplete: relations?.packageClosureComplete === true,
     packageClosureCapabilities: relations?.packageClosureCapabilities || [],
     packageClosureValidation: relations?.packageClosureValidation || {},
+    ...(relations.packageInstallation ? { packageInstallation: relations.packageInstallation } : {}),
   });
 }
 
@@ -506,6 +508,7 @@ export function compactRelations(relations) {
       }),
   );
   const capabilityRelationsId = (record) => capabilities.id({
+    ...(record.packageInfo?.installation ? { installation: record.packageInfo.installation } : {}),
     provides: array(record.providesRelations).map(normalizeCapabilityRelation),
     conflicts: array(record.conflictsRelations).map(normalizeCapabilityRelation),
   });
@@ -593,6 +596,7 @@ export function compactRelations(relations) {
     relationsComplete: relations.relationsComplete === true,
     roundTripValidated: false,
     packageClosureComplete,
+    ...(relations.packageInstallation ? { packageInstallation: relations.packageInstallation } : {}),
     packageClosureCapabilities,
     packageClosureValidation: relations.packageClosureValidation || {
       format: 'openwrt-packageinfo-v1', reasons: ['package-closure-validation-missing'],
@@ -843,6 +847,7 @@ function expandSchema4(compact) {
         depends: packageDepends, rawDepends: packageDepends.map((row) => row.raw), provides, conflicts,
         packageConflicts, kconfigConflicts,
         providesRelations: capabilityRows.provides || [], conflictsRelations: capabilityRows.conflicts || [],
+        ...(capabilityRows.installation ? { installation: capabilityRows.installation } : {}),
         dependencyRelations: packageDepends,
       }, packageDepends: packageDepends.map((row) => row.raw), dependencyPackages: [...new Set(packageDepends.flatMap((row) => row.packages))],
       provides, conflicts, providesRelations: capabilityRows.provides || [], conflictsRelations: capabilityRows.conflicts || [],
@@ -853,6 +858,7 @@ function expandSchema4(compact) {
     schema: 2, relationsComplete: compact.relationsComplete === true,
     roundTripValidated: compact.roundTripValidated === true,
     packageClosureComplete: compact.packageClosureComplete === true,
+    ...(compact.packageInstallation ? { packageInstallation: compact.packageInstallation } : {}),
     packageClosureCapabilities: compact.packageClosureCapabilities || [],
     packageClosureValidation: compact.packageClosureValidation || {
       format: 'openwrt-packageinfo-v1', reasons: ['package-closure-validation-missing'],

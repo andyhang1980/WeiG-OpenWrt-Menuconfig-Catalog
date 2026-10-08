@@ -1,6 +1,493 @@
 {
-  "schema": 6,
+  "schema": 7,
   "rules": [
+    {
+      "id": "BLD-0014",
+      "issue": "build-failure",
+      "match": "all-selected",
+      "scope": {
+        "ImmortalWrt": [
+          "master"
+        ]
+      },
+      "sourceCommits": [
+        "8735c686ae30fe85d94de97669399c2117179f82"
+      ],
+      "inputHashes": [
+        "cf6ca04e8676f230db4327ddf76f826921e297ff93f13c6e6d4084ab61188960"
+      ],
+      "targetScope": {
+        "system": [
+          "x86"
+        ],
+        "subtarget": [
+          "64"
+        ],
+        "profile": [
+          "DEVICE_generic"
+        ]
+      },
+      "packages": [
+        "amule"
+      ],
+      "buildDependency": {
+        "package": "amule"
+      },
+      "refs": [
+        "run:37452632600",
+        "job:112232649656",
+        "feed:packages:e731ba76764082d9db71de60f1ddac43f4114101",
+        "feed:luci:5fc1fac5684cac6eee2c7fbff78c65b867980dd8",
+        "feed:routing:4b9891b9136259f93294a424507ed24c5e8c1cbd",
+        "feed:telephony:5d68d53c160a325ea9d03fce393e051573bcc736",
+        "feed:video:afb0a7453e4ecebe4b59f9c1b5f8d5413fb652f2"
+      ],
+      "failure": {
+        "phase": "package-compile",
+        "cause": "package-caused",
+        "code": "amule-autogen-missing-intl-makefile",
+        "observed": {
+          "package": "amule",
+          "version": "2.3.3-r5",
+          "sourceMakefile": "package/feeds/packages/amule/Makefile",
+          "compileTarget": "package/feeds/packages/amule/compile",
+          "error": "intl/Makefile.in.tmp: No such file or directory; required file intl/Makefile.in not found"
+        }
+      }
+    },
+    {
+      "id": "BLD-0010",
+      "issue": "build-failure",
+      "match": "all-selected",
+      "scope": {
+        "iStoreOS": [
+          "istoreos-24.10"
+        ]
+      },
+      "sourceCommits": [
+        "fb971407ffd9a094e6f16d9c029f1f580ed5c2ad"
+      ],
+      "inputHashes": [
+        "750cca36b6786ae99dd924ca03867f49e04982bd5264cc09a19d5775783543f5"
+      ],
+      "targetScope": {
+        "system": [
+          "x86"
+        ],
+        "subtarget": [
+          "64"
+        ],
+        "profile": [
+          "DEVICE_generic"
+        ]
+      },
+      "if": "GCC_VERSION = \"13.3.0\"",
+      "packages": [
+        "cjdns"
+      ],
+      "buildDependency": {
+        "package": "cjdns"
+      },
+      "refs": [
+        "run:37320004199",
+        "makefile-sha256:5427d95108aa5d7b89eaa17b5ef7e9bdf18478ba29641da83f97628e4f109708",
+        "feed:packages:f1c73e13fc8c78f5f1c74096f25494817494dc47",
+        "feed:luci:b28d7f1da49c3cb4ce931aff3267473fb327a05b",
+        "feed:routing:00619bc7bc60d8b67ecc490121e45298b122cd6e",
+        "feed:telephony:92892fa285360b8981f62bf4e0a097e6449e7e33",
+        "feed:store:a97ace34f2da358a015b094d326bba2697697f2e",
+        "feed:third:335fa421e0fcd673a78986117981d4dfa3bf57d7"
+      ],
+      "failure": {
+        "phase": "package-compile",
+        "cause": "package-caused",
+        "code": "gyp-collections-mutableset-unavailable",
+        "observed": {
+          "version": "21.1-r6",
+          "compilerVersion": "13.3.0",
+          "sourceMakefile": "package/feeds/routing/cjdns/Makefile",
+          "compileTarget": "package/feeds/routing/cjdns/compile",
+          "evidenceBasis": "first-package-compile-failure",
+          "pythonVersion": "3.11.14",
+          "compatibilityImport": "six.moves.collections_abc",
+          "fallbackAPI": "collections.MutableSet"
+        }
+      }
+    },
+    {
+      "id": "BLD-0011",
+      "issue": "build-failure",
+      "match": "all-selected",
+      "scope": {
+        "Lienol": [
+          "25.12"
+        ]
+      },
+      "sourceCommits": [
+        "a337df404ab3f6dc5b3e7b26a753343d3ad2f4c2"
+      ],
+      "inputHashes": [
+        "9bc5eaee6bddea372f948fa70279c711f1757dbe6508ec5f09eb8817715ad074"
+      ],
+      "targetScope": {
+        "system": [
+          "x86"
+        ],
+        "subtarget": [
+          "64"
+        ],
+        "profile": [
+          "DEVICE_generic"
+        ]
+      },
+      "if": "GCC_VERSION = \"13.4.0\"",
+      "packages": [
+        "cjdns"
+      ],
+      "buildDependency": {
+        "package": "cjdns"
+      },
+      "refs": [
+        "run:37320749444",
+        "makefile-sha256:8ba53d00235c5d43f56caef4a752d57d5c35b75653156a5b1119ef78d0369576",
+        "feed:lienol:eb8b7938c0e91065e2d60adcc2e8b6fd2f796261",
+        "feed:packages:fad5bd22ef3f137cad2add7904ac441291244a49",
+        "feed:luci:6998d0bd430ef7d1acca0e8f83cfc46221235e11",
+        "feed:routing:b32747dca62435f1ea01b7a5320c3da15eead46f",
+        "feed:telephony:2618106d5846a4a542fdf5809f0d3ed228ce439b",
+        "feed:video:094bf58da6682f895255a35a84349a79dab4bf95"
+      ],
+      "failure": {
+        "phase": "package-compile",
+        "cause": "package-caused",
+        "code": "compiler-warning-option-unsupported",
+        "observed": {
+          "version": "21.1-r7",
+          "compilerVersion": "13.4.0",
+          "sourceMakefile": "package/feeds/routing/cjdns/Makefile",
+          "compileTarget": "package/feeds/routing/cjdns/compile",
+          "evidenceBasis": "first-package-compile-failure",
+          "compilerFlag": "-Wno-error=calloc-transposed-args"
+        }
+      }
+    },
+    {
+      "id": "BLD-0012",
+      "issue": "build-failure",
+      "match": "all-selected",
+      "scope": {
+        "iStoreOS": [
+          "istoreos-24.10"
+        ]
+      },
+      "sourceCommits": [
+        "fb971407ffd9a094e6f16d9c029f1f580ed5c2ad"
+      ],
+      "inputHashes": [
+        "750cca36b6786ae99dd924ca03867f49e04982bd5264cc09a19d5775783543f5"
+      ],
+      "targetScope": {
+        "system": [
+          "x86"
+        ],
+        "subtarget": [
+          "64"
+        ],
+        "profile": [
+          "DEVICE_generic"
+        ]
+      },
+      "if": "GCC_VERSION = \"13.3.0\"",
+      "packages": [
+        "cjdns-tests"
+      ],
+      "buildDependency": {
+        "package": "cjdns-tests"
+      },
+      "refs": [
+        "run:37320004199",
+        "makefile-sha256:5427d95108aa5d7b89eaa17b5ef7e9bdf18478ba29641da83f97628e4f109708",
+        "feed:packages:f1c73e13fc8c78f5f1c74096f25494817494dc47",
+        "feed:luci:b28d7f1da49c3cb4ce931aff3267473fb327a05b",
+        "feed:routing:00619bc7bc60d8b67ecc490121e45298b122cd6e",
+        "feed:telephony:92892fa285360b8981f62bf4e0a097e6449e7e33",
+        "feed:store:a97ace34f2da358a015b094d326bba2697697f2e",
+        "feed:third:335fa421e0fcd673a78986117981d4dfa3bf57d7"
+      ],
+      "failure": {
+        "phase": "package-compile",
+        "cause": "package-caused",
+        "code": "gyp-collections-mutableset-unavailable",
+        "observed": {
+          "version": "21.1-r6",
+          "compilerVersion": "13.3.0",
+          "sourceMakefile": "package/feeds/routing/cjdns/Makefile",
+          "compileTarget": "package/feeds/routing/cjdns/compile",
+          "evidenceBasis": "same-native-source-compile-target",
+          "pythonVersion": "3.11.14",
+          "compatibilityImport": "six.moves.collections_abc",
+          "fallbackAPI": "collections.MutableSet"
+        }
+      }
+    },
+    {
+      "id": "BLD-0013",
+      "issue": "build-failure",
+      "match": "all-selected",
+      "scope": {
+        "Lienol": [
+          "25.12"
+        ]
+      },
+      "sourceCommits": [
+        "a337df404ab3f6dc5b3e7b26a753343d3ad2f4c2"
+      ],
+      "inputHashes": [
+        "9bc5eaee6bddea372f948fa70279c711f1757dbe6508ec5f09eb8817715ad074"
+      ],
+      "targetScope": {
+        "system": [
+          "x86"
+        ],
+        "subtarget": [
+          "64"
+        ],
+        "profile": [
+          "DEVICE_generic"
+        ]
+      },
+      "if": "GCC_VERSION = \"13.4.0\"",
+      "packages": [
+        "cjdns-tests"
+      ],
+      "buildDependency": {
+        "package": "cjdns-tests"
+      },
+      "refs": [
+        "run:37320749444",
+        "makefile-sha256:8ba53d00235c5d43f56caef4a752d57d5c35b75653156a5b1119ef78d0369576",
+        "feed:lienol:eb8b7938c0e91065e2d60adcc2e8b6fd2f796261",
+        "feed:packages:fad5bd22ef3f137cad2add7904ac441291244a49",
+        "feed:luci:6998d0bd430ef7d1acca0e8f83cfc46221235e11",
+        "feed:routing:b32747dca62435f1ea01b7a5320c3da15eead46f",
+        "feed:telephony:2618106d5846a4a542fdf5809f0d3ed228ce439b",
+        "feed:video:094bf58da6682f895255a35a84349a79dab4bf95"
+      ],
+      "failure": {
+        "phase": "package-compile",
+        "cause": "package-caused",
+        "code": "compiler-warning-option-unsupported",
+        "observed": {
+          "version": "21.1-r7",
+          "compilerVersion": "13.4.0",
+          "sourceMakefile": "package/feeds/routing/cjdns/Makefile",
+          "compileTarget": "package/feeds/routing/cjdns/compile",
+          "evidenceBasis": "same-native-source-compile-target",
+          "compilerFlag": "-Wno-error=calloc-transposed-args"
+        }
+      }
+    },
+    {
+      "id": "OWN-0005",
+      "inputHashes": [
+        "9bc5eaee6bddea372f948fa70279c711f1757dbe6508ec5f09eb8817715ad074"
+      ],
+      "issue": "file-ownership",
+      "match": "all-installed",
+      "scope": {
+        "Lienol": [
+          "25.12"
+        ]
+      },
+      "sourceCommits": [
+        "a337df404ab3f6dc5b3e7b26a753343d3ad2f4c2"
+      ],
+      "targetScope": {
+        "system": [
+          "x86"
+        ],
+        "subtarget": [
+          "64"
+        ],
+        "profile": [
+          "DEVICE_generic"
+        ]
+      },
+      "packages": [
+        "luci-app-zerotier",
+        "zerotier"
+      ],
+      "preferredDisable": [
+        "luci-app-zerotier"
+      ],
+      "preservePackages": [
+        "zerotier"
+      ],
+      "paths": [
+        "/etc/init.d/zerotier"
+      ],
+      "refs": [
+        "run:37270058783",
+        "feed:lienol:eb8b7938c0e91065e2d60adcc2e8b6fd2f796261",
+        "feed:packages:fad5bd22ef3f137cad2add7904ac441291244a49",
+        "feed:luci:6998d0bd430ef7d1acca0e8f83cfc46221235e11",
+        "feed:routing:b32747dca62435f1ea01b7a5320c3da15eead46f",
+        "feed:telephony:2618106d5846a4a542fdf5809f0d3ed228ce439b",
+        "feed:video:094bf58da6682f895255a35a84349a79dab4bf95"
+      ]
+    },
+    {
+      "id": "BLD-0008",
+      "inputHashes": [
+        "9bc5eaee6bddea372f948fa70279c711f1757dbe6508ec5f09eb8817715ad074"
+      ],
+      "issue": "build-failure",
+      "match": "all-selected",
+      "scope": {
+        "Lienol": [
+          "25.12"
+        ]
+      },
+      "sourceCommits": [
+        "a337df404ab3f6dc5b3e7b26a753343d3ad2f4c2"
+      ],
+      "targetScope": {
+        "system": [
+          "x86"
+        ],
+        "subtarget": [
+          "64"
+        ],
+        "profile": [
+          "DEVICE_generic"
+        ]
+      },
+      "packages": [
+        "verysync"
+      ],
+      "buildDependency": {
+        "package": "verysync"
+      },
+      "refs": [
+        "run:37270201344",
+        "feed:lienol:eb8b7938c0e91065e2d60adcc2e8b6fd2f796261",
+        "feed:packages:fad5bd22ef3f137cad2add7904ac441291244a49",
+        "feed:luci:6998d0bd430ef7d1acca0e8f83cfc46221235e11",
+        "feed:routing:b32747dca62435f1ea01b7a5320c3da15eead46f",
+        "feed:telephony:2618106d5846a4a542fdf5809f0d3ed228ce439b",
+        "feed:video:094bf58da6682f895255a35a84349a79dab4bf95"
+      ],
+      "failure": {
+        "phase": "package-compile",
+        "cause": "package-caused",
+        "code": "download-not-gzip-archive",
+        "observed": {
+          "version": "v2.13.2",
+          "archive": "verysync-linux-amd64-v2.13.2.tar.gz",
+          "hashPolicy": "skip"
+        }
+      }
+    },
+    {
+      "id": "BLD-0009",
+      "inputHashes": [
+        "750cca36b6786ae99dd924ca03867f49e04982bd5264cc09a19d5775783543f5"
+      ],
+      "issue": "build-failure",
+      "match": "all-selected",
+      "scope": {
+        "iStoreOS": [
+          "istoreos-24.10"
+        ]
+      },
+      "sourceCommits": [
+        "fb971407ffd9a094e6f16d9c029f1f580ed5c2ad"
+      ],
+      "targetScope": {
+        "system": [
+          "x86"
+        ],
+        "subtarget": [
+          "64"
+        ],
+        "profile": [
+          "DEVICE_generic"
+        ]
+      },
+      "packages": [
+        "vlmcsd"
+      ],
+      "buildDependency": {
+        "package": "vlmcsd"
+      },
+      "refs": [
+        "run:37277262603",
+        "feed:packages:f1c73e13fc8c78f5f1c74096f25494817494dc47",
+        "feed:luci:b28d7f1da49c3cb4ce931aff3267473fb327a05b",
+        "feed:routing:00619bc7bc60d8b67ecc490121e45298b122cd6e",
+        "feed:telephony:92892fa285360b8981f62bf4e0a097e6449e7e33",
+        "feed:store:a97ace34f2da358a015b094d326bba2697697f2e",
+        "feed:third:335fa421e0fcd673a78986117981d4dfa3bf57d7"
+      ],
+      "failure": {
+        "phase": "package-compile",
+        "cause": "package-caused",
+        "code": "source-tag-not-found",
+        "observed": {
+          "version": "1113",
+          "requestedTag": "1113",
+          "availableTag": "svn1113"
+        }
+      }
+    },
+    {
+      "id": "OWN-0004",
+      "issue": "file-ownership",
+      "match": "all-installed",
+      "scope": { "Lienol": ["25.12"] },
+      "sourceCommits": ["a337df404ab3f6dc5b3e7b26a753343d3ad2f4c2"],
+      "targetScope": { "system": ["x86"], "subtarget": ["64"], "profile": ["DEVICE_generic"] },
+      "packages": ["softethervpn-base", "softethervpn5-libs"],
+      "paths": [
+        "/usr/bin/vpncmd",
+        "/usr/libexec/softethervpn/hamcore.se2",
+        "/usr/libexec/softethervpn/lang.config",
+        "/usr/libexec/softethervpn/launcher.sh",
+        "/usr/libexec/softethervpn/vpncmd"
+      ],
+      "refs": [
+        "run:37233040067",
+        "feed:lienol:eb8b7938c0e91065e2d60adcc2e8b6fd2f796261",
+        "feed:packages:fad5bd22ef3f137cad2add7904ac441291244a49",
+        "feed:luci:6998d0bd430ef7d1acca0e8f83cfc46221235e11",
+        "feed:routing:b32747dca62435f1ea01b7a5320c3da15eead46f",
+        "feed:telephony:2618106d5846a4a542fdf5809f0d3ed228ce439b",
+        "feed:video:094bf58da6682f895255a35a84349a79dab4bf95"
+      ]
+    },
+    {
+      "id": "BLD-0007",
+      "issue": "build-failure",
+      "match": "all-selected",
+      "scope": { "Lienol": ["25.12"] },
+      "sourceCommits": ["a337df404ab3f6dc5b3e7b26a753343d3ad2f4c2"],
+      "targetScope": { "system": ["x86"], "subtarget": ["64"], "profile": ["DEVICE_generic"] },
+      "packages": ["qt5-core"],
+      "buildDependency": { "package": "qt5-core" },
+      "refs": [
+        "run:37232152405",
+        "feed:lienol:eb8b7938c0e91065e2d60adcc2e8b6fd2f796261",
+        "feed:packages:fad5bd22ef3f137cad2add7904ac441291244a49",
+        "feed:luci:6998d0bd430ef7d1acca0e8f83cfc46221235e11",
+        "feed:routing:b32747dca62435f1ea01b7a5320c3da15eead46f",
+        "feed:telephony:2618106d5846a4a542fdf5809f0d3ed228ce439b",
+        "feed:video:094bf58da6682f895255a35a84349a79dab4bf95"
+      ],
+      "failure": {
+        "phase": "package-compile", "cause": "package-caused", "code": "qtbase-patch-hunk-failed",
+        "observed": { "version": "5.15.8", "patch": "010-gcc11.patch", "file": "src/corelib/text/qbytearraymatcher.h" }
+      }
+    },
     {
       "id": "OWN-0003",
       "issue": "file-ownership",

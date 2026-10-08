@@ -1,10 +1,10 @@
 # Compatibility 证据规则
 
-`compatibility.json` 只记录上游 Kconfig/Catalog 当前无法表达、但真实构建已经确认的兼容性事实。它不是第二套 dependency 数据库，不保存 symbol 类型、N/M/Y、名称、翻译、依赖、provider、hash 或生成时间。
+`compatibility.json` 只记录上游 Kconfig/Catalog 当前无法表达、但真实构建已经确认的兼容性事实。它不是第二套 dependency 数据库，不保存 symbol 类型、N/M/Y、名称、翻译、依赖、provider、包内容 hash 或生成时间。精确适用范围可引用已有源码/feeds 输入身份。
 
-## Schema 6 与向后兼容发布
+## Schema 7 与向后兼容发布
 
-权威文档使用 schema 6。可选 `preferredDisable` 只指定规则命中后优先关闭的参与包，
+权威文档使用 schema 7。可选 `preferredDisable` 只指定规则命中后优先关闭的参与包，
 不是依赖、锁定或可执行指令；共享 Kconfig planner 仍须模拟并验证合法修改，
 不能因为包存在于 Catalog 就自动取消。
 
@@ -16,15 +16,49 @@ OWN-0002 只在 `autosamba` 与 `luci-app-samba4` 都安装时命中，优先取
 
 根资产轻量发布按 index 合同收集所选资产族的全部版本文件，逐项验证 hash/bytes 后一起提交；不能只发布旧版投影。缺失或陈旧文件必须使发布失败，源码、生成合同和浏览器实际读取的字节必须一致。
 
-index 向新消费者公布 `compatibility.v6.json.gz`；原有 `compatibility.json.gz`
-保留不含 `preferredDisable` 的 schema-5 投影，旧消费者继续使用相同证据与适用范围。
+schema 7 增加 `preservePackages`：只用于 all-installed 的普通参与包，
+不能与 preferredDisable 重叠，不能用于 buildDependency。推荐模拟与实际应用均须保留
+这些包的 Y；点击推荐才把保留值记为用户意图，不在导入时修改配置，也不禁止未来手动关闭。
+index 向新消费者公布 `compatibility.v7.json.gz`，同时保留 v6 与 schema-5 投影。
+要求保留约束或精确输入身份的新规则不能降级成旧消费者可能误用的推荐，故不进入旧投影；
+旧规则、证据与配置读取继续兼容。
+`inputHashes` 复用 Catalog 已有 source.inputsHash（规范化源码/feeds receipt 的 SHA-256），
+仅用于已有 sourceCommits 的精确规则。缺少或不同身份只记录近似命中诊断，不套用旧规则；
+Probe 使用同一 receipt 验证身份，Worker 不增加验证。改变 feeds 后需重新取证，不永久禁包。
 预防策略适用于多个源，不代表这些源均已实测失败。
+
+BLD-0010～BLD-0013 保存 iStoreOS/istoreos-24.10 与 Lienol/25.12 的 cjdns 编译故障，
+同时覆盖同 Source-Makefile 的 cjdns-tests 输出。精确源码/feeds/目标与 GCC_VERSION 才适用，
+消费者由原生图反向推导，不维护应用黑名单。完整身份、第一现场与同编译单元证据见
+[cjdns 编译故障取证与推荐边界](COMPATIBILITY-CJDNS-20261006.md)。
+
+OWN-0005 限定 Lienol/25.12、源码 a337df404ab3f6dc5b3e7b26a753343d3ad2f4c2、
+x86/64/DEVICE_generic 与 Run 37270058783 的六个 feeds 证据：
+luci-app-zerotier 1.0-r21 与 zerotier 1.16.0-r1 都安装 /etc/init.d/zerotier。
+仅两者 Y 时推荐关闭界面，保留 zerotier=Y；仅后端或 M 不触发。
+BLD-0008 保存同环境 verysync v2.13.2 非 gzip 下载证据（37270201344），
+BLD-0009 保存 iStoreOS/istoreos-24.10 源码 fb971407ffd9a094e6f16d9c029f1f580ed5c2ad
+的 vlmcsd 1113 错误 tag URL 证据（37277262603）。三条新规则同时匹配精确源码、feeds 输入身份与目标；
+原生图推导反向取消，不写 triggerPackages，不改上游下载或 Worker。
+
+Catalog metadata-only 阶段在支持的原生 Dumpinfo/Package 中添加命名输出字段，
+由 GNU Make 展开 EXTRA_DEPENDS。安装依赖单独保存在 installation.runtime，不伪造
+Kconfig select、不改变原生 defconfig baseline；OPKG/APK 的 Y 安装检查共用该事实。
+未知版本约束或新方言保留待定。旧数据没有新事实，不能宣称已经覆盖安装依赖。
 
 OWN-0003 在 `luci-app-pppoe-server` 与 `rp-pppoe-server` 均安装时优先取消后者；预防范围为 LEDE、ImmortalWrt、hanwckf 各分支中两包均存在的环境。`luci-app-rp-pppoe-server` 是另一应用，它为 N 不代表前者为 N。共享 planner 可以先取消真实选择者以达到首选目标 N，等价动作去重保留所有 `resolvedPackages`。
 
 BLD-0006 使用经批准的 `preventive` 策略：范围限定 LEDE/master、x86/64、`LINUX_6_18` 且失败包存在，源码提交变化不再自动绕过预防。`evidence` 分别保存源码 `6248ca158b90d640ece2c1a56c392cb0c430b665` 与 `bfec801a42f344bb7566d1f4f8960fb0cdb08350` 的精确 feeds 和失败引用；两次都是 Linux 6.18.54、OpenAppFilter `a9e4637b5806b62f0e98fa6273384f849e93ae9a` 调用缺失的 `del_timer_sync`。`appfilter` 与内核包共用 Source-Makefile，不能只关闭一个输出而留下同源活动编译入口；触发者由图动态推导。其它源、目标或内核不外推；此策略不具备包版本自动失效能力，上游修复后须验证并缩小或撤销范围。退休的 BLD-0004 不复用。
 
 ## Schema 5
+
+### 本次精确取证（Lienol/25.12）
+
+OWN-0004 仅覆盖源码 `a337df404ab3f6dc5b3e7b26a753343d3ad2f4c2`、x86/64、DEVICE_generic：Run 37233040067 的原生包元数据与安装日志确认 `softethervpn-base` 4.38-r3 和 `softethervpn5-libs` 5.2.5188-r1 重复安装五条路径。已完整阅读 packages feed `fad5bd22ef3f137cad2add7904ac441291244a49` 的 `net/softethervpn/Makefile` 与 `net/softethervpn5/Makefile` 安装定义。只有两包均为 Y 才命中，不推断用户偏好的版本；通用 planner 反向处理实际选择者，等价方案由用户选择。
+
+BLD-0007 采用相同精确环境边界：Run 37232152405 的 QtBase 5.15.8 在应用 `010-gcc11.patch` 时失败，尚未进入软件包编译。失败目标记录为原生 qtbase Source-Makefile 的 concrete 输出 `qt5-core`，不是把所有 qBittorrent 版本列为故障。对锁定 lienol feed `eb8b7938c0e91065e2d60adcc2e8b6fd2f796261` 的全部 Makefile 扫描并完整阅读 QtBase、QtTools、动态 qBittorrent 和 LuCI 入口：动态分支依赖 Qt5，静态分支不走 QtBase；QtTools 的 Build-Depends 也进入同一源码。结合该 Run 完整原生 `.packageinfo` / `.packagedeps` 审核其余已安装 feeds 的活动路径。反向触发者仍由图生成，没有维护应用黑名单。
+
+两条规则的 refs 保存该环境全部六个 feeds 提交。源码提交或 Target 改变后不外推；refs 是取证身份，不宣称兼容规则已有独立 feeds 匹配字段。verysync 下载得到非归档内容属于上游下载问题，不建立禁包规则。固件 Worker 不消费兼容规则审查配置，离线诊断与 Probe 的证据验证职责保持独立。
 
 读取端继续兼容 schema 2、3、4 和 5。文档仍只有 `schema` 和 `rules`。schema 4 增加的 `sourceCommits`、`targetScope`、`failure` 和 `buildDependency` 继续保持原义；schema 5 另外允许经明确审核的全局预防规则：
 

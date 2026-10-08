@@ -12,6 +12,7 @@ import { buildFailureFingerprint, classifyPrerequisiteFailure, classifyTargetPre
 import { parsePackageInfo } from './lib.mjs';
 import { derivePackageDependencyClosure, validatePackageClosureGraph } from './kconfig-relations.mjs';
 import { applicableBuildDependencies, normalizeCompatibilityDocument } from './compatibility-rules.mjs';
+import { captureCatalogInputs, catalogInputsHash } from './catalog-inputs.mjs';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const PACKAGE_RE = /^[A-Za-z0-9][A-Za-z0-9+_.@-]{0,95}$/;
@@ -517,6 +518,16 @@ function packageNamesFromInfo(text) {
   return new Set([...String(text || '').matchAll(/^Package:\s*(\S+)$/gm)].map((match) => match[1]));
 }
 
+let probeInputsHash;
+function currentProbeInputsHash() {
+  if (probeInputsHash !== undefined) return probeInputsHash;
+  const receipt = process.env.PROBE_FEEDS_RUNTIME || join(process.env.GITHUB_WORKSPACE || ROOT, 'probe-feeds-runtime.json');
+  try {
+    probeInputsHash = catalogInputsHash(captureCatalogInputs(WORKDIR, JSON.parse(readFileSync(receipt, 'utf8'))));
+  } catch { probeInputsHash = ''; }
+  return probeInputsHash;
+}
+
 function applicableProbeBuildDependencies(packageInfo) {
   if (COMPATIBILITY_DOCUMENT.error) return {
     packages: [], rules: [], unresolved: [{ reason: 'compatibility-document-invalid', error: COMPATIBILITY_DOCUMENT.error }],
@@ -526,6 +537,7 @@ function applicableProbeBuildDependencies(packageInfo) {
     source: SOURCE,
     branch: BRANCH,
     upstreamCommit: String(process.env.PROBE_UPSTREAM_COMMIT || '').toLowerCase(),
+    inputsHash: currentProbeInputsHash(),
     system: TARGET_SYSTEM,
     targetSystem: TARGET_SYSTEM,
     subtarget: SUBTARGET,
@@ -567,6 +579,8 @@ function packageClosureGate(attempt, packageInfo, roots, phase) {
   }
   const closure = derivePackageDependencyClosure(parsePackageInfo(packageInfo), roots, dependencySet.packages, {
     selectedPackages: enabledPackageNames(attempt.resolvedPackageStates),
+    installedPackages: new Set(Object.entries(attempt.resolvedPackageStates || {})
+      .filter(([, state]) => state === 'y').map(([name]) => name)),
   });
   attempt.packageClosure = { ...attempt.packageClosure, ...closure };
   attempt.stages.packageClosure = {

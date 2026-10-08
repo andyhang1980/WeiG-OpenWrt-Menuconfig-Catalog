@@ -110,6 +110,32 @@
         "diy1": "diy-generic.sh",
         "diy2": "diy2-generic.sh"
       }
+    },
+    {
+      "id": "iStoreOS",
+      "label": "iStoreOS",
+      "repo": "istoreos/istoreos",
+      "branches": {
+        "include": ["istoreos-*"],
+        "versionFamily": { "prefix": "istoreos-", "components": 2, "width": 2 },
+        "preferDefault": true
+      },
+      "exclude": [],
+      "diy": "generic",
+      "build": { "diy1": "diy-generic.sh", "diy2": "diy2-generic.sh" }
+    },
+    {
+      "id": "Lienol",
+      "label": "Lienol",
+      "repo": "Lienol/openwrt",
+      "branches": {
+        "include": ["*"],
+        "versionFamily": { "prefix": "", "components": 2, "width": 2 },
+        "preferDefault": true
+      },
+      "exclude": [],
+      "diy": "generic",
+      "build": { "diy1": "diy-generic.sh", "diy2": "diy2-generic.sh" }
     }
   ],
   "curatedGroups": [

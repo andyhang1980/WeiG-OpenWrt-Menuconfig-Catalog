@@ -10,6 +10,8 @@ import {
   indexedTranslationCatalogs,
   menuLanguagePayload,
   writeIndexedLanguageAssets,
+  readIndexedTranslationCatalog,
+  writeTranslatedLegacyProjection,
 } from './translation-catalog-assets.mjs';
 import {
   synchronizeTranslationIndex,
@@ -72,13 +74,58 @@ try {
   const sparsePaths = translationSparsePaths(index);
   assert(sparsePaths.includes(`/${legacyAsset}`));
   assert(sparsePaths.includes(`/${languageAsset}`));
-  assert(sparsePaths.includes('/future--openwrt-30.00.translations.json'));
+  assert(!sparsePaths.includes('/future--openwrt-30.00.translations.json'),
+    'producer reports must not be loaded or republished by translation');
   assert(!sparsePaths.some((file) => file.includes('.core.') || file.includes('.graph.')));
   const synchronized = synchronizeTranslationIndex(index, directory);
   assert.equal(synchronized.changed, true);
   assert.match(index.sources[0].branches[0].assets['menu:zh-CN'].sha256, /^[a-f0-9]{64}$/);
   assert(index.sources[0].branches[0].assets['menu:zh-CN'].jsonBytes > 0);
   assert.equal(synchronizeTranslationIndex(index, directory, { check: true }).changed, false);
+
+  const textCatalog = { ...structuredClone(catalog), relations: { mustNotChange: ['y', 'm', 'n'] } };
+  Object.assign(textCatalog.menu.options[0], { prompt: 'Demo', promptEn: 'Demo',
+    usageEn: 'Full option text\nwith a second line.', type: 'tristate', depends: 'GATE' });
+  Object.assign(textCatalog.menu.labels.LuCI, { en: 'LuCI', usageEn: 'Full label text, not a summary.' });
+  Object.assign(textCatalog.menu.choices[0], { promptEn: 'Choice', usageEn: 'Full choice text, not a summary.' });
+  writeFileSync(join(directory, legacyAsset), gzipSync(Buffer.from(JSON.stringify(textCatalog))));
+  const menuFile = join(directory, 'future--openwrt-30.00.menu.json.gz');
+  const helpFile = join(directory, 'future--openwrt-30.00.help.json.gz');
+  writeFileSync(menuFile, gzipSync(Buffer.from(JSON.stringify({ kind: 'menu', source: textCatalog.source,
+    options: [{ symbol: 'PACKAGE_demo', prompt: 'Demo', promptEn: 'Demo', usageEn: 'Truncated summary' }],
+  }))));
+  const fullText = { kind: 'help', source: textCatalog.source, translationInput: 'complete-text-v1',
+    options: [{ symbol: 'PACKAGE_demo', en: textCatalog.menu.options[0].usageEn,
+      promptZh: textCatalog.menu.options[0].promptZh, promptI18n: textCatalog.menu.options[0].promptI18n,
+      zhCN: textCatalog.menu.options[0].usageZh, i18n: textCatalog.menu.options[0].usageI18n }],
+    labels: textCatalog.menu.labels, choices: textCatalog.menu.choices };
+  writeFileSync(helpFile, gzipSync(Buffer.from(JSON.stringify(fullText))));
+  const modernEntry = { ...entries[0], textAssets: {
+    menu: { file: menuFile }, help: { file: helpFile },
+  } };
+  const modern = readIndexedTranslationCatalog(modernEntry);
+  assert.equal(modern.modern, true);
+  assert.equal(modern.catalog.menu.options[0].usageEn, textCatalog.menu.options[0].usageEn);
+  for (const language of ['zh-CN', 'de']) {
+    assert.deepEqual(menuLanguagePayload(modern.catalog, language, 'same'), menuLanguagePayload(textCatalog, language, 'same'),
+      'modern text-only input must preserve full source/manual titles, help, labels and choices');
+  }
+  modern.catalog.menu.options[0].usageI18n.de = 'Updated description';
+  const legacyView = { catalog: structuredClone(textCatalog), modern: false,
+    originalText: JSON.stringify(textCatalog) };
+  legacyView.catalog.menu.options[0].usageI18n.de = 'Updated description';
+  writeTranslatedLegacyProjection(modernEntry, modern, 'fixed-time');
+  const modernOutput = JSON.parse(gunzipSync(readFileSync(join(directory, legacyAsset))));
+  writeTranslatedLegacyProjection(entries[0], legacyView, 'fixed-time');
+  assert.deepEqual(modernOutput, JSON.parse(gunzipSync(readFileSync(join(directory, legacyAsset)))),
+    'modern and legacy translation projection must be fully equal, including untouched Kconfig graph');
+  assert.deepEqual(modernOutput.relations, textCatalog.relations);
+  assert.throws(() => readIndexedTranslationCatalog({ ...modernEntry, textAssets: {
+    ...modernEntry.textAssets, menu: { file: menuFile, hash: 'bad', asset: 'menu' },
+  } }), /text contract mismatch/, 'advertised corrupt text may not silently fall back');
+  writeFileSync(helpFile, gzipSync(Buffer.from(JSON.stringify({ ...fullText, translationInput: undefined }))));
+  assert.equal(readIndexedTranslationCatalog(modernEntry).modern, false,
+    'older partial help projections must retain the legacy translation path');
 
   assert.throws(() => indexedTranslationCatalogs({ schema: 2, sources: [{
     id: 'Future', branches: [{ branch: 'openwrt-31.00', legacy: { asset: 'missing.json.gz' } }],

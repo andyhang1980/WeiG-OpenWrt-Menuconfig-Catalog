@@ -33,9 +33,9 @@ import {
 import { buildCatalogSizeReport } from './catalog-size-report.mjs';
 import { applicableBuildDependencies, normalizeCompatibilityDocument } from './compatibility-rules.mjs';
 import { buildProbeConfig, verifyProbeConfig } from './verify-target-contracts.mjs';
-import { activeCuratedGroups, buildCuratedApplications } from './curated-applications.mjs';
+import { activeCuratedGroups, buildCuratedApplications, buildBranchApplicationRows } from './curated-applications.mjs';
 import { parseApkDump, parseOpkgPackages } from './curated-sizes.mjs';
-import { sourceAllowsBranch } from './source-policy.mjs';
+import { sourceAllowsBranch, sourceBranchVersion, compareBranches, validateSourcePolicy } from './source-policy.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const fixture = join(ROOT, 'tests', 'fixture');
@@ -62,7 +62,7 @@ const translations = json('translations', 'zh-CN.json');
 const menuI18n = json('translations', 'menu-i18n.json');
 
 // Source/Branch policy is data-driven and future branches stay discoverable.
-assert.equal(policy.sources.length, 4);
+assert.equal(policy.sources.length, 6);
 const immortal = policy.sources.find((row) => row.id === 'ImmortalWrt');
 const openwrt = policy.sources.find((row) => row.id === 'OpenWrt');
 const lede = policy.sources.find((row) => row.id === 'lede');
@@ -76,6 +76,30 @@ assert(sourceAllowsBranch(openwrt, 'main'));
 assert(!sourceAllowsBranch(openwrt, 'master'));
 assert(sourceAllowsBranch(lede, 'master'));
 assert(sourceAllowsBranch(lede, 'openwrt-30.01'));
+const store = policy.sources.find((row) => row.id === 'iStoreOS');
+const lienol = policy.sources.find((row) => row.id === 'Lienol');
+for (const branch of ['istoreos-21.02', 'istoreos-22.03', 'istoreos-23.05', 'istoreos-24.10', 'istoreos-25.12', 'istoreos-30.01']) {
+  assert(sourceAllowsBranch(store, branch), branch);
+}
+for (const branch of ['main', 'master', 'openwrt-25.12', 'istoreos-24.10.4', 'istoreos-24.10.0-rc4',
+  'istoreos-22.03-dev', 'istoreos-24.10-rebase', 'istoreos-24.10-rk-opp-pvtm', 'istoreos-3.01', 'istoreos-next']) {
+  assert(!sourceAllowsBranch(store, branch), branch);
+}
+for (const branch of ['19.07', '23.05', '24.10', '25.12', '30.01']) assert(sourceAllowsBranch(lienol, branch), branch);
+for (const branch of ['main', 'master', '25.12.1', '25.12-dev', 'openwrt-25.12']) assert(!sourceAllowsBranch(lienol, branch), branch);
+assert.equal(sourceBranchVersion(store, 'istoreos-24.10'), '24.10');
+assert.equal(sourceBranchVersion(immortal, 'openwrt-18.06-k5.4'), '18.06-k5.4', 'existing version identities stay stable');
+assert.deepEqual(['istoreos-23.05', 'istoreos-25.12', 'istoreos-24.10'].sort((a, b) => compareBranches(a, b, store)),
+  ['istoreos-25.12', 'istoreos-24.10', 'istoreos-23.05']);
+assert.deepEqual(['main', 'openwrt-23.05', 'openwrt-25.12'].sort((a, b) => compareBranches(a, b, openwrt)),
+  ['openwrt-25.12', 'openwrt-23.05', 'main']);
+assert.throws(() => validateSourcePolicy({ ...store, branches: { ...store.branches, versionFamily: { prefix: '*', components: 2, width: 2 } } }), /versionFamily/);
+assert.throws(() => validateSourcePolicy({ ...store, branches: { ...store.branches, preferDefault: 'true' } }), /preferDefault/);
+assert(store.branches.preferDefault && lienol.branches.preferDefault);
+for (const source of [store, lienol]) {
+  assert.deepEqual(source.build, { diy1: 'diy-generic.sh', diy2: 'diy2-generic.sh' });
+  assert(!policy.curatedSizeSources.some((row) => row.id === source.id), 'never borrow another fork\'s package sizes');
+}
 
 // Official Target/Profile parsing and selector contracts.
 const targets = parseInfoRecords(readFileSync(join(fixture, 'targetinfo'), 'utf8'));
@@ -654,6 +678,15 @@ const groupFixture = activeCuratedGroups(['alpha', 'empty', 'alpha', 'beta'], [{
 assert.deepEqual(groupFixture, ['alpha', 'beta']);
 assert.equal(activeGroups.length, policy.curatedGroups.length);
 const curatedDocument = buildCuratedApplications(ROOT);
+const applicationOptions = [{ symbol: 'PACKAGE_luci-app-uncategorized', path: ['LuCI', '3. Applications'] },
+  { symbol: 'PACKAGE_luci-app-curated', path: ['Source-specific menu'] },
+  { symbol: 'PACKAGE_luci-app-absent', path: ['LuCI', '3. Applications'] }];
+assert.deepEqual(buildBranchApplicationRows(applicationOptions,
+  new Set(['luci-app-uncategorized', 'luci-app-curated']),
+  [{ packages: ['luci-app-curated'], group: 'Storage', hot: true }]),
+  [['PACKAGE_luci-app-curated', 'luci-app-curated', 'Storage', 1],
+    ['PACKAGE_luci-app-uncategorized', 'luci-app-uncategorized', 'Other', 0]]);
+assert.deepEqual(applicationOptions[0].path, ['LuCI', '3. Applications'], 'Native menu paths stay untouched');
 assert.deepEqual(curatedDocument.groups, activeGroups);
 assert.equal(curatedDocument.items.length, curated.length);
 assert(curatedDocument.items.every((row) => row.id && row.titleZh && row.usageZh));
@@ -675,8 +708,67 @@ assert.equal(sizeRows[0].relationsReductionPercent, 75);
 
 // Compatibility v5 separates a global preventive applicability policy from exact evidence.
 const normalizedCompatibility = normalizeCompatibilityDocument(compatibility, policy);
-assert.equal(normalizedCompatibility.schema, 6);
-assert.equal(normalizedCompatibility.rules.length, 8);
+assert.equal(normalizedCompatibility.schema, 7);
+assert.equal(normalizedCompatibility.rules.length, 18);
+const amuleRule = normalizedCompatibility.rules.find(row => row.id === 'BLD-0014');
+assert.deepEqual(amuleRule.packages, ['amule']);
+assert.deepEqual(amuleRule.buildDependency, { package: 'amule' });
+assert.equal(amuleRule.failure.observed.compileTarget, 'package/feeds/packages/amule/compile');
+const amuleContext = { source: 'ImmortalWrt', branch: 'master', upstreamCommit: amuleRule.sourceCommits[0],
+  inputsHash: amuleRule.inputHashes[0], system: 'x86', subtarget: '64', profile: 'DEVICE_generic', availablePackages: ['amule'] };
+const amuleDocument = { schema: 7, rules: [amuleRule] };
+assert.deepEqual(applicableBuildDependencies(amuleDocument, amuleContext).packages, ['amule']);
+for (const change of [{ source: 'lede' }, { branch: 'openwrt-25.12' }, { upstreamCommit: 'f'.repeat(40) },
+  { inputsHash: 'f'.repeat(64) }, { subtarget: 'generic' }]) {
+  assert.deepEqual(applicableBuildDependencies(amuleDocument, { ...amuleContext, ...change }).packages, []);
+}
+// Exact compile facts are independent of application names and other sources.
+for (const id of ['BLD-0010', 'BLD-0011', 'BLD-0012', 'BLD-0013']) {
+  const rule = normalizedCompatibility.rules.find(row => row.id === id);
+  assert(rule, 'Missing reviewed compile fact: ' + id);
+  assert.deepEqual(Object.keys(rule.buildDependency), ['package']);
+  assert.deepEqual(rule.packages, [rule.buildDependency.package]);
+  assert.deepEqual(rule.targetScope, { system: ['x86'], subtarget: ['64'], profile: ['DEVICE_generic'] });
+  assert.equal(rule.failure.phase, 'package-compile');
+  assert.equal(rule.failure.observed.compileTarget, 'package/feeds/routing/cjdns/compile');
+  const source = Object.keys(rule.scope)[0];
+  const context = { source, branch: rule.scope[source][0], upstreamCommit: rule.sourceCommits[0],
+    inputsHash: rule.inputHashes[0], system: 'x86', subtarget: '64', profile: 'DEVICE_generic',
+    availablePackages: ['cjdns', 'cjdns-tests'], conditions: [rule.if] };
+  const document = { schema: 7, rules: [rule] };
+  assert.deepEqual(applicableBuildDependencies(document, context).packages, [rule.buildDependency.package]);
+  for (const changed of [
+    { source: 'ImmortalWrt' }, { branch: 'master' }, { upstreamCommit: 'f'.repeat(40) },
+    { inputsHash: 'f'.repeat(64) }, { subtarget: 'generic' }, { conditions: [] },
+  ]) assert.deepEqual(applicableBuildDependencies(document, { ...context, ...changed }).packages, []);
+  assert.equal(applicableBuildDependencies(document, { ...context, inputsHash: '' })
+    .unresolved[0].reason, 'exact-inputs-hash-unresolved');
+  assert(rule.refs.some(ref => ref.startsWith('makefile-sha256:')));
+  assert(rule.refs.some(ref => ref.startsWith('feed:routing:')));
+}
+const retainedOwnership = normalizedCompatibility.rules.find(rule => rule.id === 'OWN-0005');
+assert.deepEqual(retainedOwnership.preferredDisable, ['luci-app-zerotier']);
+assert.deepEqual(retainedOwnership.preservePackages, ['zerotier']);
+assert.deepEqual(retainedOwnership.inputHashes, ['9bc5eaee6bddea372f948fa70279c711f1757dbe6508ec5f09eb8817715ad074']);
+const exactDownloadRule = normalizedCompatibility.rules.find(rule => rule.id === 'BLD-0008');
+const exactDownloadDocument = { schema: 7, rules: [exactDownloadRule] };
+const exactDownloadContext = { source: 'Lienol', branch: '25.12',
+  upstreamCommit: exactDownloadRule.sourceCommits[0], inputsHash: exactDownloadRule.inputHashes[0],
+  system: 'x86', subtarget: '64', profile: 'DEVICE_generic', availablePackages: ['verysync'] };
+assert.deepEqual(applicableBuildDependencies(exactDownloadDocument, exactDownloadContext).packages, ['verysync']);
+assert.deepEqual(applicableBuildDependencies(exactDownloadDocument,
+  { ...exactDownloadContext, inputsHash: 'f'.repeat(64) }).packages, [], 'changed feeds must not inherit an old package failure');
+assert.equal(applicableBuildDependencies(exactDownloadDocument,
+  { ...exactDownloadContext, inputsHash: '' }).unresolved[0].reason, 'exact-inputs-hash-unresolved');
+for (const mutate of [
+  row => { row.preservePackages = ['luci-app-zerotier']; },
+  row => { row.preservePackages = ['missing']; },
+  row => { row.match = 'all-selected'; },
+]) {
+  const invalid = structuredClone(retainedOwnership); mutate(invalid);
+  assert.throws(() => normalizeCompatibilityDocument({ schema: 7, rules: [invalid] }, policy), /preservePackages/);
+}
+assert.throws(() => normalizeCompatibilityDocument({ schema: 6, rules: [retainedOwnership] }, policy), /preservePackages|inputHashes/);
 assert.equal(normalizedCompatibility.rules.find(rule => rule.id === 'OWN-0001')?.issue, 'file-ownership');
 const preferredOwnershipRule = normalizedCompatibility.rules.find(rule => rule.id === 'OWN-0002');
 assert.deepEqual(preferredOwnershipRule.preferredDisable, ['autosamba']);
@@ -704,6 +796,18 @@ assert.deepEqual(applicableBuildDependencies(normalizedCompatibility, {
   source: 'OpenWrt', branch: 'main', availablePackages: [],
 }).packages, [], 'if-present rules must skip unavailable failed packages');
 const pppoeRule = normalizedCompatibility.rules.find((rule) => rule.id === 'OWN-0003');
+const softetherRule = normalizedCompatibility.rules.find((rule) => rule.id === 'OWN-0004');
+assert.deepEqual(softetherRule.packages, ['softethervpn-base', 'softethervpn5-libs']);
+assert.equal(softetherRule.match, 'all-installed');
+assert.equal(softetherRule.preferredDisable, undefined, 'variant preference is a user choice, not a package-name heuristic');
+for (const id of ['OWN-0004', 'BLD-0007', 'OWN-0005', 'BLD-0008']) {
+  const rule = normalizedCompatibility.rules.find(row => row.id === id);
+  assert.deepEqual(rule.scope, { Lienol: ['25.12'] });
+  assert.deepEqual(rule.sourceCommits, ['a337df404ab3f6dc5b3e7b26a753343d3ad2f4c2']);
+  assert.deepEqual(rule.targetScope, { system: ['x86'], subtarget: ['64'], profile: ['DEVICE_generic'] });
+}
+assert.deepEqual(normalizedCompatibility.rules.find(row => row.id === 'BLD-0007').buildDependency,
+  { package: 'qt5-core' }, 'Qt failure belongs to the native qtbase source, not a manually listed application');
 assert.deepEqual(pppoeRule.packages, ['luci-app-pppoe-server', 'rp-pppoe-server']);
 assert.deepEqual(pppoeRule.preferredDisable, ['rp-pppoe-server']);
 assert.equal(pppoeRule.match, 'all-installed');

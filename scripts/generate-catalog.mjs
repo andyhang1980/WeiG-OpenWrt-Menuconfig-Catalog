@@ -7,7 +7,7 @@ import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import {
   buildTargetTree, incompleteSelectableTargets, parseInfoRecords, parseKconfigTree, parsePackageInfo, safeSlug,
-  resolvePackageOption, targetBuildContract,
+  resolvePackageOption, targetBuildContract, nativePackageInstallationContract,
 } from './lib.mjs';
 import { buildKconfigRelations } from './kconfig-relations.mjs';
 import { compactRelations, validateCompactRoundTrip } from './compact-relations.mjs';
@@ -15,6 +15,7 @@ import { encodeCompactRelationTables } from './relation-table-codec.mjs';
 import { traceNativeKconfig, createNativeExpansionReplay } from './native-kconfig-preprocess.mjs';
 import { measureJsonBytes } from './catalog-size-report.mjs';
 import { captureCatalogInputs, catalogInputsHash } from './catalog-inputs.mjs';
+import { buildBranchApplicationRows } from './curated-applications.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const args = {};
@@ -36,6 +37,7 @@ const source = {
   id: args['source-id'], label: args.label || args['source-id'],
   repo: args.repo, branch: args.branch,
   commit, legacy: args.legacy === 'true',
+  ...(args['default-branch'] ? { defaultBranch: args['default-branch'] } : {}),
   ...(buildInputs ? { inputsHash: catalogInputsHash(buildInputs) } : {}),
 };
 const targets = parseInfoRecords(readFileSync(targetInfo, 'utf8'));
@@ -158,20 +160,7 @@ if (curatedCandidates.some((candidate) => !candidate || typeof candidate !== 'ob
 const packageSymbols = new Set(allMenuOptions
   .filter((option) => option.symbol.startsWith('PACKAGE_') && packageByName.has(option.symbol.slice('PACKAGE_'.length)))
   .map((option) => option.symbol.slice('PACKAGE_'.length)));
-const curatedByPackage = new Map(curatedCandidates.flatMap((candidate) =>
-  (candidate.packages || []).map((packageName) => [packageName, candidate])));
-const luciApplicationOptions = allMenuOptions.filter((option) =>
-  /^PACKAGE_luci-app-[A-Za-z0-9_.+@-]+$/.test(String(option.symbol || '')) &&
-  packageSymbols.has(option.symbol.slice('PACKAGE_'.length)))
-  .sort((a, b) => a.symbol.localeCompare(b.symbol));
-const applicationRows = luciApplicationOptions.map((option) => {
-  const packageName = option.symbol.slice('PACKAGE_'.length);
-  const curated = curatedByPackage.get(packageName);
-  const path = (option.path || []).map((part) => String(part || '').trim()).filter(Boolean);
-  const luciIndex = path.findIndex((part) => /^luci$/i.test(part));
-  const derivedGroup = path[luciIndex + 1] || path.at(-1) || 'Applications';
-  return [option.symbol, packageName, curated?.group || derivedGroup, curated?.hot === true ? 1 : 0];
-});
+const applicationRows = buildBranchApplicationRows(allMenuOptions, packageSymbols, curatedCandidates);
 const branchApplications = {
   schema: 1,
   kind: 'branch-applications',
@@ -224,6 +213,7 @@ const translatedOptions = menuOptions.map((option) => {
   };
 });
 const relations = buildKconfigRelations(relationOptions, packages, menu.choices, {
+  packageInstallation: nativePackageInstallationContract(tree),
   // The parser report is a data-support matrix, not an evaluator result. The
   // relation builder checks it together with source/graph diagnostics; the
   // compact serializer independently proves the readable round-trip below.
@@ -309,8 +299,11 @@ const payload = {
     symbolsUnique: true,
     duplicateSymbols: duplicateReport.summary.duplicateSymbols,
     duplicateNodes: duplicateReport.summary.duplicateNodes,
-    duplicateReport: `${slug}.duplicates.json`,
-    curatedCandidatesReport: `${slug}.curated-candidates.json`,
+    diagnostics: {
+      delivery: 'actions-artifact',
+      duplicateReport: `${slug}.duplicates.json`,
+      curatedCandidatesReport: `${slug}.curated-candidates.json`,
+    },
   },
   counts: {
     targets: targets.length,
@@ -474,10 +467,18 @@ const helpPayload = {
   kind: 'help',
   generatedAt,
   source,
+  translationInput: 'complete-text-v1',
+  // Full English/manual text stays in the lazy help projection. Translation
+  // no longer needs the dependency graph to discover source text.
+  labels: compactMenu.labels,
+  choices: compactMenu.choices.map(({ id, prompt, promptEn, promptZh, promptI18n, usageEn, usageZh, usageI18n }) =>
+    ({ id, prompt, promptEn, promptZh, promptI18n, usageEn, usageZh, usageI18n })),
   options: translatedOptions.filter((option) => option.help || option.usageEn || option.usageZh ||
     Object.keys(option.usageI18n || {}).length).map((option) => ({
     symbol: option.symbol,
     en: option.usageEn || option.help || '',
+    promptZh: option.promptZh || '',
+    promptI18n: option.promptI18n || {},
     zhCN: option.usageZh || '',
     i18n: option.usageI18n || {},
   })),
@@ -637,7 +638,8 @@ writeFileSync(join(outDir, `${slug}.meta.json`), JSON.stringify({
     legacy: { bytes: legacyCompressed.byteLength, jsonBytes: Buffer.byteLength(legacyJson) },
     split: {
       bytes: Object.values(assets).reduce((sum, item) => sum + item.bytes, 0),
-      initialBytes: assets.core.bytes + assets.graph.bytes,
+      pickerBytes: assets.core.bytes,
+      initialBytes: assets.core.bytes + assets.graphCompact.bytes,
       graphJsonBytes: assets.graph.jsonBytes,
     },
     readableRelationsJsonBytes: measureJsonBytes(relations, 2) + 1,
@@ -646,5 +648,5 @@ writeFileSync(join(outDir, `${slug}.meta.json`), JSON.stringify({
 }, null, 2) + '\n');
 console.log(`${asset}: ${payload.counts.selectableTargets}/${targets.length} selectable targets / ` +
   `${payload.counts.profiles} profiles / ${compactMenu.options.length} menu options / ${packages.length} packages` +
-  ` / schema6 initial ${assets.core.bytes + assets.graph.bytes} bytes` +
+  ` / schema6 core+compact graph ${assets.core.bytes + assets.graphCompact.bytes} bytes` +
   (unavailableTargets.length ? ` / unavailable contracts: ${unavailableTargets.length}` : ''));

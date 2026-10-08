@@ -42,6 +42,7 @@ on:
       - "scripts/native-kconfig-preprocess.mjs"
       - "scripts/native-kconfig-trace.c"
       - "scripts/prepare-metadata.sh"
+      - "scripts/native-installation-metadata.mjs"
       - "scripts/install-probe-feeds.sh"
       - "scripts/profile-config-contract.mjs"
       - "scripts/source-policy.mjs"
