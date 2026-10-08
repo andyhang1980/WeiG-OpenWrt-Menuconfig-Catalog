@@ -7,9 +7,9 @@
     "branch": "openwrt-18.06-k5.4",
     "commit": "8b50c1df2150be9c2883fca59d0a142b811e7d5d",
     "legacy": false,
-    "inputsHash": "4ae21cc2d7c8396e809068d0aa7b385c6e11ad32c883570d1522856ce1df54a6"
+    "inputsHash": "f46c3e93d3db8ed83a8af96a77df91acef2d384d67bb8e3f87b2dca9d936d724"
   },
-  "generatedAt": "2026-10-02T05:10:37.337Z",
+  "generatedAt": "2026-10-08T02:29:25.859Z",
   "summary": {
     "targets": 106,
     "selectableTargets": 72,
@@ -66,7 +66,7 @@
   "kconfigProbe": {
     "schema": 1,
     "mode": "target-chain-and-representative-profile",
-    "generatedAt": "2026-10-02T05:11:45.634Z",
+    "generatedAt": "2026-10-08T02:30:37.958Z",
     "targets": 72,
     "passed": 72,
     "passedScope": "target chain plus one representative profile; all siblings remain hidden on failure",
