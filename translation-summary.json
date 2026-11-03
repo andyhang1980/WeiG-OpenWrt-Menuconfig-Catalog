@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-03T03:13:59.407Z",
+  "generatedAt": "2026-11-03T03:22:24.138Z",
   "catalogs": 26,
   "cachedTexts": 44795,
   "trigger": "schedule",
@@ -19,21 +19,21 @@
   "frozenLanguages": [
     "zh-TW"
   ],
-  "batchNumber": 4,
+  "batchNumber": 5,
   "batchCount": 5,
   "queuedThisRun": 500,
-  "retryQueuedAfter": 343,
+  "retryQueuedAfter": 351,
   "batchLimit": 500,
-  "queuedCharacters": 75839,
+  "queuedCharacters": 78318,
   "requestedCharactersThisRun": 0,
   "runCharacterBudget": null,
-  "translatedThisRun": 157,
-  "targetPendingBefore": 21545,
-  "targetPendingAfter": 21388,
-  "localizedFields": 201637,
-  "pendingFields": 5503143,
+  "translatedThisRun": 149,
+  "targetPendingBefore": 21388,
+  "targetPendingAfter": 21239,
+  "localizedFields": 203969,
+  "pendingFields": 5500811,
   "localizedByLanguage": {
-    "zh-CN": 117228,
+    "zh-CN": 119560,
     "zh-TW": 10009,
     "ru": 10009,
     "es": 9957,
@@ -45,7 +45,7 @@
     "vi": 9977
   },
   "pendingByLanguage": {
-    "zh-CN": 467868,
+    "zh-CN": 465536,
     "zh-TW": 575087,
     "ru": 575087,
     "es": 575139,
@@ -57,7 +57,7 @@
     "vi": 575119
   },
   "uniqueDescriptionPendingByLanguage": {
-    "zh-CN": 21388,
+    "zh-CN": 21239,
     "zh-TW": 26985,
     "ru": 26985,
     "es": 26985,
@@ -72,9 +72,9 @@
   "providerConfigured": true,
   "translationEnabled": true,
   "model": "en-zh:installed",
-  "rejected": 343,
+  "rejected": 351,
   "timedOut": false,
   "apiError": "",
-  "warning": "Batch incomplete: translated 157/500 queued descriptions",
+  "warning": "Batch incomplete: translated 149/500 queued descriptions",
   "status": "completed"
 }
