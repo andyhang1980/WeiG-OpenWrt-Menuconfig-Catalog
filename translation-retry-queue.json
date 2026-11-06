@@ -5,1819 +5,1849 @@
       {
         "id": "3d8f33c09b6778562f18652ea18c1e74135682b7fce27a55b594a97ed3993588",
         "text": "This enables further checks in the kernel address sanitizer, for now\nit only includes the address-use-after-scope check that can lead\nto excessive kernel stack usage, frame size warnings and longer\ncompile time.\nhttps://gcc.gnu.org/bugzilla/show_bug.cgi?id=81715 has more",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "30221851cb10191e8a1dbb211b1aca963d8f3c1e91b9a5a9cb1ac82b4ec39766",
         "text": "This package contains a base filesystem and system scripts for OpenWrt. http://openwrt.org/",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "22984b637cbae0159223c5b103a8f125066e6571a2240db46dcb2710f0db4dd1",
         "text": "Without this, sort only supports -rusz, and an integer version\nof -n. Selecting this adds sort keys, floating point support, and\nmore. This adds a little over 3k to a nonstatic build on x86.\n\nThe SuSv3 sort standard is available at:\nhttp://www.opengroup.org/onlinepubs/007904975/utilities/sort.html",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "0ac2f390872e0634e755893ff0d282962eb58d26e99a078611aefb17737788bb",
         "text": "bc is a command-line, arbitrary-precision calculator with a\nTuring-complete language. See the GNU bc manual\n(https://www.gnu.org/software/bc/manual/bc.html) and bc spec\n(http://pubs.opengroup.org/onlinepubs/9699919799/utilities/bc.html).\n\nThis bc has five differences to the GNU bc:\n1) The period (.) is a shortcut for \"last\", as in the BSD bc.\n2) Arrays are copied before being passed as arguments to\nfunctions. This behavior is required by the bc spec.\n3) Arrays can be passed to the builtin \"length\" function to get\nthe number of elements in the array. This prints \"1\":\na[0] = 0; length(a[])\n4) The precedence of the boolean \"not\" operator (!) is equal to\nthat of the unary minus (-) negation operator. This still\nallows POSIX-compliant scripts to work while somewhat\npreserving expected behavior (versus C) and making parsing\neasier.\n5) \"read()\" accepts expressions, not only numeric literals.",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "5f533b6d710406dc616aa3062123d676e9bc7312660b1b5bc9858214b955ea66",
         "text": "dc is a reverse-polish notation command-line calculator which\nsupports unlimited precision arithmetic. See the FreeBSD man page\n(https://www.unix.com/man-page/FreeBSD/1/dc/) and GNU dc manual\n(https://www.gnu.org/software/bc/manual/dc-1.05/html_mono/dc.html).\n\nThis dc has a few differences from the two above:\n1) When printing a byte stream (command \"P\"), this dc follows what\nthe FreeBSD dc does.\n2) Implements the GNU extensions for divmod (\"~\") and\nmodular exponentiation (\"|\").\n3) Implements all FreeBSD extensions, except for \"J\" and \"M\".\n4) Like the FreeBSD dc, this dc supports extended registers.\nHowever, they are implemented differently. When it encounters\nwhitespace where a register should be, it skips the whitespace.\nIf the character following is not a lowercase letter, an error\nis issued. Otherwise, the register name is parsed by the\nfollowing regex: [a-z][a-z0-9_]*\nThis generally means that register names will be surrounded by\nwhitespace. Examples:\nl idx s temp L index S temp2 < do_thing\nAlso note that, like the FreeBSD dc, extended registers are not\nallowed unless the \"-x\" option is given.",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "24dc96dd13936a1853dedf42fb9da516c939d98cceceaa0b2b9d4c6a6e8d069f",
         "text": "This option allows you to define URLs that will be forwarded\nto another HTTP server. To setup add the following line to the\nconfiguration file\nP:/url/:http://hostname[:port]/new/path/\nThen a request to /url/myfile will be forwarded to\nhttp://hostname[:port]/new/path/myfile.",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "fa16c44cac10daf7dccda848f638a764f17266d21496e33b1288368077cba60f",
         "text": "A daemon for the TELNET protocol, allowing you to log onto the host\nrunning the daemon. Please keep in mind that the TELNET protocol\nsends passwords in plain text. If you can't afford the space for an\nSSH daemon and you trust your network, you may say 'y' here. As a\nmore secure alternative, you should seriously consider installing the\nvery small Dropbear SSH daemon instead:\nhttp://matt.ucc.asn.au/dropbear/dropbear.html\n\nNote that for busybox telnetd to work you need several things:\nFirst of all, your kernel needs:\nCONFIG_UNIX98_PTYS=y\n\nNext, you need a /dev/pts directory on your root filesystem:\n\n$ ls -ld /dev/pts\ndrwxr-xr-x  2 root root 0 Sep 23 13:21 /dev/pts/\n\nNext you need the pseudo terminal master multiplexer /dev/ptmx:\n\n$ ls -la /dev/ptmx\ncrw-rw-rw-  1 root tty 5, 2 Sep 23 13:55 /dev/ptmx\n\nAny /dev/ttyp[0-9]* files you may have can be removed.\nNext, you need to mount the devpts filesystem on /dev/pts using:\n\nmount -t devpts devpts /dev/pts\n\nYou need to be sure that busybox has LOGIN and\nFEATURE_SUID enabled. And finally, you should make\ncertain that busybox has been installed setuid root:\n\nchown root.root /bin/busybox\nchmod 4755 /bin/busybox\n\nwith all that done, telnetd _should_ work....",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "d66d64cf8d266e29142324fefb34188d513a3c749e664a1c3212a50c92c6d182",
         "text": "Enable support to modify to relabel files.\nNotice: If you built libselinux with -D_FILE_OFFSET_BITS=64,\n(It is default in libselinux's Makefile), you _must_ enable\nCONFIG_LFS.",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "48705f6e3cbfaa1ed2d22cef5ad2925fefc22d7943f2b492bbc6f7a57ea10814",
         "text": "It is intended to provide coupled DNS and DHCP service to a LAN. http://www.thekelleys.org.uk/dnsmasq/",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "1e0a9d8d1e05420ff3c2f6a82761a2d3a6b341e7c13e423e7a6d9110b8e073df",
         "text": "This package contains the hw watchdog script for the OM1P and OM2P device. http://openwrt.org/",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "f817c1efc099563a7a352ab9a5e57006ca21f2712c69bad2af076c0cdb812aea",
         "text": "This package contains a collection of tools for configuring wireless adapters implementing the \"Linux Wireless Extensions\". http://hplabs.hp.com/personal/Jean_Tourrilhes/Linux/Tools.html Felix Fietkau <nbd@nbd.name>",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "0dd2cbd36294156f01990f30040bf3d8920897e173cb35b58e2297093557afb2",
         "text": "Resource monitor that shows usage and stats for processor, memory, disks, network and processes. https://github.com/aristocratos/bpytop",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "842fe2f39e315d9f2f06eec86850db2cf88b5e55f226a2a46c4062122e482d6d",
         "text": "Resource monitor that shows usage and stats for processor, memory, disks, network and processes. This package contains the Python source files for bpytop. https://github.com/aristocratos/bpytop",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "2855d4cc7a4e48158eb20497b3b0a6b6316bbfedeb56df390995643ac5496068",
         "text": "Trusted-Firmware-A for MediaTek MT7622 (eMMC, 1x DDR3) https://www.trustedfirmware.org/projects/tf-a/ Daniel Golle <daniel@makrotopia.org>",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "4790feddf31a682b573b4434b3ab3537aa1e2bd197132bf5620807eb2337ee92",
         "text": "Trusted-Firmware-A for MediaTek MT7622 (eMMC, 2x DDR3) https://www.trustedfirmware.org/projects/tf-a/ Daniel Golle <daniel@makrotopia.org>",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "b72b9f510b3b3332096cfa077773b15d48a564dca17d02e1ba813e1ca31f1404",
         "text": "Trusted-Firmware-A for Methode uDPU https://www.trustedfirmware.org/projects/tf-a/ Vladimir Vid <vladimir.vid@sartura.hr>",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "24bc5ad23e6f4dd3aaa1fd39b9d56d742b0c6bcd0b9cdca347d7665f204d27ed",
         "text": "U-Boot for Arcadyan arv4519pw (NOR) http://www.denx.de/wiki/U-Boot",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "7b6cf8bffe8f19fc70e5891f2e53b9101f16268db4f3c93c10a356d99cbb777f",
         "text": "U-Boot for Arcadyan ARV7506PW11 (NOR) http://www.denx.de/wiki/U-Boot",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "2f10103b2bea94897affd59b95ef88dfe2c070bead85dc287501d56dced6271e",
         "text": "U-Boot for Arcadyan ARV7506PW11 (RAM) http://www.denx.de/wiki/U-Boot",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "c8d518e57bff4866fede7b39b2c3b057e3e535b656ffc0ba6961291a589c55a2",
         "text": "U-Boot for Arcadyan arv7510pw (NOR) http://www.denx.de/wiki/U-Boot",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "72ce677df3f0fc52a6634b3fc18ed0f324c5bf0d02fc7297941072bb2d418681",
         "text": "U-Boot for Banana Pi R2 (mt7623) http://www.denx.de/wiki/U-Boot",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "0f3ff49d1ae278e7e728a0b91b395982209921ee989a746b4a808ea26c363f11",
         "text": "U-Boot for SABRE i.MX6Quad board http://www.denx.de/wiki/U-Boot",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "0741f76aa7e67a841303c08cbaff97fe378d51b7689f5fd5063fe8306cf9e1b9",
         "text": "U-Boot for Arcadyan VGV7510KW22 (RAM) http://www.denx.de/wiki/U-Boot",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "b42366351d153a9ac1da4aba8eec04e76d10b57fd112c1874521b0f0453200a8",
         "text": "GDB, the GNU Project debugger, allows you to see what is going on `inside' another program while it executes -- or what another program was doing at the moment it crashed. https://www.gnu.org/software/gdb/",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "c95645f443163c323522bf3ec3480eebaeddd8c1d77f0c32382822c9c84c3ab0",
         "text": "GDBSERVER is a program that allows you to run GDB on a different machine than the one which is running the program being debugged. https://www.gnu.org/software/gdb/",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "7e470bc6685124fffb9699b49100dd2cf72057cd01395dab66d02bcc39c45b54",
         "text": "GitLab Runner is an application that works with GitLab CI/CD to run jobs in a pipeline. https://docs.gitlab.com/runner Jan Pavlinec <jan.pavlinec@nic.cz>",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "a46c967e71227769621e0acb56554cc21783b03d2c9c0ebc572e554cba904263",
         "text": "Valgrind is an award-winning suite of tools for debugging and profiling Linux programs. With the tools that come with Valgrind, you can automatically detect many memory management and threading bugs, avoiding hours of frustrating bug-hunting, making your programs more stable. You can also perform detailed profiling, to speed up and reduce memory use of your programs. http://www.valgrind.org Felix Fietkau <nbd@nbd.name>",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "20c7716191dad438827fa4626585043c3c6fa6408bb1cd50f933f0ddbcd2b94d",
         "text": "k3wifi fw https://github.com/xiangfeidexiaohuo/Phicomm-K3_Wireless-Firmware",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "9f12f72007337a8d877976494f8a87a13c08ea94cc4a377971da6934dedbb1c4",
         "text": "Alternative ath10k firmware for IPQ4019 radio from Candela Technologies. Enables IBSS and other features.  Works with standard or ath10k-ct driver. See:  http://www.candelatech.com/ath10k-10.4.php https://www.candelatech.com/ath10k.php",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "6e980b15c034cd0393e6da29a6ab109729c21d409bab5a9fd9613653c2b3ab16",
         "text": "Alternative ath10k firmware for IPQ4019 radio from Candela Technologies. Uses normal HTT TX data path for management frames, which improves stability in busy networks and may be required for .11r authentication. Enables IBSS and other features. See:  http://www.candelatech.com/ath10k-10.4.php This firmware selects and requires the ath10k-ct driver. https://www.candelatech.com/ath10k.php",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "34d724fd1024137d816c6a2e9a32cf037dc24b38e020215cfd3bce2851cdd1e6",
         "text": "Alternative ath10k firmware for QCA9887 from Candela Technologies. Enables IBSS and other features.  See: http://www.candelatech.com/ath10k-10.1.php This firmware conflicts with the standard 9887 firmware, so select only one. https://www.candelatech.com/ath10k.php",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "2a8949e8c01be6d139af7c2d2a4a4f652a3112060fd6894f0aaf305e024866ab",
         "text": "Alternative ath10k firmware for QCA9887 from Candela Technologies. Uses normal HTT TX data path for management frames, which improves stability in busy networks and fixes .11r authentication. Enables IBSS and other features.  See: http://www.candelatech.com/ath10k-10.1.php This firmware selects and requires the ath10k-ct driver. https://www.candelatech.com/ath10k.php",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "6b86e51dfa07f4b023e7cbd2235c83f0a0393389483944f67c219da397e35236",
         "text": "Alternative ath10k firmware for QCA9886 and QCA9888 from Candela Technologies. Enables IBSS and other features.  See: http://www.candelatech.com/ath10k-10.4.php This firmware conflicts with the standard 9886 and 9888 firmware, so select only one. https://www.candelatech.com/ath10k.php",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "a6ee55e5281c29a3584e615ad02222f8bd7c86f3dd359abeba9f1729b3589204",
         "text": "Alternative ath10k firmware for QCA9886 and QCA9888 from Candela Technologies. Uses normal HTT TX data path for management frames, which improves stability in busy networks and may be required for .11r authentication. Enables IBSS and other features.  See: http://www.candelatech.com/ath10k-10.4.php This firmware selects and requires the ath10k-ct driver. https://www.candelatech.com/ath10k.php",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "c70c0b34e9c8ae04209b7ce43d9f1eb75ce40d5fff8a3644f284810cea8e5bbc",
         "text": "Alternative ath10k firmware for QCA988X from Candela Technologies. Uses normal HTT TX data path for management frames, which improves stability in busy networks and fixes .11r authentication. Enables IBSS and other features.  See: http://www.candelatech.com/ath10k-10.1.php This firmware selects and requires the ath10k-ct driver. https://www.candelatech.com/ath10k.php",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "7a203fbba2c83ae50f9561ab3a283a1b5f270038e1ecc2993fc6e101d95bc8d9",
         "text": "Alternative ath10k firmware for QCA9984 from Candela Technologies. Enables IBSS and other features.  See: http://www.candelatech.com/ath10k-10.4.php This firmware conflicts with the standard 9984 firmware, so select only one. https://www.candelatech.com/ath10k.php",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "ec27f878deaea8b4fc891a0914ca65f52097f7b4121653ebbe6a9caefb05108a",
         "text": "Alternative ath10k firmware for QCA9984 from Candela Technologies. Uses normal HTT TX data path for management frames, which improves stability in busy networks and may be required for .11r authentication. Enables IBSS and other features.  See: http://www.candelatech.com/ath10k-10.4.php This firmware selects and requires the ath10k-ct driver. https://www.candelatech.com/ath10k.php",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "b899b505498d29b29bdd54c2fce9356117a98befabfe938a756eed8ba954ab9b",
         "text": "Alternative ath10k firmware for QCA99x0 from Candela Technologies. Enables IBSS and other features.  See: http://www.candelatech.com/ath10k-10.4.php This firmware conflicts with the standard 99x0 firmware, so select only one. https://www.candelatech.com/ath10k.php",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "d3114865e1b3de480290a43d81bc23a59a0476344154abfe06dec3c12443e93f",
         "text": "Alternative ath10k firmware for QCA99x0 from Candela Technologies. Uses normal HTT TX data path for management frames, which improves stability in busy networks and may be required for .11r authentication. Enables IBSS and other features.  See: http://www.candelatech.com/ath10k-10.4.php This firmware selects and requires the ath10k-ct driver. https://www.candelatech.com/ath10k.php",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "854c144ba698130c5a81a3afbb039e88964f4fa543c5bf9b021a7301ff54bcd6",
         "text": "Broadcom BCM43430 NVRAM for Raspberry Pi Zero W http://git.kernel.org/cgit/linux/kernel/git/firmware/linux-firmware.git Felix Fietkau <nbd@nbd.name>",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "23c2701ce80ba9ec718536f60cd7b88eadeb2f026a4622958845afbfe321fe2f",
         "text": "Patch which between the Annex A and Annex B firmware to create the Annex A firmware. http://www.lantiq.com/",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "ec20a980d6483fa64a8aaa1082a28ac1d8ea71106bf50a0e404164de1e577e48",
         "text": "Patch which between the Annex A and Annex B firmware to create the Annex B firmware. http://www.lantiq.com/",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "7f3ad7d6bfa4f0597123dea6a032a7717e66822241c74ff45d36cff63409c005",
         "text": "Intel Wireless Wi-Fi 5150AGN firmware http://git.kernel.org/cgit/linux/kernel/git/firmware/linux-firmware.git Felix Fietkau <nbd@nbd.name>",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "ae53ff8f1ca95d843541ed79089b4f44004af99f586f95aecc3b95605aca8a98",
         "text": "This module contains some common parts needed by Atheros Wireless drivers. https://wireless.wiki.kernel.org/ Felix Fietkau <nbd@nbd.name>",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "95592c5d1553c18f5fe1dc725e328ac4e738fe2862718865afab59806c55adae",
         "text": "This module adds support for wireless adapters based on Atheros IEEE 802.11ac family of chipsets. For now only PCI is supported. https://wireless.wiki.kernel.org/en/users/drivers/ath10k Felix Fietkau <nbd@nbd.name>",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "adc19a0f5da46ccea5f1ab9358e3cd1d146aeb4cea6d2888c2e1362e8ed7d638",
         "text": "This module adds support for wireless adapters based on Atheros 5xxx chipset. https://wireless.wiki.kernel.org/en/users/drivers/ath5k Felix Fietkau <nbd@nbd.name>",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "1d6e235762ee6149d384454360053e705b18c71dd9a7050cb207ac1671a21b2f",
         "text": "This module adds support for wireless adapters based on Atheros IEEE 802.11n AR6003 and AR6004 family of chipsets. https://wireless.wiki.kernel.org/en/users/drivers/ath6kl Felix Fietkau <nbd@nbd.name>",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "318c8ee28dcd28bd4878eeeccf33dea93cffa44fd48667f9ca094f76d2d4cf22",
         "text": "This module adds support for wireless adapters based on the Atheros IEEE 802.11n AR6004 chipset. https://wireless.wiki.kernel.org/en/users/drivers/ath6kl Felix Fietkau <nbd@nbd.name>",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "579edc79fc04ad16abfe1557cfd8c21e71efbcfe7600b608c5be449d6acb4c59",
         "text": "This module adds support for wireless adapters based on Atheros IEEE 802.11n AR5008 and AR9001 family of chipsets. https://wireless.wiki.kernel.org/en/users/drivers/ath9k Felix Fietkau <nbd@nbd.name>",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "130270a6b0fa17b20652100c9155dc97e71efc34f2bc29aa01ca25e506f83181",
         "text": "This module adds support for wireless adapters based on Atheros USB AR9271 and AR7010 family of chipsets. https://wireless.wiki.kernel.org/en/users/drivers/ath9k Felix Fietkau <nbd@nbd.name>",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "f5a51c854c6b94680c037002e93b0c78034091f6afe2ebbb76ae05723c8dfee9",
         "text": "This module contains some common parts needed by Broadcom Wireless drivers brcmsmac and brcmfmac. https://wireless.wiki.kernel.org/en/users/drivers/brcm80211 Felix Fietkau <nbd@nbd.name>",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "e77bf8afb600fae56fe0701d847aab3f04adee4639d2b46114c78f8870dc901d",
         "text": "cfg80211 is the Linux wireless LAN (802.11) configuration API. https://wireless.wiki.kernel.org/ Felix Fietkau <nbd@nbd.name>",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "94e967ad7d2a6e747f23f7a590ec9582432c0e9ada6d0956d64d7818e7c5a1e5",
         "text": "iwlwifi kernel module for Intel Wireless WiFi Link 6250AGN Adapter Intel 6000 Series Wi-Fi Adapters (6200AGN and 6300AGN) Intel WiFi Link 1000BGN Intel Wireless WiFi 5150AGN Intel Wireless WiFi 5100AGN, 5300AGN, and 5350AGN Intel 6005 Series Wi-Fi Adapters Intel 6030 Series Wi-Fi Adapters Intel Wireless WiFi Link 6150BGN 2 Adapter Intel 100 Series Wi-Fi Adapters (100BGN and 130BGN) Intel 2000 Series Wi-Fi Adapters Intel 7260 Wi-Fi Adapter Intel 3160 Wi-Fi Adapter Intel 7265 Wi-Fi Adapter Intel 8260 Wi-Fi Adapter Intel 3165 Wi-Fi Adapter https://wireless.wiki.kernel.org/ Felix Fietkau <nbd@nbd.name>",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "3998f5f1f319bd812c5d1b17b0af6b8250a0e0689500a4fe45f0b3be42d12437",
         "text": "Hardware independent IEEE 802.11 networking stack for ipw2100 and ipw2200. https://wireless.wiki.kernel.org/ Felix Fietkau <nbd@nbd.name>",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "d2ef902654c98e1dc37a2a2ba12025ddaf78487960e1e52c3e4615722da3c524",
         "text": "Kernel module that helps to initialize certain Qualcomm Atheros' PCI(e) Wifi chips, which have the init data (which contains the PCI device ID for example) stored together with the calibration data in the file system. This is necessary for devices like the Cisco Meraki Z1. https://wireless.wiki.kernel.org/ Felix Fietkau <nbd@nbd.name>",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "141ee809642bce5993f1cd64ac6660869db6cc2a96c4d26d18bd38c73874669d",
         "text": "This option enables support for RTL8723BS SDIO drivers, such as the wifi found on the 1st gen Intel Compute Stick, the CHIP and many other Intel Atom and ARM based devices. https://wireless.wiki.kernel.org/ Felix Fietkau <nbd@nbd.name>",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "edf63cf89e7fe635c4d9ae3cd067f16bafb991cc08404f0d83060c816760658d",
         "text": "This is an alternative driver for various Realtek RTL8XXX parts written to utilize the Linux mac80211 stack. The driver is known to work with a number of RTL8723AU, RL8188CU, RTL8188RU, RTL8191CU, and RTL8192CU devices This driver is under development and has a limited feature set. In particular it does not yet support 40MHz channels and power management. However it should have a smaller memory footprint than the vendor drivers and benetifs from the in kernel mac80211 stack. It can coexist with drivers from drivers/staging/rtl8723au, drivers/staging/rtl8192u, and drivers/net/wireless/rtlwifi, but you will need to control which module you wish to load. RTL8XXXU_UNTESTED is enabled This option enables detection of Realtek 8723/8188/8191/8192 WiFi USB devices which have not been tested directly by the driver author or reported to be working by third parties. Please report your results! https://wireless.wiki.kernel.org/ Felix Fietkau <nbd@nbd.name>",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "942c4ea65578d830779ac01506e8ee2c700cff87fcb1dababf5853a6bd4a9036",
         "text": "This module contains some common parts needed by TI Wireless drivers. https://wireless.wiki.kernel.org/ Felix Fietkau <nbd@nbd.name>",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "1712127f5435c1d7919c0a0fa6f16d5680dda88e897428f4f8666e93678f069e",
         "text": "Erlang/OTP is a general-purpose programming language and runtime environment. Erlang has built-in support for concurrency, distribution and fault tolerance. . This Erlang/OTP package provides functions for exporting XML data to an external format http://www.erlang.org/ Arnaud Sautaux <arnaud.sautaux@infoteam.ch>",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "1b7f433fcd3230bedb4af175f58ab34b38c537854592cce56539a7a4fc591b02",
         "text": "LuaSec is a binding for OpenSSL library to provide TLS/SSL communication. https://github.com/brunoos/luasec",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "a9f6ab5f1209beea63a9a243e89447919dd71d694a728239b29d2b4f7e7ea24f",
         "text": "LuaSQL is a simple interface from Lua to a DBMS. . This package contains the MySQL binding. https://keplerproject.github.io/luasql/",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "1b5ce338646921dccb601e71a234e1db056f24bef4edd26e928a52cd0448a865",
         "text": "LuaSQL is a simple interface from Lua to a DBMS. . This package contains the PostgreSQL binding. https://keplerproject.github.io/luasql/",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "7027e06d64c01284810141e4fe2ccb84dc8ad61c801e2b6e9972bcece160c42f",
         "text": "LuaSQL is a simple interface from Lua to a DBMS. . This package contains the SQLite 3 binding. https://keplerproject.github.io/luasql/",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "8a36d934628fb025a56a05b50795ce3460321d874a9242d3d3ccab582f0c152b",
         "text": "WWW client/server library for Perl (aka LWP) https://search.cpan.org/dist/libwww-perl/ Marcel Denia <naoir@gmx.net>",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "bbb0d07179efd927f9a05b6c7b6e5864838863b9b2d09e84b551c150f0871075",
         "text": "apipkg is used to control the exported namespace of a Python package and greatly reduce the number of imports for users. https://github.com/pytest-dev/apipkg Jan Pavlinec <jan.pavlinec@nic.cz>",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "1080b4e0d383659b6966545bba5c81037bc86690fb74519d47245b353a731fb9",
         "text": "apipkg is used to control the exported namespace of a Python package and greatly reduce the number of imports for users. This package contains the Python source files for python3-apipkg. https://github.com/pytest-dev/apipkg Jan Pavlinec <jan.pavlinec@nic.cz>",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "b7f733dd43a2179f8381298e64ed4586321bdc9f0ff7d3f95f998c82f07cdbe9",
         "text": "Python library for atomic file writes. https://github.com/untitaker/python-atomicwrites Jan Pavlinec <jan.pavlinec@nic.cz>",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "5413538dddddeeeb0fdeb26f1d2c07996970dd485178b1db830f1da639aadcbe",
         "text": "Python library for atomic file writes. This package contains the Python source files for python3-atomicwrites. https://github.com/untitaker/python-atomicwrites Jan Pavlinec <jan.pavlinec@nic.cz>",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "cabceb744d386fee8a4c68d3e8fd1356f84815e8a32067f13ff84b109a771c3b",
         "text": "Pure python bindings for Augeas. http://augeas.net Jan Pavlinec <jan.pavlinec@nic.cz>",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "0d99f86feb9c0a42938d2cd3c61d25dbd1d998cbc94c346e5fd1417ce04bd6d6",
         "text": "Pure python bindings for Augeas. This package contains the Python source files for python3-augeas. http://augeas.net Jan Pavlinec <jan.pavlinec@nic.cz>",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "89df1c43d81c10e7921153853f8f255f6613375011c0d44cb027a66765f975ae",
         "text": "Good password hashing for your software and your servers. https://github.com/pyca/bcrypt/",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "f58fa251bb27ff2723eb0671776165a23ca7e5d56318cc1352dbefe5b72047b2",
         "text": "Good password hashing for your software and your servers. This package contains the Python source files for python3-bcrypt. https://github.com/pyca/bcrypt/",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "c7bc698a0b09703cba6a31b6eecd30d4f8a687c7392898f945432737acaf93c5",
         "text": "The bidirectional mapping library for Python. https://github.com/jab/bidict Jan Pavlinec <jan.pavlinec@nic.cz>",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "dfd54751a7b3b5b97ecb067961776635c81784c1883a67a1b3af418d9237ea2d",
         "text": "The bidirectional mapping library for Python. This package contains the Python source files for python3-bidict. https://github.com/jab/bidict Jan Pavlinec <jan.pavlinec@nic.cz>",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "b9d27ce620f5164409ec88d2158435742eab0d012170c0eaa477a32d767cee26",
         "text": "Python implementation of the Engine.IO realtime client and server. https://github.com/miguelgrinberg/python-engineio Jan Pavlinec <jan.pavlinec@nic.cz>",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "a12c1fac290b5aacb0cf9294163ce38f5670d7fc8e82658ffceed10d0957f356",
         "text": "Python implementation of the Engine.IO realtime client and server. This package contains the Python source files for python3-engineio. https://github.com/miguelgrinberg/python-engineio Jan Pavlinec <jan.pavlinec@nic.cz>",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "eee933319a4baec9f25651a09164b747fce309607ebc48ce2af46475546c0e9f",
         "text": "Eventlet is a concurrent networking library for Python that allows you to change how you run your code, not how you write it. https://eventlet.net/ Jan Pavlinec <jan.pavlinec@nic.cz>",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "d97d2506d489a80c2522c0d7f4c162c9b40a89e2e60eb03b0d58c1484d023b99",
         "text": "Eventlet is a concurrent networking library for Python that allows you to change how you run your code, not how you write it. This package contains the Python source files for python3-eventlet. https://eventlet.net/ Jan Pavlinec <jan.pavlinec@nic.cz>",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "54486a7bd0ef1669a2630f0f0cb93270e36652d8d182426ab216276259ec6434",
         "text": "The execnet provides a share-nothing model with channel-send/receive communication for distributing execution across many Python interpreters across version, platform and network barriers.complex functional testing for applications and libraries. https://execnet.readthedocs.io Jan Pavlinec <jan.pavlinec@nic.cz>",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "1b977613e64667397b72392e8fe5b8cddb1cf761d04062617226138534078efe",
         "text": "The execnet provides a share-nothing model with channel-send/receive communication for distributing execution across many Python interpreters across version, platform and network barriers.complex functional testing for applications and libraries. This package contains the Python source files for python3-execnet. https://execnet.readthedocs.io Jan Pavlinec <jan.pavlinec@nic.cz>",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "0f3c88f28ebafbeb091d5b8d528b12c03a666ec486dae4a128fdafd24d39d727",
         "text": "Flask-HTTPAuth is a Flask extension that simplifies the use of HTTP authentication with Flask routes This package contains the Python source files for python3-flask-httpauth. https://github.com/miguelgrinberg/flask-httpauth Jan Pavlinec <jan.pavlinec@nic.cz>",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "54f0a621149dfa172e9b99c8a4b6829693515321d417299b6401c3b1364e9a2a",
         "text": "Flask-Login provides user session management for Flask. It handles the common tasks of logging in, logging out, and remembering your users’ sessions over extended periods of time. https://github.com/maxcountryman/flask-login Jan Pavlinec <jan.pavlinec@nic.cz>",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "ffc634670b1c0b4f647db2312d2154454cee27a39e706c0c7364f9423f966998",
         "text": "Flask-Login provides user session management for Flask. It handles the common tasks of logging in, logging out, and remembering your users’ sessions over extended periods of time. This package contains the Python source files for python3-flask-login. https://github.com/maxcountryman/flask-login Jan Pavlinec <jan.pavlinec@nic.cz>",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "65509201e15fc160db69a34cf9a76a8341b579d89fa3bba9c474b6f3eaf82162",
         "text": "Flask-SocketIO gives Flask applications access to low latency bi-directional communications between the clients and the server. https://github.com/miguelgrinberg/Flask-SocketIO/ Jan Pavlinec <jan.pavlinec@nic.cz>",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "6dfd5c16d6139fb118bca1f7313d885a81aa8ac3e09838fe8f1ce85673ece432",
         "text": "Flask-SocketIO gives Flask applications access to low latency bi-directional communications between the clients and the server. This package contains the Python source files for python3-flask-socketio. https://github.com/miguelgrinberg/Flask-SocketIO/ Jan Pavlinec <jan.pavlinec@nic.cz>",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "beb34eca58f3e004d01fcad876166d9b29282bd38a018c70cdbab44577fbe520",
         "text": "The greenlet package is a spin-off of Stackless a version of CPython that supports micro-threads called tasklets. https://github.com/python-greenlet/greenlet Jan Pavlinec <jan.pavlinec@nic.cz>",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "e6bb6c6584fb73cd356889891f4837e7b0a877197f9c86dc9d0fcfe7722e424f",
         "text": "The greenlet package is a spin-off of Stackless a version of CPython that supports micro-threads called tasklets. This package contains the Python source files for python3-greenlet. https://github.com/python-greenlet/greenlet Jan Pavlinec <jan.pavlinec@nic.cz>",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "0920e886b184abfde9076ecef3170f91702eeb68db459da7973b8c48de302a48",
         "text": "iniconfig is a small and simple INI-file parser module. https://github.com/RonnyPfannschmidt/iniconfig Jan Pavlinec <jan.pavlinec@nic.cz>",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "3902e4a6a18d3c57ae9737f1f6444ec4898c278b7eac3fe09090322f1bf5a7d6",
         "text": "iniconfig is a small and simple INI-file parser module. This package contains the Python source files for python3-iniconfig. https://github.com/RonnyPfannschmidt/iniconfig Jan Pavlinec <jan.pavlinec@nic.cz>",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "6053e81d606321dc91a3a85a185f7759646c6f559e5da066ce9b326326e48f08",
         "text": "Module for reading MaxMind DB files This package contains the Python source files for python3-maxminddb. https://dev.maxmind.com/ Jan Pavlinec <jan.pavlinec@nic.cz>",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "bb354a8b2baaab716f3b338f2a62eadf01fc00ab2345f2b6e37234c42af35da0",
         "text": "more-itertools library collects additional building blocks, recipes, and routines for working with Python iterables. https://github.com/erikrose/more-itertools Jan Pavlinec <jan.pavlinec@nic.cz>",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "f9b9e2cc857d0652fc535b87f050e3cf8f632120713e8317f1398b5e1d31dc7b",
         "text": "more-itertools library collects additional building blocks, recipes, and routines for working with Python iterables. This package contains the Python source files for python3-more-itertools. https://github.com/erikrose/more-itertools Jan Pavlinec <jan.pavlinec@nic.cz>",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "3af6b2d6d7d24458a79df0efb64507d9eb4f3ac674cffce563df65cf7fcdca16",
         "text": "MessagePack is an efficient binary serialization format. It lets you exchange data among multiple languages like JSON. https://msgpack.org/ Jan Pavlinec <jan.pavlinec@nic.cz>",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "55d259d9aedd586bd9983adcdb8141058831ecc222f8378a637de1f38526a0b2",
         "text": "MessagePack is an efficient binary serialization format. It lets you exchange data among multiple languages like JSON. This package contains the Python source files for python3-msgpack. https://msgpack.org/ Jan Pavlinec <jan.pavlinec@nic.cz>",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "ad322e5ad8529610b9f8148491a423526cf9b5a2cc8daabbe5c669531e66abf4",
         "text": "The packaging project includes version handling, specifiers, markers, requirements, tags, utilities. https://github.com/pypa/packaging Jan Pavlinec <jan.pavlinec@nic.cz>",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "5785e9839d1ec5be58cdd91902921d26ca14146b71db32e33776733db1ea9fad",
         "text": "The packaging project includes version handling, specifiers, markers, requirements, tags, utilities. This package contains the Python source files for python3-packaging. https://github.com/pypa/packaging Jan Pavlinec <jan.pavlinec@nic.cz>",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "10a96100fa4d901e19dbea56b088c9cc0d760209a97c293aca9b69011eae79bd",
         "text": "Passlib is a password hashing library for Python 2 & 3, which provides cross-platform implementations of over 30 password hashing algorithms, as well as a framework for managing existing password hashes. It’s designed to be useful for a wide range of tasks, from verifying a hash found in /etc/shadow, to providing full-strength password hashing for multi-user applications. https://bitbucket.org/ecollins/passlib",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "b3af3766021fbf004226407eb101a293de64efbf0f4e9377b47c6854317e34f7",
         "text": "Passlib is a password hashing library for Python 2 & 3, which provides cross-platform implementations of over 30 password hashing algorithms, as well as a framework for managing existing password hashes. It’s designed to be useful for a wide range of tasks, from verifying a hash found in /etc/shadow, to providing full-strength password hashing for multi-user applications. This package contains the Python source files for python3-passlib. https://bitbucket.org/ecollins/passlib",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "c0bd450390448593559fd0ffda217516f864488cc0adf42dc5aa76ac1162302e",
         "text": "A minimalist production ready plugin system for python This package contains the Python source files for python3-pluggy. https://github.com/pytest-dev/pluggy Jan Pavlinec <jan.pavlinec@nic.cz>",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "5a76bf257c54771a6aef518b7d6da735a462b2fcbb5f217ff6f5afbe9c2ab769",
         "text": "psutil is a cross-platform library for retrieving information on running processes and system utilization. https://github.com/giampaolo/psutil Jan Pavlinec <jan.pavlinec@nic.cz>",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "003f7e84f25ce03849dffffeec305e2b06c3c53f1a8a18557c11019adaf6fbbb",
         "text": "psutil is a cross-platform library for retrieving information on running processes and system utilization. This package contains the Python source files for python3-psutil. https://github.com/giampaolo/psutil Jan Pavlinec <jan.pavlinec@nic.cz>",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "aa1039302e502b827b06a08b20fb729bc555c7de9132733a1d8f71b390957d86",
         "text": "Library with cross-python path, ini-parsing, io, code, log facilities This package contains the Python source files for python3-py. https://github.com/pytest-dev/py Jan Pavlinec <jan.pavlinec@nic.cz>",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "8c1824e56581b4c7cacfc3f6001970c8e0ef85cc4b5e63c3da24088085e4fe7f",
         "text": "The pyparsing module is an alternative approach to creating and executing simple grammars, vs. the traditional lex/yacc approach, or the use of regular expressions. The pyparsing module provides a library of classes that client code uses to construct the grammar directly in Python code. https://github.com/pyparsing/pyparsing/ Jan Pavlinec <jan.pavlinec@nic.cz>",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "8e90ecf0033a1cc22db90a1e60d808bf21820f2fdd53ccbd559101cdcd63d44b",
         "text": "The pyparsing module is an alternative approach to creating and executing simple grammars, vs. the traditional lex/yacc approach, or the use of regular expressions. The pyparsing module provides a library of classes that client code uses to construct the grammar directly in Python code. This package contains the Python source files for python3-pyparsing. https://github.com/pyparsing/pyparsing/ Jan Pavlinec <jan.pavlinec@nic.cz>",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "b6ded379cf6b4644b6c3851fea54ad1c391fbd557f692f6197d0fbe9da31b2b4",
         "text": "PySocks lets you send traffic through SOCKS proxy servers. It is a modern fork of SocksiPy with bug fixes and extra features. https://github.com/Anorov/PySocks Jan Pavlinec <jan.pavlinec@nic.cz>",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "aea403a9e05352d9af6b71c099390a03d60a5a0ea73dbd6410eb2178c3651c59",
         "text": "PySocks lets you send traffic through SOCKS proxy servers. It is a modern fork of SocksiPy with bug fixes and extra features. This package contains the Python source files for python3-pysocks. https://github.com/Anorov/PySocks Jan Pavlinec <jan.pavlinec@nic.cz>",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "7dfb1d718913b7c5af8e09a8b218034df2e9cef7b9e16dfeb72b84ea913fa2dd",
         "text": "The pytest framework makes it easy to write small tests, yet scales to support complex functional testing for applications and libraries. https://docs.pytest.org/en/latest/ Jan Pavlinec <jan.pavlinec@nic.cz>",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "1ae1f2d569ce7fb2d0eb4246ea99e10017655587d67a01212ad6a7fb5d1628a4",
         "text": "Pytest plugin which enables to run tests in isolated forked subprocesses This package contains the Python source files for python3-pytest-forked. https://github.com/pytest-dev/pytest-forked Jan Pavlinec <jan.pavlinec@nic.cz>",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "63858de108b9897b72b34dde3d4894e0ae9b77b5cddaa96666d479d232743a27",
         "text": "The pytest framework makes it easy to write small tests, yet scales to support complex functional testing for applications and libraries. This package contains the Python source files for python3-pytest. https://docs.pytest.org/en/latest/ Jan Pavlinec <jan.pavlinec@nic.cz>",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "f51de58f24d21914fe7e01b0bb14bd006e4f0da7198fa752d51445ef32f1abe6",
         "text": "The pytest framework makes it easy to write small tests, yet scales to support complex functional testing for applications and libraries. https://github.com/pytest-dev/pytest-xdist Jan Pavlinec <jan.pavlinec@nic.cz>",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "bad3ee9d22b14c3ae5c4e20a346e6b265a2be3cc25b71ea99c8137841c10f95c",
         "text": "The pytest framework makes it easy to write small tests, yet scales to support complex functional testing for applications and libraries. This package contains the Python source files for python3-pytest-xdist. https://github.com/pytest-dev/pytest-xdist Jan Pavlinec <jan.pavlinec@nic.cz>",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "f78ee49a2ebc9d864d9f8c51ac30da1b0bb071518b14a21d47d04044758cc645",
         "text": "Python implementation of the Socket.IO realtime client and server. https://github.com/miguelgrinberg/python-socketio Jan Pavlinec <jan.pavlinec@nic.cz>",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "4881350fcda082f589b998d9b510cf84949431ab65ec9b73f1ea1c3831aa0f3f",
         "text": "Python implementation of the Socket.IO realtime client and server. This package contains the Python source files for python3-socketio. https://github.com/miguelgrinberg/python-socketio Jan Pavlinec <jan.pavlinec@nic.cz>",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "114372a6f14b2b255babb02ab865bc3f2b4d909a0f76a53d4de663e4d0876ae0",
         "text": "Python Library for Tom's Obvious, Minimal Language This package contains the Python source files for python3-toml. https://github.com/uiri/toml Jan Pavlinec <jan.pavlinec@nic.cz>",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "a6ac2a5b5951c9dd8f6029cfac8808e6722d4fd4a1b9d985ca185cc382cd6a2b",
         "text": "Backported and Experimental Type Hints for Python. https://github.com/python/typing Jan Pavlinec <jan.pavlinec@nic.cz>",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "62b893d1a4b5cccf347b4f2f71a6b624d7a029149307f71e534b7ded7b09a0ae",
         "text": "Backported and Experimental Type Hints for Python. This package contains the Python source files for python3-typing-extensions. https://github.com/python/typing Jan Pavlinec <jan.pavlinec@nic.cz>",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "62506d187344b94a04df82bbee9d793eee5823d532059617c5bddf3e6618eb95",
         "text": "vCard and vCalendar support for Python This package contains the Python source files for python3-vobject. http://eventable.github.io/vobject/",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "9376d237ed3da4d09f11f9960c82ad2b1b45de785c8ad2de4cbec5ebe43207b2",
         "text": "Python library that measures the width of unicode strings rendered to a terminal This package contains the Python source files for python3-wcwidth. https://github.com/jquast/wcwidth Jan Pavlinec <jan.pavlinec@nic.cz>",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "5240b8053847162cdb75ec7482fa9b7d52bbe057d1cd3aeb68a5224e5abb57c7",
         "text": "Backport of pathlib-compatible object wrapper for zip files This package contains the Python source files for python3-zipp. https://github.com/jaraco/zipp Jan Pavlinec <jan.pavlinec@nic.cz>",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "9966a8e54ed55c2577ddd54454de0d03f6848f840243299da109b68465a2e403",
         "text": "Ruby is the interpreted scripting language for quick and easy object-oriented programming.  It has many features to process text files and to do system management tasks (as in perl).  It is simple, straight-forward, and extensible. http://www.ruby-lang.org/ Luiz Angelo Daros de Luca <luizluca@gmail.com>",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "2ad8a7ef6180da1e04e0555aac47d43d0a06dc0191194b99eac7275e905b98ad",
         "text": "This metapackage currently install all ruby-* packages, providing a complete Ruby Standard Library. http://www.ruby-lang.org/ Luiz Angelo Daros de Luca <luizluca@gmail.com>",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "ce14f538238ff76c4ed9b30c9d5dd165c866c7487f5b949f07e1985d538919bb",
         "text": "This package contains the ruby Manage dependencies. http://www.ruby-lang.org/ Luiz Angelo Daros de Luca <luizluca@gmail.com>",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "9a6572cccfcb615de0731fda247f22f7d3da9a1d489cde5d6a85286802d3d1f3",
         "text": "This package contains the ruby (embedded interpreter). http://www.ruby-lang.org/ Luiz Angelo Daros de Luca <luizluca@gmail.com>",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "c8597cc0c96e275c518a13c418b7fad4cebfb92f87b39e6eb725f3d996aa4442",
         "text": "This package contains the ruby gems packet management. http://www.ruby-lang.org/ Luiz Angelo Daros de Luca <luizluca@gmail.com>",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "61426fba85d0ea10c6de9413953f90649a8af2cab7aace1db4b0d8a59c6dba5a",
         "text": "This package contains the ruby (interactive shell). http://www.ruby-lang.org/ Luiz Angelo Daros de Luca <luizluca@gmail.com>",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "a191118c65d23df84e887dbed655b02026a44e928da08cef09365d02c084c48c",
         "text": "This package contains the ruby JSON Implementation for Ruby. Provides: - /usr/lib/ruby/3.0/json.rb - /usr/lib/ruby/3.0/json - /usr/lib/ruby/3.0/*/json - /usr/lib/ruby/gems/3.0/specifications/default/json-*.gemspec Except: - /usr/lib/ruby/3.0/psych - /usr/lib/ruby/3.0/psych.rb - /usr/lib/ruby/3.0/*/psych.so - /usr/lib/ruby/gems/3.0/specifications/default/psych-*.gemspec http://www.ruby-lang.org/ Luiz Angelo Daros de Luca <luizluca@gmail.com>",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "1aa2e242289e4aacbc1f740439fb590919a24eec9d1b6070e9285a433e22fd7d",
         "text": "This package contains the ruby LALR parser generator. http://www.ruby-lang.org/ Luiz Angelo Daros de Luca <luizluca@gmail.com>",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "702ec8b445039b22f7a37f81ea7adc9e6b54cc0c28d280b7dddc68949de44062",
         "text": "This package contains the ruby Rake (make replacement). http://www.ruby-lang.org/ Luiz Angelo Daros de Luca <luizluca@gmail.com>",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "c214f553d30dab2be429bffe74e34675e0d8b3e327bdc8892a449d7d823ef796",
         "text": "This package contains the ruby RBS provides syntax and semantics definition for the Ruby Signature language. http://www.ruby-lang.org/ Luiz Angelo Daros de Luca <luizluca@gmail.com>",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "08c88a6c37f51079b05fff97d55c344e343f5f277309779ea5e7c8717e6bd16c",
         "text": "This package contains the ruby RDoc produces HTML and command-line documentation for Ruby projects. http://www.ruby-lang.org/ Luiz Angelo Daros de Luca <luizluca@gmail.com>",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "7469d5c7077d4cf610c321bf52bbe77d38efa3bcfb917297f832ab32d2f97f6a",
         "text": "This package contains the ruby XML toolkit. Provides: - /usr/lib/ruby/3.0/rexml - /usr/lib/ruby/gems/3.0/gems/rexml-* - /usr/lib/ruby/gems/3.0/specifications/rexml-*.gemspec Except: - /usr/lib/ruby/gems/3.0/gems/rexml-*/doc - /usr/lib/ruby/gems/3.0/gems/rexml-*/test - /usr/lib/ruby/gems/3.0/gems/rexml-*/sample - /usr/lib/ruby/gems/3.0/gems/rexml-*/*.md - /usr/lib/ruby/gems/3.0/gems/rexml-*/.travis.yml http://www.ruby-lang.org/ Luiz Angelo Daros de Luca <luizluca@gmail.com>",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "3ce7a4d360ec235aca95762e9ba98e742d69e9d6de510c50459a32207b68e15a",
         "text": "This package contains the ruby RSS toolkit. Provides: - /usr/lib/ruby/3.0/rss - /usr/lib/ruby/3.0/rss.rb - /usr/lib/ruby/gems/3.0/gems/rss-* - /usr/lib/ruby/gems/3.0/specifications/rss-*.gemspec Except: - /usr/lib/ruby/gems/3.0/gems/rss-*/doc - /usr/lib/ruby/gems/3.0/gems/rss-*/test - /usr/lib/ruby/gems/3.0/gems/rss-*/sample - /usr/lib/ruby/gems/3.0/gems/rss-*/*.md - /usr/lib/ruby/gems/3.0/gems/rss-*/*.txt http://www.ruby-lang.org/ Luiz Angelo Daros de Luca <luizluca@gmail.com>",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "46a5e262e99bb44a054417f92c5064210cee905280283a2c8558cfa0461d6b0b",
         "text": "This package contains the ruby A type analysis tool for Ruby code based on abstract interpretation. http://www.ruby-lang.org/ Luiz Angelo Daros de Luca <luizluca@gmail.com>",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "bfad7fbed973a4433ea76cbc72daeee957667d9c3529c842b3cd3c4ce90cb96d",
         "text": "Zstandard - Fast real-time compression algorithm. This package provides libzstd library. https://github.com/facebook/zstd",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "c54e6d7ad53db3567f889b835d175ca4e0c700911418984361fe86ac7d865bea",
         "text": "SQLite is a small C library that implements a self-contained, embeddable, zero-configuration SQL database engine. This package contains the SQLite (v3.x) shared library, used by other programs. http://www.sqlite.org/",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "4dfaa3e064d9be553eafd3a426a46863804d9c388bfd0afac769b92dfb9e92c8",
         "text": "psqlODBC is the official PostgreSQL ODBC Driver. It is released under the Library General Public Licence, or LGPL. https://odbc.postgresql.org/",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "b2e878ed2444c35e81b891a57c29a08393be99febb686935404cc2ad6bf61106",
         "text": "GnuTLS is a secure communications library implementing the SSL, TLS and DTLS protocols and technologies around them. It provides a simple C language application programming interface (API) to access the secure communications protocols as well as APIs to parse and write X.509, PKCS12, OpenPGP and other required structures. It is aimed to be portable and efficient with focus on security and interoperability. This package contains the GnuTLS shared library, needed by other programs. http://www.gnutls.org/ Nikos Mavrogiannopoulos <nmav@gnutls.org>",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "c015c10c19f2afe9a82b491191fecba6eeb261f519546267e429ac5d295430e6",
         "text": "The aim of the mbedtls project is to provide a quality, open-source cryptographic library written in C and targeted at embedded systems. This package contains the mbedtls library. https://tls.mbed.org",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "27e32500fc1abf7f9043bb7ec48323bf6b8e68d7ad2a0abfa498869b956bbff9",
         "text": "This enables use of hardware acceleration through OpenBSD\nCryptodev API (/dev/crypto) interface.\nEven though configuration is not strictly needed, it is worth seeing\nhttps://openwrt.org/docs/techref/hardware/cryptographic.hardware.accelerators\nfor information on how to configure the engine.",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "0558d4129f7785c6708796e0b71ed63a665d352a411d89e458ff166bdec431ce",
         "text": "This option prepares the library to accept engine support\nfor Russian GOST crypto algorithms.\nThe gost engine is not included in standard openwrt feeds.\nTo build such engine yourself, see:\nhttps://github.com/gost-engine/engine",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "62f1ed91feb5d4a99cc7ed98421f576f6d348cb980eeeaa85e43fb98f4706eda",
         "text": "This package adds an engine that enables VIA Padlock hardware acceleration. To use it, you need to configure it in /etc/ssl/openssl.cnf. See https://www.openssl.org/docs/man1.1.1/man5/config.html#Engine-Configuration-Module and https://openwrt.org/docs/techref/hardware/cryptographic.hardware.accelerators The engine_id is \"padlock\" http://www.openssl.org/ Eneas U de Queiroz <cotequeiroz@gmail.com>",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "1b247f0e9106805764f998d035b4e1e5ceec84ed04ecba61c577c45221d511e5",
         "text": "This is a set of configuration files needed for some ALS utilities like alsactl. https://www.alsa-project.org/",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "831dd761b1a8b5f192b6cc0f3429a8dc015ec0f7ad01f4b85f03f363717468ce",
         "text": "GNU oSIP library, a Session Initiation Protocol (SIP) implementation. http://www.gnu.org/software/osip/",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "f6b721c6b74aebbc1197bdcb005d1aeff583c7ffa51489c701de4846d998441c",
         "text": "Generic library for real-time communications with async IO support https://github.com/baresip/re Jiri Slachta <jiri@slachta.eu>",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "0941dea200fe6c5718fe96d87ff69c5a03163dfd8446c916cba6367f5c9cfa8e",
         "text": "Dynamic Leech Protection(DLP) is a part of eMule Xtreme Mod at first. This project aim to make DLP available for aMule. This repo contains the plugin library \"libantiLeech\". https://github.com/persmule/amule-dlp.antiLeech",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "79e0f2c94ed634f12096d33a819d86d526afed49d8b4ec0f0f261fccca8dea9e",
         "text": "This package contains the Boost atomic library. https://www.boost.org Carlos M. Ferreira <carlosmf.pt@gmail.com>",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "09252d5a3be678b60565bcd9feab7424fd66ff45355c44cc83b60c4baeb9c073",
         "text": "This package contains the Boost chrono library. https://www.boost.org Carlos M. Ferreira <carlosmf.pt@gmail.com>",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "ec312834c7f248254730f9c8b6344b858b6430809c98b6c406d13f11022bf6aa",
         "text": "This package contains the Boost container library. https://www.boost.org Carlos M. Ferreira <carlosmf.pt@gmail.com>",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "c20e16766aa59936a91e100eddfebc1b027f1c66a907bd8958b5718e78118f4c",
         "text": "This package contains the Boost context library. https://www.boost.org Carlos M. Ferreira <carlosmf.pt@gmail.com>",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "445933e3fd42a055a81cda529507061988922403837ac7ecf93498b5e143c063",
         "text": "This package contains the Boost contract library. https://www.boost.org Carlos M. Ferreira <carlosmf.pt@gmail.com>",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "e72b399edf165b27ece5e16abbcb9dc3202cf593648b6349eae049b81cb9bae4",
         "text": "This package contains the Boost coroutine library. https://www.boost.org Carlos M. Ferreira <carlosmf.pt@gmail.com>",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "fcd9ed6afb6b874b9673de03444d2544cc891a09ff3087822b825da3131f5c5c",
         "text": "This package contains the Boost date_time library. https://www.boost.org Carlos M. Ferreira <carlosmf.pt@gmail.com>",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "fb335eacc8bb1d1a7f710bc81ff7c6592834fd073983d437dbad4898b4375d82",
         "text": "This package contains the Boost fiber library. https://www.boost.org Carlos M. Ferreira <carlosmf.pt@gmail.com>",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "ab2044a0a548ff2be2eb8f8b726cc038d6e0707fd73a9b3634010c7031b32f03",
         "text": "This package contains the Boost filesystem library. https://www.boost.org Carlos M. Ferreira <carlosmf.pt@gmail.com>",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "5c462fa32ba589f0ffc61f7779f61cb0514a4e3c83557c40e3ae2d762c1d5a94",
         "text": "This package contains the Boost graph library. https://www.boost.org Carlos M. Ferreira <carlosmf.pt@gmail.com>",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "a990af44d836d90ffc6da0ba3deff543acb29b56ea5a5133037c805d21e7f04e",
         "text": "This package contains the Boost iostreams library. https://www.boost.org Carlos M. Ferreira <carlosmf.pt@gmail.com>",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "709c35a5f3762dbee6262d9dc7eeaa57c9cbfa5437709302101d1b5b798a1103",
         "text": "This package contains the Boost json library. https://www.boost.org Carlos M. Ferreira <carlosmf.pt@gmail.com>",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "0f2b357b04a1d832de2e7054bbb82326e3a62a72f82b414e68ebb143721cb746",
         "text": "This package contains the Boost locale library. https://www.boost.org Carlos M. Ferreira <carlosmf.pt@gmail.com>",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "ca5958771e75fb198104d3ed032d751291279ca4e500e3da6841a607dfc8b59a",
         "text": "This package contains the Boost log library. https://www.boost.org Carlos M. Ferreira <carlosmf.pt@gmail.com>",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "c809be91f8e1cb0eb260a1fcb6b027b6f0311d12499ab106c9d53e2a83892822",
         "text": "This package contains the Boost math library. https://www.boost.org Carlos M. Ferreira <carlosmf.pt@gmail.com>",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "72a5334397b51021e4ddc9104cacc7b56879010428348278ac04e717e70290da",
         "text": "This package contains the Boost nowide library. https://www.boost.org Carlos M. Ferreira <carlosmf.pt@gmail.com>",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "049a3ae46f3702845710184a5929d53c93eec97886033d2ab99cca9794fccb1d",
         "text": "This package contains the Boost program_options library. https://www.boost.org Carlos M. Ferreira <carlosmf.pt@gmail.com>",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "b67e00cfd0ddbd55f1f327fd392e630c154d01c39deae4e5670de4411f0f3dca",
         "text": "This package contains the Boost python3 library. https://www.boost.org Carlos M. Ferreira <carlosmf.pt@gmail.com>",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "e0a610b11d4d656e24d1a4b9df58c21a9dabd0e172d873f1a5be95d6a4b99e03",
         "text": "This package contains the Boost random library. https://www.boost.org Carlos M. Ferreira <carlosmf.pt@gmail.com>",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "035968c7e98f466389194361f17ee022d91f0113a0be770b8e6ac5e205d7c051",
         "text": "This package contains the Boost regex library. https://www.boost.org Carlos M. Ferreira <carlosmf.pt@gmail.com>",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "dfbd39e11a57733460a4d6388c736784937d2dd4f26263d2dcffad4e6e782915",
         "text": "This package contains the Boost serialization library. https://www.boost.org Carlos M. Ferreira <carlosmf.pt@gmail.com>",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "e55828ace560d5dc0e19c0b9f815d5d3b6d4ed61782fb8ff8ffc6b8a8ce7c4c4",
         "text": "This package contains the Boost wserialization library. https://www.boost.org Carlos M. Ferreira <carlosmf.pt@gmail.com>",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "24d55e8e09a2370530cab26cc5af38b7a8528b57a65d97b11c211ba53aea9e63",
         "text": "This package contains the Boost stacktrace library. https://www.boost.org Carlos M. Ferreira <carlosmf.pt@gmail.com>",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "c045084a451a4f83d8e23b2d7b14663a5fec5b3d28307b097935e05b4b2a0b68",
         "text": "This package contains the Boost system library. https://www.boost.org Carlos M. Ferreira <carlosmf.pt@gmail.com>",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "49bb86e10f3a5487a1170a7cda2f9cd8047c2b808edff97ef205563c300ba774",
         "text": "This package contains the Boost thread library. https://www.boost.org Carlos M. Ferreira <carlosmf.pt@gmail.com>",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "bddb0b2a53bd5013e4c6829e954420f0a46b619bbcdc244f866726aadfa0e4cb",
         "text": "This package contains the Boost timer library. https://www.boost.org Carlos M. Ferreira <carlosmf.pt@gmail.com>",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "b49c0461a9c48d8b3a904d562eae0b6c7666c773f83781ca4a9b19e1c44b60bb",
         "text": "This package contains the Boost type_erasure library. https://www.boost.org Carlos M. Ferreira <carlosmf.pt@gmail.com>",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "d5015dae13341ccc4cdc75f7b0d87a29f9a951b086379852f7f3a36513e29b96",
         "text": "This package contains the Boost wave library. https://www.boost.org Carlos M. Ferreira <carlosmf.pt@gmail.com>",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "e0b9ea3147382067ace29e1878e3625f9ccbb99c52249b24d232deb5ae1ec36f",
         "text": "libConfuse is a configuration file parser library, licensed under the terms of the ISC license, and written in C. It supports sections and (lists of) values (strings, integers, floats, booleans or other sections), as well as some other features (such as single/double-quoted strings, environment variable expansion, functions and nested include statements). It makes it very easy to add configuration file capability to a program using a simple API. The goal of libConfuse is not to be the configuration file parser library with a gazillion of features. Instead, it aims to be easy to use and quick to integrate with your code. libConfuse was called libcfg before, but was changed to not confuse with other similar libraries. https://github.com/martinh/libconfuse",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "6019bd844494994e9dc90275923c00ade4dceda6b233d38d4f1f76db5c116b94",
         "text": "High-level C binding for ZeroMQ which is high-performance asynchronous messaging library, aimed at use in distributed or concurrent applications. http://czmq.zeromq.org Jan Pavlinec <jan.pavlinec@nic.cz>",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "cf2b282edc0b7ccc13abbc899bb0f17cfa7efa449ccee80cf0428951c5dcca87",
         "text": "This package contains the getdns library (libgetdns). This package also contains the \"getdns_query\" command line wrapper for getdns exposing the features of this implementation (both in the official API and the additional API functions). https://getdnsapi.net/",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "ff0b86c2e1f67579e9f074c3de31ac0948dbcf8cf3b93c3f584810c859383bf8",
         "text": "JsonCpp is a C++ library that allows manipulating JSON values, including serialization and deserialization to and from strings. It can also preserve existing comment in unserialization/serialization steps, making it a convenient format to store user input files. https://github.com/open-source-parsers/jsoncpp Jan Pavlinec <jan.pavlinec@nic.cz>",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "bf84f27f6eddcdbb79a03645d54f38fdcac93df2cc059b465635ad85f7cc7d52",
         "text": "This library is supposed to be lean and small and thus supports only a subset of the S.M.A.R.T. functionality. However, I claim that it implements the relevant part of it. If you need full control over all S.M.A.R.T. functionality of your hardware please refer to smartmontools. https://git.0pointer.net/libatasmart.git Florian Eckert <fe@dev.tdt.de>",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "e6115139d7dec0488d273653dbd724640d8be9c378457e31fe2145d0be46a903",
         "text": "The libblkid library is used to identify block devices (disks) as to their content (e.g. filesystem type, partitions) as well as extracting additional information such as filesystem labels/volume names, partitions, unique identifiers/serial numbers... http://www.kernel.org/pub/linux/utils/util-linux/",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "419737df89506be75d66ddc7761dfc15fef82ca8760ee057029f8f5e184d22c6",
         "text": "This package contains libcom_err, the common error description library bundled with e2fsprogs. http://e2fsprogs.sourceforge.net/",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "45721819d318a3a626194781d5920c5dc92ed0286974a0b1226e86bd3ac6b0d9",
         "text": "Libconfig is a simple library for manipulating structured configuration files. This file format is more compact and more readable than XML. And unlike XML, it is type-aware, so it is not necessary to do string parsing in application code. Libconfig is very compact -- just 38K for the stripped C shared library (less than one-fourth the size of the expat XML parser library) and 66K for the stripped C++ shared library. This makes it well-suited for memory-constrained systems like handheld devices. https://hyperrealm.github.io/libconfig/ Felix Fietkau <nbd@nbd.name>",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "08a52dd1cc4a107dfc8c1368fad3d7c533baa244474739b318225cf2b84eb3ff",
         "text": "Crypto++ is library for creating C++ programs which use cryptographic algorithms. The library uses a Pipes & Filters architecture with heavy use of templates and abstract base classes. https://packages.debian.org/sid/libcrypto++-dev",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "58871dcc7ccee7a610c827d9f329bba8af108b2346c92dcf1cb884b3630650cc",
         "text": "double-conversion provides binary-decimal and decimal-binary routines for IEEE doubles. The library consists of efficient conversion routines that have been extracted from the V8 JavaScript engine. The code has been refactored and improved so that it can be used more easily in other projects. https://github.com/google/double-conversion",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "11bdd40d15ecac4319fb1bc2a6caa4f0407dc03893a180fb8408a8aef8c219b3",
         "text": "libext2fs is a library which can access ext2, ext3 and ext4 filesystems. http://e2fsprogs.sourceforge.net/",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "a1297c0dc93ed8c6013917dc25cf261b0aa0deb6cf6c196dd04b8c527d632223",
         "text": "The libfdisk library is used for manipulating with partition tables. http://www.kernel.org/pub/linux/utils/util-linux/",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "ae9b589f32f59585fd958fdfafd5951c0b9e9553d735c83a1aee9fb5e93c031c",
         "text": "The FreeType project is a team of volunteers who develop free, portable and high-quality software solutions for digital typography. They specifically target embedded systems and focus on bringing small, efficient and ubiquitous products. http://www.freetype.org/ Val Kulkov <val.kulkov@gmail.com>",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "86ca00f89d9d22102993e0b2ce2d12531288bb20c156a3f117435bd9ff5de63c",
         "text": "GMP is a free library for arbitrary precision arithmetic, operating on signed integers, rational numbers, and floating point numbers. http://gmplib.org/",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "eb8bdd0b47f7ff4182fbaa1539fc2f0d3e0e34a754d7c7d59c84d44abe9c79e0",
         "text": "This package contains a library for manipulating \"Linux Wireless Extensions\". http://hplabs.hp.com/personal/Jean_Tourrilhes/Linux/Tools.html Felix Fietkau <nbd@nbd.name>",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "049b1798c2bbf6a85e292029f8b2097a226dc4391ec03b1a5d7f7b44c5130635",
         "text": "This package contains a library for javascript object notation backends. https://json-c.github.io/json-c/ Felix Fietkau <nbd@nbd.name>",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "57bed6d6db08142d62540d1458dcb5bbb8879658072433caa2d47ceff8e2df81",
         "text": "Key utilities library https://people.redhat.com/dhowells/keyutils/",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "fffba84fbaa5fe18537a9a6527e0a839c615cd9c98bdc6dc4bbb03ce1d5169cf",
         "text": "LZO is a data compression library which is suitable for data de-/compression in real-time. This means it favours speed over compression ratio. http://www.oberhumer.com/opensource/lzo/",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "7437c8de2381957c98fce0f1efc6b94a904eff7bb9db267d06a31ac45a367486",
         "text": "The libmaxminddb library provides functions for working MaxMind DB files. https://maxmind.github.io/libmaxminddb/ Jan Pavlinec <jan.pavlinec@nic.cz>",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "4c905d238e5bc0988b4e28fd553af265f10350b310dfbeb63eeb615cd06caa24",
         "text": "The sendmail Mail Filter API (Milter) is designed to allow third-party programs access to mail messages as they are being processed in order to filter meta-information and content. http://sendmail.org/ Val Kulkov <val.kulkov@gmail.com>",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "8be6292712d38149ce1cc49c9ac5e131b19c62c71f3268956a572a1b68ae02ff",
         "text": "The libmount library is used to parse /etc/fstab, /etc/mtab and /proc/self/mountinfo files, manage the mtab file, evaluate mount options... http://www.kernel.org/pub/linux/utils/util-linux/",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "072c91d902770579a317046296894e991e7d66ef2fde8bb2698c6c81a8354ab5",
         "text": "libnatpmp is an attempt to make a portable and fully compliant implementation of the protocol for the client side. It is based on non blocking sockets and all calls of the API are asynchronous. It is therefore very easy to integrate the NAT-PMP code to any event driven code. This package contains the shared library. https://miniupnp.tuxfamily.org/libnatpmp.html",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "131bff73aafa2dc815be3d8cbe0be36c21663646080b836c894a48257e3aabc4",
         "text": "libnetfilter_cthelper is a userspace library providing a programming interface (API) to the in-kernel connection tracking helpers. This library is currently used by conntrack-tools. http://www.netfilter.org/projects/libnetfilter_cthelper/",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "51f0ea5ad7d5c7c0039bc8a3f1e7c3527a9775cd99d3545a473250fb1503077c",
         "text": "libnetfilter_cttimeout is a userspace library providing a programming interface (API) to the in-kernel connection tracking timeout handling. This library is currently used by conntrack-tools. http://www.netfilter.org/projects/libnetfilter_cttimeout/",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "35699a62545f9b3b2ad7ffbdb90d2a6d0f73aff5eb5ae631b791949f857a5810",
         "text": "libnetfilter_queue is a userspace library providing a programming interface (API) to packets that have been queued by the kernel packet filter. https://www.netfilter.org/projects/libnetfilter_queue/",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "582cedbf19de197435c7a1f3068c613b6886ae59943d41bcb9e6008472f12256",
         "text": "Socket handling, connection management, sending and receiving of data, message construction and parsing, object caching system, etc. http://www.infradead.org/~tgr/libnl/",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "df345df0797d284db1d857d20ffac6d85b4216184a29670cde988ce473d5529d",
         "text": "npupnp (new pupnp or not pupnp ?) is an UPnP library derived from the venerable pupnp (https://github.com/pupnp/pupnp), based on its 1.6.x branch (around 1.6.25). https://framagit.org/medoc92/npupnp",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "f3545be63f2acb5f99910a2cf6b95dfe018619ffba9cf978f511887d7081b4a2",
         "text": "Library for signing and verifying DomainKeys Identified Mail (DKIM) signatures. http://opendkim.org/ Val Kulkov <val.kulkov@gmail.com>",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "8425b2662072a02bf79d93cc8f4134871cefe9f6e767945ba1cfbf059a361c2b",
         "text": "This package contains a system-independent library for user-level network packet capture. http://www.tcpdump.org/ Felix Fietkau <nbd@nbd.name>",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "4693b7b91d8ffa2b25299e1875be705c181f3ee6f4a7e6dc9d6cc50677b7ebd3",
         "text": "Enable JIT (Just-In-Time) compiler support.\n\nJust-in-time compiling is a heavyweight optimization that can greatly\nspeed up pattern matching. However, it comes at the cost of extra\nprocessing before the match is performed, so it is of most benefit when\nthe same pattern is going to be matched many times. This does not\nnecessarily mean many calls of a matching function; if the pattern is\nnot anchored, matching attempts may take place many times at various\npositions in the subject, even for a single call. Therefore, if the\nsubject string is very long, it may still pay to use JIT even for\none-off matches. JIT support is available for all of the 8-bit, 16-bit\nand 32-bit PCRE2 libraries and adds about 100KB to the resulting\nlibpcre2.so. JIT support applies only to the traditional Perl-compatible\nmatching function. It does not apply when the DFA matching function is\nbeing used.\n\nEnabling this option can give an about 10x performance increase on JIT\noperations. It can be desireable for e.g. high performance Apache\nmod_rewrite or HA-Proxy reqrep operations.\n\nHowever, JIT should _only_ be enabled on architectures that are supported.\nEnabling JIT on unsupported platforms will result in a compilation\nfailure. A list of supported architectures can be found here:\nhttps://pcre.org/current/doc/html/pcre2jit.html#SEC2",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "9ab4fb3756ff7f835b1ef889fd036dca33edfe19b6d04144abae197f8d30728a",
         "text": "Runtime library to use Google Protocol Buffers from C applications. Protocol Buffers are a way of encoding structured data in an efficient yet extensible format. Google uses Protocol Buffers for almost all of its internal RPC protocols and file formats. https://github.com/protobuf-c/protobuf-c",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "bec67028c750dcb1f59f0e232dbe282d7973362286fab4f14ba06ef8c009fa77",
         "text": "The Readline library provides a set of functions for use by applications that allow users to edit command lines as they are typed in. Both Emacs and vi editing modes are available. The Readline library includes additional functions to maintain a list of previously-entered command lines, to recall and perhaps reedit those lines, and perform csh-like history expansion on previous commands. http://cnswww.cns.cwru.edu/php/chet/readline/rltop.html",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "1668246df1cd83ee2fbe21aba23b053c7c8b3bb9bf1dde316a454698543d47b7",
         "text": "SANE (Scanner Access Now Easy) is a universal scanner interface. This package contains the SANE shared libraries. http://www.sane-project.org/ Luiz Angelo Daros de Luca <luizluca@gmail.com>",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "bc9510fc117cbf5169fa3e306e474deaa9ebd7979d466f236ecafa26fb9cddbc",
         "text": "This package contains the seccomp library. https://github.com/seccomp/libseccomp/wiki Nikos Mavrogiannopoulos <nmav@gnutls.org>",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "edffd4146150946ff47b956552bb5c247736de5f8ca0f6728db7e562abae8353",
         "text": "The smartcols library is used to print tables and trees in a pretty way. http://www.kernel.org/pub/linux/utils/util-linux/",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "713d1c46261ff5c79183ce292a6fab4204b49acc551cf91c5bf30a5d288d9352",
         "text": "This pacakge contains libss, a command-line interface parsing library bundled with e2fsprogs. http://e2fsprogs.sourceforge.net/",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "c2d2aabaf225101f1115e86ae4f01ad78193eec38f16bd9cd62af2ef91564cc9",
         "text": "libusb is a C library that gives applications easy access to USB devices on many different operating systems. http://libusb.info/ Felix Fietkau <nbd@nbd.name>",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "e021961c8586d31d6ecfd5aba0b9b12501c455ee205a9162cbc55db3393c7502",
         "text": "libusb is a C library that gives applications easy access to USB devices on many different operating systems. http://libusb.wiki.sourceforge.net/ Felix Fietkau <nbd@nbd.name>",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "f918ae9b69de58f96a51a162878280a3a1327917693861fc2238bdb336092e9e",
         "text": "The UUID library is used to generate unique identifiers for objects that may be accessible beyond the local system. This library generates UUIDs compatible with those created by the Open Software Foundation (OSF) Distributed Computing Environment (DCE) utility. http://www.kernel.org/pub/linux/utils/util-linux/",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "38230f046ccbf9e7d71390f783b30f6c6beeeae7ec8cb2b743a655b65e273268",
         "text": "libvpx is a VP8/VP9 Codec SDK. https://www.webmproject.org/ Luiz Angelo Daros de Luca <luizluca@gmail.com>",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "2b3e1f0a6d5fafe22ec65096589a42c3cf17d1904cfb7eef72a25c9e8b54b59c",
         "text": "The libwebp package contains a library for the WebP format. https://www.webmproject.org",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "b35d22bd647e13058236b61f323b9f125127551bb92e71a55463e0b7e3973248",
         "text": "wxBase contains most of the non-GUI classes from the wxWindows cross- -platform C++ framework. There are 2 categories: generally useful portable code (date/time handling, command line parsing, regular expression support) and wrappers for the OS objects (files, directories, sockets, threads, etc.) allowing you to write portable programs easily. http://www.wxwidgets.org/",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "28f0cc42d749b474e39ba8407e22528cb6fcbb1e3b207840897ffa8c53c2d84f",
         "text": "This package contains a library for accessing the Linux ATM subsystem. http://linux-atm.sourceforge.net/",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "8509827e8af0d39b8461659beac042bdc98c1b9f5851b526f15d56c7b9ebe278",
         "text": "LMDB is an ultra-fast, ultra-compact key-value embedded data store developed for the OpenLDAP Project. https://symas.com/lmdb/ Jan Pavlinec <jan.pavlinec@nic.cz>",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "eeb79986432d9c00486fe528c7b1c0af1e8fad8daf9fde751a953c1a38cfe204",
         "text": "Rasterbar libtorrent is a C++ library that aims to be a good alternative to all the other bittorrent implementations around. It is a library and not a full featured client, although it comes with a working example client. https://www.libtorrent.org",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "31e09ddd8802348eded9034cf8771d1971bc71cd53845d76fd46f359262d4281",
         "text": "RE2 is a fast, safe, thread-friendly alternative to backtracking regular expression engines like those used in PCRE, Perl, and Python. It is a C++ library. https://github.com/google/re2",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "c56701bdaf402a0febca4cd578546403e0e38af819b76f95175401d1c12ed20d",
         "text": "Low Complexity Subband Coding for bluetooth audio profiles encoding and decoding. Needed for A2DP support. http://www.bluez.org",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "4d2794f0cd095654192854d00eb0da364333cdacb2b166516373f4be8ef20952",
         "text": "C++ library for embedded systems https://cxx.uclibc.org/",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "557c1f68cbf6af519ee749b39bf4d5f6de03714da21e0cb5f0e7a70341698105",
         "text": "zlib is a lossless data-compression library. This package includes the shared library. http://www.zlib.net/",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "3b1fc536bb8afbf0fe04967090333f85c2e65a2dc43f6fb545592d575e7bfd29",
         "text": "LuCI with OpenSSL as the SSL backend (libustream-openssl). OpenSSL cmd tools (openssl-util) are used by nginx for SSL key generation. https://github.com/openwrt/luci OpenWrt LuCI community",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "4af6adc2fb68235c72410883abbf9dcfc38a0b5ca2ec661898fe4c78a2ddf971",
         "text": "LuCI with OpenSSL as the SSL backend (libustream-openssl). OpenSSL cmd tools (openssl-util) are used by uhttpd for SSL key generation instead of the default px5g. (If px5g is installed, uhttpd will prefer that.) https://github.com/openwrt/luci OpenWrt LuCI community",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "4049cfb9718bd27805761389b82f6cb1b3845f2708226c8a8486f70be7e1c001",
         "text": "LuCI Administration - full-featured for full control https://github.com/openwrt/luci OpenWrt LuCI community",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "8ca8c0a37798dc63ac212161f3ea348a137d188a323caecc5326ebb22111796e",
         "text": "LuCI Essentials - stripped down and user-friendly https://github.com/openwrt/luci OpenWrt LuCI community",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "df1fe2ac05ab12bc0f3b302dcdbba98d621a2826275c89c4f640bdcbc962e5f9",
         "text": "Provides a battery charge indicator in LuCI. Currently only supports the HooToo HT-TM05 travel router. https://github.com/openwrt/luci OpenWrt LuCI community",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "181948ba570f5d98d59cc047a2f9a11a122bd1dee081fcbff1a4b4e0f563fca1",
         "text": "LuCI RPC - JSON-RPC API https://github.com/openwrt/luci OpenWrt LuCI community",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "c223a5bfc287e30c93936809ec91804e55e02bf9450298f954d339809665aab3",
         "text": "LuCI Support for advanced and filebrowser",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "9415af5696ff0e7e84b024b84c83071b79e5b9c613d2ca9db6107422aecb6f7b",
         "text": "LuCI Support for aliyundrive-fuse https://github.com/openwrt/luci OpenWrt LuCI community",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "09505900c04ca40a31b5561dfe791ed196cea2a1518159e18d6326a62621bcdd",
         "text": "LuCI Support for aliyundrive-webdav https://github.com/openwrt/luci OpenWrt LuCI community",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "2e8d72cecf6b5d8a862afd46df880a99f96e5427164f3bb7bc43335bf37e7c47",
         "text": "Configuration Alpha theme in LuCI. https://github.com/openwrt/luci OpenWrt LuCI community",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "0b3b3324e693f778c42e88453046b2d742e28de3981b6215961577d5498b27ef",
         "text": "LuCI page for Argone Config https://github.com/openwrt/luci OpenWrt LuCI community",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "8c041ed33f4dcc928461c576af905db35f64d3c0841ebe383b3b1c40546cfd3b",
         "text": "LuCI Support for autoupdate https://github.com/openwrt/luci OpenWrt LuCI community",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "be53fd2a6f28a123163593f68993f6ff4b89ee2f28e1a8a37ce8c057c4e02442",
         "text": "LuCI Support for chatgpt-web Client https://github.com/openwrt/luci OpenWrt LuCI community",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "262168fc06620eaf1471d4ead79dadace0db4a50c0a5c80b59ade89bb9fe8ae5",
         "text": "LuCI Support for ipset feature of dnsmasq-full. Qier LU <lvqier@gmail.com>",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "cb3e110a2389297351178df93e4cdf68a21a9ec6bd0da0dc0b9d50cc4419ca7f",
         "text": "LuCI support for DrawIO https://github.com/openwrt/luci OpenWrt LuCI community",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "b5bd57a000096f1cb4ea0363cfc2dbee2db009cd61793fc19020d65359ab6bf1",
         "text": "Manage Android modem and optimize network settings. https://github.com/openwrt/luci OpenWrt LuCI community",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "c435d4b563c7ff5afb8d31a6fce279fbb9410b0795072251c444d17dcff941b5",
         "text": "LuCI Support for easymesh https://github.com/openwrt/luci OpenWrt LuCI community",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "f32ac5fe68850e21d8b462460c1c521fe451b080e265a2dc381326138988bcfb",
         "text": "LuCI support for Easy eqosplus(Support speed limit based on IP address). https://github.com/openwrt/luci OpenWrt LuCI community",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "f709758b57ff3c2f673b755f75c4569f84fe6353c0f7688a07277edf6b671a76",
         "text": "FullCombo Shark! supplies flexible customization of mihomo on OpenWrt. https://github.com/openwrt/luci OpenWrt LuCI community",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "3f86140d4fda5614acec8d0b92ad444b54577851223718fdd3934bbf7c47bb43",
         "text": "LuCI support for floatip https://github.com/openwrt/luci OpenWrt LuCI community",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "f336959dbde209e2556b06777821f6fb6f26220e8d3651f1a6110ae54bbdc711",
         "text": "LuCI Support for gecoosac https://github.com/openwrt/luci OpenWrt LuCI community",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "297c8d11f4f8a2b3468fc219a501d90ba082d6c98726ede6abfbd61f77813dd6",
         "text": "Luci for go-aliyundrive-webdav https://github.com/openwrt/luci OpenWrt LuCI community",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "6c2535976b4d015263161842f5fbf8d181be4ef28f4e7b91346d6c6296c2bb3e",
         "text": "LuCI support for heimdall https://github.com/openwrt/luci OpenWrt LuCI community",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "6a28da6cd5a161cbeb3fdffe55271c8f4253b4f418642410343363e52bd83682",
         "text": "LuCI support for Hermes https://github.com/openwrt/luci OpenWrt LuCI community",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "8459b997a370c4dbd40f1727a37d8eecf791160cb48b34a3232d5e0641b97a7a",
         "text": "LuCI Support for homebridge. lanxin Shang <shanglanxin@gmail.com>",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "4d64d05a3d13c5e0d6a22758f59e215107224468f924145d710de4930a0563a3",
         "text": "Configure and manage multiple iperf3 server instances with LuCI status/actions. https://github.com/openwrt/luci OpenWrt LuCI community",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "cc691bcb7165d5d0f126ed4dfcec57d2e22c0c3ba0274f16428405195f79d7bd",
         "text": "iStoreRouter https://github.com/openwrt/luci OpenWrt LuCI community",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "c3ae1660c88c4c0d1fa1515d3df3f8f1f5c3be3afcabc902dd71c5e71e9a6781",
         "text": "LuCI Support for momo https://github.com/openwrt/luci OpenWrt LuCI community",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "3b3def85c6e80a8e13f3d47b78083bf1c376170150632fefef61235903baacea",
         "text": "LuCI App for my-dnshelper which is your helper of setting dns server of your openwrt. https://github.com/kongfl888/openwrt-my-dnshelper K",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "9032d0bac9ef34326b895da8105087b63e0adc6c4646ec738e4ce19704f237aa",
         "text": "LuCI Support for Natter https://github.com/openwrt/luci OpenWrt LuCI community",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "12b2e622ad647091be6dc23c7e6971a256a0b72355617cea116e55fb38bb85ad",
         "text": "LuCI Support for netwizard. https://github.com/openwrt/luci OpenWrt LuCI community",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "04560194a2eaa6f882318b6107d00e17c38e465b12f654a4724e7c719d76e8c9",
         "text": "LuCI Support for nikki https://github.com/openwrt/luci OpenWrt LuCI community",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "76178bf32d7336a4ff18610cabd30c75729b33192f831913d226b4b84113663d",
         "text": "LuCI support for OpenVPN Client https://github.com/openwrt/luci OpenWrt LuCI community",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "6957b5ad8a4a09f0c21f4de2d24078a370c5f86412fc22d95c24002bb46f0541",
         "text": "LuCI for OTA upgrade https://github.com/openwrt/luci OpenWrt LuCI community",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "15d1c52a40990a60a734fb0e2bef3e19be9d78feb2f4646cd8e6f9f70ddad5f8",
         "text": "provides Web UI to shut down (power off) your device. https://github.com/openwrt/luci OpenWrt LuCI community",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "29e9a5f4e2e7b51af645c4652be6dc3bdd27a4f26244a987569c07628ba51a6f",
         "text": "LuCI Support for shortcutmenu https://github.com/openwrt/luci OpenWrt LuCI community",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "37d78753007d1bc3fd2c85249a90658a25b402237238cc4d58b37bdf13ed1079",
         "text": "LuCI Support for shutdown/reboot https://github.com/openwrt/luci OpenWrt LuCI community",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "e1cb77afde28d017fe4a72f3f785b344ad993fb52c214a5d299de166444cb1bc",
         "text": "LuCI interface for the sms-tool. The user interface supports SMS/USSD Codes/AT Commands. https://github.com/openwrt/luci OpenWrt LuCI community",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "1261cf4b05fe348c4d243fade42a7c37b07426c8595e482af85017d12b623de8",
         "text": "LuCI for Tailscale https://github.com/openwrt/luci OpenWrt LuCI community",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "6c295551050349106c8119b822cb0859b4447fbf04346ecc3669db5206eab719",
         "text": "Scheduled tasks and startup tasks management. Includes restart, shutdown, network restart, memory release, system cleaning, and custom scripts. https://github.com/openwrt/luci OpenWrt LuCI community",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "993d675912a43a2e5d650ee7e5476b0d24038dfc65d46487323664c5299b4768",
         "text": "LuCI for UniShare https://github.com/openwrt/luci OpenWrt LuCI community",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "a644bf5127ac3c461621e99ab0df47efa771cbb3604dae54cfab1f03c77fb039",
         "text": "Luci App WevviewDev https://github.com/openwrt/luci OpenWrt LuCI community",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "b6e9af3ee88e3e8d12fb1431deeb4b71d1c805161c172532070518b1f9b54bb1",
         "text": "LuCI wifidog config https://github.com/openwrt/luci OpenWrt LuCI community",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "89bc3cc6f848079295d1c3b9f5c2b425fdb68ef2306b93237d6c749fde3d36e3",
         "text": "LuCI Support for wizard https://github.com/openwrt/luci OpenWrt LuCI community",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "3dcd5c11b1ac8f20f3189447015d02dda3de8733cdf33204450c715c4afb8b8e",
         "text": "Argon Theme https://github.com/openwrt/luci OpenWrt LuCI community",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "f0f214b546026db657938d667f8a5e0bfb4e4993f016765a5df8f19751449816",
         "text": "ifit https://github.com/kenzok78/luci-theme-infinityfreedom",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "e175aa347909218589dda8fb5a002cf71002692d026ec4c348cb6a2e503c9ffc",
         "text": "Material Theme https://github.com/openwrt/luci OpenWrt LuCI community",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "b5a877375c1e9f17352a106d7445c1ba36c275c69ead79e246503e654d0907b4",
         "text": "LuCI luci-theme-opentopd theme https://github.com/openwrt/luci OpenWrt LuCI community",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "defa567b79b9107e0ae7ae45d13ee455bfc4c261649c61559c88dcadcfc5246b",
         "text": "LuCI OpenWrt.org theme https://github.com/openwrt/luci OpenWrt LuCI community",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "6044884abcf2ce6a54a24f0b35a30a68421c62f3b1666247f48a55ec90f3b0fc",
         "text": "LuCI modern OpenWrt theme https://github.com/openwrt/luci OpenWrt LuCI community",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "0d3c5940eff885608641610ce90e52d24f2ab3020e20622c9646c90f7492bf74",
         "text": "Support for PPP/PPPoE/PPPoA/PPtP https://github.com/openwrt/luci OpenWrt LuCI community",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "4df814d91923502d98516a316b19ff14d4baeb02edf3ce8c1baad24f37063b3d",
         "text": "LuCI JSON library https://github.com/openwrt/luci OpenWrt LuCI community",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "b8ddc9909d3cf8d0e3eb108066f92fa858a264daec08199cc48ac4f67adc9d16",
         "text": "LuCi Theme For OpenWrt And Alpha OS ONLY - Alpha http://facebook.com/derisamedia/",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "e5d98ac0ab395bf0f6570f638008cea34a09248b3d2e269b212ecae0385faed4",
         "text": "Greyfix is the greylisting policy daemon for Postfix written by Kim Minh Kaplan. http://www.kim-minh.com/pub/greyfix/",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "6ace1968a1f2f81deed6b93c4b9cbbe8de8416a742fddd732b06ed120876fa9f",
         "text": "msmtp is an SMTP client. In the default mode, it transmits a mail to an SMTP server (for example at a free mail provider) which does the delivery. To use this program with your mail user agent (MUA), create a configuration file with your mail account(s) and tell your MUA to call msmtp instead of /usr/sbin/sendmail. This package is built with SSL support. https://marlam.de/msmtp",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "78328342d0cc3b527ea50b2a139c28b33fdbb0d07a23799775fbbf95ca7f02e7",
         "text": "msmtp is an SMTP client. In the default mode, it transmits a mail to an SMTP server (for example at a free mail provider) which does the delivery. To use this program with your mail user agent (MUA), create a configuration file with your mail account(s) and tell your MUA to call msmtp instead of /usr/sbin/sendmail. This package add a link from sendmail to msmtp and is built with SSL support. https://marlam.de/msmtp",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "27b227726b9cf2306abec200658ac3159e94cb498851db4030f4a20facb6fd64",
         "text": "msmtp is an SMTP client. In the default mode, it transmits a mail to an SMTP server (for example at a free mail provider) which does the delivery. To use this program with your mail user agent (MUA), create a configuration file with your mail account(s) and tell your MUA to call msmtp instead of /usr/sbin/sendmail. This package is built without SSL support. https://marlam.de/msmtp",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "dfd8db4538496c584e1b9053e55160cf90c4c6b2a108b2a53532d100e6fa8a2c",
         "text": "msmtp is an SMTP client. In the default mode, it transmits a mail to an SMTP server (for example at a free mail provider) which does the delivery. To use this program with your mail user agent (MUA), create a configuration file with your mail account(s) and tell your MUA to call msmtp instead of /usr/sbin/sendmail. This package contains the msmtp queue scripts. https://marlam.de/msmtp",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "1f84ec2f2bd127af4c0ed6fc3b3a1987a86ade4abe6b6fc1cc984b90931ee78c",
         "text": "The OpenDKIM daemon application and the opendkim-genkey Perl script for generating public/private key pairs. http://opendkim.org/ Val Kulkov <val.kulkov@gmail.com>",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "5fe593d55be8ba51107df29002d625944652f7803068d1328b8ac5b0c434ed3e",
         "text": "opendkim-genzone, opendkim-testkey and opendkim-testmsg tools. http://opendkim.org/ Val Kulkov <val.kulkov@gmail.com>",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "90e69c29b1485c3e0e6dbf61481970a3db3acc4ef93afa1bf0962d34fc3ff35e",
         "text": "Gerbera - UPnP Media Server based on Mediatomb. https://gerbera.io",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "3f4151710fff401dabd90fb29a10fbf1349f5098aeaaec323807e1e550b11058",
         "text": "GraphicsMagick is a free and open-source software suite for displaying, converting, and editing raster image and vector image files. It is a fork of ImageMagick. https://www.graphicsmagick.org/ Val Kulkov <val.kulkov@gmail.com>",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "9b90353d87a314cbb19db67b3bbf686bb3ec54ca886eed23a1c74019c011ed6b",
         "text": "ImageMagick is a free and open-source software suite for displaying, converting, and editing raster image and vector image files. NOTE: this package may not be suitable for many embedded devices because of its large size. Consider using extroot or alternatively consider graphicsmagick which is smaller but similar in functionality. https://www.imagemagick.org/ Val Kulkov <val.kulkov@gmail.com>",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "1d7af3204bac638684e3244674540032ddcd7c81a0f1f48b39c64e983fd15a30",
         "text": "MiniDLNA (aka ReadyDLNA) is server software with the aim of being fully compliant with DLNA/UPnP-AV clients. http://minidlna.sourceforge.net/",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "505a2fdccf9ca77f6efeb0018cc4bce619c330deb86b4f35bc6d61fc18fd345d",
         "text": "qBittorrent is a bittorrent client programmed in C++ / Qt that uses libtorrent (sometimes called libtorrent-rasterbar) by Arvid Norberg. It aims to be a good alternative to all other bittorrent clients out there. qBittorrent is fast, stable and provides unicode support as well as many features. https://www.qbittorrent.org/",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "0d5503463298ae95d49b065e608372b4c8d19f7145c389a35d7bfbaf89636cfe",
         "text": "qBittorrent is a bittorrent client programmed in C++ / Qt that uses libtorrent (sometimes called libtorrent-rasterbar) by Arvid Norberg. It aims to be a good alternative to all other bittorrent clients out there. qBittorrent is fast, stable and provides unicode support as well as many features. https://github.com/c0re100/qBittorrent-Enhanced-Edition",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "966e901eaa9723a5ad61087922cb050c5b67ff9bc459e480eda2a7d595f6017b",
         "text": "A Ruijie Client Daemon, Most usually used in Chinese universities. https://github.com/KyleRicardo/MentoHUST-OpenWrt-ipk.git",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "1d67ded1cbd6c34949205415e329c14706b781f3f6d1089627dea8e2f070d760",
         "text": "Dubbed RP-PPPoE, this open-source product is ideal for Linux users with a DSL \"modem\" whose Internet service provider uses PPPoE. This package contains files common to server and relay. https://dianne.skoll.ca/projects/rp-pppoe/",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "d2f41e6da9871c300270c8e0d795c3ae920923bd8d7ee404b06d081cdf7721fc",
         "text": "Dubbed RP-PPPoE, this open-source product is ideal for Linux users with a DSL \"modem\" whose Internet service provider uses PPPoE. This package contains pppoe-relay. https://dianne.skoll.ca/projects/rp-pppoe/",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "27cc6da8292a017f80282b27cbf8d0c07b24ba06d1b0b1a34a65639bb5d8a473",
         "text": "Dubbed RP-PPPoE, this open-source product is ideal for Linux users with a DSL \"modem\" whose Internet service provider uses PPPoE. This package contains pppoe-server. https://dianne.skoll.ca/projects/rp-pppoe/",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "ba00dc73730b33f9c3e64e0c012fea44b79a0f45451678e5405094ca19cc0f92",
         "text": "Dubbed RP-PPPoE, this open-source product is ideal for Linux users with a DSL \"modem\" whose Internet service provider uses PPPoE. This package contains pppoe-sniff. https://dianne.skoll.ca/projects/rp-pppoe/",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "081a320c38aa4108e70757845f8755b9fe80083f777d06b46548e3dcea9b35c8",
         "text": "ps3netsrv allows you to stream games and ISOs over the network to your CFW PlayStation(R) 3 system. This may be useful if you have a modified PS3, and your router has storage options. https://github.com/jhonathanc/ps3netsrv-openwrt JCorrea",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "a15bfb59af14e0122cea535f9271fc16828198d3c8051e6d1ac339ca1994bd21",
         "text": "Wget is a network utility to retrieve files from the Web using http and ftp, the two most widely used Internet protocols. It works non-interactively, so it will work in the background, after having logged off. The program supports recursive retrieval of web-authoring pages as well as ftp sites -- you can use wget to make mirrors of archives and home pages or to travel the Web like a WWW robot. This package is built without SSL support. https://www.gnu.org/software/wget/index.html",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "8d530d6c0a52896bed62a23480f92814d29bc4847509737471c488922f75a290",
         "text": "Wget is a network utility to retrieve files from the Web using http and ftp, the two most widely used Internet protocols. It works non-interactively, so it will work in the background, after having logged off. The program supports recursive retrieval of web-authoring pages as well as ftp sites -- you can use wget to make mirrors of archives and home pages or to travel the Web like a WWW robot. This package is built with SSL support. https://www.gnu.org/software/wget/index.html",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "dd7c514328bff5ccddb519be5ef43a1affb7208bb99770828ccf634c783836b3",
         "text": "The ebtables program is a filtering tool for a bridging firewall. The filtering is focussed on the Link Layer Ethernet frame fields. Apart from filtering, it also gives the ability to alter the Ethernet MAC addresses and implement a brouter. http://ebtables.sourceforge.net/",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "62dd54bc092c178f941814778af153631a2219779f402978e9b0e207fdbc2a31",
         "text": "iptables extensions for IPv6-NAT targets. https://netfilter.org/",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "9cdf775295f521f8df0594b805beb382364bc80b59f4a4d9b778726c68937de8",
         "text": "Extra ip6tables nftables nft binaries. iptables-nft iptables-nft-restore iptables-nft-save iptables-translate iptables-restore-translate https://netfilter.org/",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "0d990482f02455ca4029f3e36f0963a5d32cfa9222ea92aa17de8ef4bab1d7d7",
         "text": "iptables extensions for matching cluster. Netfilter (IPv4/IPv6) module for matching cluster This option allows you to build work-load-sharing clusters of network servers/stateful firewalls without having a dedicated load-balancing router/server/switch. Basically, this match returns true when the packet must be handled by this cluster node. Thus, all nodes see all packets and this match decides which node handles what packets. The work-load sharing algorithm is based on source address hashing. This module is usable for ipv4 and ipv6. If you select it, it enables kmod-ipt-cluster. see `iptables -m cluster --help` for more information. https://netfilter.org/",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "6703c4523143509632d5c26ccf468e43fa46b22b61915b4b21447bfd384aff37",
         "text": "iptables extensions for CLUSTERIP. The CLUSTERIP target allows you to build load-balancing clusters of network servers without having a dedicated load-balancing router/server/switch. If you select it, it enables kmod-ipt-clusterip. see `iptables -j CLUSTERIP --help` for more information. https://netfilter.org/",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "02b3be724ef07c3476afa0f1f18fbf23f81165b59fae14eb82a1683aeddb0b9c",
         "text": "LOGMARK iptables extension https://inai.de/projects/xtables-addons/ Jo-Philipp Wich <jo@mein.io>",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "d74c7c88efea81db34e08f7293f43feb70ca27a100a7742049f9db7220a91dba",
         "text": "The iptables physdev match. https://netfilter.org/",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "9b11a335a27601fe292de755f406934bc2c1e7ea1125ea735395aaaefa2ce727",
         "text": "TARPIT iptables extension https://inai.de/projects/xtables-addons/ Jo-Philipp Wich <jo@mein.io>",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "a71c64717d1d36f5ec5b0d7125c19c6ff4d53e05b8afe2471ee174e1b106c330",
         "text": "Extra iptables nftables nft binaries. iptables-nft iptables-nft-restore iptables-nft-save iptables-translate iptables-restore-translate https://netfilter.org/",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "d363f38e42d1c35e1886c4c0c3a617e7b9e06617142e948abcd8bbe2edaa257e",
         "text": "libnatpmp is an attempt to make a portable and fully compliant implementation of the protocol for the client side. It is based on non blocking sockets and all calls of the API are asynchronous. It is therefore very easy to integrate the NAT-PMP code to any event driven code. This package contains the natpmp client. https://miniupnp.tuxfamily.org/libnatpmp.html",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "2d0d17041ced22415b8622a7c1844fd188a19a970ff2064899ca331ce8bff734",
         "text": "nftables userspace utility with JSON support http://netfilter.org/projects/nftables/",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "540e4cae0cdb24fa2d58a53a6fbe69e2c4d9f83e1d6d86ce33c2c1cc20cc4625",
         "text": "This meta-package contains only dependencies for modules needed in FreeRADIUS default configuration. https://freeradius.org/",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "c44de6fd69d4d7b40bc2d4651b84f6e226f43f2d17b263d9fa8e34f630c29ff5",
         "text": "Misc. client utilities https://freeradius.org/",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "27a080d28620790f7909fd49cda7ff07c85708f934da23dc7ea9a9a0a1dd3ff4",
         "text": "This is a command line utility to resolve DNS requests via a SOCKS tunnel like Tor or a HTTP proxy. http://dns2socks.sourceforge.net/ ghostmaker",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "f2a873760da910c8f43b262b327a676987f2eaddb58fc87836c5be13e4697e1f",
         "text": "geoview is a handy tool to extract useful information from geo* files. https://github.com/snowie2000/geoview snowie2000",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "3c2aabedab219406ee8f256854a8a73d75e660974b2b5f2b5a8a7a6410719954",
         "text": "The Knot Resolver is a caching full resolver implementation, including both a resolver library and a daemon. https://www.knot-resolver.cz Jan Pavlinec <jan.pavlinec@nic.cz>",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "fe85fa8ceeeb7de061938d24d8d540418448b845a50d855088d3c9206c3ed5b2",
         "text": "Bonjour, also known as zero-configuration networking, enables automatic discovery of computers, devices, and services on IP networks. . This package contains the mDNS server daemon. http://developer.apple.com/networking/bonjour/",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "761b50d0fabd8c518f4705faaedc948abe3e9345d0fb9a4f299e8d03cab9489d",
         "text": "Bonjour, also known as zero-configuration networking, enables automatic discovery of computers, devices, and services on IP networks. . This meta package contains only dependencies on other packages. http://developer.apple.com/networking/bonjour/",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "6326ea344bb0717ee2746b40edc165a608cf4e43edec8732ed89bc803367fa9e",
         "text": "PowerDNS is a versatile nameserver which supports a large number of different backends ranging from simple zonefiles to relational databases and load balancing/failover algorithms. PowerDNS tries to emphasize speed and security. This package contains several tools to debug DNS issues. These tools do not require any part of the PowerDNS server components to work. * dnsbulktest: A resolver stress-tester * dnsgram: Show per 5-second statistics to study intermittent resolver issues * dnsreplay: Replay a pcap with DNS queries * dnsscan: Prints the query-type amounts in a pcap * dnsscope: Calculates statistics without replaying traffic * dnstcpbench: Perform TCP benchmarking of DNS servers * dnswasher: Clean a pcap of identifying IP information * ixplore: Explore diffs from IXFRs * nsec3dig: Calculate the correctness of NSEC3 proofs * saxfr: AXFR zones and show extra information https://www.powerdns.com/auth.html Peter van Dijk <peter.van.dijk@powerdns.com>",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "10ff4636f9de83805dad4e6ef7a0c38a62d0e65f270a822b587576fce68cdb16",
         "text": "This package contains the Stubby daemon (which utilizes the getdns library). See https://github.com/openwrt/packages/blob/master/net/stubby/files/README.md for more details. https://dnsprivacy.org/wiki/display/DP/DNS+Privacy+Daemon+-+Stubby",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "1b49f0801a5da50f00b958d482781b24b88a6b49f51b97b1681e06608bc2447a",
         "text": "Torsocks allows you to use most applications in a safe way with Tor. It ensures that DNS requests are handled safely and explicitly rejects any traffic other than TCP from the application you're using. https://trac.torproject.org/projects/tor/wiki/doc/torsocks Jan Pavlinec <jan.pavlinec@nic.cz>",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "bbfffa34490c5012b76864f344376d49907428673006e78a8bfd4445de50e753",
         "text": "ngIRCd is an Open Source server for the Internet Relay Chat (IRC), which is developed and published under the terms of the GNU General Public Licence. ngIRCd means \"next generation IRC daemon\", it's written from scratch and not deduced from the \"grandfather of IRC daemons\", the daemon of the IRCNet. This package is built with OpenSSL support. https://ngircd.barton.de",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "ebdb032e17d04cfba1f0bb6f58962621607590f239e730adec05bf67b2ca2e3a",
         "text": "ngIRCd is an Open Source server for the Internet Relay Chat (IRC), which is developed and published under the terms of the GNU General Public Licence. ngIRCd means \"next generation IRC daemon\", it's written from scratch and not deduced from the \"grandfather of IRC daemons\", the daemon of the IRCNet. This package is built without OpenSSL support. https://ngircd.barton.de",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "df73be075507d1388d6959b59959fe5be410d2aabd91a4509c2ad357cac3a718",
         "text": "Minimalistic Mumble server daemon. Uses the mbed TLS library for SSL and crypto. https://umurmur.net Martin Johansson <martin@fatbob.nu>",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "c818b2667840a6e8034c6d18a858bf049a8456fa3b62c6150731a1bb33012bca",
         "text": "Minimalistic Mumble server daemon. Uses OpenSSL library for SSL and crypto. https://umurmur.net Martin Johansson <martin@fatbob.nu>",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "ae98552f0345ff21a44b83a2c0d034277653ee31244728caff5417532901e6d9",
         "text": "Linux ATM tool aread. http://linux-atm.sourceforge.net/",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "b7c6a82b4bd9ec89d3ebeffad8435726bc001c0c99dd5dfa2a196a946d5aabb2",
         "text": "Linux ATM tool atmaddr. http://linux-atm.sourceforge.net/",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "77e540eb2d6f9295f8b7196963e3127c1082fc3f599bae43ae2dcffd8c811b47",
         "text": "Linux ATM tool atmdiag. http://linux-atm.sourceforge.net/",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "06b6e11d3a57cb5802423a59d53895965b05305e665a3d1126d9ecba23e8511c",
         "text": "Linux ATM tool atmdump. http://linux-atm.sourceforge.net/",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "b717a85475616734ae084e8d8213787e823c356ad53e81a53a3bd690d2a62ec7",
         "text": "Linux ATM tool atmloop. http://linux-atm.sourceforge.net/",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "1dfa19b8738d55b6ef779528f75ba300d5e681474500069b1e7d27f67a4d5bff",
         "text": "Linux ATM tool atmsigd. http://linux-atm.sourceforge.net/",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "052dba9d6826464fc3d7ef6beb4ccdf7e4a97cda52980d85507cb4d50b07b53c",
         "text": "Linux ATM tool atmswitch. http://linux-atm.sourceforge.net/",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "35c6b979bc13b96161205807f9c1def636d3d237b85fabb31c3661ac57f651a0",
         "text": "Linux ATM tool atmtcp. http://linux-atm.sourceforge.net/",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "0ea702a555312043a0933a6664bd90e7c67965c6330c213dd9fdec507f7d7245",
         "text": "Linux ATM tool awrite. http://linux-atm.sourceforge.net/",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "34e540ed0cf0a47df1385bcd54d954f466c780f4035270c7836e58f2c28202e9",
         "text": "Linux ATM tool bus. http://linux-atm.sourceforge.net/",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "0b9bc85ffe55747479bc254c8c551617fd005b57fd7458e45102afafd65c0a96",
         "text": "This package contains the Linux ATM debugging tools. http://linux-atm.sourceforge.net/",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "d10a8fac3462dbd2db2319509f770252b218dcfe19a2c424c3ecdf67faf0a67a",
         "text": "This package contains the Linux ATM diagnostics. http://linux-atm.sourceforge.net/",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "35b1c4c6fc6ceb79a4d7d8d379a6db8d906eb8f9b1a6799c3ddea4ce8e9048a4",
         "text": "Linux ATM tool esi. http://linux-atm.sourceforge.net/",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "692cb53f3e745f2a476696bb1781bd73970b182b1e004b20c71c104d41d9bc88",
         "text": "Linux ATM tool ilmid. http://linux-atm.sourceforge.net/",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "1c00fa6199f8a1242cc55cb03c4e99bab1d5a0313f170e9918d95a4787613201",
         "text": "Linux ATM tool ilmidiag. http://linux-atm.sourceforge.net/",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "498d3105fcc1939e479c4dce46d533a3cb4a9485dc0ec01ac2e6284e466daaca",
         "text": "Linux ATM tool lecs. http://linux-atm.sourceforge.net/",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "5f07a9333904cedb9554d61ea23c8ff642f33fa2c5c88b32d25798408c2c9c56",
         "text": "Linux ATM tool les. http://linux-atm.sourceforge.net/",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "1bb679f907fe71a357e9d2089504854b720b6898a9f190195c782e919c9f99b0",
         "text": "Linux ATM tool mpcd. http://linux-atm.sourceforge.net/",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "6c44c7cb0856665b32ddb788e6d7621499856ce41eb756b1cc62e47a0ef16603",
         "text": "Linux ATM tool saaldump. http://linux-atm.sourceforge.net/",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "9210ea710399eb02815413b234a8261fbf0437af5766881778e0250555329786",
         "text": "Linux ATM tool sonetdiag. http://linux-atm.sourceforge.net/",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "5c4f6549e5d6eae0f5f66c8bc6cb0dbb8c7a395618e6e2fbdcd661542a198687",
         "text": "Linux ATM tool svc_recv. http://linux-atm.sourceforge.net/",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "599880ed82f1f952695b2ff85dcde4c060065eb5e4eeac34fe896ad34e23451d",
         "text": "Linux ATM tool svc_send. http://linux-atm.sourceforge.net/",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "930f06cceb57cd600be186b8f40dc59de5f6e0b697a20e0e1f6f89a464dde11f",
         "text": "This package contains the Linux ATM tools. http://linux-atm.sourceforge.net/",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "784456d34ec0a8f3d33337fabc4a08a5bf9ae22abdc0220de5a9349ed66d5571",
         "text": "Linux ATM tool ttcp_atm. http://linux-atm.sourceforge.net/",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "cb2cca6305d53a5797ddef887742db6c8126b022a35d1d7338957081d0ab1765",
         "text": "Linux ATM tool zeppelin. http://linux-atm.sourceforge.net/",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "f4a976c7efeaa465d0b7c1994289900a2d2b0d16af95a7de417e8a4cc69d4909",
         "text": "Support for AAL5 encapsulation (RFC-1483/RFC-2684) over ATM. http://linux-atm.sourceforge.net/",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "ede9109e89a9ef9d9ad0f9200685fbf034c18d5d201fab9fac48481a145fe2a6",
         "text": "CUPS backend for the canon printers using the proprietary USB over IP BJNP protocol. This backend allows Cups to print over the network to a Canon printer. It currently supports Cups 1.2 and Cups 1.3 and is designed by reverse engineering. http://sourceforge.net/projects/cups-bjnp/",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "3f2a2a77e3c7e8dd3376b28b6b3b33ed3205ee5242aaf4ce4f3264ef0f4adafc",
         "text": "IGMPproxy is a simple dynamic Multicast Routing Daemon using only IGMP signalling (Internet Group Management Protocol). http://sourceforge.net/projects/igmpproxy Felix Fietkau <nbd@nbd.name>",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "e903d2ddabb01b70c9fab0d0480c38d7bba66519b1eeb60d08ee06e14bc3c2a6",
         "text": "Prince is an open source implementation of the PopRouting Algorithm. It has been developed as a Google Summer of Code Project in collaboration with Freifunk and the University of Trento. Prince fetches topology data from a Link State routing daemon (OONF, OLSR, OSPF, etc), calculates the betweenness centrality using the topology and then computes the the timers' optimal values using these data. At the end of the computation the timers are pushed back to the routing daemon. Since v0.4 it supports both OONF and OLSRd. https://github.com/AdvancedNetworkingSystems/prince",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "9343524e557de433b39c2fe8673a527ef72e5ffc9b96251a42c3dd414b8d5ad7",
         "text": "Traffic control utility (minimal) http://www.linuxfoundation.org/collaborate/workgroups/networking/iproute2 Russell Senior <russell@personaltelco.net>",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "05971d17593ad3df1e55d341a82f7d1f7307a91ded258a2c7c4342f8bfed739d",
         "text": "Change User-agent to Fwords to prevent being detected. https://github.com/Zxilly/UA2F",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "07498696f1ac1b3035c02aa51116dd4e931a9b0fcd46b2bbf0a161ed070ee1ff",
         "text": "OpenSSH version 8.2 added two new ssh authentication methods,\nnamely `ecdsa_sk` and `ed25519_sk`. These two methods make use\nof hardware keys that implement the FIDO and FIDO2 protocols.\nIn order to use these two types, libfido2 is required.",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "aed3e2e1a41ea75e48f50cd0a0c6113313a929ea284d0411d90f5c86a50c487a",
         "text": "Ephemeral credentials for Kamailio http://www.kamailio.org/ Jiri Slachta <jiri@slachta.eu>",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "2eb5d120482c6042bfba838ea8c8a68c0059803a9595e64191709223e21fcddf",
         "text": "H.350 for Kamailio http://www.kamailio.org/ Jiri Slachta <jiri@slachta.eu>",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "1534054bc1ca6ed30fbb8b9bbf7b197c73edcac19f37b7331fd50a7a8fe69797",
         "text": "IM conferencing for Kamailio http://www.kamailio.org/ Jiri Slachta <jiri@slachta.eu>",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "a51495ca3e8980e0d825bdad4e85f87665d03bb3e4e9d39c73aa8ea66c5912b8",
         "text": "Transaction for Kamailio http://www.kamailio.org/ Jiri Slachta <jiri@slachta.eu>",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "deeb4717e0fb4c91f69cb0f47f0e47f81aa5e3f013eb89dab30159b5aa6b444b",
         "text": "miax is a console iax (asterisk) client, it can work with  a soundcard as a normal voip phone, taking input/output from keyboard or analog/gsm/isdn modem. http://www.eja.it/?l=en&n=miax",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "bbd24ba27548c60803eeb12b89a3185273494fabecaeaa4dab26a16eda9faebc",
         "text": "pcapsipdump is a tool for dumping SIP sessions (+RTP traffic, if available) to disk in a fashion similar to \"tcpdump -w\" (format is exactly the same), but one file per sip session (even if there is thousands of concurrect SIP sessions). http://sourceforge.net/projects/pcapsipdump/",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "4efd64e0c578e8325fc7c5a1b1cc55806b1ce44e3914f99e192ba3ffadabffc2",
         "text": "SIPp is a free Open Source test tool / traffic generator for the SIP protocol. It includes a few basic SipStone user agent scenarios (UAC and UAS) and establishes and releases multiple calls with the INVITE and BYE methods. http://sipp.sourceforge.net/",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "49df4c0bffd4721988473e1ad62555186b572c099b364ece42083d15a13b918d",
         "text": "Siproxd is a proxy/masquerading daemon for the SIP protocol. Refer to https://openwrt.org/docs/guide-user/services/voip/siproxd for configuration details and examples. http://siproxd.sourceforge.net/",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "e4d94728511e2aeb6b2ce665d88660b63aa1f3b66c35de5c279042790028554b",
         "text": "Jabber Client module for yate http://yate.null.ro/ Jiri Slachta <jiri@slachta.eu>",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       },
       {
         "id": "026d24e75ed55215147e3effc6dfb85b15306ff1383d3cd4e37f24f802aed5ec",
         "text": "Jabber Server module for yate http://yate.null.ro/ Jiri Slachta <jiri@slachta.eu>",
-        "reason": "Batch incomplete: translated 137/500 queued descriptions"
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
+      },
+      {
+        "id": "84efadd8ea6b0cf02dda0378577129ccc89b5b9bee87418a3e496de1e058786b",
+        "text": "Wanpipe PRI cards Signalling and Data Driver module for yate http://yate.null.ro/ Jiri Slachta <jiri@slachta.eu>",
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
+      },
+      {
+        "id": "ca4479a736bfb51a974f933d9072a36eb5be7dd555a2c1edf01911388127de00",
+        "text": "An open source, self-hosted implementation of the Tailscale control server. https://github.com/juanfont/headscale",
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
+      },
+      {
+        "id": "a6d1f31bef992a8cc4218f03920d70cc6e353859fbb3e03f7d800b6fc8e5ee52",
+        "text": "This package contains client node and supernode for the N2N infrastructure. http://www.ntop.org/n2n Emanuele Faranda <faranda@ntop.org>",
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
+      },
+      {
+        "id": "f9056c6ae82dc2b4ddf51425c434b7588e7796583a6c3eb0092f1b3b27a7f322",
+        "text": "This package contains extend utilities for the N2N infrastructure. http://www.ntop.org/n2n Emanuele Faranda <faranda@ntop.org>",
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
+      },
+      {
+        "id": "03fffcc4353d7a954980451e9f1ec8b1b239ec48c5efe2017312f8c56798dadd",
+        "text": "CLI utility to build and manage a PKI CA. http://openvpn.net Luiz Angelo Daros de Luca <luizluca@gmail.com>",
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
+      },
+      {
+        "id": "7301b3a438c24085ccfb25e296017bfdaf35102130cc2e0974a24de7c98e9b08",
+        "text": "CLI utility to build and manage a PKI CA. http://openvpn.net",
+        "reason": "Batch incomplete: translated 131/500 queued descriptions"
       }
     ]
   },
-  "updatedAt": "2026-11-06T01:31:40.998Z"
+  "updatedAt": "2026-11-06T01:43:03.067Z"
 }
