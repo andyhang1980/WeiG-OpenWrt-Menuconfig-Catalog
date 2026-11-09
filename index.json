@@ -1,6 +1,6 @@
 {
   "schema": 2,
-  "generatedAt": "2026-11-08T00:52:21.990Z",
+  "generatedAt": "2026-11-09T00:08:27.350Z",
   "commit": "",
   "completeReleaseTag": "menuconfig-catalog-complete",
   "health": {
@@ -185,8 +185,8 @@
           "inputsHash": "7e932c0c7d7a4fabd3fa96678cfcc179522c4a29c8aa7b7e0cb651a0d2909b4c",
           "legacy": {
             "asset": "hanwckf--openwrt-21.02.json.gz",
-            "hash": "545a76500d704a8e652d49d738cc6e4d78459b2dfb631270a642897b61eee259",
-            "bytes": 13620399,
+            "hash": "3d0dd7ca4204770711689aa9ad2bf33213a5f33edad17034f8b9b23c5c4b9926",
+            "bytes": 13623646,
             "catalogSchema": 5,
             "relationsSchema": 2
           },
@@ -257,10 +257,10 @@
             "menu:zh-CN": {
               "logical": "menu:zh-CN",
               "asset": "hanwckf--openwrt-21.02.menu.zh-cn.json.gz",
-              "hash": "fe83ac14ceb5b2a92b1df216fed24da652b1c1d407a7927a1648049acc1b4412",
-              "bytes": 359225,
-              "sha256": "9e79e07b268df0b522504c77dc45eabf052d87db2a9b066abb8bb18e6b3c4bea",
-              "jsonBytes": 1503693
+              "hash": "67416aef1027f59679be426ca5dfe95b0ed1336047523fc3543d72e1898d33a6",
+              "bytes": 362579,
+              "sha256": "b7eb2af258bbc5e76a0734c323c9bd2c49b9a241467e0096b4919f6c374f4aa1",
+              "jsonBytes": 1515551
             },
             "menu:zh-TW": {
               "logical": "menu:zh-TW",
@@ -377,8 +377,8 @@
           "state": "fresh",
           "lastSuccessAt": "2026-11-01T22:53:07.066Z",
           "asset": "hanwckf--openwrt-21.02.json.gz",
-          "hash": "545a76500d704a8e652d49d738cc6e4d78459b2dfb631270a642897b61eee259",
-          "bytes": 13620399,
+          "hash": "3d0dd7ca4204770711689aa9ad2bf33213a5f33edad17034f8b9b23c5c4b9926",
+          "bytes": 13623646,
           "lastAttemptAt": "2026-11-01T23:30:31.206Z",
           "runUrl": "https://github.com/andyhang1980/WeiG-OpenWrt-Menuconfig-Catalog/actions/runs/41359142199",
           "lastAttemptCommit": "ba554197ed7e252fd3c1ee023621e1d1d009d323",
@@ -541,8 +541,8 @@
           "inputsHash": "43e59993ea55eb05bec82884f37f81faa4e699da7053a1633a276658cff93eed",
           "legacy": {
             "asset": "immortalwrt--openwrt-25.12.json.gz",
-            "hash": "32c2d2f584c5e2e5f810a63de2be027ff040ae93d868cd246dbc046b3328ecb1",
-            "bytes": 15057371,
+            "hash": "99aa3b521a9323232cab194d7fbc40f4b25bce0ef9da9d496067cd92bf6c4649",
+            "bytes": 15057365,
             "catalogSchema": 5,
             "relationsSchema": 2
           },
@@ -1138,10 +1138,10 @@
             "menu:zh-CN": {
               "logical": "menu:zh-CN",
               "asset": "immortalwrt--openwrt-25.12.menu.zh-cn.json.gz",
-              "hash": "55df10fcbdf6c6dfb7ca9c95ae878a1e00e570caf8e6bda992bf57aded5a5c86",
-              "bytes": 140863,
-              "sha256": "3dd871ac9b4e940d7a710b5ab5e049f225e6d4d6cffb338d503e0ed575aad8a2",
-              "jsonBytes": 402654
+              "hash": "e1db3b1d8d42e8ba814127d570fac474d1c0a3e60deb996d94acec3f3c02c871",
+              "bytes": 140933,
+              "sha256": "d71535f761575b6d0c05a8a913fc3589d3825a901d1264a953316de65e6ea9dd",
+              "jsonBytes": 402809
             },
             "menu:zh-TW": {
               "logical": "menu:zh-TW",
@@ -1258,8 +1258,8 @@
           "state": "fresh",
           "lastSuccessAt": "2026-11-01T22:54:23.723Z",
           "asset": "immortalwrt--openwrt-25.12.json.gz",
-          "hash": "32c2d2f584c5e2e5f810a63de2be027ff040ae93d868cd246dbc046b3328ecb1",
-          "bytes": 15057371,
+          "hash": "99aa3b521a9323232cab194d7fbc40f4b25bce0ef9da9d496067cd92bf6c4649",
+          "bytes": 15057365,
           "lastAttemptAt": "2026-11-01T23:31:17.163Z",
           "runUrl": "https://github.com/andyhang1980/WeiG-OpenWrt-Menuconfig-Catalog/actions/runs/41359142199",
           "lastAttemptCommit": "3682a14dd5ec6382af65d7e72b5b415b5f3173a8",
@@ -1403,8 +1403,8 @@
           "inputsHash": "5b80c8633c7ec1c738f4c87675575d59ba1d4083dff784e910fa8c8803ab51ff",
           "legacy": {
             "asset": "immortalwrt--openwrt-24.10.json.gz",
-            "hash": "9d148f1b56bf1829dc2479dee238964395c4c44de86a52c0f559cc74155a5ebe",
-            "bytes": 12424993,
+            "hash": "823b43c50164abb0c3f32621ef125bf6e0d322e3f9c381d6f67ae5245d0f3d31",
+            "bytes": 12425207,
             "catalogSchema": 5,
             "relationsSchema": 2
           },
@@ -2015,10 +2015,10 @@
             "menu:zh-CN": {
               "logical": "menu:zh-CN",
               "asset": "immortalwrt--openwrt-24.10.menu.zh-cn.json.gz",
-              "hash": "79009e7948d8283452801879d466c5c191f08232f7eda220aa2a30f8fda2a854",
-              "bytes": 144882,
-              "sha256": "ce340df7b80bbd7c63ef866d97d5816311350e8569960c9508d7318354345d40",
-              "jsonBytes": 415148
+              "hash": "b636ac324d8089a76661a34a814197653f1e263202173a301d57f9606e9b9681",
+              "bytes": 144949,
+              "sha256": "98256572e3e231a165ff2662cbcc859cdb0bf580b5c0335f2a2212314988d795",
+              "jsonBytes": 415303
             },
             "menu:zh-TW": {
               "logical": "menu:zh-TW",
@@ -2135,8 +2135,8 @@
           "state": "fresh",
           "lastSuccessAt": "2026-11-01T22:53:35.743Z",
           "asset": "immortalwrt--openwrt-24.10.json.gz",
-          "hash": "9d148f1b56bf1829dc2479dee238964395c4c44de86a52c0f559cc74155a5ebe",
-          "bytes": 12424993,
+          "hash": "823b43c50164abb0c3f32621ef125bf6e0d322e3f9c381d6f67ae5245d0f3d31",
+          "bytes": 12425207,
           "lastAttemptAt": "2026-11-01T23:30:13.804Z",
           "runUrl": "https://github.com/andyhang1980/WeiG-OpenWrt-Menuconfig-Catalog/actions/runs/41359142199",
           "lastAttemptCommit": "af0775ab50d2d0e41f4e558c59208f6c9b8bdf0b",
@@ -2280,8 +2280,8 @@
           "inputsHash": "37b9a77ddac54cbcecbcdb19b0f46fe1a07e0450e870d0bb7035f925eb13c49d",
           "legacy": {
             "asset": "immortalwrt--openwrt-23.05.json.gz",
-            "hash": "043f9c28c0a3a1e8c28ccb69bce9a01dc7099a68ea50c760b9d048bdbe7baa19",
-            "bytes": 12082043,
+            "hash": "1196c2acdb2929095034eb468e603b61984da406197be15157bfdb2264d539ce",
+            "bytes": 12085452,
             "catalogSchema": 5,
             "relationsSchema": 2
           },
@@ -2817,10 +2817,10 @@
             "menu:zh-CN": {
               "logical": "menu:zh-CN",
               "asset": "immortalwrt--openwrt-23.05.menu.zh-cn.json.gz",
-              "hash": "318378b1b3e336af9153d7d73c575be208599c486faadfccb44d582cbcc4a050",
-              "bytes": 314100,
-              "sha256": "f552d90186c3adf7a99eb61fd1ee068d9ca37e52d19a47decb021a55df8f74a6",
-              "jsonBytes": 1298989
+              "hash": "33272a94f404ce270896c1b63bb93896c3b9009d6b8665a126eae9cfd593ee79",
+              "bytes": 317055,
+              "sha256": "1540cd013b68bd85111dcd9cdd92e428442e455c67c6cb819f0e4b8817d8f079",
+              "jsonBytes": 1309665
             },
             "menu:zh-TW": {
               "logical": "menu:zh-TW",
@@ -2937,8 +2937,8 @@
           "state": "fresh",
           "lastSuccessAt": "2026-11-01T22:58:20.787Z",
           "asset": "immortalwrt--openwrt-23.05.json.gz",
-          "hash": "043f9c28c0a3a1e8c28ccb69bce9a01dc7099a68ea50c760b9d048bdbe7baa19",
-          "bytes": 12082043,
+          "hash": "1196c2acdb2929095034eb468e603b61984da406197be15157bfdb2264d539ce",
+          "bytes": 12085452,
           "lastAttemptAt": "2026-11-01T23:30:47.761Z",
           "runUrl": "https://github.com/andyhang1980/WeiG-OpenWrt-Menuconfig-Catalog/actions/runs/41359142199",
           "lastAttemptCommit": "0f110722021a93e60e7442ceded7eaea67ff921b",
@@ -3082,8 +3082,8 @@
           "inputsHash": "018a68d2c35a8cfeed37f8a691506fc7ce8a5588dd32736c7df83d0c258ff95e",
           "legacy": {
             "asset": "immortalwrt--openwrt-21.02.json.gz",
-            "hash": "3bf8651e4a9db6db69b29123e58d594ab285183368d7fda01e8f4cee99fbeca6",
-            "bytes": 13555175,
+            "hash": "5e92874de0bf2c9055f3a0cc97b50d318ea41631d54b62714b78eb83e40b9d97",
+            "bytes": 13561604,
             "catalogSchema": 5,
             "relationsSchema": 2
           },
@@ -3619,10 +3619,10 @@
             "menu:zh-CN": {
               "logical": "menu:zh-CN",
               "asset": "immortalwrt--openwrt-21.02.menu.zh-cn.json.gz",
-              "hash": "330c03f91d543b7fad9aa3b8f28cc4ee8a147658bea1f902a9079efde986dfaf",
-              "bytes": 356212,
-              "sha256": "3a3ebd5f372f19874c33b066e1d5a6ad0d74dff22b35199ac92ffed7cd3298c4",
-              "jsonBytes": 1492438
+              "hash": "6aa08a6f0d8420cfc1580782fc1b2186ce7ff006facd00cb8dbe83e587f37f31",
+              "bytes": 359560,
+              "sha256": "41cd081c158f01a010d57c0c4b777880236fca4b0679ee9c8270bace3ce84e74",
+              "jsonBytes": 1504296
             },
             "menu:zh-TW": {
               "logical": "menu:zh-TW",
@@ -3739,8 +3739,8 @@
           "state": "fresh",
           "lastSuccessAt": "2026-11-01T22:53:16.897Z",
           "asset": "immortalwrt--openwrt-21.02.json.gz",
-          "hash": "3bf8651e4a9db6db69b29123e58d594ab285183368d7fda01e8f4cee99fbeca6",
-          "bytes": 13555175,
+          "hash": "5e92874de0bf2c9055f3a0cc97b50d318ea41631d54b62714b78eb83e40b9d97",
+          "bytes": 13561604,
           "lastAttemptAt": "2026-11-01T23:30:11.095Z",
           "runUrl": "https://github.com/andyhang1980/WeiG-OpenWrt-Menuconfig-Catalog/actions/runs/41359142199",
           "lastAttemptCommit": "fc9fe90e5a804d7af5449260f2e5b7ae6d414266",
@@ -3884,8 +3884,8 @@
           "inputsHash": "d9dca1229bd9e34829969700cfa3a708932393bd7a10629698851373a033593d",
           "legacy": {
             "asset": "immortalwrt--openwrt-18.06.json.gz",
-            "hash": "8adaad9106963576327126ef56a6ff2661b173be5447b1496c8a25929a686909",
-            "bytes": 12039434,
+            "hash": "a9e3e482870d4c7a2893f853058a81ccfa72fbfa7af126c0bc916b9613f59918",
+            "bytes": 12042015,
             "catalogSchema": 5,
             "relationsSchema": 2
           },
@@ -4421,10 +4421,10 @@
             "menu:zh-CN": {
               "logical": "menu:zh-CN",
               "asset": "immortalwrt--openwrt-18.06.menu.zh-cn.json.gz",
-              "hash": "6d8706cd632a48cf7421b206ac8b54bb7e12be7e7a05b887e4b65d5abf7a791e",
-              "bytes": 316551,
-              "sha256": "6a2968800cd32b664a6ac05191a050070d51b3ad40ac82deea5a89b282ca4f8e",
-              "jsonBytes": 1332330
+              "hash": "87b324bf031268636d4914824dceee5141fc1dd3658ff750edc15d015dc7000b",
+              "bytes": 318758,
+              "sha256": "fadc9ea68a0015b2f6c361ef6e229cf1703c54003ddfb2ed8dccc383cf73f967",
+              "jsonBytes": 1339843
             },
             "menu:zh-TW": {
               "logical": "menu:zh-TW",
@@ -4541,8 +4541,8 @@
           "state": "fresh",
           "lastSuccessAt": "2026-11-01T22:53:23.960Z",
           "asset": "immortalwrt--openwrt-18.06.json.gz",
-          "hash": "8adaad9106963576327126ef56a6ff2661b173be5447b1496c8a25929a686909",
-          "bytes": 12039434,
+          "hash": "a9e3e482870d4c7a2893f853058a81ccfa72fbfa7af126c0bc916b9613f59918",
+          "bytes": 12042015,
           "lastAttemptAt": "2026-11-01T23:29:33.809Z",
           "runUrl": "https://github.com/andyhang1980/WeiG-OpenWrt-Menuconfig-Catalog/actions/runs/41359142199",
           "lastAttemptCommit": "f7bc84bd30a038b0fd251ce59b6619e5eae94848",
@@ -4693,8 +4693,8 @@
           "inputsHash": "20513c4eb41e0b19bd28d1d6e653c8498c0116c95c06fca5beb48abe996f1bcb",
           "legacy": {
             "asset": "immortalwrt--master.json.gz",
-            "hash": "9ffa49d55138a2f646903984f75e4b309323eb9e44c2ea6d2f8f51631546448d",
-            "bytes": 17046516,
+            "hash": "87d1524201d62780adbc29dea11ba8de62862fbddbedf639b1c04f0820e7427f",
+            "bytes": 17046557,
             "catalogSchema": 5,
             "relationsSchema": 2
           },
@@ -5290,10 +5290,10 @@
             "menu:zh-CN": {
               "logical": "menu:zh-CN",
               "asset": "immortalwrt--master.menu.zh-cn.json.gz",
-              "hash": "b13dda76268b95dd9bb3cecb0742da64fb6387c52a98711208cd9660c8d2f9f2",
-              "bytes": 137750,
-              "sha256": "024d3f1a407b392105b2421d1801a02dc263b010cf871a7f090a9445f1fab6fe",
-              "jsonBytes": 393221
+              "hash": "12fabd234a3b3cfb27e100309ac4212eb16d88373f33049865e591a8e3c948d1",
+              "bytes": 137817,
+              "sha256": "b18029ddb814d1b4ff0c15b45c3a1f316c3dc8ee00cd3e0fea50b585bdaf5825",
+              "jsonBytes": 393376
             },
             "menu:zh-TW": {
               "logical": "menu:zh-TW",
@@ -5410,8 +5410,8 @@
           "state": "fresh",
           "lastSuccessAt": "2026-11-01T22:54:51.664Z",
           "asset": "immortalwrt--master.json.gz",
-          "hash": "9ffa49d55138a2f646903984f75e4b309323eb9e44c2ea6d2f8f51631546448d",
-          "bytes": 17046516,
+          "hash": "87d1524201d62780adbc29dea11ba8de62862fbddbedf639b1c04f0820e7427f",
+          "bytes": 17046557,
           "lastAttemptAt": "2026-11-01T23:32:32.600Z",
           "runUrl": "https://github.com/andyhang1980/WeiG-OpenWrt-Menuconfig-Catalog/actions/runs/41359142199",
           "lastAttemptCommit": "89f1ef18c888f841633f19f92655ee4b7f7716a4",
@@ -5555,8 +5555,8 @@
           "inputsHash": "a4a7742b4a550776b1040a7c4a01c8a909ea5307e081d4691aa54cbd6d17ef6b",
           "legacy": {
             "asset": "immortalwrt--openwrt-18.06-k5.4.json.gz",
-            "hash": "702fd120d343547a80246a58135c4e7bb968acf8ca97ddc71546f135f81a344e",
-            "bytes": 12387965,
+            "hash": "3b91050067facd004849cc8b257fbe935097b1c5b5b4c214c5a4cd52a8bf9be4",
+            "bytes": 12392075,
             "catalogSchema": 5,
             "relationsSchema": 2
           },
@@ -6077,10 +6077,10 @@
             "menu:zh-CN": {
               "logical": "menu:zh-CN",
               "asset": "immortalwrt--openwrt-18.06-k5.4.menu.zh-cn.json.gz",
-              "hash": "0494177ac3b1ad564b72fa918ccc9d3fddca0d67ad446783cde3403f8784d098",
-              "bytes": 321427,
-              "sha256": "935865148b7d4607f63b3700ce010ae45ec80479e045bf330877bebe3c68be1f",
-              "jsonBytes": 1355710
+              "hash": "dddd0fce75c9d4bfe7d49abae9acc405f23f40aa9c9916f0a63f80b66a652683",
+              "bytes": 323626,
+              "sha256": "a34a4e0f56066d10a015416d3975fde8ac88b0b7b087489fecf174d6c38cb063",
+              "jsonBytes": 1363223
             },
             "menu:zh-TW": {
               "logical": "menu:zh-TW",
@@ -6197,8 +6197,8 @@
           "state": "fresh",
           "lastSuccessAt": "2026-11-01T22:52:51.882Z",
           "asset": "immortalwrt--openwrt-18.06-k5.4.json.gz",
-          "hash": "702fd120d343547a80246a58135c4e7bb968acf8ca97ddc71546f135f81a344e",
-          "bytes": 12387965,
+          "hash": "3b91050067facd004849cc8b257fbe935097b1c5b5b4c214c5a4cd52a8bf9be4",
+          "bytes": 12392075,
           "lastAttemptAt": "2026-11-01T23:28:21.522Z",
           "runUrl": "https://github.com/andyhang1980/WeiG-OpenWrt-Menuconfig-Catalog/actions/runs/41359142199",
           "lastAttemptCommit": "8b50c1df2150be9c2883fca59d0a142b811e7d5d",
@@ -6354,8 +6354,8 @@
           "inputsHash": "74d5cb88e5b6926b301ab5c6100efda19b07b39c8cd498256a53b99d50dbaf6e",
           "legacy": {
             "asset": "lede--master.json.gz",
-            "hash": "ca2467dc7d4cac033dbfbc884083c78150d7cfd938232ce61d5656c689adc4fb",
-            "bytes": 17551498,
+            "hash": "d5602fcd0ca12f45547b39cba628af98a6f1dec473b77e65e4356de544b0ade8",
+            "bytes": 17559538,
             "catalogSchema": 5,
             "relationsSchema": 2
           },
@@ -6426,10 +6426,10 @@
             "menu:zh-CN": {
               "logical": "menu:zh-CN",
               "asset": "lede--master.menu.zh-cn.json.gz",
-              "hash": "20e24d43c65d6e0b884a9b5877361f7b9bb89cb730507ae61a89682be74539db",
-              "bytes": 287347,
-              "sha256": "1d23f19d3c214de5bfa969c6dd50864536859fcd143968f48d0f9483ddeee9d1",
-              "jsonBytes": 1167833
+              "hash": "56f5f591f53447e3990fd3284047a7d0109cfe0158271a086d652a02335d75f4",
+              "bytes": 290297,
+              "sha256": "ddcfc072536929d3ff77c12afdebb2138b8e7591a66b0cc26a8f4ff988d275f6",
+              "jsonBytes": 1177367
             },
             "menu:zh-TW": {
               "logical": "menu:zh-TW",
@@ -6546,8 +6546,8 @@
           "state": "fresh",
           "lastSuccessAt": "2026-11-01T22:53:34.046Z",
           "asset": "lede--master.json.gz",
-          "hash": "ca2467dc7d4cac033dbfbc884083c78150d7cfd938232ce61d5656c689adc4fb",
-          "bytes": 17551498,
+          "hash": "d5602fcd0ca12f45547b39cba628af98a6f1dec473b77e65e4356de544b0ade8",
+          "bytes": 17559538,
           "lastAttemptAt": "2026-11-01T23:32:09.166Z",
           "runUrl": "https://github.com/andyhang1980/WeiG-OpenWrt-Menuconfig-Catalog/actions/runs/41359142199",
           "lastAttemptCommit": "390ec7e7d2123550bc742156dc431131ee81d2e2",
@@ -6710,8 +6710,8 @@
           "inputsHash": "26f24cae241dbafa90298b9dd1810e934564f93bb81c285aba1acfafba650dd5",
           "legacy": {
             "asset": "openwrt--openwrt-25.12.json.gz",
-            "hash": "ff0f021bd2002e6910a199794a535b849541f948eea1329ae490159b517102cf",
-            "bytes": 14593540,
+            "hash": "2d21816e10318795e767e8a68a51c3e384898a3f931976b492114d3c1551abe6",
+            "bytes": 14593715,
             "catalogSchema": 5,
             "relationsSchema": 2
           },
@@ -7307,10 +7307,10 @@
             "menu:zh-CN": {
               "logical": "menu:zh-CN",
               "asset": "openwrt--openwrt-25.12.menu.zh-cn.json.gz",
-              "hash": "872e6d6eae35964f123a04b150b66705e99bd3f501929d8ef1d144bce2ae3553",
-              "bytes": 139268,
-              "sha256": "280039b5671a2a5bfafba9ff36ceab1d5cfd080e67549f3af68bc65a6e0a7d67",
-              "jsonBytes": 398759
+              "hash": "b13baf619dde2d104b7a87a5663bbd3eae9297768c85a5c1d754331127cf12d8",
+              "bytes": 139337,
+              "sha256": "b4ccdd4d78cd4db02da34621b30c7dc7459fc4f044094f332e3e71a0d5666ae1",
+              "jsonBytes": 398914
             },
             "menu:zh-TW": {
               "logical": "menu:zh-TW",
@@ -7427,8 +7427,8 @@
           "state": "fresh",
           "lastSuccessAt": "2026-11-01T22:57:20.861Z",
           "asset": "openwrt--openwrt-25.12.json.gz",
-          "hash": "ff0f021bd2002e6910a199794a535b849541f948eea1329ae490159b517102cf",
-          "bytes": 14593540,
+          "hash": "2d21816e10318795e767e8a68a51c3e384898a3f931976b492114d3c1551abe6",
+          "bytes": 14593715,
           "lastAttemptAt": "2026-11-01T23:31:30.943Z",
           "runUrl": "https://github.com/andyhang1980/WeiG-OpenWrt-Menuconfig-Catalog/actions/runs/41359142199",
           "lastAttemptCommit": "2d44c5ae2269efdc73a9febf4b99f60cfcafcd7d",
@@ -7572,8 +7572,8 @@
           "inputsHash": "1e424fada81dc351baa2b1bcbfe91dd0d09cb01c25f371ce754c6f920cd9c00e",
           "legacy": {
             "asset": "openwrt--openwrt-24.10.json.gz",
-            "hash": "287d14da62baef57c48e88f8735f222232e2b4ea67dbbaf0f808ae22fdf406de",
-            "bytes": 11936277,
+            "hash": "55c70b37655e7388a681132f94bb0bca2fa0563d00da5c2004627b20b58974ac",
+            "bytes": 11936424,
             "catalogSchema": 5,
             "relationsSchema": 2
           },
@@ -8184,10 +8184,10 @@
             "menu:zh-CN": {
               "logical": "menu:zh-CN",
               "asset": "openwrt--openwrt-24.10.menu.zh-cn.json.gz",
-              "hash": "f1d1476908a03e627e9abecc79d42fe29633bc4da8f01ae56e922f4661904972",
-              "bytes": 142884,
-              "sha256": "62b5a91d3a73eaa52cd5296ebdfb06888d90aa3a8b573735242f9eaedc42a419",
-              "jsonBytes": 410505
+              "hash": "0a5936321cf2d2dd83a20c13d2645f381071db7df97cb9981dc19d322c0e5b03",
+              "bytes": 142959,
+              "sha256": "e6ce90513d7fa7be302f83c6bda8509c100463d54eb712181d4b7e3e0b60deb2",
+              "jsonBytes": 410660
             },
             "menu:zh-TW": {
               "logical": "menu:zh-TW",
@@ -8304,8 +8304,8 @@
           "state": "fresh",
           "lastSuccessAt": "2026-11-01T22:55:25.032Z",
           "asset": "openwrt--openwrt-24.10.json.gz",
-          "hash": "287d14da62baef57c48e88f8735f222232e2b4ea67dbbaf0f808ae22fdf406de",
-          "bytes": 11936277,
+          "hash": "55c70b37655e7388a681132f94bb0bca2fa0563d00da5c2004627b20b58974ac",
+          "bytes": 11936424,
           "lastAttemptAt": "2026-11-01T23:30:40.267Z",
           "runUrl": "https://github.com/andyhang1980/WeiG-OpenWrt-Menuconfig-Catalog/actions/runs/41359142199",
           "lastAttemptCommit": "34fa4b1af5a30d3a789f07078b91e23e78dad622",
@@ -8449,8 +8449,8 @@
           "inputsHash": "2ba7c058fcf7bac1ef313fc1731159bb94ad16ee8643e77220263220f3467975",
           "legacy": {
             "asset": "openwrt--openwrt-23.05.json.gz",
-            "hash": "31a76e9df540633e2989045089c636632ed952a9abc87365477f439830b841ce",
-            "bytes": 11507963,
+            "hash": "91af5cebaec8109dec1573104a081c09655e1386a1a7d2e7b820211be1f7fb44",
+            "bytes": 11509350,
             "catalogSchema": 5,
             "relationsSchema": 2
           },
@@ -8986,10 +8986,10 @@
             "menu:zh-CN": {
               "logical": "menu:zh-CN",
               "asset": "openwrt--openwrt-23.05.menu.zh-cn.json.gz",
-              "hash": "0ae60c3e3918784e9079a4fd7933d2f6e9fe7105b1c30679e95e8eb508387146",
-              "bytes": 301351,
-              "sha256": "9ae5308f2d1d1d1312667ccad3b3682e08cbcc4ba4b07f5599e01eaf9c5e4448",
-              "jsonBytes": 1253281
+              "hash": "210fcd37922c0bd6cbf31ba730ab0fa7058bc73bcb54a78d8d9eae2e81352e06",
+              "bytes": 304301,
+              "sha256": "a9c295240936a2e89483d315ec756d3d8f0ef155c88405520a719e51f96cf7a7",
+              "jsonBytes": 1263664
             },
             "menu:zh-TW": {
               "logical": "menu:zh-TW",
@@ -9106,8 +9106,8 @@
           "state": "fresh",
           "lastSuccessAt": "2026-11-01T22:59:56.117Z",
           "asset": "openwrt--openwrt-23.05.json.gz",
-          "hash": "31a76e9df540633e2989045089c636632ed952a9abc87365477f439830b841ce",
-          "bytes": 11507963,
+          "hash": "91af5cebaec8109dec1573104a081c09655e1386a1a7d2e7b820211be1f7fb44",
+          "bytes": 11509350,
           "lastAttemptAt": "2026-11-01T23:30:53.848Z",
           "runUrl": "https://github.com/andyhang1980/WeiG-OpenWrt-Menuconfig-Catalog/actions/runs/41359142199",
           "lastAttemptCommit": "33063b4ccf00d39393796499b23df55187b192dc",
@@ -9251,8 +9251,8 @@
           "inputsHash": "e681e4f0e92876e4e71b1d7e703f54fbe0d912ca0420e19a683c3e9fc80cbf2b",
           "legacy": {
             "asset": "openwrt--openwrt-22.03.json.gz",
-            "hash": "9d2ffa643823b10f8f5bdc5e2f7c89ee7a504f180d9f568415809f1ac06aa85f",
-            "bytes": 12665294,
+            "hash": "bda4fa652cefd537ba4933cd21ad430e322004937520b907d5ae33a8d87ae128",
+            "bytes": 12670275,
             "catalogSchema": 5,
             "relationsSchema": 2
           },
@@ -9788,10 +9788,10 @@
             "menu:zh-CN": {
               "logical": "menu:zh-CN",
               "asset": "openwrt--openwrt-22.03.menu.zh-cn.json.gz",
-              "hash": "07de282ec17e0d82bd22da0d06701c15cf547e009978b023bb6f89f85efa0e92",
-              "bytes": 317615,
-              "sha256": "46325dad676c9fbe7b16922d0e74730762b93f0dd168d13efebfa546f5f589ac",
-              "jsonBytes": 1329209
+              "hash": "d04995f1408db534bef27db329e7e39b5541f5a59cdf48ca5d25bc87db7e1abe",
+              "bytes": 320740,
+              "sha256": "410b0d013899c4f1c4d7e8b0a2a563b9134239f308b94e14a2c0af84385f35b5",
+              "jsonBytes": 1340477
             },
             "menu:zh-TW": {
               "logical": "menu:zh-TW",
@@ -9908,8 +9908,8 @@
           "state": "fresh",
           "lastSuccessAt": "2026-11-01T22:55:40.612Z",
           "asset": "openwrt--openwrt-22.03.json.gz",
-          "hash": "9d2ffa643823b10f8f5bdc5e2f7c89ee7a504f180d9f568415809f1ac06aa85f",
-          "bytes": 12665294,
+          "hash": "bda4fa652cefd537ba4933cd21ad430e322004937520b907d5ae33a8d87ae128",
+          "bytes": 12670275,
           "lastAttemptAt": "2026-11-01T23:30:40.434Z",
           "runUrl": "https://github.com/andyhang1980/WeiG-OpenWrt-Menuconfig-Catalog/actions/runs/41359142199",
           "lastAttemptCommit": "4e1d1b7df0ce6fa96d7462dc883917682f428046",
@@ -10053,8 +10053,8 @@
           "inputsHash": "68c1e40fc7378f32e4d9d345bd78630d8501b147fc3dafa8813be5d1aaeabe0b",
           "legacy": {
             "asset": "openwrt--openwrt-21.02.json.gz",
-            "hash": "a5209c51acfcd742518fb69e6a8627c9dab943e582202bd1593c4bd06ce52c6d",
-            "bytes": 12956217,
+            "hash": "88f22c90b38be52a532c09a43da28baa34f3e05e9bc39df46efeb7176f029bd4",
+            "bytes": 12956914,
             "catalogSchema": 5,
             "relationsSchema": 2
           },
@@ -10590,10 +10590,10 @@
             "menu:zh-CN": {
               "logical": "menu:zh-CN",
               "asset": "openwrt--openwrt-21.02.menu.zh-cn.json.gz",
-              "hash": "f2540134354cb98468d1be3e88ac507761ad89fa5eb97c79b64648a8cc93b5a7",
-              "bytes": 337030,
-              "sha256": "4d7706ff9919629a2ea01aca4ad82492b0b032ffd8ca84377443f406cb4b0f09",
-              "jsonBytes": 1415935
+              "hash": "87f0fbadc81db443b9d8f6b6675c2b510a36648d71891e768b33bdcafe554dee",
+              "bytes": 340289,
+              "sha256": "fc0448babd2f3d03672689e71d4bd2adb57ff8fb02bea4a1306cd83b04e26673",
+              "jsonBytes": 1427500
             },
             "menu:zh-TW": {
               "logical": "menu:zh-TW",
@@ -10710,8 +10710,8 @@
           "state": "fresh",
           "lastSuccessAt": "2026-11-01T22:56:38.352Z",
           "asset": "openwrt--openwrt-21.02.json.gz",
-          "hash": "a5209c51acfcd742518fb69e6a8627c9dab943e582202bd1593c4bd06ce52c6d",
-          "bytes": 12956217,
+          "hash": "88f22c90b38be52a532c09a43da28baa34f3e05e9bc39df46efeb7176f029bd4",
+          "bytes": 12956914,
           "lastAttemptAt": "2026-11-01T23:31:25.231Z",
           "runUrl": "https://github.com/andyhang1980/WeiG-OpenWrt-Menuconfig-Catalog/actions/runs/41359142199",
           "lastAttemptCommit": "78e4cffcd882389cb8f0bf818303f85f8d1e9c8e",
@@ -10862,8 +10862,8 @@
           "inputsHash": "185b9acbf0b1163fd82e31a89d273aea611dbaa1ca354143c84258ea81dded4e",
           "legacy": {
             "asset": "openwrt--openwrt-19.07.json.gz",
-            "hash": "edfa168229a40ef1f0ceef7a142a4005c276d652acfd595b09894fd4f68dfa9b",
-            "bytes": 13590826,
+            "hash": "cd98c5ab662cb22ee6e1c9909349a02f60ca0030c86ca116c3059b03f7e73569",
+            "bytes": 13594099,
             "catalogSchema": 5,
             "relationsSchema": 2
           },
@@ -11399,10 +11399,10 @@
             "menu:zh-CN": {
               "logical": "menu:zh-CN",
               "asset": "openwrt--openwrt-19.07.menu.zh-cn.json.gz",
-              "hash": "667c4db79880d99355ad9fddd027d82f7573afed22fb9755f46c37d6c662bc78",
-              "bytes": 206504,
-              "sha256": "9adf384d8741a9a7c1de09d9ad25010a5cf491c52ba678255a562634abf9c085",
-              "jsonBytes": 931187
+              "hash": "169dbd8d300c6f1e0ce6beaa6bdc1437607b02ba8a872e88389a03a1a771505a",
+              "bytes": 208829,
+              "sha256": "e7d2bd0335e0c77e691589a5a4dfe74529e56f4a80cb6e5a3de73326a18771f8",
+              "jsonBytes": 937577
             },
             "menu:zh-TW": {
               "logical": "menu:zh-TW",
@@ -11519,8 +11519,8 @@
           "state": "fresh",
           "lastSuccessAt": "2026-11-01T22:54:09.188Z",
           "asset": "openwrt--openwrt-19.07.json.gz",
-          "hash": "edfa168229a40ef1f0ceef7a142a4005c276d652acfd595b09894fd4f68dfa9b",
-          "bytes": 13590826,
+          "hash": "cd98c5ab662cb22ee6e1c9909349a02f60ca0030c86ca116c3059b03f7e73569",
+          "bytes": 13594099,
           "lastAttemptAt": "2026-11-01T23:30:13.305Z",
           "runUrl": "https://github.com/andyhang1980/WeiG-OpenWrt-Menuconfig-Catalog/actions/runs/41359142199",
           "lastAttemptCommit": "1da2e82c1182a3fd681da5760be96821213afadd",
@@ -11664,8 +11664,8 @@
           "inputsHash": "17f4ec9a18018fc0a8dc7a8a721b34b46dd1932407221e59509a2ae63df571d4",
           "legacy": {
             "asset": "openwrt--openwrt-18.06.json.gz",
-            "hash": "eba76508007968beb2b987dffb53a1237eb092022a9201f62028bb7850ce8dde",
-            "bytes": 9575090,
+            "hash": "5605f14439c80909029b8ffbbe5ccf5fd5e2ea32ab43bfbf70cb7d45567e7af6",
+            "bytes": 9579258,
             "catalogSchema": 5,
             "relationsSchema": 2
           },
@@ -12216,10 +12216,10 @@
             "menu:zh-CN": {
               "logical": "menu:zh-CN",
               "asset": "openwrt--openwrt-18.06.menu.zh-cn.json.gz",
-              "hash": "c10dc10afeda7a5f77cee14c235b939c747c40a76d2b4d43a06129b11e5e3a16",
-              "bytes": 141512,
-              "sha256": "cc5340eabcd534022a18ada5f52d074ef8ce6d8db624fcc6b3c293a1191e0e36",
-              "jsonBytes": 517979
+              "hash": "cc9c79b2d5b44a08da2c31abaf4a670fe4b7cb999a7ba5c854089b2bb8826b7c",
+              "bytes": 143087,
+              "sha256": "1618d683733f4ff7f7840ae00b81594827153de8e1bda53b7eebd1781a7c8d59",
+              "jsonBytes": 521673
             },
             "menu:zh-TW": {
               "logical": "menu:zh-TW",
@@ -12336,8 +12336,8 @@
           "state": "fresh",
           "lastSuccessAt": "2026-11-01T22:58:22.716Z",
           "asset": "openwrt--openwrt-18.06.json.gz",
-          "hash": "eba76508007968beb2b987dffb53a1237eb092022a9201f62028bb7850ce8dde",
-          "bytes": 9575090,
+          "hash": "5605f14439c80909029b8ffbbe5ccf5fd5e2ea32ab43bfbf70cb7d45567e7af6",
+          "bytes": 9579258,
           "lastAttemptAt": "2026-11-01T23:30:50.484Z",
           "runUrl": "https://github.com/andyhang1980/WeiG-OpenWrt-Menuconfig-Catalog/actions/runs/41359142199",
           "lastAttemptCommit": "9f2a40c72fdb0b9b077bf5b4b01aa17eac4bfb45",
@@ -12488,8 +12488,8 @@
           "inputsHash": "2171903732d9fd1063312d451c2745353cce4bbd8f78cbb007b619be7c2f2c12",
           "legacy": {
             "asset": "openwrt--main.json.gz",
-            "hash": "0b3cd4998050fc993cba04ad3b76d66d76b3b0051827762a1a0ff4df57e81bfb",
-            "bytes": 16635020,
+            "hash": "227d4ddd3534d9de7b674d3e928c1a04a2f5b0aa7c5e4d95cbd3b5f8a8ea3db1",
+            "bytes": 16635314,
             "catalogSchema": 5,
             "relationsSchema": 2
           },
@@ -13085,10 +13085,10 @@
             "menu:zh-CN": {
               "logical": "menu:zh-CN",
               "asset": "openwrt--main.menu.zh-cn.json.gz",
-              "hash": "d0bce60474163cebb75bdf9769bef744252a190c59af8cfa28766cc73df62cb8",
-              "bytes": 136169,
-              "sha256": "47fe84593b99bcf95b6c332b56d635ad87e124dd951eb270ef954bd1493205a3",
-              "jsonBytes": 389428
+              "hash": "9fdc1e285a3e366a6993ec47d808ed75ac6555594faffba302cbd8978a8cda93",
+              "bytes": 136238,
+              "sha256": "cacb1397145b2953dd21dc22039b490d056bb45b74c74b065020bd8c7525f402",
+              "jsonBytes": 389583
             },
             "menu:zh-TW": {
               "logical": "menu:zh-TW",
@@ -13205,8 +13205,8 @@
           "state": "fresh",
           "lastSuccessAt": "2026-11-01T22:55:02.139Z",
           "asset": "openwrt--main.json.gz",
-          "hash": "0b3cd4998050fc993cba04ad3b76d66d76b3b0051827762a1a0ff4df57e81bfb",
-          "bytes": 16635020,
+          "hash": "227d4ddd3534d9de7b674d3e928c1a04a2f5b0aa7c5e4d95cbd3b5f8a8ea3db1",
+          "bytes": 16635314,
           "lastAttemptAt": "2026-11-01T23:34:37.852Z",
           "runUrl": "https://github.com/andyhang1980/WeiG-OpenWrt-Menuconfig-Catalog/actions/runs/41359142199",
           "lastAttemptCommit": "554f401d6b09eee91486a4b0399393605996e130",
@@ -13383,8 +13383,8 @@
           "inputsHash": "ef2c00441a23ded8ce0c1b320c232e191f3a272e4a841fdcdf2a46fa57c90804",
           "legacy": {
             "asset": "istoreos--istoreos-25.12.json.gz",
-            "hash": "a400e2665c96643b517f9d3a7aadedf6d31d41a2e0d827051a8263402e4005b8",
-            "bytes": 14717314,
+            "hash": "7dc5f21401cc4efee4efeea25a4991429ca30f0383a789381de2942fa4f4f7eb",
+            "bytes": 14717561,
             "catalogSchema": 5,
             "relationsSchema": 2
           },
@@ -13455,10 +13455,10 @@
             "menu:zh-CN": {
               "logical": "menu:zh-CN",
               "asset": "istoreos--istoreos-25.12.menu.zh-cn.json.gz",
-              "hash": "99796f1756a5d2767ff51e038de2c79d65d9c244fa823ee90575af2b8d622710",
-              "bytes": 139352,
-              "sha256": "7f4a92a28b118d764898e8ca14ae7e9904ff92471490021035a0f64940b3c95c",
-              "jsonBytes": 399108
+              "hash": "1a669f3e51081cb82f85f7e09db0637ef5d3d5fd74f393463545b0dd2551ca43",
+              "bytes": 139420,
+              "sha256": "46bccc7782391fbd9686dcadbd8fa3b3d6188137d19c16bd950f79abc9ca3b40",
+              "jsonBytes": 399263
             },
             "menu:zh-TW": {
               "logical": "menu:zh-TW",
@@ -13575,8 +13575,8 @@
           "state": "fresh",
           "lastSuccessAt": "2026-11-01T22:57:58.740Z",
           "asset": "istoreos--istoreos-25.12.json.gz",
-          "hash": "a400e2665c96643b517f9d3a7aadedf6d31d41a2e0d827051a8263402e4005b8",
-          "bytes": 14717314,
+          "hash": "7dc5f21401cc4efee4efeea25a4991429ca30f0383a789381de2942fa4f4f7eb",
+          "bytes": 14717561,
           "lastAttemptAt": "2026-11-01T23:32:17.225Z",
           "runUrl": "https://github.com/andyhang1980/WeiG-OpenWrt-Menuconfig-Catalog/actions/runs/41359142199",
           "lastAttemptCommit": "6575c302154ca788e0983a1652a7ba5eeedcafc3",
@@ -13734,8 +13734,8 @@
           "inputsHash": "80d9681e8633ae170053b0cf5c84a801035d712dbcc0618dc99b2e51b6006cce",
           "legacy": {
             "asset": "istoreos--istoreos-24.10.json.gz",
-            "hash": "92dce54d94908ca4e414ad5414b235eec8f713fe9c51f9ddf4dc6a39bfb2e627",
-            "bytes": 12026672,
+            "hash": "2a5a6e9df453572240381ea340f2da63ff1186d1396e4fe2e06192bd68eac577",
+            "bytes": 12026708,
             "catalogSchema": 5,
             "relationsSchema": 2
           },
@@ -13806,10 +13806,10 @@
             "menu:zh-CN": {
               "logical": "menu:zh-CN",
               "asset": "istoreos--istoreos-24.10.menu.zh-cn.json.gz",
-              "hash": "65d8a329b2dc529eaa6ed5ff389e4d71d1a3178828b0eb35bd2dd9271b6531c6",
-              "bytes": 142944,
-              "sha256": "8ea67bf1671dbeebc8fc66d2c5a7d6a6a1fa2e48600224e91a76a40f5174382c",
-              "jsonBytes": 410761
+              "hash": "98586d4f292a4cd831579183723894b416004ce5cda781ce4950cec31537cef1",
+              "bytes": 143023,
+              "sha256": "ae2116809737c95a76e413d9d1437b7f5cf618e11cb3da8ff80c3b3013c8e122",
+              "jsonBytes": 410916
             },
             "menu:zh-TW": {
               "logical": "menu:zh-TW",
@@ -13926,8 +13926,8 @@
           "state": "fresh",
           "lastSuccessAt": "2026-11-01T22:54:01.445Z",
           "asset": "istoreos--istoreos-24.10.json.gz",
-          "hash": "92dce54d94908ca4e414ad5414b235eec8f713fe9c51f9ddf4dc6a39bfb2e627",
-          "bytes": 12026672,
+          "hash": "2a5a6e9df453572240381ea340f2da63ff1186d1396e4fe2e06192bd68eac577",
+          "bytes": 12026708,
           "lastAttemptAt": "2026-11-01T23:30:41.875Z",
           "runUrl": "https://github.com/andyhang1980/WeiG-OpenWrt-Menuconfig-Catalog/actions/runs/41359142199",
           "lastAttemptCommit": "45f8da64fc38cf31096659f5e19f3e43a92cc9bd",
@@ -14085,8 +14085,8 @@
           "inputsHash": "ffdae4459375b3dee8eaa1825011ca1eb440acc9eb5aca2af40707696fb781e0",
           "legacy": {
             "asset": "istoreos--istoreos-23.05.json.gz",
-            "hash": "ef55bac56ec8f6aaae4ce67318e35e2a50159a6317cc16ccc81483bccba928a0",
-            "bytes": 11396412,
+            "hash": "39239f4e72294f8ac3d1bb019325782a3fe5ee83697b197bc860a7906647fcc4",
+            "bytes": 11398793,
             "catalogSchema": 5,
             "relationsSchema": 2
           },
@@ -14157,10 +14157,10 @@
             "menu:zh-CN": {
               "logical": "menu:zh-CN",
               "asset": "istoreos--istoreos-23.05.menu.zh-cn.json.gz",
-              "hash": "982c488dce8187796d456aa55684c34d3e0388df958c3ed48b164d8c1d451843",
-              "bytes": 308266,
-              "sha256": "56b30ff61db186d06a1488ab63e180eb1e13fbae9bc5e00d481822c56becfe4b",
-              "jsonBytes": 1287911
+              "hash": "a57520319a402aceaff7c3cf7fb86aa49d83f903e9bb2aa6052dcc39ef2a1664",
+              "bytes": 311385,
+              "sha256": "c92c18af1ddff98a0b7980669d2685e99b72f0d71aabe834d70bf890712b1666",
+              "jsonBytes": 1299179
             },
             "menu:zh-TW": {
               "logical": "menu:zh-TW",
@@ -14277,8 +14277,8 @@
           "state": "fresh",
           "lastSuccessAt": "2026-11-01T22:53:12.631Z",
           "asset": "istoreos--istoreos-23.05.json.gz",
-          "hash": "ef55bac56ec8f6aaae4ce67318e35e2a50159a6317cc16ccc81483bccba928a0",
-          "bytes": 11396412,
+          "hash": "39239f4e72294f8ac3d1bb019325782a3fe5ee83697b197bc860a7906647fcc4",
+          "bytes": 11398793,
           "lastAttemptAt": "2026-11-01T23:29:04.759Z",
           "runUrl": "https://github.com/andyhang1980/WeiG-OpenWrt-Menuconfig-Catalog/actions/runs/41359142199",
           "lastAttemptCommit": "d935f63609f468fecafa95325c0a00dae927e201",
@@ -14436,8 +14436,8 @@
           "inputsHash": "3ba87b71414c2531461cfa6ad5ae73f540758d81c027dae08010b2b3fcbe9a1d",
           "legacy": {
             "asset": "istoreos--istoreos-22.03.json.gz",
-            "hash": "22093b11c1bd8115ef60fdb47e8aff6a8ee7bf393402a6a00ab96b282f19d4ae",
-            "bytes": 12883555,
+            "hash": "ea6e59443ac66c11895d3f1be41d50da547a0a2a02b5f3e2d98d75f8f48e1666",
+            "bytes": 12888010,
             "catalogSchema": 5,
             "relationsSchema": 2
           },
@@ -14508,10 +14508,10 @@
             "menu:zh-CN": {
               "logical": "menu:zh-CN",
               "asset": "istoreos--istoreos-22.03.menu.zh-cn.json.gz",
-              "hash": "485312385a837684d10faccb73ab3f80a78d9a5053db68fbf9cdc3e577b6f4f0",
-              "bytes": 317703,
-              "sha256": "281266731ceaacb449a37f3f1676b1550280f3f0d667f89bf6428b45c7fdd944",
-              "jsonBytes": 1329429
+              "hash": "f3bd2d1e3431b8d1d015b74b2da9864519949ab83a1eacc587964e7c8cf9fd62",
+              "bytes": 320827,
+              "sha256": "758e1434d4571d27b6b58ee47e5b57b47d152684c855d3d6fe48489dd0d59504",
+              "jsonBytes": 1340697
             },
             "menu:zh-TW": {
               "logical": "menu:zh-TW",
@@ -14628,8 +14628,8 @@
           "state": "fresh",
           "lastSuccessAt": "2026-11-01T22:54:10.377Z",
           "asset": "istoreos--istoreos-22.03.json.gz",
-          "hash": "22093b11c1bd8115ef60fdb47e8aff6a8ee7bf393402a6a00ab96b282f19d4ae",
-          "bytes": 12883555,
+          "hash": "ea6e59443ac66c11895d3f1be41d50da547a0a2a02b5f3e2d98d75f8f48e1666",
+          "bytes": 12888010,
           "lastAttemptAt": "2026-11-01T23:30:56.527Z",
           "runUrl": "https://github.com/andyhang1980/WeiG-OpenWrt-Menuconfig-Catalog/actions/runs/41359142199",
           "lastAttemptCommit": "70c58da3670c1f3f983cacd2bda3c4335bb56173",
@@ -14794,8 +14794,8 @@
           "inputsHash": "628920529793cd9eda4a224897e96cbb5ade648bd596c9f12505d78904902c3d",
           "legacy": {
             "asset": "istoreos--istoreos-21.02.json.gz",
-            "hash": "bd52b606fbe691acd90b4aefe10a28bdfe4fa779131624d40b47e8b1b81aca1e",
-            "bytes": 13038410,
+            "hash": "674ccd124de6103acd3488f826f0cd9f452522f1d1ad44cdb2f20c21faaea7c5",
+            "bytes": 13042020,
             "catalogSchema": 5,
             "relationsSchema": 2
           },
@@ -14866,10 +14866,10 @@
             "menu:zh-CN": {
               "logical": "menu:zh-CN",
               "asset": "istoreos--istoreos-21.02.menu.zh-cn.json.gz",
-              "hash": "fbd2f0e7cfa5c7883b6b6ee2670a706e95e4af9aef8f7d0eee03cc311e76b750",
-              "bytes": 335235,
-              "sha256": "ccea942dfe6800ce9bf2c20589590b7def76d82073236054e245e973caa5cc1e",
-              "jsonBytes": 1410155
+              "hash": "46c893170e4bf099e364f489b140d870a1084410658d4ebe519d14f87905dd19",
+              "bytes": 338339,
+              "sha256": "7a0cb1047944c3c9723f633a73e8e619281bfa896f2d2f0741f05e773246efaf",
+              "jsonBytes": 1419976
             },
             "menu:zh-TW": {
               "logical": "menu:zh-TW",
@@ -14986,8 +14986,8 @@
           "state": "fresh",
           "lastSuccessAt": "2026-11-01T22:52:54.303Z",
           "asset": "istoreos--istoreos-21.02.json.gz",
-          "hash": "bd52b606fbe691acd90b4aefe10a28bdfe4fa779131624d40b47e8b1b81aca1e",
-          "bytes": 13038410,
+          "hash": "674ccd124de6103acd3488f826f0cd9f452522f1d1ad44cdb2f20c21faaea7c5",
+          "bytes": 13042020,
           "lastAttemptAt": "2026-11-01T23:29:15.782Z",
           "runUrl": "https://github.com/andyhang1980/WeiG-OpenWrt-Menuconfig-Catalog/actions/runs/41359142199",
           "lastAttemptCommit": "b5f94355a0547b2ea47d558dfe6ea5566d3f8dfb",
@@ -15158,8 +15158,8 @@
           "inputsHash": "c492eefcc7e7514dd8c74cffb21649a956c5c9187c9e47587a9e466061500dab",
           "legacy": {
             "asset": "lienol--25.12.json.gz",
-            "hash": "f014aa9dedc9944d5844fc47c4c4d24aa61ffebd1259d86c761f25e1b1115974",
-            "bytes": 16423031,
+            "hash": "725be9979a6391ee0ca4f0d257bb4de0b525098286e6298270b5c15338af6381",
+            "bytes": 16423138,
             "catalogSchema": 5,
             "relationsSchema": 2
           },
@@ -15230,10 +15230,10 @@
             "menu:zh-CN": {
               "logical": "menu:zh-CN",
               "asset": "lienol--25.12.menu.zh-cn.json.gz",
-              "hash": "2436a224cc7dc4cc0ec2a1548f159a9755e76314a1a61627392f84c7c6f3d9db",
-              "bytes": 139392,
-              "sha256": "f95e02671aa1750ec2ee6f2d6b2331d48770c10571df9c58e666b5aa2116f0ad",
-              "jsonBytes": 398849
+              "hash": "54aaaf354cf0a3d77885e22515f453a8dcffd575aefcb044afa24c00b074ba27",
+              "bytes": 139460,
+              "sha256": "7d1d46d3464fbc5268515b3746a89f968b816513e34e3d71d39a470d5d1900c8",
+              "jsonBytes": 399004
             },
             "menu:zh-TW": {
               "logical": "menu:zh-TW",
@@ -15350,8 +15350,8 @@
           "state": "fresh",
           "lastSuccessAt": "2026-11-01T22:59:10.216Z",
           "asset": "lienol--25.12.json.gz",
-          "hash": "f014aa9dedc9944d5844fc47c4c4d24aa61ffebd1259d86c761f25e1b1115974",
-          "bytes": 16423031,
+          "hash": "725be9979a6391ee0ca4f0d257bb4de0b525098286e6298270b5c15338af6381",
+          "bytes": 16423138,
           "lastAttemptAt": "2026-11-01T23:34:26.664Z",
           "runUrl": "https://github.com/andyhang1980/WeiG-OpenWrt-Menuconfig-Catalog/actions/runs/41359142199",
           "lastAttemptCommit": "7acecb1c98f50654610b9242ee00816778c6ac25",
@@ -15502,8 +15502,8 @@
           "inputsHash": "cc9fc87827df31a551831679c207fa69672937d7c9795731b5be721cbb950d07",
           "legacy": {
             "asset": "lienol--24.10.json.gz",
-            "hash": "99037c01a304297aae63c9897c4f97e60686270bf633d1cd27bc295eb481c8c0",
-            "bytes": 14466610,
+            "hash": "4b9c94ba4594bae495d6724a7111400213145de4a2d6338d30038f653dea7522",
+            "bytes": 14466659,
             "catalogSchema": 5,
             "relationsSchema": 2
           },
@@ -15574,10 +15574,10 @@
             "menu:zh-CN": {
               "logical": "menu:zh-CN",
               "asset": "lienol--24.10.menu.zh-cn.json.gz",
-              "hash": "512b3c8f7b002c1e80c8a13d19c7cdbdec34bb39514d64cfd41384b1ffbf30cc",
-              "bytes": 143051,
-              "sha256": "f229de5a1141af8d270466ce31492207188a84256a4eb21bee5ab9be02e464e9",
-              "jsonBytes": 410837
+              "hash": "7df004f7d22b4751af820e5e958143488a9f521f0d5f15ca9885ba3c46384229",
+              "bytes": 143130,
+              "sha256": "48a7218b7702fc0794aff041f6de41fe93a36f5053df815ef9c02f20216aa9da",
+              "jsonBytes": 410992
             },
             "menu:zh-TW": {
               "logical": "menu:zh-TW",
@@ -15694,8 +15694,8 @@
           "state": "fresh",
           "lastSuccessAt": "2026-11-01T22:57:50.233Z",
           "asset": "lienol--24.10.json.gz",
-          "hash": "99037c01a304297aae63c9897c4f97e60686270bf633d1cd27bc295eb481c8c0",
-          "bytes": 14466610,
+          "hash": "4b9c94ba4594bae495d6724a7111400213145de4a2d6338d30038f653dea7522",
+          "bytes": 14466659,
           "lastAttemptAt": "2026-11-01T23:31:13.964Z",
           "runUrl": "https://github.com/andyhang1980/WeiG-OpenWrt-Menuconfig-Catalog/actions/runs/41359142199",
           "lastAttemptCommit": "f603ef05aa437d3c7dbacde0056fd174394dea61",
@@ -15846,8 +15846,8 @@
           "inputsHash": "27fb4f7c2e6030a7595ee9056f4244188a7b2ef3abd8d3d85d15f36b81557410",
           "legacy": {
             "asset": "lienol--23.05.json.gz",
-            "hash": "de502290ab8cb4d1594b63ac25321cdd26505941cb01935d711ef678cd5d7e7e",
-            "bytes": 11301827,
+            "hash": "bba6ffa9aca39869a8f92f6b358105f1c05be5da1fb0a08d051f3e4e74140171",
+            "bytes": 11307252,
             "catalogSchema": 5,
             "relationsSchema": 2
           },
@@ -15918,10 +15918,10 @@
             "menu:zh-CN": {
               "logical": "menu:zh-CN",
               "asset": "lienol--23.05.menu.zh-cn.json.gz",
-              "hash": "f66e973d4846d06e3bf555dfaf2825e0be0f52200d7b080ccfde77ad058ad3a8",
-              "bytes": 296588,
-              "sha256": "8fee2f200716ccfb96736db17e482dcaa34772d2ed6960519a425d7fba0e6413",
-              "jsonBytes": 1232035
+              "hash": "b93ec3257a263ae82590bdb30397b6def784c7e1be69186e014e64f16afc9b61",
+              "bytes": 299492,
+              "sha256": "39a5534b6ffef7e8cc9a05ac3081c9f61a4cade298f7e40d40b856b65d34da55",
+              "jsonBytes": 1242418
             },
             "menu:zh-TW": {
               "logical": "menu:zh-TW",
@@ -16038,8 +16038,8 @@
           "state": "fresh",
           "lastSuccessAt": "2026-11-01T22:53:04.523Z",
           "asset": "lienol--23.05.json.gz",
-          "hash": "de502290ab8cb4d1594b63ac25321cdd26505941cb01935d711ef678cd5d7e7e",
-          "bytes": 11301827,
+          "hash": "bba6ffa9aca39869a8f92f6b358105f1c05be5da1fb0a08d051f3e4e74140171",
+          "bytes": 11307252,
           "lastAttemptAt": "2026-11-01T23:30:11.505Z",
           "runUrl": "https://github.com/andyhang1980/WeiG-OpenWrt-Menuconfig-Catalog/actions/runs/41359142199",
           "lastAttemptCommit": "b0bf3afb9f38e7d192f652a07b0d7539da1bc11c",
@@ -16197,8 +16197,8 @@
           "inputsHash": "b4cba2067ad5ddc604e15db01ffc6d8ce52e0a1a262d3c1cf1360cde4c8f24a1",
           "legacy": {
             "asset": "lienol--19.07.json.gz",
-            "hash": "ba36686c5b74c3527ed7ea4461b0cb3329e54bd69c0440e0904ab88f98addd13",
-            "bytes": 14268408,
+            "hash": "842329927dbf3119ad229ea65c8b42e1b5520bbf0f027462d9ea4a9c73306ceb",
+            "bytes": 14270813,
             "catalogSchema": 5,
             "relationsSchema": 2
           },
@@ -16269,10 +16269,10 @@
             "menu:zh-CN": {
               "logical": "menu:zh-CN",
               "asset": "lienol--19.07.menu.zh-cn.json.gz",
-              "hash": "be7d807b5728204abc0a7a8748c796a2c017ab97589985fdd0330b3745ebf0db",
-              "bytes": 266535,
-              "sha256": "8cd9403de7bf831c821d97a3b2654860ee690cbd428b75571bee47c165fd6e82",
-              "jsonBytes": 1103803
+              "hash": "40a87e7768d80e264d7801975ba1cddd418cdae78fca3c659db716ccb76b4608",
+              "bytes": 268868,
+              "sha256": "f99f56b43333d83f3d6c848904131279d7402e8028024d8d43dbced629e5c88b",
+              "jsonBytes": 1110193
             },
             "menu:zh-TW": {
               "logical": "menu:zh-TW",
@@ -16389,8 +16389,8 @@
           "state": "fresh",
           "lastSuccessAt": "2026-11-01T22:52:35.548Z",
           "asset": "lienol--19.07.json.gz",
-          "hash": "ba36686c5b74c3527ed7ea4461b0cb3329e54bd69c0440e0904ab88f98addd13",
-          "bytes": 14268408,
+          "hash": "842329927dbf3119ad229ea65c8b42e1b5520bbf0f027462d9ea4a9c73306ceb",
+          "bytes": 14270813,
           "lastAttemptAt": "2026-11-01T23:29:04.867Z",
           "runUrl": "https://github.com/andyhang1980/WeiG-OpenWrt-Menuconfig-Catalog/actions/runs/41359142199",
           "lastAttemptCommit": "d908f699afb2c755a7572f956d463756f5c827ec",
@@ -16406,14 +16406,6 @@
       "defaultBranch": "25.12"
     }
   ],
-  "assetRef": "85998080348aa52b4b347bc310f1e1e5dbc51722",
-  "assetRefType": "git-commit",
-  "provenance": {
-    "repository": "andyhang1980/WeiG-OpenWrt-Menuconfig-Catalog",
-    "codeRef": "main",
-    "codeSha": "61bd14907624529c202aaacbe4cf07d4970a2435",
-    "complete": true
-  },
-  "hash": "becdcea7f31cb11d607266bb99a96b8c5fdf37a174aad8a0a0aed325ccd852c9",
-  "bytes": 474387
+  "hash": "6d65105016b91d6ee42dd5d21c89870ec13c4c949f53d31f270c884697efb21d",
+  "bytes": 474144
 }
